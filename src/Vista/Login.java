@@ -56,21 +56,78 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanel1 = new javax.swing.JPanel();
+        JLBNombreTienda = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jtxtfIngresaCorreo = new javax.swing.JTextField();
+        jtxtfContraseña = new javax.swing.JTextField();
+        jlbCorreoElectronico = new javax.swing.JLabel();
+        JLBContraseña = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jbtnIniciarSesion = new javax.swing.JButton();
+        jbtnRecuperarContraseña = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 539, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(700, 400));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(51, 255, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(350, 400));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        JLBNombreTienda.setText("TIENDA LUCHITO");
+        jPanel1.add(JLBNombreTienda, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, -1, 20));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 400));
+
+        jPanel2.setBackground(new java.awt.Color(0, 255, 0));
+        jPanel2.setPreferredSize(new java.awt.Dimension(350, 400));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jtxtfIngresaCorreo.setText("Ingresa tu correo electronico");
+        jtxtfIngresaCorreo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxtfIngresaCorreoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jtxtfIngresaCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 269, -1));
+
+        jtxtfContraseña.setText("Ingresa tu contraseña");
+        jtxtfContraseña.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jPanel2.add(jtxtfContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 270, -1));
+
+        jlbCorreoElectronico.setText("CORREO ELECTRONICO");
+        jPanel2.add(jlbCorreoElectronico, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, -1));
+
+        JLBContraseña.setText("CONTRASEÑA");
+        jPanel2.add(JLBContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, -1));
+
+        jLabel1.setText("BIENVENIDOS A LA BODEGUITA DE LUCHITO");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, -1, -1));
+
+        jbtnIniciarSesion.setText("INICIAR SESION");
+        jbtnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnIniciarSesionActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jbtnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, -1, -1));
+
+        jbtnRecuperarContraseña.setText("RECUPERAR CONTRASEÑAS");
+        jPanel2.add(jbtnRecuperarContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, -1, -1));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 370, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jtxtfIngresaCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtfIngresaCorreoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxtfIngresaCorreoActionPerformed
+
+    private void jbtnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnIniciarSesionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtnIniciarSesionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +135,15 @@ public class Login extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel JLBContraseña;
+    private javax.swing.JLabel JLBNombreTienda;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton jbtnIniciarSesion;
+    private javax.swing.JButton jbtnRecuperarContraseña;
+    private javax.swing.JLabel jlbCorreoElectronico;
+    private javax.swing.JTextField jtxtfContraseña;
+    private javax.swing.JTextField jtxtfIngresaCorreo;
     // End of variables declaration//GEN-END:variables
 }
