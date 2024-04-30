@@ -24,7 +24,7 @@ public class CRecuperarContraseña implements ActionListener {
     public void actionPerformed(ActionEvent e) {
                 if (e.getSource() == vista.jbtnVolverAtras) {   
                         Login lo = new Login();
-            ControladorLogin CLO = new ControladorLogin(recopilarCodigo);
+            ControladorLogin CLO = new ControladorLogin(lo);
                 }
     }
 }

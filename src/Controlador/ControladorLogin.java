@@ -25,7 +25,7 @@ public class ControladorLogin implements ActionListener {
     public void actionPerformed(ActionEvent e) {
                 if (e.getSource() == vista.jbtnRecuperarContraseña) {   
                         RecuperarContraseña rc = new RecuperarContraseña();
-            CCambioContraseñaYRecopilasCodigo CCRC = new CCambioContraseñaYRecopilasCodigo(recopilarCodigo);
+                        CRecuperarContraseña CRC= new CRecuperarContraseña(rc);
                 }
     }
     
