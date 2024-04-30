@@ -43,7 +43,7 @@ public class Login extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuPrincipalA().setVisible(true);
+                new Login().setVisible(true);
             }
         });
     }
@@ -68,7 +68,6 @@ public class Login extends javax.swing.JFrame {
         jbtnRecuperarContraseña = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(700, 400));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(51, 255, 255));
@@ -84,7 +83,6 @@ public class Login extends javax.swing.JFrame {
         jPanel2.setPreferredSize(new java.awt.Dimension(350, 400));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jtxtfIngresaCorreo.setText("Ingresa tu correo electronico");
         jtxtfIngresaCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtxtfIngresaCorreoActionPerformed(evt);
@@ -92,7 +90,6 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel2.add(jtxtfIngresaCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 269, -1));
 
-        jtxtfContraseña.setText("Ingresa tu contraseña");
         jtxtfContraseña.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jPanel2.add(jtxtfContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 270, -1));
 
@@ -140,8 +137,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JButton jbtnIniciarSesion;
-    private javax.swing.JButton jbtnRecuperarContraseña;
+    public javax.swing.JButton jbtnIniciarSesion;
+    public javax.swing.JButton jbtnRecuperarContraseña;
     private javax.swing.JLabel jlbCorreoElectronico;
     private javax.swing.JTextField jtxtfContraseña;
     private javax.swing.JTextField jtxtfIngresaCorreo;
