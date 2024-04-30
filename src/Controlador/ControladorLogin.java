@@ -2,6 +2,7 @@
 package Controlador;
 
 import Vista.Login;
+import Vista.RecuperarContraseña;
 import Modelo.Usuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,7 +24,8 @@ public class ControladorLogin implements ActionListener {
      @Override
     public void actionPerformed(ActionEvent e) {
                 if (e.getSource() == vista.jbtnRecuperarContraseña) {   
-                    
+                        RecuperarContraseña rc = new RecuperarContraseña();
+            CCambioContraseñaYRecopilasCodigo CCRC = new CCambioContraseñaYRecopilasCodigo(recopilarCodigo);
                 }
     }
     
