@@ -1,4 +1,4 @@
-package DAO;
+package Dao;
 
 // librerias para el SQL
 import java.sql.ResultSet;;
