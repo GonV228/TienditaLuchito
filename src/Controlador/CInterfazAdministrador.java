@@ -11,7 +11,7 @@ public class CInterfazAdministrador implements ActionListener {
     public CInterfazAdministrador(MenuAdministrador IAD) {
        vista = IAD;
 
-       IAD.setTitle("InterfazAdministrador");
+       IAD.setTitle("Vista Administrador");
        IAD.setVisible(true);
     }
     

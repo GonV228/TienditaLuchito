@@ -3,16 +3,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
-package VistaAdministrador;
+package VistaEmpleado;
+
+import VistaAdministrador.*;
 
 /**
  *
  * @author SARA
  */
-public class MenuAdministrador extends javax.swing.JFrame {
+public class MenuEmpleado extends javax.swing.JFrame {
 
     /** Creates new form InterfazAdministrador */
-    public MenuAdministrador() {
+    public MenuEmpleado() {
         initComponents();
     }
 
@@ -32,7 +34,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
         rSPanelBorderImage1 = new RSMaterialComponent.RSPanelBorderImage();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jbtnCerrarSesion = new RSMaterialComponent.RSButtonMaterialOne();
+        jbtnIniciarSesion = new RSMaterialComponent.RSButtonMaterialOne();
         jbtnAdminEmpleados = new RSMaterialComponent.RSButtonMaterialOne();
         jbtnVentas = new RSMaterialComponent.RSButtonMaterialOne();
         jbtnInventario = new RSMaterialComponent.RSButtonMaterialOne();
@@ -99,12 +101,12 @@ public class MenuAdministrador extends javax.swing.JFrame {
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         rSPanelMaterial3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 310, -1));
 
-        jbtnCerrarSesion.setBackground(new java.awt.Color(102, 102, 102));
-        jbtnCerrarSesion.setText("CERRAR SESIÓN");
-        jbtnCerrarSesion.setBackgroundHover(new java.awt.Color(153, 153, 153));
-        jbtnCerrarSesion.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
-        jbtnCerrarSesion.setRound(40);
-        rSPanelMaterial3.add(jbtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 720, 270, -1));
+        jbtnIniciarSesion.setBackground(new java.awt.Color(102, 102, 102));
+        jbtnIniciarSesion.setText("CERRAR SESIÓN");
+        jbtnIniciarSesion.setBackgroundHover(new java.awt.Color(153, 153, 153));
+        jbtnIniciarSesion.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        jbtnIniciarSesion.setRound(40);
+        rSPanelMaterial3.add(jbtnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 720, 270, -1));
 
         jbtnAdminEmpleados.setBackground(new java.awt.Color(102, 102, 102));
         jbtnAdminEmpleados.setText("ADMINISTRAR EMPLEADOS");
@@ -151,32 +153,34 @@ public class MenuAdministrador extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuAdministrador().setVisible(true);
+                new MenuEmpleado().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public RSMaterialComponent.RSPanelMaterial PrincipalMenu;
+    private RSMaterialComponent.RSPanelMaterial PrincipalMenu;
     public javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     public RSMaterialComponent.RSButtonMaterialOne jbtnAdminEmpleados;
-    public RSMaterialComponent.RSButtonMaterialOne jbtnCerrarSesion;
+    public RSMaterialComponent.RSButtonMaterialOne jbtnIniciarSesion;
     public RSMaterialComponent.RSButtonMaterialOne jbtnInventario;
     public RSMaterialComponent.RSButtonMaterialOne jbtnVentas;
     public RSMaterialComponent.RSPanelBorderImage rSPanelBorderImage1;

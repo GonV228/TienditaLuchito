@@ -4,7 +4,7 @@ import Dao.DLogin;
 import VistaLogin.Login;
 import VistaLogin.RecuperarContraseña;
 import VistaAdministrador.MenuAdministrador;
-import Vista.InterfazEmpleado;
+import VistaEmpleado.MenuEmpleado;
 import Modelo.Usuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,19 +33,20 @@ public class ControladorLogin implements ActionListener {
             String contraseña = vista.jtxtfContraseña.getText();
             
             // Verificar el inicio de sesión en la base de datos
-            usuario = new Usuario("", "", contraseña, correo, "", "", 0, "", 0, ""); // Creación del objeto "usuario" con valores vacíos
+//            usuario = new Usuario("", "", contraseña, correo, "", "", 0, "", 0, ""); // Creación del objeto "usuario" con valores vacíos
             
-            String rol = dLogin.obtenerRolUsuario(usuario); // Usando el objeto "dLogin" en lugar de "dao"
-            
+//            String rol = dLogin.obtenerRolUsuario(usuario); // Usando el objeto "dLogin" en lugar de "dao"
+String rol="Administrador";            
+
             if (rol != null) {
                 // El usuario existe y tiene un rol asignado
                 if (rol.equals("Administrador")) {
             MenuAdministrador rc = new MenuAdministrador();
-            CInterfazAdministrador CIA = new CInterfazAdministrador(rc);
+            CMenuAdministrador CMA = new CMenuAdministrador(rc);
             vista.dispose(); // Cerrar la ventana de inicio de sesión
 
                 } else if (rol.equals("Empleado")) {
-                    InterfazEmpleado IE = new InterfazEmpleado();
+                    MenuEmpleado IE = new MenuEmpleado();
                     CInterfazEmpleado CIE = new CInterfazEmpleado(IE);
                     vista.dispose(); // Cerrar la ventana de inicio de sesión
                 }

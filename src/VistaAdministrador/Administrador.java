@@ -81,7 +81,7 @@ public class Administrador extends javax.swing.JFrame {
 
         Panel.add(PrincipalAdministrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 1030, 640));
 
-        getContentPane().add(Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 760));
+        getContentPane().add(Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1050, 760));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

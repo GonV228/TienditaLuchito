@@ -1,13 +1,13 @@
 
 package Controlador;
 
-import Vista.InterfazEmpleado;
+import VistaEmpleado.MenuEmpleado;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CInterfazEmpleado implements ActionListener{
-    InterfazEmpleado vista;
-        public CInterfazEmpleado(InterfazEmpleado IE) {
+    MenuEmpleado vista;
+        public CInterfazEmpleado(MenuEmpleado IE) {
        vista = IE;
 
        IE.setTitle("InterfazEmpleado");
