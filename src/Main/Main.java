@@ -1,6 +1,6 @@
 
 package Main;
-import Vista.Login;
+import VistaLogin.Login;
 import Controlador.ControladorLogin;
 
 public class Main {

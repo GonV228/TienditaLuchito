@@ -1,9 +1,9 @@
 package Controlador;
 
 import Dao.DLogin;
-import Vista.Login;
-import Vista.RecuperarContraseña;
-import Vista.InterfazAdministrador;
+import VistaLogin.Login;
+import VistaLogin.RecuperarContraseña;
+import VistaAdministrador.MenuAdministrador;
 import Vista.InterfazEmpleado;
 import Modelo.Usuario;
 import java.awt.event.ActionEvent;
@@ -40,7 +40,7 @@ public class ControladorLogin implements ActionListener {
             if (rol != null) {
                 // El usuario existe y tiene un rol asignado
                 if (rol.equals("Administrador")) {
-            InterfazAdministrador rc = new InterfazAdministrador();
+            MenuAdministrador rc = new MenuAdministrador();
             CInterfazAdministrador CIA = new CInterfazAdministrador(rc);
             vista.dispose(); // Cerrar la ventana de inicio de sesión
 

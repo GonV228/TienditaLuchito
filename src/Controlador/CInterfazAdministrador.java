@@ -1,14 +1,14 @@
 
 package Controlador;
 
-import Vista.InterfazAdministrador;
+import VistaAdministrador.MenuAdministrador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CInterfazAdministrador implements ActionListener {
-    InterfazAdministrador vista;
+    MenuAdministrador vista;
    
-    public CInterfazAdministrador(InterfazAdministrador IAD) {
+    public CInterfazAdministrador(MenuAdministrador IAD) {
        vista = IAD;
 
        IAD.setTitle("InterfazAdministrador");

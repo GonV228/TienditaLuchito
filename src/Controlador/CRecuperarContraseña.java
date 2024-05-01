@@ -2,8 +2,8 @@
 package Controlador;
 
 import Modelo.Usuario;
-import Vista.Login;
-import Vista.RecuperarContraseña;
+import VistaLogin.Login;
+import VistaLogin.RecuperarContraseña;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
