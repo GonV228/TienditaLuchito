@@ -31,7 +31,7 @@ public class Inventario extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         rSLabelTextIcon1 = new RSMaterialComponent.RSLabelTextIcon();
         tab1 = new newscomponents.RSButtonIcon_new();
-        PrincipalAdministrador = new RSMaterialComponent.RSPanelMaterial();
+        PrincipalInventario = new RSMaterialComponent.RSPanelMaterial();
         rSLabelTextIcon3 = new RSMaterialComponent.RSLabelTextIcon();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -54,10 +54,8 @@ public class Inventario extends javax.swing.JFrame {
 
         tab1.setBackground(new java.awt.Color(187, 187, 187));
         tab1.setText("Registro");
-        tab1.setBackgroundHover(new java.awt.Color(153, 0, 0));
-        tab1.setForegroundHover(new java.awt.Color(255, 153, 153));
+        tab1.setBackgroundHover(new java.awt.Color(255, 102, 0));
         tab1.setForegroundIcon(new java.awt.Color(102, 102, 102));
-        tab1.setForegroundIconHover(new java.awt.Color(255, 153, 153));
         tab1.setForegroundText(new java.awt.Color(102, 102, 102));
         tab1.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.CONTENT_PASTE);
         tab1.addActionListener(new java.awt.event.ActionListener() {
@@ -69,21 +67,21 @@ public class Inventario extends javax.swing.JFrame {
 
         Panel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1030, 100));
 
-        PrincipalAdministrador.setBackground(new java.awt.Color(255, 255, 255));
-        PrincipalAdministrador.setIntensity(5);
-        PrincipalAdministrador.setPixels(0);
-        PrincipalAdministrador.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        PrincipalInventario.setBackground(new java.awt.Color(255, 255, 255));
+        PrincipalInventario.setIntensity(5);
+        PrincipalInventario.setPixels(0);
+        PrincipalInventario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         rSLabelTextIcon3.setForeground(new java.awt.Color(51, 51, 51));
         rSLabelTextIcon3.setText("Registro de Inventario");
         rSLabelTextIcon3.setFont(new java.awt.Font("Roboto Bold", 1, 48)); // NOI18N
         rSLabelTextIcon3.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.CONTENT_PASTE);
         rSLabelTextIcon3.setSizeIcon(60.0F);
-        PrincipalAdministrador.add(rSLabelTextIcon3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1030, 591));
+        PrincipalInventario.add(rSLabelTextIcon3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1030, 591));
 
-        Panel.add(PrincipalAdministrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 1030, 640));
+        Panel.add(PrincipalInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 1030, 640));
 
-        getContentPane().add(Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 760));
+        getContentPane().add(Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1050, 760));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -148,7 +146,7 @@ public class Inventario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private RSMaterialComponent.RSPanelMaterial Panel;
-    public RSMaterialComponent.RSPanelMaterial PrincipalAdministrador;
+    public RSMaterialComponent.RSPanelMaterial PrincipalInventario;
     private javax.swing.JPanel jPanel2;
     private RSMaterialComponent.RSLabelTextIcon rSLabelTextIcon1;
     private RSMaterialComponent.RSLabelTextIcon rSLabelTextIcon3;

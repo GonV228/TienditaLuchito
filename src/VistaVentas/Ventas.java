@@ -3,16 +3,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
-package VistaAdministrador;
+package VistaVentas;
+
+import VistaInventario.*;
+import VistaAdministrador.*;
 
 /**
  *
  * @author SARA
  */
-public class Administrador extends javax.swing.JFrame {
+public class Ventas extends javax.swing.JFrame {
 
     /** Creates new form InterfazAdministrador */
-    public Administrador() {
+    public Ventas() {
         initComponents();
     }
 
@@ -29,7 +32,7 @@ public class Administrador extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         rSLabelTextIcon1 = new RSMaterialComponent.RSLabelTextIcon();
         tab1 = new newscomponents.RSButtonIcon_new();
-        PrincipalAdministrador = new RSMaterialComponent.RSPanelMaterial();
+        PrincipalVentas = new RSMaterialComponent.RSPanelMaterial();
         rSLabelTextIcon3 = new RSMaterialComponent.RSLabelTextIcon();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -46,8 +49,8 @@ public class Administrador extends javax.swing.JFrame {
 
         rSLabelTextIcon1.setForeground(new java.awt.Color(51, 51, 51));
         rSLabelTextIcon1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        rSLabelTextIcon1.setText("Administrar Empleados");
-        rSLabelTextIcon1.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.PEOPLE);
+        rSLabelTextIcon1.setText("Inventario");
+        rSLabelTextIcon1.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.CONTENT_PASTE);
         jPanel2.add(rSLabelTextIcon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 800, -1));
 
         tab1.setBackground(new java.awt.Color(187, 187, 187));
@@ -55,7 +58,7 @@ public class Administrador extends javax.swing.JFrame {
         tab1.setBackgroundHover(new java.awt.Color(255, 102, 0));
         tab1.setForegroundIcon(new java.awt.Color(102, 102, 102));
         tab1.setForegroundText(new java.awt.Color(102, 102, 102));
-        tab1.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.ACCOUNT_BOX);
+        tab1.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.CONTENT_PASTE);
         tab1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tab1ActionPerformed(evt);
@@ -65,19 +68,19 @@ public class Administrador extends javax.swing.JFrame {
 
         Panel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1030, 100));
 
-        PrincipalAdministrador.setBackground(new java.awt.Color(255, 255, 255));
-        PrincipalAdministrador.setIntensity(5);
-        PrincipalAdministrador.setPixels(0);
-        PrincipalAdministrador.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        PrincipalVentas.setBackground(new java.awt.Color(255, 255, 255));
+        PrincipalVentas.setIntensity(5);
+        PrincipalVentas.setPixels(0);
+        PrincipalVentas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         rSLabelTextIcon3.setForeground(new java.awt.Color(51, 51, 51));
-        rSLabelTextIcon3.setText("Administrar Empleados");
+        rSLabelTextIcon3.setText("Registro de Inventario");
         rSLabelTextIcon3.setFont(new java.awt.Font("Roboto Bold", 1, 48)); // NOI18N
-        rSLabelTextIcon3.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.PEOPLE);
+        rSLabelTextIcon3.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.CONTENT_PASTE);
         rSLabelTextIcon3.setSizeIcon(60.0F);
-        PrincipalAdministrador.add(rSLabelTextIcon3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1030, 591));
+        PrincipalVentas.add(rSLabelTextIcon3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1030, 591));
 
-        Panel.add(PrincipalAdministrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 1030, 640));
+        Panel.add(PrincipalVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 1030, 640));
 
         getContentPane().add(Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1050, 760));
 
@@ -117,14 +120,26 @@ public class Administrador extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Administrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Administrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Administrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Administrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -133,14 +148,14 @@ public class Administrador extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Administrador().setVisible(true);
+                new Ventas().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private RSMaterialComponent.RSPanelMaterial Panel;
-    public RSMaterialComponent.RSPanelMaterial PrincipalAdministrador;
+    public RSMaterialComponent.RSPanelMaterial PrincipalVentas;
     private javax.swing.JPanel jPanel2;
     private RSMaterialComponent.RSLabelTextIcon rSLabelTextIcon1;
     private RSMaterialComponent.RSLabelTextIcon rSLabelTextIcon3;

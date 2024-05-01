@@ -24,6 +24,7 @@ public class ControladorLogin implements ActionListener {
        login.jbtnRecuperarContraseña.addActionListener(this);
        login.setTitle("LOGIN");
        login.setVisible(true);
+       login.setLocationRelativeTo(null);//centra la vista :D
     }
     
     @Override
@@ -31,7 +32,7 @@ public class ControladorLogin implements ActionListener {
         if (e.getSource() == vista.jbtnIniciarSesion) {
             String correo = vista.jtxtfIngresaCorreo.getText();
             String contraseña = vista.jtxtfContraseña.getText();
-            
+ /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////           
             // Verificar el inicio de sesión en la base de datos
 //            usuario = new Usuario("", "", contraseña, correo, "", "", 0, "", 0, ""); // Creación del objeto "usuario" con valores vacíos
             
@@ -47,7 +48,7 @@ String rol="Administrador";
 
                 } else if (rol.equals("Empleado")) {
                     MenuEmpleado IE = new MenuEmpleado();
-                    CInterfazEmpleado CIE = new CInterfazEmpleado(IE);
+                    CMenuEmpleado CIE = new CMenuEmpleado(IE);  //DEJA ESTE ERROR AHI UN MOMENTO///////////////////////////////////////////////////////
                     vista.dispose(); // Cerrar la ventana de inicio de sesión
                 }
             } else {

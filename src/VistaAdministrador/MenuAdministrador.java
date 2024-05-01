@@ -46,7 +46,8 @@ public class MenuAdministrador extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        PrincipalMenu.setBackground(new java.awt.Color(204, 204, 204));
+        PrincipalMenu.setBackground(new java.awt.Color(238, 238, 238));
+        PrincipalMenu.setPixels(0);
 
         javax.swing.GroupLayout PrincipalMenuLayout = new javax.swing.GroupLayout(PrincipalMenu);
         PrincipalMenu.setLayout(PrincipalMenuLayout);
@@ -64,6 +65,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
         rSPanelMaterial1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 1070, 780));
 
         rSPanelMaterial3.setBackground(new java.awt.Color(204, 204, 204));
+        rSPanelMaterial3.setPixels(0);
         rSPanelMaterial3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         rSPanelBorderImage1.setBackground(new java.awt.Color(102, 102, 102));

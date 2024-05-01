@@ -23,6 +23,16 @@ public class CAdministrador_RegistrarUser implements ActionListener{
         vista.btnBorrar.addActionListener(this);
         vista.btnEditar.addActionListener(this);
         vista.btnSubirImagen.addActionListener(this);
+        vista.jtxtNombres.addActionListener(this);
+        vista.jtxtApellidos.addActionListener(this);
+        vista.jtxtCorreo.addActionListener(this);
+        vista.jtxtContraseña.addActionListener(this);
+        vista.jcbxTipoEmpleado.addActionListener(this);
+        vista.jcbxTipoDoc.addActionListener(this);
+        vista.jtxtNumDocumento.addActionListener(this);
+        vista.jtxtTelefono.addActionListener(this);
+        vista.jtxtDireccion.addActionListener(this);
+        //vista.tblEmpleados.addAncestorListener(this);
     }
 
     @Override

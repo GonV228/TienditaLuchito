@@ -34,8 +34,7 @@ public class MenuEmpleado extends javax.swing.JFrame {
         rSPanelBorderImage1 = new RSMaterialComponent.RSPanelBorderImage();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jbtnIniciarSesion = new RSMaterialComponent.RSButtonMaterialOne();
-        jbtnAdminEmpleados = new RSMaterialComponent.RSButtonMaterialOne();
+        jbtnCerrarSesion = new RSMaterialComponent.RSButtonMaterialOne();
         jbtnVentas = new RSMaterialComponent.RSButtonMaterialOne();
         jbtnInventario = new RSMaterialComponent.RSButtonMaterialOne();
 
@@ -48,7 +47,9 @@ public class MenuEmpleado extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        PrincipalMenu.setBackground(new java.awt.Color(204, 204, 204));
+        PrincipalMenu.setBackground(new java.awt.Color(238, 238, 238));
+        PrincipalMenu.setFocusTraversalPolicyProvider(true);
+        PrincipalMenu.setPixels(0);
 
         javax.swing.GroupLayout PrincipalMenuLayout = new javax.swing.GroupLayout(PrincipalMenu);
         PrincipalMenu.setLayout(PrincipalMenuLayout);
@@ -66,6 +67,7 @@ public class MenuEmpleado extends javax.swing.JFrame {
         rSPanelMaterial1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 1070, 780));
 
         rSPanelMaterial3.setBackground(new java.awt.Color(204, 204, 204));
+        rSPanelMaterial3.setPixels(0);
         rSPanelMaterial3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         rSPanelBorderImage1.setBackground(new java.awt.Color(102, 102, 102));
@@ -101,19 +103,12 @@ public class MenuEmpleado extends javax.swing.JFrame {
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         rSPanelMaterial3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 310, -1));
 
-        jbtnIniciarSesion.setBackground(new java.awt.Color(102, 102, 102));
-        jbtnIniciarSesion.setText("CERRAR SESIÓN");
-        jbtnIniciarSesion.setBackgroundHover(new java.awt.Color(153, 153, 153));
-        jbtnIniciarSesion.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
-        jbtnIniciarSesion.setRound(40);
-        rSPanelMaterial3.add(jbtnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 720, 270, -1));
-
-        jbtnAdminEmpleados.setBackground(new java.awt.Color(102, 102, 102));
-        jbtnAdminEmpleados.setText("ADMINISTRAR EMPLEADOS");
-        jbtnAdminEmpleados.setBackgroundHover(new java.awt.Color(153, 153, 153));
-        jbtnAdminEmpleados.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
-        jbtnAdminEmpleados.setRound(40);
-        rSPanelMaterial3.add(jbtnAdminEmpleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 270, -1));
+        jbtnCerrarSesion.setBackground(new java.awt.Color(102, 102, 102));
+        jbtnCerrarSesion.setText("CERRAR SESIÓN");
+        jbtnCerrarSesion.setBackgroundHover(new java.awt.Color(153, 153, 153));
+        jbtnCerrarSesion.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        jbtnCerrarSesion.setRound(40);
+        rSPanelMaterial3.add(jbtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 720, 270, -1));
 
         jbtnVentas.setBackground(new java.awt.Color(102, 102, 102));
         jbtnVentas.setText("VENTAS");
@@ -175,12 +170,11 @@ public class MenuEmpleado extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private RSMaterialComponent.RSPanelMaterial PrincipalMenu;
+    public RSMaterialComponent.RSPanelMaterial PrincipalMenu;
     public javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    public RSMaterialComponent.RSButtonMaterialOne jbtnAdminEmpleados;
-    public RSMaterialComponent.RSButtonMaterialOne jbtnIniciarSesion;
+    public RSMaterialComponent.RSButtonMaterialOne jbtnCerrarSesion;
     public RSMaterialComponent.RSButtonMaterialOne jbtnInventario;
     public RSMaterialComponent.RSButtonMaterialOne jbtnVentas;
     public RSMaterialComponent.RSPanelBorderImage rSPanelBorderImage1;
