@@ -4,9 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Admin/Documents/NetBeansProjects/TiendaLucho/src/Controlador/ControladorLogin.java</file>
+            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/TiendaLucho/src/Dao/ConexionBD.java</file>
             <file>file:/C:/Users/Admin/Documents/NetBeansProjects/TiendaLucho/src/Controlador/CInterfazAdministrador.java</file>
+            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/TiendaLucho/src/Controlador/CInterfazEmpleado.java</file>
             <file>file:/C:/Users/Admin/Documents/NetBeansProjects/TiendaLucho/src/Controlador/CRecuperarContraseña.java</file>
             <file>file:/C:/Users/Admin/Documents/NetBeansProjects/TiendaLucho/src/Main/Main.java</file>
+            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/TiendaLucho/src/Dao/DLogin.java</file>
         </group>
     </open-files>
 </project-private>
