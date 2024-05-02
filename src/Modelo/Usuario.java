@@ -7,19 +7,19 @@ private String contraseña;
 private String correoElectronico;
 private String rol;
 private String tipoDocumento;
-private int telfono;
+private int telefono;
 private String imagen;
 private int numeroDoc;
 private String token;
 
-    public Usuario(String nombres, String apellidos, String contraseña, String correoElectronico, String rol, String tipoDocumento, int telfono, String imagen, int numeroDoc, String token) {
+    public Usuario(String nombres, String apellidos, String contraseña, String correoElectronico, String rol, String tipoDocumento, int telefono, String imagen, int numeroDoc, String token) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.contraseña = contraseña;
         this.correoElectronico = correoElectronico;
         this.rol = rol;
         this.tipoDocumento = tipoDocumento;
-        this.telfono = telfono;
+        this.telefono = telefono;
         this.imagen = imagen;
         this.numeroDoc = numeroDoc;
         this.token = token;
@@ -74,11 +74,11 @@ private String token;
     }
 
     public int getTelfono() {
-        return telfono;
+        return telefono;
     }
 
     public void setTelfono(int telfono) {
-        this.telfono = telfono;
+        this.telefono = telfono;
     }
 
     public String getImagen() {

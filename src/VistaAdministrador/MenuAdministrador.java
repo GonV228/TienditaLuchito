@@ -60,7 +60,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
             .addGap(0, 780, Short.MAX_VALUE)
         );
 
-        jPanel1.add(PrincipalMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 780));
+        jPanel1.add(PrincipalMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 1070, 780));
 
         rSPanelMaterial1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 1070, 780));
 
