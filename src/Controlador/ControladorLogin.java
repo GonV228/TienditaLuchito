@@ -34,10 +34,10 @@ public class ControladorLogin implements ActionListener {
             String contraseña = vista.jtxtfContraseña.getText();
  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////           
             // Verificar el inicio de sesión en la base de datos
-//            usuario = new Usuario("", "", contraseña, correo, "", "", 0, "", 0, ""); // Creación del objeto "usuario" con valores vacíos
+            //usuario = new Usuario("", "", contraseña, correo, "", "", 0, "", 0, ""); // Creación del objeto "usuario" con valores vacíos
             
-//            String rol = dLogin.obtenerRolUsuario(usuario); // Usando el objeto "dLogin" en lugar de "dao"
-String rol="Administrador";            
+        // String rol = dLogin.obtenerRolUsuario(usuario); // Usando el objeto "dLogin" en lugar de "dao"
+String rol="Empleado";            
 
             if (rol != null) {
                 // El usuario existe y tiene un rol asignado

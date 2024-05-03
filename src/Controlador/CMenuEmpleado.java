@@ -3,6 +3,7 @@ package Controlador;
 //importar clases
 import VistaEmpleado.MenuEmpleado;
 import VistaInventario.Inventario;
+import VistaLogin.Login;
 import VistaVentas.Ventas;
 //importar librerias
 import java.awt.BorderLayout;
@@ -43,6 +44,12 @@ public class CMenuEmpleado implements ActionListener{
         if(e.getSource()==vista.jbtnVentas){
             Ventas vistaVen=new Ventas();
             CVentas controlador=new CVentas(vistaVen);
+        }
+                //CERRAR SESIÓN
+        if(e.getSource()==vista.jbtnCerrarSesion){
+            Login vistaLogin=new Login();
+            ControladorLogin controlador=new ControladorLogin(vistaLogin);
+            vista.dispose();
         }
         
         
