@@ -63,9 +63,11 @@ CREATE TABLE IF NOT EXISTS Usuarios (
     Tipo_Documento ENUM('DNI', 'Carnet de Extranjeria', 'Pasaporte') NOT NULL,
     N_Documento VARCHAR(20),
     Telefono VARCHAR(20),
-    Imagen VARCHAR(255),
+    Imagen longblob,
     Token VARCHAR(100)
 );
+ALTER TABLE Usuarios
+MODIFY COLUMN Imagen LONGBLOB;
 
 -- Informes
 CREATE TABLE IF NOT EXISTS Informes (
@@ -90,3 +92,5 @@ VALUES
 ('Empleado2', 'Apellido2', 'empleado2@example.com', 'empleado456', 'Empleado', 'DNI', '22222222', '22222222', 'empleado2.jpg', 'token2'),
 ('Empleado3', 'Apellido3', 'empleado3@example.com', 'empleado789', 'Empleado', 'DNI', '33333333', '33333333', 'empleado3.jpg', 'token3'),
 ('Empleado4', 'Apellido4', 'empleado4@example.com', 'empleado012', 'Empleado', 'DNI', '44444444', '44444444', 'empleado4.jpg', 'token4');
+
+select * from Usuarios;

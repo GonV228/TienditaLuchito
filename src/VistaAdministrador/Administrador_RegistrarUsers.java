@@ -74,7 +74,7 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Nombres", "Apellidos", "Correo", "Rol", "Tipo doc.", "Nº doc.", "Telf.", "Dirección", "Imagen"
+                "Nombres", "Apellidos", "Correo", "Rol", "Tipo doc.", "Nº doc.", "Telf.", "Token", "Imagen"
             }
         ));
         tblEmpleados.setBackgoundHead(new java.awt.Color(51, 51, 51));
@@ -218,7 +218,7 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
         jtxtToken.setColorIcon(new java.awt.Color(204, 204, 204));
         jtxtToken.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.HOME);
         jtxtToken.setPhColor(new java.awt.Color(153, 153, 153));
-        jtxtToken.setPlaceholder("Mz, Lte, Jirón, Calle");
+        jtxtToken.setPlaceholder("Ingrese su token");
         jtxtToken.setSelectionColor(new java.awt.Color(255, 153, 0));
         jtxtToken.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

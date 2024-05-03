@@ -13,8 +13,8 @@ import javax.swing.JOptionPane;
 public class ControladorLogin implements ActionListener {
     
     Login vista;
-    Usuario usuario; // Cambiado de "us" a "usuario"
-    DLogin dLogin; // Cambiado de "DL" a "dLogin"
+    Usuario usuario; 
+    DLogin dLogin; 
     
     public ControladorLogin(Login login) {
        vista = login;

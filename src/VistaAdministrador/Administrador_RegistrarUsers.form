@@ -75,7 +75,7 @@
                     <Column editable="true" title="Tipo doc." type="java.lang.Object"/>
                     <Column editable="true" title="N&#xba; doc." type="java.lang.Object"/>
                     <Column editable="true" title="Telf." type="java.lang.Object"/>
-                    <Column editable="true" title="Direcci&#xf3;n" type="java.lang.Object"/>
+                    <Column editable="true" title="Token" type="java.lang.Object"/>
                     <Column editable="true" title="Imagen" type="java.lang.Object"/>
                   </Table>
                 </Property>
@@ -639,7 +639,7 @@
                 <Property name="phColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="99" red="99" type="rgb"/>
                 </Property>
-                <Property name="placeholder" type="java.lang.String" value="Mz, Lte, Jir&#xf3;n, Calle"/>
+                <Property name="placeholder" type="java.lang.String" value="Ingrese su token"/>
                 <Property name="selectionColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="99" red="ff" type="rgb"/>
                 </Property>

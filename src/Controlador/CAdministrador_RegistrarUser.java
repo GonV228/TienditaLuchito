@@ -1,4 +1,3 @@
-
 package Controlador;
 
 import Dao.DAdministrarUs;
@@ -51,7 +50,7 @@ public class CAdministrador_RegistrarUser implements ActionListener {
         String tipoDocumento = (String) vista.jcbxTipoDoc.getSelectedItem();
         int numeroDocumento = Integer.parseInt(vista.jtxtNumDocumento.getText());
         int telefono = Integer.parseInt(vista.jtxtTelefono.getText());
-        String imagen = ""; // No se obtiene en esta parte del código
+        String imagen = ""; // No pude poner la imagen :c 
         String token = vista.jtxtToken.getText();
 
 
