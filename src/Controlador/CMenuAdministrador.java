@@ -1,6 +1,7 @@
 
 package Controlador;
 ///importar clases
+import VistaLogin.Login;
 import VistaAdministrador.MenuAdministrador;
 import VistaAdministrador.Administrador;
 import VistaInventario.Inventario;
@@ -59,6 +60,12 @@ public class CMenuAdministrador implements ActionListener{
         if(e.getSource()==vista.jbtnVentas){
             Ventas vistaVen=new Ventas();
             CVentas controlador=new CVentas(vistaVen);
+        }
+        //CERRAR SESIÓN
+        if(e.getSource()==vista.jbtnCerrarSesion){
+            Login vistaLogin=new Login();
+            ControladorLogin controlador=new ControladorLogin(vistaLogin);
+            vista.dispose();
         }
         
     }
