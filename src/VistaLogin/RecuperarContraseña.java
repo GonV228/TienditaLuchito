@@ -32,6 +32,7 @@ public class RecuperarContraseña extends javax.swing.JFrame {
         jbtnVolverAtras = new javax.swing.JButton();
         jbtnEnviarCodigo = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        rSPanelMaterial1 = new RSMaterialComponent.RSPanelMaterial();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -53,6 +54,7 @@ public class RecuperarContraseña extends javax.swing.JFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 400));
+        getContentPane().add(rSPanelMaterial1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 350, 120, 120));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -69,5 +71,6 @@ public class RecuperarContraseña extends javax.swing.JFrame {
     public javax.swing.JButton jbtnEnviarCodigo;
     public javax.swing.JButton jbtnVolverAtras;
     private javax.swing.JTextField jtxtCorreoElectronico;
+    private RSMaterialComponent.RSPanelMaterial rSPanelMaterial1;
     // End of variables declaration//GEN-END:variables
 }
