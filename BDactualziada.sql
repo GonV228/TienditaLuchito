@@ -1,3 +1,4 @@
+
 create database TLuchito;
 use TLuchito;
 
@@ -53,21 +54,19 @@ CREATE TABLE IF NOT EXISTS Facturas (
 );
 
 -- Empleados
-CREATE TABLE IF NOT EXISTS Usuarios (
+
+CREATE TABLE Usuarios (
     ID_Empleado INT AUTO_INCREMENT PRIMARY KEY,
-    Nombres VARCHAR(255) NOT NULL,
-    Apellidos VARCHAR(255) NOT NULL,
-    Correo_Electronico VARCHAR(255) NOT NULL UNIQUE,
-    Contraseña VARCHAR(255) NOT NULL,
-    Rol ENUM('Administrador', 'Empleado') NOT NULL,
-    Tipo_Documento ENUM('DNI', 'Carnet de Extranjeria', 'Pasaporte') NOT NULL,
-    N_Documento VARCHAR(20),
+    Nombres VARCHAR(255),
+    Apellidos VARCHAR(255),
+    Correo_Electronico VARCHAR(255),
+    Contraseña VARCHAR(255),
+    Rol ENUM('Administrador','Empleado'),
+    Tipo_Documento ENUM('DNI','Carnet de Extranjeria','Pasaporte'),
+    N_Documento VARCHAR(20) UNIQUE,
     Telefono VARCHAR(20),
-    Imagen longblob,
-    Token VARCHAR(100)
+    Imagen LONGBLOB
 );
-ALTER TABLE Usuarios
-MODIFY COLUMN Imagen LONGBLOB;
 
 -- Informes
 CREATE TABLE IF NOT EXISTS Informes (
@@ -80,17 +79,17 @@ CREATE TABLE IF NOT EXISTS Informes (
 );
 
 -- Insertar administradores
-INSERT INTO Usuarios (Nombres, Apellidos, Correo_Electronico, Contraseña, Rol, Tipo_Documento, N_Documento, Telefono, Imagen, Token) 
+INSERT INTO Usuarios (Nombres, Apellidos, Correo_Electronico, Contraseña, Rol, Tipo_Documento, N_Documento, Telefono, Imagen) 
 VALUES 
-('Admin1', 'Apellido1', 'admin1@example.com', 'admin123', 'Administrador', 'DNI', '12345678', '12345678', 'admin1.jpg', 'token1'),
-('Admin2', 'Apellido2', 'admin2@example.com', 'admin456', 'Administrador', 'DNI', '87654321', '98765432', 'admin2.jpg', 'token2');
+('Admin1', 'Apellido1', 'admin1@example.com', 'admin123', 'Administrador', 'DNI', '12345678', '12345678', 'admin1.jpg'),
+('Admin2', 'Apellido2', 'admin2@example.com', 'admin456', 'Administrador', 'DNI', '87654321', '98765432', 'admin2.jpg');
 
 -- Insertar empleados
 INSERT INTO Usuarios (Nombres, Apellidos, Correo_Electronico, Contraseña, Rol, Tipo_Documento, N_Documento, Telefono, Imagen, Token) 
 VALUES 
-('Empleado1', 'Apellido1', 'empleado1@example.com', 'empleado123', 'Empleado', 'DNI', '11111111', '11111111', 'empleado1.jpg', 'token1'),
-('Empleado2', 'Apellido2', 'empleado2@example.com', 'empleado456', 'Empleado', 'DNI', '22222222', '22222222', 'empleado2.jpg', 'token2'),
-('Empleado3', 'Apellido3', 'empleado3@example.com', 'empleado789', 'Empleado', 'DNI', '33333333', '33333333', 'empleado3.jpg', 'token3'),
-('Empleado4', 'Apellido4', 'empleado4@example.com', 'empleado012', 'Empleado', 'DNI', '44444444', '44444444', 'empleado4.jpg', 'token4');
+('Empleado1', 'Apellido1', 'empleado1@example.com', 'empleado123', 'Empleado', 'DNI', '11111111', '11111111', 'empleado1.jpg'),
+('Empleado2', 'Apellido2', 'empleado2@example.com', 'empleado456', 'Empleado', 'DNI', '22222222', '22222222', 'empleado2.jpg'),
+('Empleado3', 'Apellido3', 'empleado3@example.com', 'empleado789', 'Empleado', 'DNI', '33333333', '33333333', 'empleado3.jpg'),
+('Empleado4', 'Apellido4', 'empleado4@example.com', 'empleado012', 'Empleado', 'DNI', '44444444', '44444444', 'empleado4.jpg');
 
 select * from Usuarios;

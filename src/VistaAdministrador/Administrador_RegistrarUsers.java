@@ -38,7 +38,6 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
         jlbCorreoElectronico2 = new javax.swing.JLabel();
         jlbCorreoElectronico3 = new javax.swing.JLabel();
         jcbxTipoEmpleado = new RSMaterialComponent.RSComboBoxMaterial();
-        jlbCorreoElectronico4 = new javax.swing.JLabel();
         jcbxTipoDoc = new RSMaterialComponent.RSComboBoxMaterial();
         jlbCorreoElectronico5 = new javax.swing.JLabel();
         jtxtNumDocumento = new RSMaterialComponent.RSTextFieldIconTwo();
@@ -47,7 +46,6 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
         jtxtTelefono = new RSMaterialComponent.RSTextFieldIconTwo();
         jtxtContraseña = new RSMaterialComponent.RSPasswordIconTwo();
         jlbCorreoElectronico8 = new javax.swing.JLabel();
-        jtxtToken = new RSMaterialComponent.RSTextFieldIconTwo();
         btnSeleccionarImagen = new RSMaterialComponent.RSButtonMaterialOne();
         btnAgregar = new RSMaterialComponent.RSButtonIconShadow();
         btnBorrar = new RSMaterialComponent.RSButtonIconShadow();
@@ -74,7 +72,7 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Nombres", "Apellidos", "Correo", "Rol", "Tipo doc.", "Nº doc.", "Telf.", "Token", "Imagen"
+                "Nombres", "Apellidos", "Correo", "Contraseña", "Rol", "Tipo de documento", "Numero de documento", "Telefono", "Imagen"
             }
         ));
         tblEmpleados.setBackgoundHead(new java.awt.Color(51, 51, 51));
@@ -84,7 +82,7 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
         tblEmpleados.setSelectionBackground(new java.awt.Color(102, 102, 102));
         jScrollPane1.setViewportView(tblEmpleados);
 
-        Panel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 1010, 350));
+        Panel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 1030, 350));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(153, 153, 153)));
@@ -151,11 +149,6 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
         jcbxTipoEmpleado.setColorMaterial(new java.awt.Color(255, 153, 0));
         jPanel1.add(jcbxTipoEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 200, 30));
 
-        jlbCorreoElectronico4.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jlbCorreoElectronico4.setForeground(new java.awt.Color(51, 51, 51));
-        jlbCorreoElectronico4.setText("Token");
-        jPanel1.add(jlbCorreoElectronico4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
-
         jcbxTipoDoc.setForeground(new java.awt.Color(51, 51, 51));
         jcbxTipoDoc.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "DNI", "Pasaporte", "Carné de Extranjería" }));
         jcbxTipoDoc.setColorMaterial(new java.awt.Color(255, 153, 0));
@@ -212,21 +205,6 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
         jlbCorreoElectronico8.setText("Correo electrónico");
         jPanel1.add(jlbCorreoElectronico8, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, -1, -1));
 
-        jtxtToken.setForeground(new java.awt.Color(102, 102, 102));
-        jtxtToken.setBorderColor(new java.awt.Color(255, 153, 0));
-        jtxtToken.setCaretColor(new java.awt.Color(0, 153, 255));
-        jtxtToken.setColorIcon(new java.awt.Color(204, 204, 204));
-        jtxtToken.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.HOME);
-        jtxtToken.setPhColor(new java.awt.Color(153, 153, 153));
-        jtxtToken.setPlaceholder("Ingrese su token");
-        jtxtToken.setSelectionColor(new java.awt.Color(255, 153, 0));
-        jtxtToken.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxtTokenActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jtxtToken, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 200, 30));
-
         btnSeleccionarImagen.setBackground(new java.awt.Color(102, 102, 102));
         btnSeleccionarImagen.setText("Seleccionar Imagen");
         btnSeleccionarImagen.setBackgroundHover(new java.awt.Color(153, 153, 153));
@@ -242,7 +220,7 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
                 btnSeleccionarImagenActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSeleccionarImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 140, 30));
+        jPanel1.add(btnSeleccionarImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 140, 30));
 
         btnAgregar.setBackground(new java.awt.Color(0, 204, 102));
         btnAgregar.setBackgroundHover(new java.awt.Color(0, 102, 0));
@@ -281,7 +259,7 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
 
         Panel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1010, 270));
 
-        getContentPane().add(Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 640));
+        getContentPane().add(Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 640));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -289,10 +267,6 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
     private void btnSeleccionarImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarImagenActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSeleccionarImagenActionPerformed
-
-    private void jtxtTokenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtTokenActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtxtTokenActionPerformed
 
     private void btnSeleccionarImagenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSeleccionarImagenMouseClicked
         // TODO add your handling code here:
@@ -357,7 +331,6 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
     public javax.swing.JLabel jlbCorreoElectronico11;
     public javax.swing.JLabel jlbCorreoElectronico2;
     public javax.swing.JLabel jlbCorreoElectronico3;
-    public javax.swing.JLabel jlbCorreoElectronico4;
     public javax.swing.JLabel jlbCorreoElectronico5;
     public javax.swing.JLabel jlbCorreoElectronico6;
     public javax.swing.JLabel jlbCorreoElectronico7;
@@ -369,7 +342,6 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
     public RSMaterialComponent.RSTextFieldIconTwo jtxtNombres;
     public RSMaterialComponent.RSTextFieldIconTwo jtxtNumDocumento;
     public RSMaterialComponent.RSTextFieldIconTwo jtxtTelefono;
-    public RSMaterialComponent.RSTextFieldIconTwo jtxtToken;
     public RSMaterialComponent.RSTableMetro tblEmpleados;
     // End of variables declaration//GEN-END:variables
 

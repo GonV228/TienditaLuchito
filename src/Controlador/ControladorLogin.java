@@ -37,7 +37,7 @@ public class ControladorLogin implements ActionListener {
             //usuario = new Usuario("", "", contraseña, correo, "", "", 0, "", 0, ""); // Creación del objeto "usuario" con valores vacíos
             
         // String rol = dLogin.obtenerRolUsuario(usuario); // Usando el objeto "dLogin" en lugar de "dao"
-String rol="Empleado";            
+String rol="Administrador";            
 
             if (rol != null) {
                 // El usuario existe y tiene un rol asignado

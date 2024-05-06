@@ -1,18 +1,17 @@
 package Modelo;
 
 public class Usuario {
-private String nombres;
-private String apellidos;
-private String contraseña;
-private String correoElectronico;
-private String rol;
-private String tipoDocumento;
-private int telefono;
-private String imagen;
-private int numeroDoc;
-private String token;
+    private String nombres;
+    private String apellidos;
+    private String contraseña;
+    private String correoElectronico;
+    private String rol;
+    private String tipoDocumento;
+    private int telefono;
+    private String imagen;
+    private int numeroDoc;
 
-    public Usuario(String nombres, String apellidos, String contraseña, String correoElectronico, String rol, String tipoDocumento, int telefono, String imagen, int numeroDoc, String token) {
+    public Usuario(String nombres, String apellidos, String contraseña, String correoElectronico, String rol, String tipoDocumento, int telefono, String imagen, int numeroDoc) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.contraseña = contraseña;
@@ -22,7 +21,6 @@ private String token;
         this.telefono = telefono;
         this.imagen = imagen;
         this.numeroDoc = numeroDoc;
-        this.token = token;
     }
 
     public String getNombres() {
@@ -73,12 +71,12 @@ private String token;
         this.tipoDocumento = tipoDocumento;
     }
 
-    public int getTelfono() {
+    public int getTelefono() {
         return telefono;
     }
 
-    public void setTelfono(int telfono) {
-        this.telefono = telfono;
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
     }
 
     public String getImagen() {
@@ -96,13 +94,4 @@ private String token;
     public void setNumeroDoc(int numeroDoc) {
         this.numeroDoc = numeroDoc;
     }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
 }
