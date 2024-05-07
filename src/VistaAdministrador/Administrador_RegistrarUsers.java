@@ -5,6 +5,12 @@
 
 package VistaAdministrador;
 
+import java.awt.Image;
+import java.io.File;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 /**
  *
  * @author SARA
@@ -53,6 +59,7 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
         jlbCorreoElectronico9 = new javax.swing.JLabel();
         jlbCorreoElectronico10 = new javax.swing.JLabel();
         jlbCorreoElectronico11 = new javax.swing.JLabel();
+        jlblImagen = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -82,7 +89,7 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
         tblEmpleados.setSelectionBackground(new java.awt.Color(102, 102, 102));
         jScrollPane1.setViewportView(tblEmpleados);
 
-        Panel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 1030, 350));
+        Panel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 1030, 210));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(153, 153, 153)));
@@ -220,7 +227,7 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
                 btnSeleccionarImagenActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSeleccionarImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 140, 30));
+        jPanel1.add(btnSeleccionarImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 140, 30));
 
         btnAgregar.setBackground(new java.awt.Color(0, 204, 102));
         btnAgregar.setBackgroundHover(new java.awt.Color(0, 102, 0));
@@ -257,7 +264,10 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
         jlbCorreoElectronico11.setText("Editar");
         jPanel1.add(jlbCorreoElectronico11, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 170, -1, -1));
 
-        Panel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1010, 270));
+        jlblImagen.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(jlblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, 290, 230));
+
+        Panel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1010, 420));
 
         getContentPane().add(Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 640));
 
@@ -265,7 +275,7 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSeleccionarImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarImagenActionPerformed
-        // TODO add your handling code here:
+ 
     }//GEN-LAST:event_btnSeleccionarImagenActionPerformed
 
     private void btnSeleccionarImagenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSeleccionarImagenMouseClicked
@@ -336,6 +346,7 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
     public javax.swing.JLabel jlbCorreoElectronico7;
     public javax.swing.JLabel jlbCorreoElectronico8;
     public javax.swing.JLabel jlbCorreoElectronico9;
+    public javax.swing.JLabel jlblImagen;
     public RSMaterialComponent.RSTextFieldIconTwo jtxtApellidos;
     public RSMaterialComponent.RSPasswordIconTwo jtxtContraseña;
     public RSMaterialComponent.RSTextFieldIconTwo jtxtCorreo;

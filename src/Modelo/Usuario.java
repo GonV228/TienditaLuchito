@@ -3,26 +3,28 @@ package Modelo;
 public class Usuario {
     private String nombres;
     private String apellidos;
-    private String contraseña;
     private String correoElectronico;
+    private String contraseña;
     private String rol;
     private String tipoDocumento;
-    private int telefono;
-    private String imagen;
-    private int numeroDoc;
+    private int numeroDocumento; // Cambiado a int
+    private String telefono;
+    private byte[] imagenBytes;
 
-    public Usuario(String nombres, String apellidos, String contraseña, String correoElectronico, String rol, String tipoDocumento, int telefono, String imagen, int numeroDoc) {
+    // Constructor
+    public Usuario(String nombres, String apellidos, String correoElectronico, String contraseña, String rol, String tipoDocumento, int numeroDocumento, String telefono, byte[] imagenBytes) {
         this.nombres = nombres;
         this.apellidos = apellidos;
-        this.contraseña = contraseña;
         this.correoElectronico = correoElectronico;
+        this.contraseña = contraseña;
         this.rol = rol;
         this.tipoDocumento = tipoDocumento;
+        this.numeroDocumento = numeroDocumento;
         this.telefono = telefono;
-        this.imagen = imagen;
-        this.numeroDoc = numeroDoc;
+        this.imagenBytes = imagenBytes;
     }
 
+    // Getters y setters
     public String getNombres() {
         return nombres;
     }
@@ -39,20 +41,20 @@ public class Usuario {
         this.apellidos = apellidos;
     }
 
-    public String getContraseña() {
-        return contraseña;
-    }
-
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
-    }
-
     public String getCorreoElectronico() {
         return correoElectronico;
     }
 
     public void setCorreoElectronico(String correoElectronico) {
         this.correoElectronico = correoElectronico;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
 
     public String getRol() {
@@ -71,27 +73,27 @@ public class Usuario {
         this.tipoDocumento = tipoDocumento;
     }
 
-    public int getTelefono() {
+    public int getNumeroDocumento() {
+        return numeroDocumento;
+    }
+
+    public void setNumeroDocumento(int numeroDocumento) {
+        this.numeroDocumento = numeroDocumento;
+    }
+
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
-    public String getImagen() {
-        return imagen;
+    public byte[] getImagenBytes() {
+        return imagenBytes;
     }
 
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
-    }
-
-    public int getNumeroDoc() {
-        return numeroDoc;
-    }
-
-    public void setNumeroDoc(int numeroDoc) {
-        this.numeroDoc = numeroDoc;
+    public void setImagenBytes(byte[] imagenBytes) {
+        this.imagenBytes = imagenBytes;
     }
 }

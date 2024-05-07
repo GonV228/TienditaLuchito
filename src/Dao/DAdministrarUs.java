@@ -33,9 +33,9 @@ public class DAdministrarUs {
             pst.setString(4, usuario.getContraseña());
             pst.setString(5, usuario.getRol());
             pst.setString(6, usuario.getTipoDocumento());
-            pst.setInt(7, usuario.getNumeroDoc());
-            pst.setInt(8, usuario.getTelefono());
-            pst.setString(9, usuario.getImagen());
+            pst.setInt(7, usuario.getNumeroDocumento());
+            pst.setString(8, usuario.getTelefono());
+            pst.setBytes(9, usuario.getImagenBytes()); // Se establece la imagen como un arreglo de bytes
             
             // Ejecutar la consulta
             int filasAfectadas = pst.executeUpdate();
@@ -89,9 +89,9 @@ public class DAdministrarUs {
             pst.setString(4, usuario.getContraseña());
             pst.setString(5, usuario.getRol());
             pst.setString(6, usuario.getTipoDocumento());
-            pst.setInt(7, usuario.getTelefono());
-            pst.setString(8, usuario.getImagen());
-            pst.setInt(9, usuario.getNumeroDoc());
+            pst.setString(7, usuario.getTelefono());
+            pst.setBytes(8, usuario.getImagenBytes()); // Se establece la imagen como un arreglo de bytes
+            pst.setInt(9, usuario.getNumeroDocumento());
 
             // Ejecutar la consulta
             int filasAfectadas = pst.executeUpdate();
@@ -201,10 +201,10 @@ public class DAdministrarUs {
                 String rol = rs.getString("Rol");
                 String tipoDocumento = rs.getString("Tipo_Documento");
                 int numeroDocumento = rs.getInt("N_Documento");
-                int telefono = rs.getInt("Telefono");
-                String imagen = rs.getString("Imagen");
+                String telefono = rs.getString("Telefono");
+                byte[] imagenBytes = rs.getBytes("Imagen");
 
-                Usuario usuario = new Usuario(nombres, apellidos, contraseña, correo, rol, tipoDocumento, telefono, imagen, numeroDocumento);
+                Usuario usuario = new Usuario(nombres, apellidos, correo, contraseña, rol, tipoDocumento, numeroDocumento, telefono, imagenBytes);
                 usuarios.add(usuario);
             }
         } catch (SQLException e) {

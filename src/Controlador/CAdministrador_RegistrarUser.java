@@ -1,18 +1,24 @@
 package Controlador;
-
 import Dao.DAdministrarUs;
 import Modelo.Usuario;
 import VistaAdministrador.Administrador;
 import VistaAdministrador.Administrador_RegistrarUsers;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import java.awt.BorderLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.List;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class CAdministrador_RegistrarUser implements ActionListener {
     Administrador_RegistrarUsers vista;
@@ -33,48 +39,21 @@ public class CAdministrador_RegistrarUser implements ActionListener {
         vista.jtxtNumDocumento.addActionListener(this);
         vista.jtxtTelefono.addActionListener(this);
 
-        
         // Inicializar JComboBox para roles y tipos de documento
         String[] roles = {"Administrador", "Empleado"};
         vista.jcbxTipoEmpleado.setModel(new DefaultComboBoxModel<>(roles));
 
         String[] tiposDocumento = {"DNI", "Carnet de Extranjeria", "Pasaporte"};
         vista.jcbxTipoDoc.setModel(new DefaultComboBoxModel<>(tiposDocumento));
-        
+
         // Mostrar los usuarios en la tabla
         mostrarUsuariosEnTabla();
-        
+
         // Agregar listener a la tabla para seleccionar usuarios
         vista.tblEmpleados.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                int filaSeleccionada = vista.tblEmpleados.getSelectedRow();
-                if (filaSeleccionada != -1) {
-                    DefaultTableModel modelo = (DefaultTableModel) vista.tblEmpleados.getModel();
-                    // Obtener los datos de la fila seleccionada
-                    String nombres = modelo.getValueAt(filaSeleccionada, 0).toString();
-                    String apellidos = modelo.getValueAt(filaSeleccionada, 1).toString();
-                    String correo = modelo.getValueAt(filaSeleccionada, 2).toString();
-                    String contraseña = modelo.getValueAt(filaSeleccionada, 3).toString();
-                    String rol = modelo.getValueAt(filaSeleccionada, 4).toString();
-                    String tipoDocumento = modelo.getValueAt(filaSeleccionada, 5).toString();
-                    int numeroDocumento = Integer.parseInt(modelo.getValueAt(filaSeleccionada, 6).toString());
-                    int telefono = Integer.parseInt(modelo.getValueAt(filaSeleccionada, 7).toString());
-                    String imagen = modelo.getValueAt(filaSeleccionada, 8).toString();
-                   
-                    // Mostrar los datos en los campos de texto y combobox
-                    vista.jtxtNombres.setText(nombres);
-                    vista.jtxtApellidos.setText(apellidos);
-                    vista.jtxtCorreo.setText(correo);
-                    vista.jtxtContraseña.setText(contraseña);
-                    vista.jcbxTipoEmpleado.setSelectedItem(rol);
-                    vista.jcbxTipoDoc.setSelectedItem(tipoDocumento);
-                    vista.jtxtNumDocumento.setText(String.valueOf(numeroDocumento));
-                    vista.jtxtTelefono.setText(String.valueOf(telefono));
-
-                    // Guardar el usuario seleccionado
-                    usuarioSeleccionado = new Usuario(nombres, apellidos, contraseña, correo, rol, tipoDocumento, telefono, imagen, numeroDocumento);
-                }
+                seleccionarUsuarioTabla();
             }
         });
     }
@@ -83,17 +62,57 @@ public class CAdministrador_RegistrarUser implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vista.btnAgregar) {
             registrarNuevoUsuario();
+            actualizarVista();
         } else if (e.getSource() == vista.btnBorrar) {
             eliminarUsuario();
+            actualizarVista();
         } else if (e.getSource() == vista.btnEditar) {
             actualizarUsuario();
+            actualizarVista();
+        } else if (e.getSource() == vista.btnSeleccionarImagen) {
+            seleccionarImagen();
         }
-        
-        // Actualizar la vista después de cada acción
-        actualizarVista();
         mostrarUsuariosEnTabla();
     }
-    
+
+    private void seleccionarUsuarioTabla() {
+        int filaSeleccionada = vista.tblEmpleados.getSelectedRow();
+        if (filaSeleccionada != -1) {
+            DefaultTableModel modelo = (DefaultTableModel) vista.tblEmpleados.getModel();
+            // Obtener los datos de la fila seleccionada
+            String nombres = modelo.getValueAt(filaSeleccionada, 0).toString();
+            String apellidos = modelo.getValueAt(filaSeleccionada, 1).toString();
+            String correo = modelo.getValueAt(filaSeleccionada, 2).toString();
+            String contraseña = modelo.getValueAt(filaSeleccionada, 3).toString();
+            String rol = modelo.getValueAt(filaSeleccionada, 4).toString();
+            String tipoDocumento = modelo.getValueAt(filaSeleccionada, 5).toString();
+            String numeroDocumento = modelo.getValueAt(filaSeleccionada, 6).toString();
+            String telefono = modelo.getValueAt(filaSeleccionada, 7).toString();
+            byte[] imagenBytes = (byte[]) modelo.getValueAt(filaSeleccionada, 8);
+
+            // Mostrar los datos en los campos de texto y combobox
+            vista.jtxtNombres.setText(nombres);
+            vista.jtxtApellidos.setText(apellidos);
+            vista.jtxtCorreo.setText(correo);
+            vista.jtxtContraseña.setText(contraseña);
+            vista.jcbxTipoEmpleado.setSelectedItem(rol);
+            vista.jcbxTipoDoc.setSelectedItem(tipoDocumento);
+            vista.jtxtNumDocumento.setText(numeroDocumento);
+            vista.jtxtTelefono.setText(telefono);
+
+            // Mostrar la imagen en un JLabel
+            ImageIcon imagenIcono = new ImageIcon(imagenBytes);
+            Image imagenEscalada = imagenIcono.getImage().getScaledInstance(vista.jlblImagen.getWidth(), vista.jlblImagen.getHeight(), Image.SCALE_SMOOTH);
+            ImageIcon imagenEscaladaIcono = new ImageIcon(imagenEscalada);
+            vista.jlblImagen.setIcon(imagenEscaladaIcono);
+
+            // Guardar el usuario seleccionado
+            usuarioSeleccionado = new Usuario(nombres, apellidos, correo, contraseña, rol, tipoDocumento, Integer.parseInt(numeroDocumento), telefono, imagenBytes);
+        } else {
+            JOptionPane.showMessageDialog(null, "Selecciona un usuario de la tabla para editar");
+        }
+    }
+
     private void registrarNuevoUsuario() {
         // Obtener los datos ingresados por el usuario
         String nombres = vista.jtxtNombres.getText();
@@ -102,13 +121,12 @@ public class CAdministrador_RegistrarUser implements ActionListener {
         String contraseña = vista.jtxtContraseña.getText();
         String rol = (String) vista.jcbxTipoEmpleado.getSelectedItem();
         String tipoDocumento = (String) vista.jcbxTipoDoc.getSelectedItem();
-        int numeroDocumento = Integer.parseInt(vista.jtxtNumDocumento.getText());
-        int telefono = Integer.parseInt(vista.jtxtTelefono.getText());
-        String imagen = ""; // No pude poner la imagen :c 
-
+        String numeroDocumento = vista.jtxtNumDocumento.getText();
+        String telefono = vista.jtxtTelefono.getText();
+        byte[] imagenBytes = obtenerBytesDeImagen();
 
         // Crear un objeto Usuario con los datos obtenidos
-        Usuario nuevoUsuario = new Usuario(nombres, apellidos, contraseña, correo, rol, tipoDocumento, telefono, "", numeroDocumento);
+        Usuario nuevoUsuario = new Usuario(nombres, apellidos, correo, contraseña, rol, tipoDocumento, Integer.parseInt(numeroDocumento), telefono, imagenBytes);
 
         // Llamar al método del DAO para registrar el nuevo usuario
         DAdministrarUs daoRegistrarUs = new DAdministrarUs();
@@ -120,7 +138,7 @@ public class CAdministrador_RegistrarUser implements ActionListener {
             JOptionPane.showMessageDialog(null, "Error al registrar usuario. Por favor, inténtalo de nuevo.");
         }
     }
-    
+
     private void actualizarUsuario() {
         if (usuarioSeleccionado != null) {
             // Obtener los datos actualizados del usuario
@@ -130,13 +148,12 @@ public class CAdministrador_RegistrarUser implements ActionListener {
             String contraseña = vista.jtxtContraseña.getText();
             String rol = (String) vista.jcbxTipoEmpleado.getSelectedItem();
             String tipoDocumento = (String) vista.jcbxTipoDoc.getSelectedItem();
-            int numeroDocumento = Integer.parseInt(vista.jtxtNumDocumento.getText());
-            int telefono = Integer.parseInt(vista.jtxtTelefono.getText());
-            String imagen = ""; // No pude poner la imagen :c 
- 
+            String numeroDocumento = vista.jtxtNumDocumento.getText();
+            String telefono = vista.jtxtTelefono.getText();
+            byte[] imagenBytes = obtenerBytesDeImagen();
 
             // Crear un objeto Usuario con los datos actualizados
-            Usuario usuarioActualizado = new Usuario(nombres, apellidos, contraseña, correo, rol, tipoDocumento, telefono, "", numeroDocumento);
+            Usuario usuarioActualizado = new Usuario(nombres, apellidos, correo, contraseña, rol, tipoDocumento, Integer.parseInt(numeroDocumento), telefono, imagenBytes);
 
             // Llamar al método del DAO para actualizar el usuario
             DAdministrarUs daoActualizarUs = new DAdministrarUs();
@@ -151,12 +168,12 @@ public class CAdministrador_RegistrarUser implements ActionListener {
             JOptionPane.showMessageDialog(null, "Selecciona un usuario de la tabla para editar");
         }
     }
-    
+
     private void eliminarUsuario() {
         if (usuarioSeleccionado != null) {
             // Llamar al método del DAO para eliminar el usuario
             DAdministrarUs daoEliminarUs = new DAdministrarUs();
-            boolean eliminacionExitosa = daoEliminarUs.eliminarUsuario(usuarioSeleccionado.getNumeroDoc());
+            boolean eliminacionExitosa = daoEliminarUs.eliminarUsuario(usuarioSeleccionado.getNumeroDocumento());
 
             if (eliminacionExitosa) {
                 JOptionPane.showMessageDialog(null, "Usuario eliminado exitosamente");
@@ -167,17 +184,32 @@ public class CAdministrador_RegistrarUser implements ActionListener {
             JOptionPane.showMessageDialog(null, "Selecciona un usuario de la tabla para eliminar");
         }
     }
-    
+
+    private byte[] obtenerBytesDeImagen() {
+        try {
+            String rutaImagen = vista.jlblImagen.getText(); // Obtener la ruta del archivo desde el JTextField (o JLabel)
+            File archivoImagen = new File(rutaImagen);
+            FileInputStream fis = new FileInputStream(archivoImagen);
+            byte[] buffer = new byte[(int) archivoImagen.length()];
+            fis.read(buffer);
+            fis.close();
+            return buffer;
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Error al obtener bytes de la imagen: " + e.getMessage());
+            return null;
+        }
+    }
+
     private void mostrarUsuariosEnTabla() {
         DAdministrarUs dao = new DAdministrarUs();
         List<Usuario> usuarios = dao.obtenerTodosUsuarios();
-        
+
         // Obtener el modelo de la tabla
         DefaultTableModel modelo = (DefaultTableModel) vista.tblEmpleados.getModel();
-        
+
         // Limpiar la tabla antes de agregar los nuevos datos
         modelo.setRowCount(0);
-        
+
         // Agregar cada usuario a la tabla
         for (Usuario usuario : usuarios) {
             Object[] fila = {
@@ -187,14 +219,14 @@ public class CAdministrador_RegistrarUser implements ActionListener {
                 usuario.getContraseña(),
                 usuario.getRol(),
                 usuario.getTipoDocumento(),
-                usuario.getNumeroDoc(),
+                usuario.getNumeroDocumento(),
                 usuario.getTelefono(),
-                usuario.getImagen()
+                usuario.getImagenBytes()
             };
             modelo.addRow(fila);
         }
     }
-    
+
     private void actualizarVista() {
         Administrador_RegistrarUsers RegisU = new Administrador_RegistrarUsers();
         CAdministrador_RegistrarUser controlador = new CAdministrador_RegistrarUser(RegisU, menu);
@@ -204,4 +236,24 @@ public class CAdministrador_RegistrarUser implements ActionListener {
         menu.PrincipalAdministrador.revalidate();
         menu.PrincipalAdministrador.repaint();
     }
+    private void seleccionarImagen() {
+    JFileChooser fileChooser = new JFileChooser();
+    fileChooser.setFileFilter(new FileNameExtensionFilter("Archivos de imagen", "jpg", "jpeg", "png", "gif"));
+    int resultado = fileChooser.showOpenDialog(vista);
+
+    if (resultado == JFileChooser.APPROVE_OPTION) {
+        File archivoSeleccionado = fileChooser.getSelectedFile();
+        String rutaImagen = archivoSeleccionado.getAbsolutePath();
+
+        // Mostrar la imagen seleccionada en un JLabel
+        ImageIcon imagenIcono = new ImageIcon(rutaImagen);
+        Image imagenEscalada = imagenIcono.getImage().getScaledInstance(vista.jlblImagen.getWidth(), vista.jlblImagen.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon imagenEscaladaIcono = new ImageIcon(imagenEscalada);
+        vista.jlblImagen.setIcon(imagenEscaladaIcono);
+
+        // Actualizar la ruta del archivo en el JTextField (o JLabel) para poder usarla en obtenerBytesDeImagen
+        vista.jlblImagen.setText(rutaImagen);
+    }
+}
+
 }
