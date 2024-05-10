@@ -62,7 +62,7 @@ public class CAdministrador_RegistrarUser implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vista.btnAgregar) {
             registrarNuevoUsuario();
-            actualizarVista();
+            //actualizarVista(); //no descomentar
         } else if (e.getSource() == vista.btnBorrar) {
             eliminarUsuario();
             actualizarVista();
@@ -75,6 +75,12 @@ public class CAdministrador_RegistrarUser implements ActionListener {
         mostrarUsuariosEnTabla();
     }
 
+    
+    ////////////////////////////////////////////////////////////////////////////////////////
+    //Procesos
+    ////////////////////////////////////////////////////////////////////////////////////////
+    
+    //1. SELECCIONAR USUARIO EN LA TABLA
     private void seleccionarUsuarioTabla() {
         int filaSeleccionada = vista.tblEmpleados.getSelectedRow();
         if (filaSeleccionada != -1) {
@@ -113,6 +119,7 @@ public class CAdministrador_RegistrarUser implements ActionListener {
         }
     }
 
+    //2. REGISTRAR NUEVO USUARIO
     private void registrarNuevoUsuario() {
         // Obtener los datos ingresados por el usuario
         String nombres = vista.jtxtNombres.getText();
@@ -124,7 +131,25 @@ public class CAdministrador_RegistrarUser implements ActionListener {
         String numeroDocumento = vista.jtxtNumDocumento.getText();
         String telefono = vista.jtxtTelefono.getText();
         byte[] imagenBytes = obtenerBytesDeImagen();
-
+        
+        //validaciones :D
+            //Validar documento de identidad VALIDACIONES EN EL PUNTO "9"...... 9.5 
+                int cantidadDeDigitos=numeroDocumento.length();//obtenemos la cantidad de digitos del documento
+                if (tipoDocumento.equals("DNI") || tipoDocumento.equals("Carnet de Extranjeria")) {
+                    // Validar que el número de documento tenga 8 dígitos
+                    if (numeroDocumento.length() != 8) {
+                        JOptionPane.showMessageDialog(null, "El número de documento debe tener 8 dígitos tiene: [ "+cantidadDeDigitos+" ] digitos.");
+                        return; // Detener la ejecución del método
+                    }
+                } else if (tipoDocumento.equals("Pasaporte")) {
+                    // No aplicar ninguna validación específica para pasaportes
+                }
+            //Validar numero de teléfono VALIDACIONES EN EL PUNTO "9"...... 9.6  
+                String errorTelefono = validarTelefono(telefono);
+                if (errorTelefono != null) {
+                    JOptionPane.showMessageDialog(null, errorTelefono);
+                    return; // Detener la ejecución del método si la validación falla
+                }
         // Crear un objeto Usuario con los datos obtenidos
         Usuario nuevoUsuario = new Usuario(nombres, apellidos, correo, contraseña, rol, tipoDocumento, Integer.parseInt(numeroDocumento), telefono, imagenBytes);
 
@@ -137,8 +162,12 @@ public class CAdministrador_RegistrarUser implements ActionListener {
         } else {
             JOptionPane.showMessageDialog(null, "Error al registrar usuario. Por favor, inténtalo de nuevo.");
         }
+        
+        //falta recargar la vista
+        //actualizarVista();
     }
-
+    
+    //3. ACTUALIZAR USUARIO
     private void actualizarUsuario() {
     if (usuarioSeleccionado != null) {
         // Obtener los datos actualizados del usuario
@@ -177,7 +206,7 @@ public class CAdministrador_RegistrarUser implements ActionListener {
     }
 }
 
-
+    //4. ELIMINAR USUARIO DE LA BD
     private void eliminarUsuario() {
         if (usuarioSeleccionado != null) {
             // Llamar al método del DAO para eliminar el usuario
@@ -194,6 +223,7 @@ public class CAdministrador_RegistrarUser implements ActionListener {
         }
     }
 
+    //5. OBTENER IMAGEN
     private byte[] obtenerBytesDeImagen() {
         try {
             String rutaImagen = vista.jlblImagen.getText(); // Obtener la ruta del archivo desde el JTextField (o JLabel)
@@ -209,6 +239,7 @@ public class CAdministrador_RegistrarUser implements ActionListener {
         }
     }
 
+    //6. MOSTRAR LOS USUARIOS DE LA TABLA (EN EL 1 SE SELECCIONAN... ACA SE MUESTRAN CUANDO CARGA LA VISTA)
     private void mostrarUsuariosEnTabla() {
         DAdministrarUs dao = new DAdministrarUs();
         List<Usuario> usuarios = dao.obtenerTodosUsuarios();
@@ -236,6 +267,7 @@ public class CAdministrador_RegistrarUser implements ActionListener {
         }
     }
 
+    //7. ACTUALIZAR VISTA (CARGA LA VISTA DESPUES DE CUALQUIER CAMBIO)
     private void actualizarVista() {
         Administrador_RegistrarUsers RegisU = new Administrador_RegistrarUsers();
         CAdministrador_RegistrarUser controlador = new CAdministrador_RegistrarUser(RegisU, menu);
@@ -245,24 +277,49 @@ public class CAdministrador_RegistrarUser implements ActionListener {
         menu.PrincipalAdministrador.revalidate();
         menu.PrincipalAdministrador.repaint();
     }
+    //8. SELECCIONAR IMAGEN DESDE LA COMPUTADORA :D
     private void seleccionarImagen() {
-    JFileChooser fileChooser = new JFileChooser();
-    fileChooser.setFileFilter(new FileNameExtensionFilter("Archivos de imagen", "jpg", "jpeg", "png", "gif"));
-    int resultado = fileChooser.showOpenDialog(vista);
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setFileFilter(new FileNameExtensionFilter("Archivos de imagen", "jpg", "jpeg", "png", "gif"));
+        int resultado = fileChooser.showOpenDialog(vista);
 
-    if (resultado == JFileChooser.APPROVE_OPTION) {
-        File archivoSeleccionado = fileChooser.getSelectedFile();
-        String rutaImagen = archivoSeleccionado.getAbsolutePath();
+        if (resultado == JFileChooser.APPROVE_OPTION) {
+            File archivoSeleccionado = fileChooser.getSelectedFile();
+            String rutaImagen = archivoSeleccionado.getAbsolutePath();
 
-        // Mostrar la imagen seleccionada en un JLabel
-        ImageIcon imagenIcono = new ImageIcon(rutaImagen);
-        Image imagenEscalada = imagenIcono.getImage().getScaledInstance(vista.jlblImagen.getWidth(), vista.jlblImagen.getHeight(), Image.SCALE_SMOOTH);
-        ImageIcon imagenEscaladaIcono = new ImageIcon(imagenEscalada);
-        vista.jlblImagen.setIcon(imagenEscaladaIcono);
+            // Mostrar la imagen seleccionada en un JLabel
+            ImageIcon imagenIcono = new ImageIcon(rutaImagen);
+            Image imagenEscalada = imagenIcono.getImage().getScaledInstance(vista.jlblImagen.getWidth(), vista.jlblImagen.getHeight(), Image.SCALE_SMOOTH);
+            ImageIcon imagenEscaladaIcono = new ImageIcon(imagenEscalada);
+            vista.jlblImagen.setIcon(imagenEscaladaIcono);
 
-        // Actualizar la ruta del archivo en el JTextField (o JLabel) para poder usarla en obtenerBytesDeImagen
-        vista.jlblImagen.setText(rutaImagen);
+            // Actualizar la ruta del archivo en el JTextField (o JLabel) para poder usarla en obtenerBytesDeImagen
+            vista.jlblImagen.setText(rutaImagen);
+        }
     }
-}
-
+    //9. VALIDACIONES
+    //9.1 VALIDAR NOMBRES
+    //9.2 VALIDAR APELLIDOS
+    //9.3 VALIDAR CORREO ELECTRÓNICO
+    //9.4 VALIDAR CONTRASEÑA
+    //9.5 VALIDAR DOCUMENTO DE INDENTIDAD
+    //9.6 VALIDAR NÚMERO DE TELÉFONO
+    private String validarTelefono(String telefono) {
+        int cantDigitos=telefono.length();
+        // Verificar que el número de teléfono tenga 9 dígitos y empiece con el número 9
+        if (!telefono.matches("^9\\d{8}$")) {
+            // Validar la longitud del número de teléfono
+            if (telefono.length() != 9) {
+                return "El número de teléfono debe tener 9 dígitos, tiene: [ "+cantDigitos+" ] digitos.";
+            }
+            // Validar que el número de teléfono empiece con el número 9
+            if (!telefono.startsWith("9")) {
+                return "El número de teléfono debe empezar con el número 9.";
+            }
+        }
+        // El número de teléfono es válido
+        return null;
+    }
+    //9.7 VALIDAR TIPO DE ARCHIVO PARA SUBIR LA IMAGEN
+    
 }
