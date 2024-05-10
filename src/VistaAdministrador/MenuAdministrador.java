@@ -30,8 +30,8 @@ public class MenuAdministrador extends javax.swing.JFrame {
         PrincipalMenu = new RSMaterialComponent.RSPanelMaterial();
         rSPanelMaterial3 = new RSMaterialComponent.RSPanelMaterial();
         rSPanelBorderImage1 = new RSMaterialComponent.RSPanelBorderImage();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        JlabelCorreo = new javax.swing.JLabel();
+        JlabelNombreUsuario = new javax.swing.JLabel();
         jbtnCerrarSesion = new RSMaterialComponent.RSButtonMaterialOne();
         jbtnAdminEmpleados = new RSMaterialComponent.RSButtonMaterialOne();
         jbtnVentas = new RSMaterialComponent.RSButtonMaterialOne();
@@ -86,20 +86,20 @@ public class MenuAdministrador extends javax.swing.JFrame {
 
         rSPanelMaterial3.add(rSPanelBorderImage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("USUARIO ADRESS");
-        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        rSPanelMaterial3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 310, -1));
+        JlabelCorreo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        JlabelCorreo.setForeground(new java.awt.Color(102, 102, 102));
+        JlabelCorreo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JlabelCorreo.setText("USUARIO ADRESS");
+        JlabelCorreo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        rSPanelMaterial3.add(JlabelCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 310, -1));
 
-        jLabel2.setBackground(new java.awt.Color(204, 0, 0));
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("ADMINISTADOR NAME");
-        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        rSPanelMaterial3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 310, -1));
+        JlabelNombreUsuario.setBackground(new java.awt.Color(204, 0, 0));
+        JlabelNombreUsuario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        JlabelNombreUsuario.setForeground(new java.awt.Color(102, 102, 102));
+        JlabelNombreUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JlabelNombreUsuario.setText("ADMINISTADOR NAME");
+        JlabelNombreUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        rSPanelMaterial3.add(JlabelNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 310, -1));
 
         jbtnCerrarSesion.setBackground(new java.awt.Color(102, 102, 102));
         jbtnCerrarSesion.setText("CERRAR SESIÓN");
@@ -173,9 +173,9 @@ public class MenuAdministrador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JLabel JlabelCorreo;
+    public javax.swing.JLabel JlabelNombreUsuario;
     public RSMaterialComponent.RSPanelMaterial PrincipalMenu;
-    public javax.swing.JLabel jLabel1;
-    public javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     public RSMaterialComponent.RSButtonMaterialOne jbtnAdminEmpleados;
     public RSMaterialComponent.RSButtonMaterialOne jbtnCerrarSesion;

@@ -140,34 +140,43 @@ public class CAdministrador_RegistrarUser implements ActionListener {
     }
 
     private void actualizarUsuario() {
-        if (usuarioSeleccionado != null) {
-            // Obtener los datos actualizados del usuario
-            String nombres = vista.jtxtNombres.getText();
-            String apellidos = vista.jtxtApellidos.getText();
-            String correo = vista.jtxtCorreo.getText();
-            String contraseña = vista.jtxtContraseña.getText();
-            String rol = (String) vista.jcbxTipoEmpleado.getSelectedItem();
-            String tipoDocumento = (String) vista.jcbxTipoDoc.getSelectedItem();
-            String numeroDocumento = vista.jtxtNumDocumento.getText();
-            String telefono = vista.jtxtTelefono.getText();
-            byte[] imagenBytes = obtenerBytesDeImagen();
+    if (usuarioSeleccionado != null) {
+        // Obtener los datos actualizados del usuario
+        String nombres = vista.jtxtNombres.getText();
+        String apellidos = vista.jtxtApellidos.getText();
+        String correo = vista.jtxtCorreo.getText();
+        String contraseña = vista.jtxtContraseña.getText();
+        String rol = (String) vista.jcbxTipoEmpleado.getSelectedItem();
+        String tipoDocumento = (String) vista.jcbxTipoDoc.getSelectedItem();
+        String numeroDocumento = vista.jtxtNumDocumento.getText();
+        String telefono = vista.jtxtTelefono.getText();
+        byte[] imagenBytes = null; // Inicializar como null por defecto
 
-            // Crear un objeto Usuario con los datos actualizados
-            Usuario usuarioActualizado = new Usuario(nombres, apellidos, correo, contraseña, rol, tipoDocumento, Integer.parseInt(numeroDocumento), telefono, imagenBytes);
-
-            // Llamar al método del DAO para actualizar el usuario
-            DAdministrarUs daoActualizarUs = new DAdministrarUs();
-            boolean actualizacionExitosa = daoActualizarUs.actualizarUsuario(usuarioActualizado);
-
-            if (actualizacionExitosa) {
-                JOptionPane.showMessageDialog(null, "Usuario actualizado exitosamente");
-            } else {
-                JOptionPane.showMessageDialog(null, "Error al actualizar usuario. Por favor, inténtalo de nuevo.");
-            }
+        // Si se ha seleccionado una imagen nueva, actualizarla
+        if (!vista.jlblImagen.getText().isEmpty()) {
+            imagenBytes = obtenerBytesDeImagen();
         } else {
-            JOptionPane.showMessageDialog(null, "Selecciona un usuario de la tabla para editar");
+            // Si no se selecciona una nueva imagen, mantener la imagen actual
+            imagenBytes = usuarioSeleccionado.getImagenBytes();
         }
+
+        // Crear un objeto Usuario con los datos actualizados
+        Usuario usuarioActualizado = new Usuario(nombres, apellidos, correo, contraseña, rol, tipoDocumento, Integer.parseInt(numeroDocumento), telefono, imagenBytes);
+
+        // Llamar al método del DAO para actualizar el usuario
+        DAdministrarUs daoActualizarUs = new DAdministrarUs();
+        boolean actualizacionExitosa = daoActualizarUs.actualizarUsuario(usuarioActualizado);
+
+        if (actualizacionExitosa) {
+            JOptionPane.showMessageDialog(null, "Usuario actualizado exitosamente");
+        } else {
+            JOptionPane.showMessageDialog(null, "Error al actualizar usuario. Por favor, inténtalo de nuevo.");
+        }
+    } else {
+        JOptionPane.showMessageDialog(null, "Selecciona un usuario de la tabla para editar");
     }
+}
+
 
     private void eliminarUsuario() {
         if (usuarioSeleccionado != null) {
