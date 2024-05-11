@@ -2,23 +2,23 @@
 create database TLuchito;
 use TLuchito;
 
-CREATE TABLE IF NOT EXISTS Categorias (
-    ID_Categoria INT AUTO_INCREMENT PRIMARY KEY,
-    Nombre VARCHAR(255) NOT NULL UNIQUE
-);
+	CREATE TABLE IF NOT EXISTS Categorias (
+		ID_Categoria INT AUTO_INCREMENT PRIMARY KEY,
+		NombreCat VARCHAR(255) NOT NULL UNIQUE
+	);
 
--- Productos
-CREATE TABLE IF NOT EXISTS Productos (
-    ID_Producto INT AUTO_INCREMENT PRIMARY KEY,
-    Nombre VARCHAR(255) NOT NULL,
-    Codigo VARCHAR(50) NOT NULL UNIQUE,
-    Sub_categoria VARCHAR(50),
-    Stock INT NOT NULL,
-    Informacion TEXT,
-    Imagen VARCHAR(255),
-    ID_Categoria INT,
-    FOREIGN KEY (ID_Categoria) REFERENCES Categorias(ID_Categoria)
-);
+	-- Productos
+	CREATE TABLE IF NOT EXISTS Productos (
+		ID_Producto INT AUTO_INCREMENT PRIMARY KEY,
+		Nombre VARCHAR(255) NOT NULL,
+		Stock INT NOT NULL,
+		Informacion TEXT,
+        Precio DECIMAL(10, 2),
+		Imagen VARCHAR(255),
+		ID_Categoria INT,
+        
+		FOREIGN KEY (ID_Categoria) REFERENCES Categorias(ID_Categoria)
+	);
 
 -- Ventas
 CREATE TABLE IF NOT EXISTS Ventas (
@@ -85,7 +85,7 @@ VALUES
 ('Admin2', 'Apellido2', 'admin2@example.com', 'admin456', 'Administrador', 'DNI', '87654321', '98765432', 'admin2.jpg');
 
 -- Insertar empleados
-INSERT INTO Usuarios (Nombres, Apellidos, Correo_Electronico, Contraseña, Rol, Tipo_Documento, N_Documento, Telefono, Imagen, Token) 
+INSERT INTO Usuarios (Nombres, Apellidos, Correo_Electronico, Contraseña, Rol, Tipo_Documento, N_Documento, Telefono, Imagen) 
 VALUES 
 ('Empleado1', 'Apellido1', 'empleado1@example.com', 'empleado123', 'Empleado', 'DNI', '11111111', '11111111', 'empleado1.jpg'),
 ('Empleado2', 'Apellido2', 'empleado2@example.com', 'empleado456', 'Empleado', 'DNI', '22222222', '22222222', 'empleado2.jpg'),

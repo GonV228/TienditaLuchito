@@ -1,50 +1,38 @@
 package Modelo;
 
 public class Productos {
-   private String nombreP;
-   private String codigo;
-   private String SubCategoria;
-   private byte[] imagenP;
-   private int stock;
+    private int idProducto;
+    private String nombre;
+    private int stock;
+    private String informacion;
+    private double precio;
+    private byte[] imagen;
+    private String categoria; // Nuevo campo para la categoría
 
-    public Productos(String nombreP, String codigo, String SubCategoria, byte[] imagenP, int stock) {
-        this.nombreP = nombreP;
-        this.codigo = codigo;
-        this.SubCategoria = SubCategoria;
-        this.imagenP = imagenP;
+    public Productos(int idProducto, String nombre, int stock, String informacion, double precio, byte[] imagen, String categoria) {
+        this.idProducto = idProducto;
+        this.nombre = nombre;
         this.stock = stock;
+        this.informacion = informacion;
+        this.precio = precio;
+        this.imagen = imagen;
+        this.categoria = categoria;
     }
 
-    public String getNombreP() {
-        return nombreP;
+    public int getIdProducto() {
+        return idProducto;
     }
 
-    public void setNombreP(String nombreP) {
-        this.nombreP = nombreP;
+    public void setIdProducto(int idProducto) {
+        this.idProducto = idProducto;
     }
 
-    public String getCodigo() {
-        return codigo;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
-
-    public String getSubCategoria() {
-        return SubCategoria;
-    }
-
-    public void setSubCategoria(String SubCategoria) {
-        this.SubCategoria = SubCategoria;
-    }
-
-    public byte[] getImagenP() {
-        return imagenP;
-    }
-
-    public void setImagenP(byte[] imagenP) {
-        this.imagenP = imagenP;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public int getStock() {
@@ -54,6 +42,36 @@ public class Productos {
     public void setStock(int stock) {
         this.stock = stock;
     }
-   
-   
+
+    public String getInformacion() {
+        return informacion;
+    }
+
+    public void setInformacion(String informacion) {
+        this.informacion = informacion;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    public byte[] getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(byte[] imagen) {
+        this.imagen = imagen;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
 }
