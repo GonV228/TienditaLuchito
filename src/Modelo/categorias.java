@@ -1,0 +1,19 @@
+
+package Modelo;
+
+public class categorias {
+    private String nombre;
+
+    public categorias(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
+}

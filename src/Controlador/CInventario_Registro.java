@@ -36,7 +36,7 @@ public class CInventario_Registro implements ActionListener {
         vista.jtxtStock.addActionListener(this);
 
         // Carga los productos en la tabla al iniciar
-        cargarProductosEnTabla();
+
     }
 
     private void actualizarVista() {
@@ -49,61 +49,16 @@ public class CInventario_Registro implements ActionListener {
         menu.PrincipalInventario.repaint();
     }
 
-// Método para agregar un nuevo producto
-private void agregarProducto() {
-    Productos producto = new Productos(
-        0, // El ID será asignado automáticamente en la base de datos
-        vista.jtxfNombreProducto.getText(),
-        0, // Stock empieza de 0
-        vista.jtxfDetalle.getText(),
-        Double.parseDouble(vista.jtxtPrecio.getText()),
-        null, //ACA IRA AL IMAGEN
-        vista.jcbxTipoProduc.getSelectedItem().toString()//FALTA LA INTERFAZ DE AGREGAR TIPO PRODUCTO
-    );
-    
-    boolean exito = dao.registrarProducto(producto);
-    if (exito) {
-        System.out.println("Producto registrado exitosamente");
-        cargarProductosEnTabla();
-    } else {
-        System.out.println("Error al registrar el producto");
-    }
-}
 
 
 
 
-
-        private void cargarProductosEnTabla() {
-            DefaultTableModel modeloTabla = new DefaultTableModel();
-            modeloTabla.addColumn("ID");
-            modeloTabla.addColumn("Nombre");
-            modeloTabla.addColumn("Categoria");
-            modeloTabla.addColumn("Stock");
-            modeloTabla.addColumn("Informacion");
-            modeloTabla.addColumn("Imagen");
-
-            List<Productos> productos = dao.obtenerProductos();
-                for (Productos producto : productos) {
-                    Object[] fila = {
-                            producto.getIdProducto(),
-                            producto.getNombre(),
-                            producto.getCategoria(),
-                            producto.getStock(),
-                            producto.getInformacion(),
-                            producto.getImagen()
-                    };
-                    modeloTabla.addRow(fila);
-                }
-
-            vista.jtableInventario.setModel(modeloTabla);
-        }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vista.btnAgregar) {
             System.out.println("agregar");
-            agregarProducto();
+
             actualizarVista();
         }
         
