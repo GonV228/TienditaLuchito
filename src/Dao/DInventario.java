@@ -176,6 +176,144 @@ public List<Productos> obtenerProductos() {
     return listaProductos;
 }
 
+// Método para insertar un nuevo producto en la base de datos
+public boolean insertarProducto(Productos producto) {
+    ConexionBD conexionBD = new ConexionBD();
+    try (Connection conexion = conexionBD.conectar()) {
+        // Preparamos la sentencia SQL para insertar el producto
+        String sql = "INSERT INTO Productos (Nombre, Stock, Informacion, Precio, ID_Categoria) VALUES (?, ?, ?, ?, ?)";
+        PreparedStatement pst = conexion.prepareStatement(sql);
+        // Establecemos los valores del producto en el PreparedStatement
+        pst.setString(1, producto.getNombreP());
+        pst.setInt(2, producto.getStock());
+        pst.setString(3, producto.getInformacion());
+        pst.setDouble(4, producto.getPrecio());
+        pst.setInt(5, producto.getCategoria().getIdCategoria());
+        // Ejecutamos la sentencia SQL
+        int filasAfectadas = pst.executeUpdate();
+        // Verificamos si se insertó correctamente
+        if (filasAfectadas > 0) {
+            return true; // El producto se insertó correctamente
+        } else {
+            return false; // Hubo un problema al insertar el producto
+        }
+    } catch (SQLException e) {
+        System.out.println("Error al insertar el producto: " + e);
+        return false;
+    }
+}
+public categorias obtenerCategoriaPorNombre(String nombreCategoria) {
+    categorias categoria = null;
+    // Utilizamos la conexión a la base de datos
+    ConexionBD conexionBD = new ConexionBD();
+    try (Connection conexion = conexionBD.conectar()) {
+        // Preparamos la sentencia SQL para seleccionar la categoría por nombre
+        String sql = "SELECT ID_Categoria, NombreCat FROM Categorias WHERE NombreCat = ?";
+        PreparedStatement pst = conexion.prepareStatement(sql);
+        pst.setString(1, nombreCategoria);
+        // Ejecutamos la consulta SQL
+        ResultSet rs = pst.executeQuery();
+        // Verificamos si la consulta devolvió algún resultado
+        if (rs.next()) {
+            int idCategoria = rs.getInt("ID_Categoria");
+            String nombreCat = rs.getString("NombreCat");
+            categoria = new categorias(idCategoria, nombreCat);
+        }
+    } catch (SQLException e) {
+        System.out.println("Error al obtener la categoría por nombre: " + e);
+    }
+    return categoria;
+}
+
+// Método para eliminar un producto de la base de datos
+    public boolean eliminarProducto(int idProducto) {
+        // Utilizamos la conexión a la base de datos
+        ConexionBD conexionBD = new ConexionBD();
+        try (Connection conexion = conexionBD.conectar()) {
+            // Preparamos la sentencia SQL para eliminar el producto
+            String sql = "DELETE FROM Productos WHERE ID_Producto = ?";
+            PreparedStatement pst = conexion.prepareStatement(sql);
+            // Establecemos el ID del producto a eliminar en el PreparedStatement
+            pst.setInt(1, idProducto);
+            // Ejecutamos la sentencia SQL
+            int filasAfectadas = pst.executeUpdate();
+            // Verificamos si se eliminó correctamente
+            if (filasAfectadas > 0) {
+                return true; // El producto se eliminó correctamente
+            } else {
+                return false; // Hubo un problema al eliminar el producto
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al eliminar el producto: " + e);
+            return false;
+        }
+    }
+// Método para obtener un producto por su ID
+public Productos obtenerProductoPorID(int idProducto) {
+    Productos producto = null;
+    ConexionBD conexionBD = new ConexionBD();
+    try (Connection conexion = conexionBD.conectar()) {
+        String sql = "SELECT * FROM Productos WHERE ID_Producto = ?";
+        PreparedStatement pst = conexion.prepareStatement(sql);
+        pst.setInt(1, idProducto);
+        ResultSet rs = pst.executeQuery();
+        if (rs.next()) {
+            int id = rs.getInt("ID_Producto");
+            String nombre = rs.getString("Nombre");
+            int stock = rs.getInt("Stock");
+            String informacion = rs.getString("Informacion");
+            double precio = rs.getDouble("Precio");
+            byte[] imagen = rs.getBytes("Imagen");
+            int idCategoria = rs.getInt("ID_Categoria");
+            // Obtener la categoría correspondiente al ID de la categoría
+            categorias categoria = obtenerCategoriaPorID(idCategoria); // Implementa este método según necesites
+            producto = new Productos(id, nombre, stock, informacion, precio, imagen, categoria);
+        }
+    } catch (SQLException e) {
+        System.out.println("Error al obtener el producto: " + e);
+    }
+    return producto;
+}
+// Método para obtener una categoría por su ID
+public categorias obtenerCategoriaPorID(int idCategoria) {
+    categorias categoria = null;
+    ConexionBD conexionBD = new ConexionBD();
+    try (Connection conexion = conexionBD.conectar()) {
+        String sql = "SELECT * FROM Categorias WHERE ID_Categoria = ?";
+        PreparedStatement pst = conexion.prepareStatement(sql);
+        pst.setInt(1, idCategoria);
+        ResultSet rs = pst.executeQuery();
+        if (rs.next()) {
+            int id = rs.getInt("ID_Categoria");
+            String nombre = rs.getString("NombreCat");
+            categoria = new categorias(id, nombre);
+        }
+    } catch (SQLException e) {
+        System.out.println("Error al obtener la categoría: " + e);
+    }
+    return categoria;
+}
+// Método para editar un producto en la base de datos
+public boolean editarProducto(Productos producto) {
+    ConexionBD conexionBD = new ConexionBD();
+    try (Connection conexion = conexionBD.conectar()) {
+        String sql = "UPDATE Productos SET Nombre = ?, Stock = ?, Informacion = ?, Precio = ?, ID_Categoria = ? WHERE ID_Producto = ?";
+        PreparedStatement pst = conexion.prepareStatement(sql);
+        pst.setString(1, producto.getNombreP());
+        pst.setInt(2, producto.getStock());
+        pst.setString(3, producto.getInformacion());
+        pst.setDouble(4, producto.getPrecio());
+        pst.setInt(5, producto.getCategoria().getIdCategoria());
+        pst.setInt(6, producto.getID_Producto());
+        int filasAfectadas = pst.executeUpdate();
+        return filasAfectadas > 0;
+    } catch (SQLException e) {
+        System.out.println("Error al actualizar el producto: " + e);
+        return false;
+    }
+}
+
+
 
 
 
