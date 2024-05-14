@@ -19,6 +19,33 @@ use TLuchito;
         
 		FOREIGN KEY (ID_Categoria) REFERENCES Categorias(ID_Categoria)
 	);
+    select * from productos;
+-- Insertar categorías de comestibles
+INSERT INTO Categorias (NombreCat) VALUES ('Comestibles');
+
+-- Insertar categorías de bebidas
+INSERT INTO Categorias (NombreCat) VALUES ('Bebidas');
+
+-- Insertar categorías de productos de limpieza
+INSERT INTO Categorias (NombreCat) VALUES ('Productos de limpieza');
+
+-- Insertar categorías de artículos de cuidado personal
+INSERT INTO Categorias (NombreCat) VALUES ('Artículos de cuidado personal');
+-- Insertamos un producto de la categoría "Comestibles"
+INSERT INTO Productos (Nombre, Stock, Informacion, Precio, ID_Categoria)
+VALUES ('Arroz', 100, 'Arroz blanco de grano largo', 2.99, 1); -- El ID de la categoría "Comestibles" es 1
+
+-- Insertamos un producto de la categoría "Bebidas"
+INSERT INTO Productos (Nombre, Stock, Informacion, Precio, ID_Categoria)
+VALUES ('Agua mineral', 50, 'Agua mineral natural', 1.50, 2); -- El ID de la categoría "Bebidas" es 2
+
+-- Insertamos un producto de la categoría "Productos de limpieza"
+INSERT INTO Productos (Nombre, Stock, Informacion, Precio, ID_Categoria)
+VALUES ('Detergente', 20, 'Detergente líquido para lavadora', 4.99, 3); -- El ID de la categoría "Productos de limpieza" es 3
+
+-- Insertamos un producto de la categoría "Artículos de cuidado personal"
+INSERT INTO Productos (Nombre, Stock, Informacion, Precio, ID_Categoria)
+VALUES ('Champú', 30, 'Champú suave para todo tipo de cabello', 3.49, 4); -- El ID de la categoría "Artículos de cuidado personal" es 4
 
 -- Ventas
 CREATE TABLE IF NOT EXISTS Ventas (

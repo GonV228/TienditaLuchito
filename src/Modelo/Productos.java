@@ -1,18 +1,30 @@
 package Modelo;
 
 public class Productos {
+   private int ID_Producto;
    private String nombreP;
-   private String codigo;
+   private int stock;
+   private String informacion;
    private double precio;
    private byte[] imagenP;
-   private int stock;
+    private categorias categoria; // Relación con la clase Categorias
 
-    public Productos(String nombreP, String codigo, double precio, byte[] imagenP, int stock) {
+    public Productos(int ID_Producto, String nombreP, int stock, String informacion, double precio, byte[] imagenP, categorias categoria) {
+        this.ID_Producto = ID_Producto;
         this.nombreP = nombreP;
-        this.codigo = codigo;
+        this.stock = stock;
+        this.informacion = informacion;
         this.precio = precio;
         this.imagenP = imagenP;
-        this.stock = stock;
+        this.categoria = categoria;
+    }
+
+    public int getID_Producto() {
+        return ID_Producto;
+    }
+
+    public void setID_Producto(int ID_Producto) {
+        this.ID_Producto = ID_Producto;
     }
 
     public String getNombreP() {
@@ -23,12 +35,20 @@ public class Productos {
         this.nombreP = nombreP;
     }
 
-    public String getCodigo() {
-        return codigo;
+    public int getStock() {
+        return stock;
     }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    public String getInformacion() {
+        return informacion;
+    }
+
+    public void setInformacion(String informacion) {
+        this.informacion = informacion;
     }
 
     public double getPrecio() {
@@ -47,13 +67,13 @@ public class Productos {
         this.imagenP = imagenP;
     }
 
-    public int getStock() {
-        return stock;
+    public categorias getCategoria() {
+        return categoria;
     }
 
-    public void setStock(int stock) {
-        this.stock = stock;
+    public void setCategoria(categorias categoria) {
+        this.categoria = categoria;
     }
 
-   
+    
 }
