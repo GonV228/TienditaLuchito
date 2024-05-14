@@ -3,11 +3,11 @@ package Modelo;
 
 public class categorias {
     private int idCategoria;
-    private String nombre;
+    private String nombreCat;
 
     public categorias(int idCategoria, String nombre) {
         this.idCategoria = idCategoria;
-        this.nombre = nombre;
+        this.nombreCat = nombre;
     }
 
     public int getIdCategoria() {
@@ -19,11 +19,11 @@ public class categorias {
     }
 
     public String getNombre() {
-        return nombre;
+        return nombreCat;
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        this.nombreCat = nombre;
     }
 
 

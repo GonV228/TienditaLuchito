@@ -40,7 +40,6 @@ public class Inventario_Registro extends javax.swing.JFrame {
         jlbCorreoElectronico8 = new javax.swing.JLabel();
         btnImagenProduc = new RSMaterialComponent.RSButtonMaterialOne();
         jlabelImagenInventario = new javax.swing.JLabel();
-        jbtnStock = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jtxfNombreProducto = new RSMaterialComponent.RSTextFieldIconTwo();
         btnAgregarProducto = new RSMaterialComponent.RSButtonIconShadow();
@@ -54,6 +53,7 @@ public class Inventario_Registro extends javax.swing.JFrame {
         btnEditarCategorias = new RSMaterialComponent.RSButtonIconShadow();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtableProductos = new RSMaterialComponent.RSTableMetro();
+        jbtnStock = new RSMaterialComponent.RSButtonMaterialOne();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -143,13 +143,10 @@ public class Inventario_Registro extends javax.swing.JFrame {
                 btnImagenProducActionPerformed(evt);
             }
         });
-        jPanel1.add(btnImagenProduc, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, 180, 30));
+        jPanel1.add(btnImagenProduc, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, -1, -1));
 
         jlabelImagenInventario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jlabelImagenInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 230, 190));
-
-        jbtnStock.setText("Stock");
-        jPanel1.add(jbtnStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
+        jPanel1.add(jlabelImagenInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 230, 190));
 
         jLabel2.setBackground(new java.awt.Color(51, 51, 51));
         jLabel2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
@@ -235,7 +232,7 @@ public class Inventario_Registro extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID_Producto", "Nombre", "Categoria", "Precio", "Stock", "Informacion", "Imagen"
+                "ID", "Nombre", "Stock", "Informacion", "Precio", "Imagen", "Categoria"
             }
         ));
         jtableProductos.setBackgoundHead(new java.awt.Color(51, 51, 51));
@@ -245,7 +242,17 @@ public class Inventario_Registro extends javax.swing.JFrame {
         jtableProductos.setSelectionBackground(new java.awt.Color(102, 102, 102));
         jScrollPane2.setViewportView(jtableProductos);
 
-        Panel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 730, 280));
+        Panel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 730, 170));
+
+        jbtnStock.setBackground(new java.awt.Color(102, 102, 102));
+        jbtnStock.setText("Stock");
+        jbtnStock.setBackgroundHover(new java.awt.Color(153, 153, 153));
+        jbtnStock.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        jbtnStock.setMaximumSize(new java.awt.Dimension(181, 29));
+        jbtnStock.setMinimumSize(new java.awt.Dimension(181, 29));
+        jbtnStock.setRound(30);
+        Panel.add(jbtnStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, -1, -1));
+        jbtnStock.getAccessibleContext().setAccessibleParent(jPanel1);
 
         getContentPane().add(Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 680));
 
@@ -325,7 +332,7 @@ public class Inventario_Registro extends javax.swing.JFrame {
     public javax.swing.JPanel jPanel1;
     public javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    public javax.swing.JButton jbtnStock;
+    public RSMaterialComponent.RSButtonMaterialOne jbtnStock;
     public RSMaterialComponent.RSComboBoxMaterial jcbxCategoria;
     private javax.swing.JLabel jlabelImagenInventario;
     private javax.swing.JLabel jlbCorreoElectronico;
