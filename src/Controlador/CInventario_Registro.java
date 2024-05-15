@@ -1,9 +1,12 @@
 package Controlador;
+
 import Dao.DInventario;
 import Modelo.Productos;
 import Modelo.categorias;
+import ProcesosPDF.GeneradorPDF;
 import VistaInventario.Inventario;
 import VistaInventario.Inventario_Registro;
+import java.awt.Desktop;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -12,6 +15,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 public class CInventario_Registro implements ActionListener {
@@ -30,13 +35,14 @@ public class CInventario_Registro implements ActionListener {
         vista.btnAgregarProducto.addActionListener(this);
         vista.btnBorrarCategorias.addActionListener(this);
         vista.btnEditarCategorias.addActionListener(this);
-        vista.btnExportarCatalogo.addActionListener(this);
+        vista.btnExportarCatalogoProductos.addActionListener(this);
         vista.btnImagenProduc.addActionListener(this);
         vista.jtxfNombreCategoria.addActionListener(this);
         vista.jcbxCategoria.addActionListener(this);
         vista.jtxfInformacion.addActionListener(this);
         vista.jtxtPrecio.addActionListener(this);
         vista.jbtnStock.addActionListener(this);
+        vista.jcbxFiltroCategoria.addActionListener(this);
 
         cargarProductosATabla();
         cargarCategoriasATabla();
@@ -108,8 +114,10 @@ public class CInventario_Registro implements ActionListener {
     private void cargarCategoriasEnComboBox() {
         List<categorias> listaCategorias = dao.obtenerCategoriasOrdenadas();
         vista.jcbxCategoria.removeAllItems();
+        vista.jcbxFiltroCategoria.removeAllItems(); // Limpiar los elementos anteriores del combo box de filtro
         for (categorias categoria : listaCategorias) {
             vista.jcbxCategoria.addItem(categoria.getNombre());
+            vista.jcbxFiltroCategoria.addItem(categoria.getNombre()); // Agregar categorías al combo box de filtro
         }
     }
 
@@ -154,7 +162,15 @@ public class CInventario_Registro implements ActionListener {
     }
 
     private void cargarProductosATabla() {
-        List<Productos> listaProductos = dao.obtenerProductos();
+        String categoriaFiltro = (String) vista.jcbxFiltroCategoria.getSelectedItem();
+        List<Productos> listaProductos;
+        if (categoriaFiltro != null && !categoriaFiltro.isEmpty()) {
+            listaProductos = dao.obtenerProductosPorCategoria(categoriaFiltro);
+
+        } else {
+            listaProductos = dao.obtenerProductos();
+        }
+
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("ID");
         modelo.addColumn("Nombre");
@@ -200,8 +216,21 @@ public class CInventario_Registro implements ActionListener {
             actualizarVista();
         } else if (e.getSource() == vista.jbtnStock) {
             manejarBotonStock();
-        }
-    }
+
+        } else if (e.getSource() == vista.jcbxFiltroCategoria) {
+            cargarProductosATabla();
+       
+} else if (e.getSource() == vista.btnExportarCatalogoProductos) {
+ // Llama al método exportarCatalogoPDF con la categoría seleccionada
+    String categoria = (String) vista.jcbxFiltroCategoria.getSelectedItem();
+    String rutaArchivo = exportarCatalogoPDF(categoria);
+    abrirPDF(rutaArchivo);
+    JOptionPane.showMessageDialog(vista, "El catálogo de productos se ha exportado correctamente como " + rutaArchivo, "Éxito", JOptionPane.INFORMATION_MESSAGE);
+} else if (e.getSource() == vista.btnImagenProduc) {
+    System.out.println("Estoy funcionando");
+}
+
+}
 
     private void manejarBotonStock() {
         int filaSeleccionada = vista.jtableProductos.getSelectedRow();
@@ -369,5 +398,27 @@ private void editarProducto() {
         JOptionPane.showMessageDialog(vista, "Por favor, selecciona un producto a editar.", "Error", JOptionPane.ERROR_MESSAGE);
     }
 }
+// Método para exportar el catálogo PDF
+private String exportarCatalogoPDF(String categoria) {
+    // Obtén la lista de productos de la categoría seleccionada
+    List<Productos> listaProductos = dao.obtenerProductosPorCategoria(categoria);
 
+    // Crea una instancia del GeneradorPDF
+    GeneradorPDF generadorPDF = new GeneradorPDF();
+
+    // Genera el catálogo PDF y devuelve la ruta del archivo generado
+    return generadorPDF.generarCatalogoPDF(listaProductos, categoria);
+}
+        private void abrirPDF(String rutaArchivo) {
+        try {
+            File archivoPDF = new File(rutaArchivo);
+            if (archivoPDF.exists()) {
+                Desktop.getDesktop().open(archivoPDF);
+            } else {
+                JOptionPane.showMessageDialog(vista, "El archivo PDF no existe.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(vista, "Error al abrir el archivo PDF.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 }

@@ -47,6 +47,35 @@ VALUES ('Detergente', 20, 'Detergente líquido para lavadora', 4.99, 3); -- El I
 INSERT INTO Productos (Nombre, Stock, Informacion, Precio, ID_Categoria)
 VALUES ('Champú', 30, 'Champú suave para todo tipo de cabello', 3.49, 4); -- El ID de la categoría "Artículos de cuidado personal" es 4
 
+-- Inserts para la tabla Categorias
+INSERT INTO Categorias (NombreCat) VALUES ('Frutas');
+INSERT INTO Categorias (NombreCat) VALUES ('Carnes');
+
+-- Inserts para la tabla Productos (Frutas)
+INSERT INTO Productos (Nombre, Stock, Informacion, Precio, ID_Categoria) VALUES ('Manzanas', 50, 'Manzanas frescas de la región', 2.50, 1);
+INSERT INTO Productos (Nombre, Stock, Informacion, Precio, ID_Categoria) VALUES ('Plátanos', 40, 'Plátanos maduros y dulces', 1.80, 1);
+INSERT INTO Productos (Nombre, Stock, Informacion, Precio, ID_Categoria) VALUES ('Naranjas', 30, 'Naranjas jugosas y frescas', 2.00, 1);
+INSERT INTO Productos (Nombre, Stock, Informacion, Precio, ID_Categoria) VALUES ('Uvas', 25, 'Uvas rojas y verdes', 3.00, 1);
+INSERT INTO Productos (Nombre, Stock, Informacion, Precio, ID_Categoria) VALUES ('Fresas', 35, 'Fresas frescas de temporada', 2.20, 1);
+INSERT INTO Productos (Nombre, Stock, Informacion, Precio, ID_Categoria) VALUES ('Piñas', 20, 'Piñas maduras y jugosas', 2.80, 1);
+INSERT INTO Productos (Nombre, Stock, Informacion, Precio, ID_Categoria) VALUES ('Sandías', 15, 'Sandías dulces y refrescantes', 4.50, 1);
+INSERT INTO Productos (Nombre, Stock, Informacion, Precio, ID_Categoria) VALUES ('Melones', 10, 'Melones grandes y jugosos', 3.50, 1);
+INSERT INTO Productos (Nombre, Stock, Informacion, Precio, ID_Categoria) VALUES ('Limones', 45, 'Limones frescos y ácidos', 1.50, 1);
+INSERT INTO Productos (Nombre, Stock, Informacion, Precio, ID_Categoria) VALUES ('Papayas', 30, 'Papayas maduras y sabrosas', 2.75, 1);
+
+-- Inserts para la tabla Productos (Carnes)
+INSERT INTO Productos (Nombre, Stock, Informacion, Precio, ID_Categoria) VALUES ('Carne de res', 20, 'Carne de res de primera calidad', 10.50, 2);
+INSERT INTO Productos (Nombre, Stock, Informacion, Precio, ID_Categoria) VALUES ('Pollo entero', 30, 'Pollo fresco y sin hueso', 8.75, 2);
+INSERT INTO Productos (Nombre, Stock, Informacion, Precio, ID_Categoria) VALUES ('Chuletas de cerdo', 25, 'Chuletas de cerdo marinadas', 6.20, 2);
+INSERT INTO Productos (Nombre, Stock, Informacion, Precio, ID_Categoria) VALUES ('Filete de pescado', 15, 'Filete de pescado blanco fresco', 12.80, 2);
+INSERT INTO Productos (Nombre, Stock, Informacion, Precio, ID_Categoria) VALUES ('Salchichas', 40, 'Salchichas de cerdo y pollo', 5.50, 2);
+INSERT INTO Productos (Nombre, Stock, Informacion, Precio, ID_Categoria) VALUES ('Jamón', 35, 'Jamón de cerdo cortado en rebanadas', 7.90, 2);
+INSERT INTO Productos (Nombre, Stock, Informacion, Precio, ID_Categoria) VALUES ('Tocino', 25, 'Tocino ahumado y crujiente', 6.75, 2);
+INSERT INTO Productos (Nombre, Stock, Informacion, Precio, ID_Categoria) VALUES ('Salmon', 20, 'Filete de salmón fresco', 15.50, 2);
+INSERT INTO Productos (Nombre, Stock, Informacion, Precio, ID_Categoria) VALUES ('Hamburguesas', 30, 'Hamburguesas de carne de res', 9.25, 2);
+INSERT INTO Productos (Nombre, Stock, Informacion, Precio, ID_Categoria) VALUES ('Carne molida', 25, 'Carne de res molida magra', 7.00, 2);
+
+
 -- Ventas
 CREATE TABLE IF NOT EXISTS Ventas (
     ID_Venta INT AUTO_INCREMENT PRIMARY KEY,
