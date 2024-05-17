@@ -53,14 +53,14 @@ public class MenuAdministrador extends javax.swing.JFrame {
         PrincipalMenu.setLayout(PrincipalMenuLayout);
         PrincipalMenuLayout.setHorizontalGroup(
             PrincipalMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1070, Short.MAX_VALUE)
+            .addGap(0, 1080, Short.MAX_VALUE)
         );
         PrincipalMenuLayout.setVerticalGroup(
             PrincipalMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 780, Short.MAX_VALUE)
+            .addGap(0, 790, Short.MAX_VALUE)
         );
 
-        jPanel1.add(PrincipalMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 1070, 780));
+        jPanel1.add(PrincipalMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1080, 790));
 
         rSPanelMaterial1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 1070, 780));
 

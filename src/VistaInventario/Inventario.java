@@ -65,7 +65,7 @@ public class Inventario extends javax.swing.JFrame {
         });
         jPanel2.add(tab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 52, 139, -1));
 
-        Panel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1030, 100));
+        Panel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1020, 100));
 
         PrincipalInventario.setBackground(new java.awt.Color(255, 255, 255));
         PrincipalInventario.setIntensity(5);
@@ -81,7 +81,7 @@ public class Inventario extends javax.swing.JFrame {
 
         Panel.add(PrincipalInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 1030, 640));
 
-        getContentPane().add(Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1050, 760));
+        getContentPane().add(Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1040, 760));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

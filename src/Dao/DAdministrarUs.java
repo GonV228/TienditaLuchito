@@ -229,4 +229,58 @@ public class DAdministrarUs {
         
         return usuarios;
     }
+    
+    public boolean existeUsuarioConDocumento(String numeroDocumento) {
+        ConexionBD db = new ConexionBD();
+        Connection conexion = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        boolean existe = false;
+
+        try {
+            // Establecer conexión
+            conexion = db.conectar();
+
+            // Consulta SQL para verificar si existe un usuario con el número de documento especificado
+            String query = "SELECT COUNT(*) AS count FROM Usuarios WHERE N_Documento = ?";
+
+            // Preparar la declaración
+            pst = conexion.prepareStatement(query);
+
+            // Establecer el valor del parámetro en la consulta
+            pst.setString(1, numeroDocumento);
+
+            // Ejecutar la consulta
+            rs = pst.executeQuery();
+
+            // Verificar si existe algún resultado
+            if (rs.next()) {
+                // Obtener el número de filas
+                int rowCount = rs.getInt("count");
+                existe = rowCount > 0;
+            }
+        } catch (SQLException e) {
+            // Manejar cualquier excepción de SQL
+            JOptionPane.showMessageDialog(null, "Error al verificar la existencia de usuario: " + e.getMessage());
+        } finally {
+            // Cerrar la conexión y la declaración
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+                if (conexion != null) {
+                    conexion.close();
+                }
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "Error al cerrar la conexión: " + ex.getMessage());
+            }
+        }
+
+        return existe;
+    }
+
+    
 }

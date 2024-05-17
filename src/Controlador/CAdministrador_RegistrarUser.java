@@ -32,6 +32,7 @@ public class CAdministrador_RegistrarUser implements ActionListener {
         vista.btnBorrar.addActionListener(this);
         vista.btnEditar.addActionListener(this);
         vista.btnSeleccionarImagen.addActionListener(this);
+        vista.btnValidarContraseña.addActionListener(this);
         vista.jtxtNombres.addActionListener(this);
         vista.jtxtApellidos.addActionListener(this);
         vista.jtxtCorreo.addActionListener(this);
@@ -73,6 +74,11 @@ public class CAdministrador_RegistrarUser implements ActionListener {
             seleccionarImagen();
         }
         mostrarUsuariosEnTabla();
+        if(e.getSource()==vista.jtxtContraseña||e.getSource()==vista.btnValidarContraseña){
+            String contraseña=vista.jtxtContraseña.getText();
+            String mensaje=validarContrasena(contraseña);
+            JOptionPane.showMessageDialog(null, mensaje, "Validación de Contraseña", JOptionPane.INFORMATION_MESSAGE);
+        }
     }
 
     
@@ -121,6 +127,8 @@ public class CAdministrador_RegistrarUser implements ActionListener {
 
     //2. REGISTRAR NUEVO USUARIO
     private void registrarNuevoUsuario() {
+        //instanciamos DAO para administrar los usuarios
+        DAdministrarUs daoRegistrarUs = new DAdministrarUs();
         // Obtener los datos ingresados por el usuario
         String nombres = vista.jtxtNombres.getText();
         String apellidos = vista.jtxtApellidos.getText();
@@ -133,28 +141,59 @@ public class CAdministrador_RegistrarUser implements ActionListener {
         byte[] imagenBytes = obtenerBytesDeImagen();
         
         //validaciones :D
+        
+            // Validar que no haya campos vacíos
+                if (nombres.isEmpty() || apellidos.isEmpty() || correo.isEmpty() || contraseña.isEmpty() ||
+                    tipoDocumento.isEmpty() || numeroDocumento.isEmpty() || telefono.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Por favor, completa todos los campos para registrar un nuevo usuario.","Campos incompletos", JOptionPane.INFORMATION_MESSAGE);
+                    return; // Detener la ejecución del método si hay campos vacíos
+                }
+            //Validar nombres 9.1
+                String nameValid=validarNombre(nombres);
+                if(nameValid != null){
+                    JOptionPane.showMessageDialog(null, nameValid, "Validación de Nombre", JOptionPane.INFORMATION_MESSAGE);
+                    return;//detener la ejecucion para que el usuario corrija
+                }
+            //Validar Apellidos 9.2
+                String addressValid=validarApellido(apellidos);
+                if(addressValid!= null){
+                    JOptionPane.showMessageDialog(null, addressValid, "Validación de Apellido", JOptionPane.INFORMATION_MESSAGE);
+                    return;//detener la ejecucion para que el usuario corrija
+                }    
+            //Validar Correo electronico 9.3
+            //Validar contraseña 9.4
+                String mensaje=validarContrasena(contraseña);
+                if(mensaje!=null){
+                    JOptionPane.showMessageDialog(null, mensaje, "Validación de Contraseña", JOptionPane.INFORMATION_MESSAGE);
+                    //return;//detener la ejecucion para que el usuario corrija
+                }
             //Validar documento de identidad VALIDACIONES EN EL PUNTO "9"...... 9.5 
                 int cantidadDeDigitos=numeroDocumento.length();//obtenemos la cantidad de digitos del documento
                 if (tipoDocumento.equals("DNI") || tipoDocumento.equals("Carnet de Extranjeria")) {
                     // Validar que el número de documento tenga 8 dígitos
                     if (numeroDocumento.length() != 8) {
-                        JOptionPane.showMessageDialog(null, "El número de documento debe tener 8 dígitos tiene: [ "+cantidadDeDigitos+" ] digitos.");
+                        JOptionPane.showMessageDialog(null, "El número de documento debe tener 8 dígitos tiene: [ "+cantidadDeDigitos+" ] digitos.","Validación de Nº de Documento", JOptionPane.INFORMATION_MESSAGE);
                         return; // Detener la ejecución del método
                     }
                 } else if (tipoDocumento.equals("Pasaporte")) {
                     // No aplicar ninguna validación específica para pasaportes
                 }
+                // Verificar si ya existe un usuario con el número de documento especificado
+                if (daoRegistrarUs.existeUsuarioConDocumento(numeroDocumento)) {
+                    JOptionPane.showMessageDialog(null, "El número de documento ya está en uso. Ingrese otro número de documento", "Validación de Número de Documento", JOptionPane.INFORMATION_MESSAGE);
+                    return; // Detener la ejecución del método si el número de documento ya está en uso
+                }
             //Validar numero de teléfono VALIDACIONES EN EL PUNTO "9"...... 9.6  
                 String errorTelefono = validarTelefono(telefono);
                 if (errorTelefono != null) {
-                    JOptionPane.showMessageDialog(null, errorTelefono);
+                    JOptionPane.showMessageDialog(null, errorTelefono, "Validación de Nº de Teléfono", JOptionPane.INFORMATION_MESSAGE);
                     return; // Detener la ejecución del método si la validación falla
                 }
         // Crear un objeto Usuario con los datos obtenidos
         Usuario nuevoUsuario = new Usuario(nombres, apellidos, correo, contraseña, rol, tipoDocumento, Integer.parseInt(numeroDocumento), telefono, imagenBytes);
 
         // Llamar al método del DAO para registrar el nuevo usuario
-        DAdministrarUs daoRegistrarUs = new DAdministrarUs();
+
         boolean registroExitoso = daoRegistrarUs.registrarUsuario(nuevoUsuario);
 
         if (registroExitoso) {
@@ -234,7 +273,7 @@ public class CAdministrador_RegistrarUser implements ActionListener {
             fis.close();
             return buffer;
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Error al obtener bytes de la imagen: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al obtener bytes de la imagen: " + e.getMessage(),"Error al obtener la imagen", JOptionPane.INFORMATION_MESSAGE);
             return null;
         }
     }
@@ -299,27 +338,126 @@ public class CAdministrador_RegistrarUser implements ActionListener {
     }
     //9. VALIDACIONES
     //9.1 VALIDAR NOMBRES
-    //9.2 VALIDAR APELLIDOS
-    //9.3 VALIDAR CORREO ELECTRÓNICO
-    //9.4 VALIDAR CONTRASEÑA
-    //9.5 VALIDAR DOCUMENTO DE INDENTIDAD
-    //9.6 VALIDAR NÚMERO DE TELÉFONO
-    private String validarTelefono(String telefono) {
-        int cantDigitos=telefono.length();
-        // Verificar que el número de teléfono tenga 9 dígitos y empiece con el número 9
-        if (!telefono.matches("^9\\d{8}$")) {
-            // Validar la longitud del número de teléfono
-            if (telefono.length() != 9) {
-                return "El número de teléfono debe tener 9 dígitos, tiene: [ "+cantDigitos+" ] digitos.";
+        private static String validarNombre(String nombre) {
+            StringBuilder mensaje = new StringBuilder();
+            String texto="Nombre propio: ";
+            int cont=0;
+            // Dividir el nombre en palabras
+            String[] palabras = nombre.split("\\s+");
+            // Validar cada palabra
+            for (String palabra : palabras) {
+                // Verificar si la primera letra es mayúscula
+                if (!Character.isUpperCase(palabra.charAt(0))) {
+                    mensaje.append("Primera letra en mayúscula. ");
+                    cont++;
+                }
+                // Verificar si el resto de las letras son minúsculas
+                for (int i = 1; i < palabra.length(); i++) {
+                    if (!Character.isLowerCase(palabra.charAt(i))) {
+                        mensaje.append("Despues de la primera letra en minúscula.");
+                        cont++;
+                    }
+                }
             }
-            // Validar que el número de teléfono empiece con el número 9
-            if (!telefono.startsWith("9")) {
-                return "El número de teléfono debe empezar con el número 9.";
+            if(cont==0){
+                return null;//"Nombre valido";
+            }else{ 
+                return texto+mensaje.toString();
             }
         }
-        // El número de teléfono es válido
-        return null;
-    }
+    //9.2 VALIDAR APELLIDOS
+        private static String validarApellido(String nombre) {
+            StringBuilder mensaje = new StringBuilder();
+            String texto="Los apellidos son nombres propios: ";
+            int cont=0;
+            // Dividir el nombre en palabras
+            String[] palabras = nombre.split("\\s+");
+            // Validar cada palabra
+            for (String palabra : palabras) {
+                // Verificar si la primera letra es mayúscula
+                if (!Character.isUpperCase(palabra.charAt(0))) {
+                    mensaje.append("Primera letra en mayúscula. ");
+                    cont++;
+                }
+                // Verificar si el resto de las letras son minúsculas
+                for (int i = 1; i < palabra.length(); i++) {
+                    if (!Character.isLowerCase(palabra.charAt(i))) {
+                        if(i==1){
+                        mensaje.append("Despues de la primera letra en minúscula.");
+                        }
+                        cont++;
+                    }
+                }
+            }
+            if(cont==0){
+                return null;//"Apellido valido";
+            }else{ 
+                return texto+mensaje.toString();
+            }
+        }
+    //9.3 VALIDAR CORREO ELECTRÓNICO
+    //9.4 VALIDAR CONTRASEÑA
+        private static String validarContrasena(String contrasena) {
+            // Comprobar si contiene al menos un símbolo especial, un número, una letra mayúscula y una letra minúscula
+            boolean contieneSimboloEspecial = contrasena.matches(".*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?].*");
+            boolean contieneNumero = contrasena.matches(".*\\d.*");
+            boolean contieneLetraMayuscula = contrasena.matches(".*[A-Z].*");
+            boolean contieneLetraMinuscula = contrasena.matches(".*[a-z].*");
+
+            String texto="La contraseña debe contener al menos ";
+            StringBuilder mensaje = new StringBuilder();
+            // Comprobar la longitud mínima de 8 caracteres
+            if (contrasena.length() < 8) {
+                mensaje.append( "8 caracteres. ");
+            }
+            if (!contieneSimboloEspecial) {
+                mensaje.append("Un símbolo especial. ");
+            }
+            if (!contieneNumero) {
+                mensaje.append("Un número. ");
+            }
+            if (!contieneLetraMayuscula) {
+                mensaje.append("Una letra mayúscula. ");
+            }
+            if (!contieneLetraMinuscula) {
+                mensaje.append("Una letra minúscula. ");
+            }
+
+            if (mensaje.length() == 0) {
+                return "La contraseña es válida.";
+            } else {
+                return texto+mensaje.toString();
+            }
+        }
+    //9.5 VALIDAR DOCUMENTO DE INDENTIDAD
+        //ya esta el codigo 
+    //9.6 VALIDAR NÚMERO DE TELÉFONO
+        private String validarTelefono(String telefono) {
+            int cont=0;
+            int cantDigitos=telefono.length();
+            String texto="\"El número de teléfono debe: ";
+            StringBuilder mensaje = new StringBuilder();
+            // Verificar que el número de teléfono tenga 9 dígitos y empiece con el número 9
+            if (!telefono.matches("^9\\d{8}$")) {
+                // Validar la longitud del número de teléfono
+                if (telefono.length() != 9) {
+                    mensaje.append("Tener 9 dígitos, tiene: [ "+cantDigitos+" ] digitos.") ;
+                    cont++;
+                }
+                // Validar que el número de teléfono empiece con el número 9
+                if (!telefono.startsWith("9")) {
+                    mensaje.append(" Empezar con el número 9");
+                    cont++;
+                }
+            }
+            if(cont==0){
+                return null; //el numero no entro en ninguna condicional anterior por lo tanto mandaremos null
+            }else{
+                // El número de teléfono es válido
+                return texto+mensaje.toString();
+            }
+            
+        }
     //9.7 VALIDAR TIPO DE ARCHIVO PARA SUBIR LA IMAGEN
     
 }

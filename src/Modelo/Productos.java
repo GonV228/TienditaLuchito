@@ -1,16 +1,16 @@
 package Modelo;
 
 public class Productos {
-   private int ID_Producto;
    private String nombreP;
+   private int codigo;
    private int stock;
    private String informacion;
    private double precio;
    private byte[] imagenP;
     private categorias categoria; // Relación con la clase Categorias
 
-    public Productos(int ID_Producto, String nombreP, int stock, String informacion, double precio, byte[] imagenP, categorias categoria) {
-        this.ID_Producto = ID_Producto;
+    public Productos(int codigo, String nombreP, int stock, String informacion, double precio, byte[] imagenP, categorias categoria) {
+        this.codigo = codigo;
         this.nombreP = nombreP;
         this.stock = stock;
         this.informacion = informacion;
@@ -20,11 +20,11 @@ public class Productos {
     }
 
     public int getID_Producto() {
-        return ID_Producto;
+        return codigo;
     }
 
     public void setID_Producto(int ID_Producto) {
-        this.ID_Producto = ID_Producto;
+        this.codigo = ID_Producto;
     }
 
     public String getNombreP() {
