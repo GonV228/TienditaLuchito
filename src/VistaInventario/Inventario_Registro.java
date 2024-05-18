@@ -278,6 +278,20 @@ public class Inventario_Registro extends javax.swing.JFrame {
         jtableProductos.setColorSecundaryText(new java.awt.Color(51, 51, 51));
         jtableProductos.setSelectionBackground(new java.awt.Color(102, 102, 102));
         jScrollPane2.setViewportView(jtableProductos);
+        if (jtableProductos.getColumnModel().getColumnCount() > 0) {
+            jtableProductos.getColumnModel().getColumn(0).setMinWidth(40);
+            jtableProductos.getColumnModel().getColumn(0).setMaxWidth(60);
+            jtableProductos.getColumnModel().getColumn(1).setMinWidth(120);
+            jtableProductos.getColumnModel().getColumn(1).setMaxWidth(120);
+            jtableProductos.getColumnModel().getColumn(2).setMinWidth(40);
+            jtableProductos.getColumnModel().getColumn(2).setMaxWidth(60);
+            jtableProductos.getColumnModel().getColumn(4).setMinWidth(40);
+            jtableProductos.getColumnModel().getColumn(4).setMaxWidth(60);
+            jtableProductos.getColumnModel().getColumn(5).setMinWidth(60);
+            jtableProductos.getColumnModel().getColumn(5).setMaxWidth(60);
+            jtableProductos.getColumnModel().getColumn(6).setMinWidth(120);
+            jtableProductos.getColumnModel().getColumn(6).setMaxWidth(120);
+        }
 
         Panel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 720, 260));
 

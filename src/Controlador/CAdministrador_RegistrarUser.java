@@ -285,7 +285,11 @@ public class CAdministrador_RegistrarUser implements ActionListener {
 
         // Obtener el modelo de la tabla
         DefaultTableModel modelo = (DefaultTableModel) vista.tblEmpleados.getModel();
-
+        
+        // Iterar sobre las columnas y establecer el editor como null para hacerlas no editables
+        for (int i = 0; i < modelo.getColumnCount(); i++) {
+            vista.tblEmpleados.setDefaultEditor(modelo.getColumnClass(i), null);
+        }
         // Limpiar la tabla antes de agregar los nuevos datos
         modelo.setRowCount(0);
 

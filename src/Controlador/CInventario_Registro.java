@@ -3,6 +3,7 @@ package Controlador;
 import Dao.DInventario;
 import Modelo.Productos;
 import Modelo.categorias;
+import Procesos.PrecioDocumentFilter;
 import ProcesosPDF.GeneradorPDF;
 import VistaInventario.Inventario;
 import VistaInventario.Inventario_Registro;
@@ -18,6 +19,7 @@ import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import javax.swing.text.AbstractDocument;
 
 public class CInventario_Registro implements ActionListener {
     private Inventario_Registro vista;
@@ -47,7 +49,9 @@ public class CInventario_Registro implements ActionListener {
         cargarProductosATabla();
         cargarCategoriasATabla();
         cargarCategoriasEnComboBox();
-
+        //este metodo convierte los , en . para el ingreso de precios en inventario
+        ((AbstractDocument) vista.jtxtPrecio.getDocument()).setDocumentFilter(new PrecioDocumentFilter()); 
+        
         vista.jtableCategorias.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -85,7 +89,12 @@ public class CInventario_Registro implements ActionListener {
 
     private void cargarCategoriasATabla() {
         List<categorias> listaCategorias = dao.obtenerCategoriasOrdenadas();
-        DefaultTableModel modelo = new DefaultTableModel();
+        DefaultTableModel modelo = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; // Hace que todas las celdas de la tabla sean no editables
+            }
+        };
         modelo.addColumn("ID");
         modelo.addColumn("Nombre");
         for (categorias categoria : listaCategorias) {
@@ -171,7 +180,12 @@ public class CInventario_Registro implements ActionListener {
             listaProductos = dao.obtenerProductos();
         }
 
-        DefaultTableModel modelo = new DefaultTableModel();
+        DefaultTableModel modelo = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; // Hace que todas las celdas de la tabla sean no editables
+            }
+        };
         modelo.addColumn("ID");
         modelo.addColumn("Nombre");
         modelo.addColumn("Stock");
@@ -311,7 +325,13 @@ public class CInventario_Registro implements ActionListener {
             return;
         }
 
-        double precio = Double.parseDouble(precioStr);
+        double precio;
+        try {
+            precio = Double.parseDouble(precioStr);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(vista, "El precio ingresado no es válido.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 
         categorias categoria = dao.obtenerCategoriaPorNombre(categoriaNombre);
         if (categoria == null) {
