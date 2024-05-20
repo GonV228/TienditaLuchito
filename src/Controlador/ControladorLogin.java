@@ -6,6 +6,7 @@ import VistaLogin.RecuperarContraseña;
 import VistaAdministrador.MenuAdministrador;
 import VistaEmpleado.MenuEmpleado;
 import Modelo.Usuario;
+import VistaLogin.Recuperar_1Correo;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -34,6 +35,18 @@ public class ControladorLogin implements ActionListener {
             String contraseña = vista.jtxtfContraseña.getText();
  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////           
             // Verificar el inicio de sesión en la base de datos
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            /////////////////////////////////////////////////////
+            //ESTA PARTE DE ABAJO ES PARA INICIAR SESION!!!! PARA USARLA HAY QUE COMENTAR LA LINEA 52 Y DESCOMENTAR LA 51
+            /////////////////////////////////////////////////////
             //usuario = new Usuario("", "", contraseña, correo, "", "", 0, "", 0, ""); // Creación del objeto "usuario" con valores vacíos
             
         // String rol = dLogin.obtenerRolUsuario(usuario); // Usando el objeto "dLogin" en lugar de "dao"
@@ -56,8 +69,8 @@ String rol="Administrador";
             }
         } 
         if (e.getSource() == vista.jbtnRecuperarContraseña) {   
-            RecuperarContraseña rc = new RecuperarContraseña();
-            CRecuperarContraseña CRC = new CRecuperarContraseña(rc);
+            Recuperar_1Correo rc = new Recuperar_1Correo();
+            CRecuperar_1Correo CRC = new CRecuperar_1Correo(rc);
             vista.dispose(); // Cerrar la ventana de inicio de sesión
         }
     }
