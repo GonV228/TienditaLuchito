@@ -6,6 +6,7 @@ import VistaLogin.Login;
 import VistaLogin.Recuperar;
 import VistaLogin.Recuperar_2Codigo;
 import Dao.DLogin;
+import Procesos.JavaMail;
 import static Procesos.CodigoAleatorio.generarCodigo;
 //librerias
 import java.awt.BorderLayout;
@@ -18,6 +19,7 @@ public class CRecuperar_1Correo implements ActionListener{
     //inicializar
     Recuperar_1Correo vista;
     Login login;
+    
     
     //constructor
 
@@ -59,6 +61,7 @@ public class CRecuperar_1Correo implements ActionListener{
                 return;
             }// Si el correo es válido, continuar con el proceso
             String codigoAleatorio = generarCodigo();
+            JavaMail javaEmail=new JavaMail(codigoAleatorio,correo);
             
             // Instanciar el controlador del siguiente paso y pasar el correo como argumento
             Recuperar_2Codigo vista2 = new Recuperar_2Codigo();

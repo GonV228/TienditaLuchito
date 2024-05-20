@@ -23,6 +23,11 @@ public class Usuario {
         this.telefono = telefono;
         this.imagenBytes = imagenBytes;
     }
+    public Usuario(String contra, String correo){
+        this.contraseña=contra;
+        this.correoElectronico=correo;
+    }
+    public Usuario(){}
 
     // Getters y setters
     public String getNombres() {

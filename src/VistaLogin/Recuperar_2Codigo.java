@@ -46,7 +46,7 @@ public class Recuperar_2Codigo extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("RECUPARAR CONTRASEÑA");
+        jLabel2.setText("RECUPERAR CONTRASEÑA");
         rSPanelMaterial1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 30, 390, -1));
 
         jtxtfIngresaCodigo.setForeground(new java.awt.Color(102, 102, 102));

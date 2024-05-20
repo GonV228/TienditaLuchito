@@ -401,7 +401,7 @@ public class CAdministrador_RegistrarUser implements ActionListener {
         }
     //9.3 VALIDAR CORREO ELECTRÓNICO
     //9.4 VALIDAR CONTRASEÑA
-        private static String validarContrasena(String contrasena) {
+        public static String validarContrasena(String contrasena) {
             // Comprobar si contiene al menos un símbolo especial, un número, una letra mayúscula y una letra minúscula
             boolean contieneSimboloEspecial = contrasena.matches(".*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?].*");
             boolean contieneNumero = contrasena.matches(".*\\d.*");

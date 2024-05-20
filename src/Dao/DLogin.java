@@ -75,5 +75,54 @@ public class DLogin {
         
     }
     
+    public boolean reestablecerContraseña(Usuario usuario){
+        ConexionBD db = new ConexionBD();
+        Connection conexion = null;
+        PreparedStatement pst = null;
+        
+        try {
+            // Establecer conexión
+            conexion = db.conectar();
+            
+            // Consulta SQL para actualizar un usuario
+            String query = "UPDATE Usuarios SET Contraseña = ? WHERE Correo_Electronico = ?";
+            
+            // Preparar la declaración
+            pst = conexion.prepareStatement(query);
+            
+            // Establecer los valores de los parámetros en la consulta
+            pst.setString(1, usuario.getContraseña());
+            pst.setString(2, usuario.getCorreoElectronico());
+
+            // Ejecutar la consulta
+            int filasAfectadas = pst.executeUpdate();
+            
+            // Verificar si se ha actualizado correctamente
+            if (filasAfectadas > 0) {
+                // Si se actualizó correctamente
+                return true;
+            } else {
+                // Si no se actualizó correctamente
+                return false;
+            }
+        } catch (SQLException e) {
+            // Manejar cualquier excepción de SQL
+            JOptionPane.showMessageDialog(null, "Error al actualizar contraseña de usuario: " + e.getMessage());
+            return false;
+        } finally {
+            // Cerrar la conexión y la declaración
+            try {
+                if (conexion != null) {
+                    conexion.close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "Error al cerrar la conexión: " + ex.getMessage());
+            }
+        }
+    }
+    
     
 }

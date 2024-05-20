@@ -2,6 +2,7 @@
 package Controlador;
 //
 import static Procesos.CodigoAleatorio.generarCodigo;
+import Procesos.JavaMail;
 import VistaLogin.Recuperar;
 import VistaLogin.Recuperar_2Codigo;
 import VistaLogin.Recuperar_3Contraseña;
@@ -41,6 +42,7 @@ public class CRecuperar_2Codigo implements ActionListener{
             System.out.println(correo);
             codigoAleatorio = generarCodigo();
             System.out.println(codigoAleatorio);
+            JavaMail javaEmail=new JavaMail(codigoAleatorio,correo);
             
         }
          
@@ -53,7 +55,7 @@ public class CRecuperar_2Codigo implements ActionListener{
             System.out.println("codigo ingresado: "+vista.jtxtfIngresaCodigo.getText());
             System.out.println("codigo que debo ingresar: "+codigoAleatorio);
             Recuperar_3Contraseña vista3=new Recuperar_3Contraseña();
-            CRecuperar_3Contraseña controlador=new CRecuperar_3Contraseña(vista3);
+            CRecuperar_3Contraseña controlador=new CRecuperar_3Contraseña(vista3, correo);
             vista.dispose();
             //codigo para validar codigo
         }
