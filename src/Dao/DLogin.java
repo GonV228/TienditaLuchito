@@ -1,32 +1,39 @@
 package Dao;
 
 import Modelo.Usuario;
+import Modelo.UsuarioInfo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-public class DLogin {
-    
-    public String obtenerRolUsuario(Usuario u) {
+public class DLogin { 
+    public UsuarioInfo obtenerInfoUsuario(Usuario u) {
         String rol = null;
+        String nombre = null;
+        String apellido = null;
         ConexionBD db = new ConexionBD();
         try {
             Connection conexion = db.conectar();
-            PreparedStatement pst = conexion.prepareStatement("SELECT Rol FROM Usuarios WHERE Correo_Electronico = ? AND Contraseña = ?");
+            PreparedStatement pst = conexion.prepareStatement("SELECT Rol , Nombres , Apellidos FROM Usuarios WHERE Correo_Electronico = ? AND Contraseña = ?");
             pst.setString(1, u.getCorreoElectronico());
             pst.setString(2, u.getContraseña());
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
                 rol = rs.getString("Rol");
+                nombre = rs.getString("Nombres");
+                apellido = rs.getString("Apellidos");
             }
+            rs.close();  // Asegúrate de cerrar el ResultSet
+            pst.close(); // Asegúrate de cerrar el PreparedStatement
+            conexion.close(); // Asegúrate de cerrar la conexión
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al obtener el rol del usuario: " + e);
         }
-        return rol;
+        return new UsuarioInfo(rol, nombre, apellido);
     }
-    
+        
     public boolean existeCorreo(String correo){
         ConexionBD db = new ConexionBD();
         Connection conexion = null;

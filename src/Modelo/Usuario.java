@@ -23,6 +23,11 @@ public class Usuario {
         this.telefono = telefono;
         this.imagenBytes = imagenBytes;
     }
+    public Usuario(String rol, String nombre, String apellido){
+        this.rol=rol;
+        this.nombres=nombre;
+        this.apellidos=apellido;
+    }
     public Usuario(String contra, String correo){
         this.contraseña=contra;
         this.correoElectronico=correo;

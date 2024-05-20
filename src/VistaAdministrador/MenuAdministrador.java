@@ -86,7 +86,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
 
         rSPanelMaterial3.add(rSPanelBorderImage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, -1));
 
-        JlabelCorreo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        JlabelCorreo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         JlabelCorreo.setForeground(new java.awt.Color(102, 102, 102));
         JlabelCorreo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JlabelCorreo.setText("USUARIO ADRESS");

@@ -18,11 +18,17 @@ import javax.swing.JFrame;
 public class CMenuAdministrador implements ActionListener{
     //inicialización
     MenuAdministrador vista;
+    private String nombre;
+    private String apellido;
+    private String correo;
     //inicialización del dao para poder traer al menu los datos del usuario que inicia sesión
     
     //constructor
-    public CMenuAdministrador(MenuAdministrador menu){
-        vista=menu;
+    public CMenuAdministrador(MenuAdministrador menu, String name, String address, String email){
+        this.vista=menu;
+        this.nombre=name;
+        this.apellido=address;
+        this.correo=email;
         menu.setVisible(true);
         menu.setTitle("Administrador");
         menu.setLocationRelativeTo(null); //centrar ventana
@@ -31,6 +37,8 @@ public class CMenuAdministrador implements ActionListener{
         vista.jbtnVentas.addActionListener(this);
         vista.jbtnCerrarSesion.addActionListener(this);
         
+        UsuarioEnSesion(name, address,email);
+        System.out.println(UsuarioEnSesion(name, address,email));
     }
 
     @Override
@@ -68,6 +76,17 @@ public class CMenuAdministrador implements ActionListener{
             vista.dispose();
         }
         
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////
+    //Procesos
+    ////////////////////////////////////////////////////////////////////////////////////////
+    
+    public String UsuarioEnSesion(String nom, String ape,String corre){
+        String nombreUser=(nom+" "+ape);
+        vista.JlabelNombreUsuario.setText(nombreUser);
+        vista.JlabelCorreo.setText(corre);
+    return nombreUser;
     }
     
 }

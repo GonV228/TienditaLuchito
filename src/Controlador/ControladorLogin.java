@@ -6,6 +6,7 @@ import VistaLogin.RecuperarContraseña;
 import VistaAdministrador.MenuAdministrador;
 import VistaEmpleado.MenuEmpleado;
 import Modelo.Usuario;
+import Modelo.UsuarioInfo;
 import VistaLogin.Recuperar_1Correo;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -36,27 +37,36 @@ public class ControladorLogin implements ActionListener {
  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////           
             // Verificar el inicio de sesión en la base de datos
             
-            
-            
-            
-            
-            
-            
-            
-            
+
             /////////////////////////////////////////////////////
             //ESTA PARTE DE ABAJO ES PARA INICIAR SESION!!!! PARA USARLA HAY QUE COMENTAR LA LINEA 52 Y DESCOMENTAR LA 51
             /////////////////////////////////////////////////////
             //usuario = new Usuario("", "", contraseña, correo, "", "", 0, "", 0, ""); // Creación del objeto "usuario" con valores vacíos
-            
-        // String rol = dLogin.obtenerRolUsuario(usuario); // Usando el objeto "dLogin" en lugar de "dao"
-String rol="Administrador";            
+            //usuario = new Usuario(); // Creación del objeto "usuario" con valores vacíos
+            usuario = new Usuario();
+            usuario.setCorreoElectronico(correo);
+            usuario.setContraseña(contraseña);
+            UsuarioInfo usuarioInfo = dLogin.obtenerInfoUsuario(usuario); 
+         //String rol = dLogin.obtenerRolUsuario(usuario); // Usando el objeto "dLogin" en lugar de "dao"
+//String rol="Administrador";
+            //declaramos variables
+            String rol=null;
+            String nombre=null;
+            String apellido=null;
+            if (usuarioInfo != null) {
+                rol = usuarioInfo.getRol();
+                nombre = usuarioInfo.getNombre();
+                apellido = usuarioInfo.getApellido();
 
+                System.out.println("Rol: " + rol);
+                System.out.println("Nombre: " + nombre);
+                System.out.println("Apellido: " + apellido);
+            }
             if (rol != null) {
                 // El usuario existe y tiene un rol asignado
                 if (rol.equals("Administrador")) {
             MenuAdministrador rc = new MenuAdministrador();
-            CMenuAdministrador CMA = new CMenuAdministrador(rc);
+            CMenuAdministrador CMA = new CMenuAdministrador(rc,nombre,apellido,correo);
             vista.dispose(); // Cerrar la ventana de inicio de sesión
 
                 } else if (rol.equals("Empleado")) {
