@@ -24,6 +24,7 @@ public class CAdministrador_RegistrarUser implements ActionListener {
     Administrador_RegistrarUsers vista;
     Administrador menu;
     Usuario usuarioSeleccionado;
+    private int idUsuarioSeleccionado;
 
     public CAdministrador_RegistrarUser(Administrador_RegistrarUsers adminRegis, Administrador Admin) {
         vista = adminRegis;
@@ -31,6 +32,7 @@ public class CAdministrador_RegistrarUser implements ActionListener {
         vista.btnAgregar.addActionListener(this);
         vista.btnBorrar.addActionListener(this);
         vista.btnEditar.addActionListener(this);
+        vista.btnLimpiarCampos.addActionListener(this);
         vista.btnSeleccionarImagen.addActionListener(this);
         vista.btnValidarContraseña.addActionListener(this);
         vista.jtxtNombres.addActionListener(this);
@@ -39,7 +41,7 @@ public class CAdministrador_RegistrarUser implements ActionListener {
         vista.jtxtContraseña.addActionListener(this);
         vista.jtxtNumDocumento.addActionListener(this);
         vista.jtxtTelefono.addActionListener(this);
-
+        
         // Inicializar JComboBox para roles y tipos de documento
         String[] roles = {"Administrador", "Empleado"};
         vista.jcbxTipoEmpleado.setModel(new DefaultComboBoxModel<>(roles));
@@ -69,9 +71,11 @@ public class CAdministrador_RegistrarUser implements ActionListener {
             actualizarVista();
         } else if (e.getSource() == vista.btnEditar) {
             actualizarUsuario();
-            actualizarVista();
+            //actualizarVista(); //no descomentar
         } else if (e.getSource() == vista.btnSeleccionarImagen) {
             seleccionarImagen();
+        } else if (e.getSource() == vista.btnLimpiarCampos){
+            actualizarVista();
         }
         mostrarUsuariosEnTabla();
         if(e.getSource()==vista.jtxtContraseña||e.getSource()==vista.btnValidarContraseña){
@@ -88,6 +92,7 @@ public class CAdministrador_RegistrarUser implements ActionListener {
     
     //1. SELECCIONAR USUARIO EN LA TABLA
     private void seleccionarUsuarioTabla() {
+        DAdministrarUs buscarId=new DAdministrarUs();
         int filaSeleccionada = vista.tblEmpleados.getSelectedRow();
         if (filaSeleccionada != -1) {
             DefaultTableModel modelo = (DefaultTableModel) vista.tblEmpleados.getModel();
@@ -112,6 +117,10 @@ public class CAdministrador_RegistrarUser implements ActionListener {
             vista.jtxtNumDocumento.setText(numeroDocumento);
             vista.jtxtTelefono.setText(telefono);
 
+            int id=buscarId.existeUsuarioConDocumentoExcluyendoActual(numeroDocumento); //aqui estoy int id
+            System.out.println("id con fe: "+id);
+            // Guardar el ID del usuario seleccionado en la variable de clase
+            idUsuarioSeleccionado = id;
             // Mostrar la imagen en un JLabel
             ImageIcon imagenIcono = new ImageIcon(imagenBytes);
             Image imagenEscalada = imagenIcono.getImage().getScaledInstance(vista.jlblImagen.getWidth(), vista.jlblImagen.getHeight(), Image.SCALE_SMOOTH);
@@ -119,7 +128,7 @@ public class CAdministrador_RegistrarUser implements ActionListener {
             vista.jlblImagen.setIcon(imagenEscaladaIcono);
 
             // Guardar el usuario seleccionado
-            usuarioSeleccionado = new Usuario(nombres, apellidos, correo, contraseña, rol, tipoDocumento, Integer.parseInt(numeroDocumento), telefono, imagenBytes);
+            usuarioSeleccionado = new Usuario(id, nombres, apellidos, correo, contraseña, rol, tipoDocumento, Integer.parseInt(numeroDocumento), telefono, imagenBytes);
         } else {
             JOptionPane.showMessageDialog(null, "Selecciona un usuario de la tabla para editar");
         }
@@ -209,6 +218,8 @@ public class CAdministrador_RegistrarUser implements ActionListener {
     //3. ACTUALIZAR USUARIO
     private void actualizarUsuario() {
     if (usuarioSeleccionado != null) {
+        //instanciamos DAO para administrar los usuarios
+        DAdministrarUs daoActualizar = new DAdministrarUs();
         // Obtener los datos actualizados del usuario
         String nombres = vista.jtxtNombres.getText();
         String apellidos = vista.jtxtApellidos.getText();
@@ -228,12 +239,63 @@ public class CAdministrador_RegistrarUser implements ActionListener {
             imagenBytes = usuarioSeleccionado.getImagenBytes();
         }
 
+        
+        //VALIDACIONES 
+            // Validar que no haya campos vacíos
+                if (nombres.isEmpty() || apellidos.isEmpty() || correo.isEmpty() || contraseña.isEmpty() ||
+                    tipoDocumento.isEmpty() || numeroDocumento.isEmpty() || telefono.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Por favor, completa todos los campos para registrar un nuevo usuario.","Campos incompletos", JOptionPane.INFORMATION_MESSAGE);
+                    return; // Detener la ejecución del método si hay campos vacíos
+                }
+            //Validar nombres 9.1
+                String nameValid=validarNombre(nombres);
+                if(nameValid != null){
+                    JOptionPane.showMessageDialog(null, nameValid, "Validación de Nombre", JOptionPane.INFORMATION_MESSAGE);
+                    return;//detener la ejecucion para que el usuario corrija
+                }
+            //Validar Apellidos 9.2
+                String addressValid=validarApellido(apellidos);
+                if(addressValid!= null){
+                    JOptionPane.showMessageDialog(null, addressValid, "Validación de Apellido", JOptionPane.INFORMATION_MESSAGE);
+                    return;//detener la ejecucion para que el usuario corrija
+                }    
+            //Validar Correo electronico 9.3
+            //Validar contraseña 9.4
+                String mensaje=validarContrasena(contraseña);
+                if(mensaje!=null){
+                    JOptionPane.showMessageDialog(null, mensaje, "Validación de Contraseña", JOptionPane.INFORMATION_MESSAGE);
+                    //return;//detener la ejecucion para que el usuario corrija
+                }
+            //Validar documento de identidad VALIDACIONES EN EL PUNTO "9"...... 9.5 
+                int cantidadDeDigitos=numeroDocumento.length();//obtenemos la cantidad de digitos del documento
+                if (tipoDocumento.equals("DNI") || tipoDocumento.equals("Carnet de Extranjeria")) {
+                    // Validar que el número de documento tenga 8 dígitos
+                    if (numeroDocumento.length() != 8) {
+                        JOptionPane.showMessageDialog(null, "El número de documento debe tener 8 dígitos tiene: [ "+cantidadDeDigitos+" ] digitos.","Validación de Nº de Documento", JOptionPane.INFORMATION_MESSAGE);
+                        return; // Detener la ejecución del método
+                    }
+                } else if (tipoDocumento.equals("Pasaporte")) {
+                    // No aplicar ninguna validación específica para pasaportes
+                }
+                // Verificar si ya existe un usuario con el número de documento especificado
+                // excluyendo al usuario actualmente seleccionado
+                if (daoActualizar.existeUsuarioConDocumento2(numeroDocumento, idUsuarioSeleccionado)) {//y aca debo traer el valor de id
+                    JOptionPane.showMessageDialog(null, "El número de documento ya está en uso. Ingrese otro número de documento", "Validación de Número de Documento", JOptionPane.INFORMATION_MESSAGE);
+                    return; // Detener la ejecución del método si el número de documento ya está en uso
+                }
+
+            //Validar numero de teléfono VALIDACIONES EN EL PUNTO "9"...... 9.6  
+                String errorTelefono = validarTelefono(telefono);
+                if (errorTelefono != null) {
+                    JOptionPane.showMessageDialog(null, errorTelefono, "Validación de Nº de Teléfono", JOptionPane.INFORMATION_MESSAGE);
+                    return; // Detener la ejecución del método si la validación falla
+                }
+            
         // Crear un objeto Usuario con los datos actualizados
-        Usuario usuarioActualizado = new Usuario(nombres, apellidos, correo, contraseña, rol, tipoDocumento, Integer.parseInt(numeroDocumento), telefono, imagenBytes);
+        Usuario usuarioActualizado = new Usuario( usuarioSeleccionado.getId(),nombres, apellidos, correo, contraseña, rol, tipoDocumento, Integer.parseInt(numeroDocumento), telefono, imagenBytes);
 
         // Llamar al método del DAO para actualizar el usuario
-        DAdministrarUs daoActualizarUs = new DAdministrarUs();
-        boolean actualizacionExitosa = daoActualizarUs.actualizarUsuario(usuarioActualizado);
+        boolean actualizacionExitosa = daoActualizar.actualizarUsuario(usuarioActualizado);
 
         if (actualizacionExitosa) {
             JOptionPane.showMessageDialog(null, "Usuario actualizado exitosamente");
@@ -463,5 +525,5 @@ public class CAdministrador_RegistrarUser implements ActionListener {
             
         }
     //9.7 VALIDAR TIPO DE ARCHIVO PARA SUBIR LA IMAGEN
-    
+        
 }

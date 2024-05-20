@@ -77,7 +77,7 @@ public class DAdministrarUs {
             conexion = db.conectar();
             
             // Consulta SQL para actualizar un usuario
-            String query = "UPDATE Usuarios SET Nombres = ?, Apellidos = ?, Correo_Electronico = ?, Contraseña = ?, Rol = ?, Tipo_Documento = ?, Telefono = ?, Imagen = ? WHERE N_Documento = ?";
+            String query = "UPDATE Usuarios SET Nombres = ?, Apellidos = ?, Correo_Electronico = ?, Contraseña = ?, Rol = ?, Tipo_Documento = ?, Telefono = ?, Imagen = ? WHERE ID_Empleado = ?";
             
             // Preparar la declaración
             pst = conexion.prepareStatement(query);
@@ -91,7 +91,7 @@ public class DAdministrarUs {
             pst.setString(6, usuario.getTipoDocumento());
             pst.setString(7, usuario.getTelefono());
             pst.setBytes(8, usuario.getImagenBytes()); // Se establece la imagen como un arreglo de bytes
-            pst.setInt(9, usuario.getNumeroDocumento());
+            pst.setInt(9, usuario.getId());
 
             // Ejecutar la consulta
             int filasAfectadas = pst.executeUpdate();
@@ -204,7 +204,7 @@ public class DAdministrarUs {
                 String telefono = rs.getString("Telefono");
                 byte[] imagenBytes = rs.getBytes("Imagen");
 
-                Usuario usuario = new Usuario(nombres, apellidos, correo, contraseña, rol, tipoDocumento, numeroDocumento, telefono, imagenBytes);
+                Usuario usuario = new Usuario(id,nombres, apellidos, correo, contraseña, rol, tipoDocumento, numeroDocumento, telefono, imagenBytes);
                 usuarios.add(usuario);
             }
         } catch (SQLException e) {
@@ -236,23 +236,17 @@ public class DAdministrarUs {
         PreparedStatement pst = null;
         ResultSet rs = null;
         boolean existe = false;
-
         try {
             // Establecer conexión
             conexion = db.conectar();
-
             // Consulta SQL para verificar si existe un usuario con el número de documento especificado
             String query = "SELECT COUNT(*) AS count FROM Usuarios WHERE N_Documento = ?";
-
             // Preparar la declaración
             pst = conexion.prepareStatement(query);
-
             // Establecer el valor del parámetro en la consulta
             pst.setString(1, numeroDocumento);
-
             // Ejecutar la consulta
             rs = pst.executeQuery();
-
             // Verificar si existe algún resultado
             if (rs.next()) {
                 // Obtener el número de filas
@@ -278,8 +272,103 @@ public class DAdministrarUs {
                 JOptionPane.showMessageDialog(null, "Error al cerrar la conexión: " + ex.getMessage());
             }
         }
-
         return existe;
+    }
+    
+    public boolean existeUsuarioConDocumento2(String numeroDocumento, int id) {
+        ConexionBD db = new ConexionBD();
+        Connection conexion = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        boolean existe = false;
+        try {
+            // Establecer conexión
+            conexion = db.conectar();
+            // Consulta SQL para verificar si existe un usuario con el número de documento especificado
+            String query = "SELECT COUNT(*) AS count FROM Usuarios WHERE N_Documento = ? AND ID_Empleado <> ?";
+            // Preparar la declaración
+            pst = conexion.prepareStatement(query);
+            // Establecer el valor del parámetro en la consulta
+            pst.setString(1, numeroDocumento);
+            pst.setInt(2, id);
+            System.out.println("numero de documento enviado: "+numeroDocumento);
+            System.out.println("numero de id enviado: "+id);
+            // Ejecutar la consulta
+            rs = pst.executeQuery();
+            // Verificar si existe algún resultado
+            if (rs.next()) {
+                // Obtener el número de filas
+                int rowCount = rs.getInt("count");
+                existe = rowCount > 0;
+                System.out.println("hay otro documento?: "+existe);
+            }
+        } catch (SQLException e) {
+            // Manejar cualquier excepción de SQL
+            JOptionPane.showMessageDialog(null, "Error al verificar la existencia de usuario: " + e.getMessage());
+        } finally {
+            // Cerrar la conexión y la declaración
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+                if (conexion != null) {
+                    conexion.close();
+                }
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "Error al cerrar la conexión: " + ex.getMessage());
+            }
+        }
+        return existe;
+    }
+    public int existeUsuarioConDocumentoExcluyendoActual(String numeroDocumento) {
+        ConexionBD db = new ConexionBD();
+        Connection conexion = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        int id = 0;
+        try {
+            // Establecer conexión
+            conexion = db.conectar();
+            // Consulta SQL para verificar si existe otro usuario con el número de documento especificado
+            // excluyendo al usuario actualmente seleccionado
+            String query = "SELECT ID_Empleado FROM Usuarios WHERE N_Documento = ? ";
+            // Preparar la declaración
+            pst = conexion.prepareStatement(query);
+            // Establecer los valores de los parámetros en la consulta
+            pst.setString(1, numeroDocumento);
+            // Ejecutar la consulta
+            rs = pst.executeQuery();
+            // Verificar si existe algún resultado
+            if (rs.next()) {
+                // Obtener el ID
+                id=rs.getInt("ID_Empleado");
+            }
+            rs.close();  // Asegúrate de cerrar el ResultSet
+            pst.close(); // Asegúrate de cerrar el PreparedStatement
+            conexion.close(); // Asegúrate de cerrar la conexión
+        } catch (SQLException e) {
+            // Manejar cualquier excepción de SQL
+            JOptionPane.showMessageDialog(null, "Error al verificar la existencia de usuario: " + e.getMessage());
+        } finally {
+            // Cerrar la conexión y la declaración
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+                if (conexion != null) {
+                    conexion.close();
+                }
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "Error al cerrar la conexión: " + ex.getMessage());
+            }
+        }
+        return id;
     }
 
     

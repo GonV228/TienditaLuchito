@@ -102,18 +102,16 @@ public class CMenuAdministrador implements ActionListener{
             Icon icon = imagenIcon;
             
             // Actualizar la imagen en el hilo de despacho de eventos
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                vista.rspanelImagen.setImagen(icon);
-                vista.rspanelImagen.revalidate(); // Forzar actualización de diseño
-                vista.rspanelImagen.repaint();    // Volver a pintar el componente
-            }
-        });
-            /*vista.rspanelImagen.setImagen(icon);
-            vista.rspanelImagen.revalidate(); //forzar actualizacion de diseño
-            vista.rspanelImagen.repaint();//volver a pintar el componente
-            System.out.println("perdon xd");*/
+            //PROHIBIDO BORRAR ESTE BLOQUE DE CODIGO
+            SwingUtilities.invokeLater(new Runnable() {
+                @Override
+                public void run() {
+                    vista.rspanelImagen.setImagen(icon);
+                    vista.rspanelImagen.revalidate(); // Forzar actualización de diseño
+                    vista.rspanelImagen.repaint();    // Volver a pintar el componente
+                }
+            });
+           
         } else {
             System.out.println("a llorar");
         }

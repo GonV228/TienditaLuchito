@@ -61,8 +61,11 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
         btnAgregar = new RSMaterialComponent.RSButtonIconShadow();
         jlbEditar = new javax.swing.JLabel();
         btnEditar = new RSMaterialComponent.RSButtonIconShadow();
-        jlbBorrar = new javax.swing.JLabel();
+        jlbBorrar2 = new javax.swing.JLabel();
         btnBorrar = new RSMaterialComponent.RSButtonIconShadow();
+        jlbLimpiarCampos1 = new javax.swing.JLabel();
+        jlbLimpiarCampos2 = new javax.swing.JLabel();
+        btnLimpiarCampos = new RSMaterialComponent.RSButtonIconShadow();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -228,7 +231,7 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
 
         btnValidarContraseña.setBackground(new java.awt.Color(255, 153, 0));
         btnValidarContraseña.setForeground(new java.awt.Color(204, 204, 204));
-        btnValidarContraseña.setBackgroundHover(new java.awt.Color(204, 204, 204));
+        btnValidarContraseña.setBackgroundHover(new java.awt.Color(255, 102, 0));
         btnValidarContraseña.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.LOCK);
         jPanel1.add(btnValidarContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 190, -1, -1));
 
@@ -276,17 +279,35 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
         btnEditar.setName("jbtnActualizarGDG"); // NOI18N
         jPanel1.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
 
-        jlbBorrar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jlbBorrar.setForeground(new java.awt.Color(51, 51, 51));
-        jlbBorrar.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jlbBorrar.setText("Borrar");
-        jPanel1.add(jlbBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 260, -1, -1));
+        jlbBorrar2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        jlbBorrar2.setForeground(new java.awt.Color(51, 51, 51));
+        jlbBorrar2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jlbBorrar2.setText("Borrar");
+        jPanel1.add(jlbBorrar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 260, -1, -1));
 
         btnBorrar.setBackground(new java.awt.Color(255, 51, 51));
         btnBorrar.setBackgroundHover(new java.awt.Color(153, 0, 0));
         btnBorrar.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.DELETE);
         btnBorrar.setName("jbtnActualizarGDG"); // NOI18N
         jPanel1.add(btnBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, -1, -1));
+
+        jlbLimpiarCampos1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        jlbLimpiarCampos1.setForeground(new java.awt.Color(51, 51, 51));
+        jlbLimpiarCampos1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jlbLimpiarCampos1.setText("Limpiar");
+        jPanel1.add(jlbLimpiarCampos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, -1, -1));
+
+        jlbLimpiarCampos2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        jlbLimpiarCampos2.setForeground(new java.awt.Color(51, 51, 51));
+        jlbLimpiarCampos2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jlbLimpiarCampos2.setText("campos");
+        jPanel1.add(jlbLimpiarCampos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, -1, -1));
+
+        btnLimpiarCampos.setBackground(new java.awt.Color(51, 153, 255));
+        btnLimpiarCampos.setBackgroundHover(new java.awt.Color(0, 102, 255));
+        btnLimpiarCampos.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.CLEAR_ALL);
+        btnLimpiarCampos.setName("jbtnActualizarGDG"); // NOI18N
+        jPanel1.add(btnLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, -1, -1));
 
         Panel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1000, 300));
 
@@ -350,6 +371,7 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
     public RSMaterialComponent.RSButtonIconShadow btnAgregar;
     public RSMaterialComponent.RSButtonIconShadow btnBorrar;
     public RSMaterialComponent.RSButtonIconShadow btnEditar;
+    public RSMaterialComponent.RSButtonIconShadow btnLimpiarCampos;
     public RSMaterialComponent.RSButtonMaterialOne btnSeleccionarImagen;
     public RSMaterialComponent.RSButtonIconShadow btnValidarContraseña;
     private javax.swing.JLabel jLabel1;
@@ -359,11 +381,13 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
     public RSMaterialComponent.RSComboBoxMaterial jcbxTipoEmpleado;
     public javax.swing.JLabel jlbAgregar;
     public javax.swing.JLabel jlbApellidos;
-    public javax.swing.JLabel jlbBorrar;
+    public javax.swing.JLabel jlbBorrar2;
     public javax.swing.JLabel jlbContraseña;
     public javax.swing.JLabel jlbCorreoElectronico8;
     public javax.swing.JLabel jlbDocumento;
     public javax.swing.JLabel jlbEditar;
+    public javax.swing.JLabel jlbLimpiarCampos1;
+    public javax.swing.JLabel jlbLimpiarCampos2;
     public javax.swing.JLabel jlbNombres;
     public javax.swing.JLabel jlbTelefono;
     public javax.swing.JLabel jlbTipoDocumento;

@@ -35,6 +35,7 @@ public class CInventario_Registro implements ActionListener {
         vista.btnEditarProducto.addActionListener(this);
         vista.btnEliminarProducto.addActionListener(this);
         vista.btnAgregarProducto.addActionListener(this);
+        vista.btnLimpiarCampos.addActionListener(this);
         vista.btnBorrarCategorias.addActionListener(this);
         vista.btnEditarCategorias.addActionListener(this);
         vista.btnExportarCatalogoProductos.addActionListener(this);
@@ -228,21 +229,23 @@ public class CInventario_Registro implements ActionListener {
         } else if (e.getSource() == vista.btnEditarProducto) {
             editarProducto();
             actualizarVista();
-        } else if (e.getSource() == vista.jbtnStock) {
+        } else if (e.getSource() == vista.btnLimpiarCampos){
+            actualizarVista();
+        }else if (e.getSource() == vista.jbtnStock) {
             manejarBotonStock();
 
         } else if (e.getSource() == vista.jcbxFiltroCategoria) {
             cargarProductosATabla();
        
-} else if (e.getSource() == vista.btnExportarCatalogoProductos) {
- // Llama al método exportarCatalogoPDF con la categoría seleccionada
-    String categoria = (String) vista.jcbxFiltroCategoria.getSelectedItem();
-    String rutaArchivo = exportarCatalogoPDF(categoria);
-    abrirPDF(rutaArchivo);
-    JOptionPane.showMessageDialog(vista, "El catálogo de productos se ha exportado correctamente como " + rutaArchivo, "Éxito", JOptionPane.INFORMATION_MESSAGE);
-} else if (e.getSource() == vista.btnImagenProduc) {
-    System.out.println("Estoy funcionando");
-}
+        } else if (e.getSource() == vista.btnExportarCatalogoProductos) {
+         // Llama al método exportarCatalogoPDF con la categoría seleccionada
+            String categoria = (String) vista.jcbxFiltroCategoria.getSelectedItem();
+            String rutaArchivo = exportarCatalogoPDF(categoria);
+            abrirPDF(rutaArchivo);
+            JOptionPane.showMessageDialog(vista, "El catálogo de productos se ha exportado correctamente como " + rutaArchivo, "Éxito", JOptionPane.INFORMATION_MESSAGE);
+        } else if (e.getSource() == vista.btnImagenProduc) {
+            System.out.println("Estoy funcionando");
+        }
 
 }
 
