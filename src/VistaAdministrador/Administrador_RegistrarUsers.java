@@ -173,7 +173,7 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
         jPanel1.add(jlbTipoEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, -1, -1));
 
         jcbxTipoEmpleado.setForeground(new java.awt.Color(51, 51, 51));
-        jcbxTipoEmpleado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Empleado", "Administrador", " " }));
+        jcbxTipoEmpleado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Empleado", "Administrador", "" }));
         jcbxTipoEmpleado.setColorMaterial(new java.awt.Color(255, 153, 0));
         jPanel1.add(jcbxTipoEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 200, 30));
 
@@ -252,6 +252,7 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
         });
         jPanel1.add(btnSeleccionarImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 250, 140, 30));
 
+        jlblImagen.setForeground(new java.awt.Color(255, 255, 255));
         jlblImagen.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         jPanel1.add(jlblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 40, 230, 200));
 
@@ -270,7 +271,7 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
         jlbEditar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbEditar.setForeground(new java.awt.Color(51, 51, 51));
         jlbEditar.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jlbEditar.setText("Editar");
+        jlbEditar.setText("Actualizar");
         jPanel1.add(jlbEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, -1, -1));
 
         btnEditar.setBackground(new java.awt.Color(255, 204, 0));
@@ -283,31 +284,31 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
         jlbBorrar2.setForeground(new java.awt.Color(51, 51, 51));
         jlbBorrar2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jlbBorrar2.setText("Borrar");
-        jPanel1.add(jlbBorrar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 260, -1, -1));
+        jPanel1.add(jlbBorrar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, -1, -1));
 
         btnBorrar.setBackground(new java.awt.Color(255, 51, 51));
         btnBorrar.setBackgroundHover(new java.awt.Color(153, 0, 0));
         btnBorrar.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.DELETE);
         btnBorrar.setName("jbtnActualizarGDG"); // NOI18N
-        jPanel1.add(btnBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, -1, -1));
+        jPanel1.add(btnBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, -1, -1));
 
         jlbLimpiarCampos1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbLimpiarCampos1.setForeground(new java.awt.Color(51, 51, 51));
         jlbLimpiarCampos1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jlbLimpiarCampos1.setText("Limpiar");
-        jPanel1.add(jlbLimpiarCampos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, -1, -1));
+        jPanel1.add(jlbLimpiarCampos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 250, -1, -1));
 
         jlbLimpiarCampos2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbLimpiarCampos2.setForeground(new java.awt.Color(51, 51, 51));
         jlbLimpiarCampos2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jlbLimpiarCampos2.setText("campos");
-        jPanel1.add(jlbLimpiarCampos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, -1, -1));
+        jPanel1.add(jlbLimpiarCampos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, -1, -1));
 
         btnLimpiarCampos.setBackground(new java.awt.Color(51, 153, 255));
         btnLimpiarCampos.setBackgroundHover(new java.awt.Color(0, 102, 255));
         btnLimpiarCampos.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.CLEAR_ALL);
         btnLimpiarCampos.setName("jbtnActualizarGDG"); // NOI18N
-        jPanel1.add(btnLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, -1, -1));
+        jPanel1.add(btnLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, -1, -1));
 
         Panel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1000, 300));
 

@@ -112,6 +112,7 @@ public class CInventario_Registro implements ActionListener {
             if (insertado) {
                 JOptionPane.showMessageDialog(vista, "Categoría agregada correctamente.");
                 cargarCategoriasATabla();
+                limpiarCamposRegistroCategoria();
                 vista.jtxfNombreCategoria.setText("");
             } else {
                 JOptionPane.showMessageDialog(vista, "Error al agregar la categoría.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -141,6 +142,7 @@ public class CInventario_Registro implements ActionListener {
                 if (eliminado) {
                     JOptionPane.showMessageDialog(vista, "Categoría eliminada correctamente.");
                     cargarCategoriasATabla();
+                    limpiarCamposRegistroCategoria();
                 } else {
                     JOptionPane.showMessageDialog(vista, "Error al eliminar la categoría.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -160,6 +162,7 @@ public class CInventario_Registro implements ActionListener {
                 if (editado) {
                     JOptionPane.showMessageDialog(vista, "Categoría editada correctamente.");
                     cargarCategoriasATabla();
+                    limpiarCamposRegistroCategoria();
                 } else {
                     JOptionPane.showMessageDialog(vista, "Error al editar la categoría.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -213,24 +216,25 @@ public class CInventario_Registro implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vista.btnAgregarCategorias) {
             agregarCategoria();
-            actualizarVista();
+            //actualizarVista();
         } else if (e.getSource() == vista.btnBorrarCategorias) {
             eliminarCategoria();
-            actualizarVista();
+            //actualizarVista();
         } else if (e.getSource() == vista.btnEditarCategorias) {
             editarCategoria();
-            actualizarVista();
+            //actualizarVista();
         } else if (e.getSource() == vista.btnAgregarProducto) {
             agregarProducto();
-            actualizarVista();
+            //actualizarVista();
         } else if (e.getSource() == vista.btnEliminarProducto) {
             eliminarProducto();
-            actualizarVista();
+            //actualizarVista();
         } else if (e.getSource() == vista.btnEditarProducto) {
             editarProducto();
-            actualizarVista();
+            //actualizarVista();
         } else if (e.getSource() == vista.btnLimpiarCampos){
-            actualizarVista();
+            limpiarCaposRegistro();
+            //actualizarVista();
         }else if (e.getSource() == vista.jbtnStock) {
             manejarBotonStock();
 
@@ -348,6 +352,7 @@ public class CInventario_Registro implements ActionListener {
         if (insertado) {
             JOptionPane.showMessageDialog(vista, "Producto agregado correctamente.");
             cargarProductosATabla();
+            limpiarCaposRegistro();
         } else {
             JOptionPane.showMessageDialog(vista, "Error al agregar el producto.", "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -363,6 +368,7 @@ public class CInventario_Registro implements ActionListener {
                 if (eliminado) {
                     JOptionPane.showMessageDialog(vista, "Producto eliminado correctamente.");
                     cargarProductosATabla();
+                    limpiarCaposRegistro();
                 } else {
                     JOptionPane.showMessageDialog(vista, "Error al eliminar el producto.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -414,6 +420,7 @@ private void editarProducto() {
             JOptionPane.showMessageDialog(vista, "Producto actualizado correctamente.");
             // Actualizar la tabla de productos si es necesario
             cargarProductosATabla();
+            limpiarCaposRegistro();
         } else {
             JOptionPane.showMessageDialog(vista, "Error al actualizar el producto.", "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -443,5 +450,18 @@ private String exportarCatalogoPDF(String categoria) {
         } catch (IOException e) {
             JOptionPane.showMessageDialog(vista, "Error al abrir el archivo PDF.", "Error", JOptionPane.ERROR_MESSAGE);
         }
+    }
+        
+    //limpiar Registro de inventario
+    private void limpiarCaposRegistro(){
+        vista.jtxfNombreProducto.setText(null);
+        vista.jcbxCategoria.setSelectedIndex(0);
+        vista.jtxfInformacion.setText(null);
+        vista.jtxtPrecio.setText(null);
+        vista.jlabelImagenInventario.setIcon(null);
+    }
+    //11. Limpiar campos de Registro Tipo Categoria
+    private void limpiarCamposRegistroCategoria(){
+        vista.jtxfNombreCategoria.setText(null);
     }
 }

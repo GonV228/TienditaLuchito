@@ -68,14 +68,14 @@ public class CAdministrador_RegistrarUser implements ActionListener {
             //actualizarVista(); //no descomentar
         } else if (e.getSource() == vista.btnBorrar) {
             eliminarUsuario();
-            actualizarVista();
+            //actualizarVista();
         } else if (e.getSource() == vista.btnEditar) {
             actualizarUsuario();
             //actualizarVista(); //no descomentar
         } else if (e.getSource() == vista.btnSeleccionarImagen) {
             seleccionarImagen();
         } else if (e.getSource() == vista.btnLimpiarCampos){
-            actualizarVista();
+            limpiarcampos();
         }
         mostrarUsuariosEnTabla();
         if(e.getSource()==vista.jtxtContraseña||e.getSource()==vista.btnValidarContraseña){
@@ -207,6 +207,7 @@ public class CAdministrador_RegistrarUser implements ActionListener {
 
         if (registroExitoso) {
             JOptionPane.showMessageDialog(null, "Usuario registrado exitosamente");
+            limpiarcampos();
         } else {
             JOptionPane.showMessageDialog(null, "Error al registrar usuario. Por favor, inténtalo de nuevo.");
         }
@@ -299,6 +300,7 @@ public class CAdministrador_RegistrarUser implements ActionListener {
 
         if (actualizacionExitosa) {
             JOptionPane.showMessageDialog(null, "Usuario actualizado exitosamente");
+            limpiarcampos();
         } else {
             JOptionPane.showMessageDialog(null, "Error al actualizar usuario. Por favor, inténtalo de nuevo.");
         }
@@ -316,6 +318,7 @@ public class CAdministrador_RegistrarUser implements ActionListener {
 
             if (eliminacionExitosa) {
                 JOptionPane.showMessageDialog(null, "Usuario eliminado exitosamente");
+                limpiarcampos();
             } else {
                 JOptionPane.showMessageDialog(null, "Error al eliminar usuario. Por favor, inténtalo de nuevo.");
             }
@@ -526,4 +529,18 @@ public class CAdministrador_RegistrarUser implements ActionListener {
         }
     //9.7 VALIDAR TIPO DE ARCHIVO PARA SUBIR LA IMAGEN
         
+    //10. limpiar campos
+    private void limpiarcampos(){
+        vista.jtxtNombres.setText(null);
+        vista.jtxtApellidos.setText(null);
+        vista.jtxtCorreo.setText(null);
+        vista.jtxtTelefono.setText(null);
+        vista.jtxtNumDocumento.setText(null);
+        vista.jtxtContraseña.setText(null);
+        vista.jcbxTipoDoc.setSelectedIndex(0);
+        vista.jcbxTipoEmpleado.setSelectedIndex(0);
+        vista.jlblImagen.setIcon(null);
+        
+    }
+    
 }
