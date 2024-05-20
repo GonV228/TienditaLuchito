@@ -13,10 +13,11 @@ public class DLogin {
         String rol = null;
         String nombre = null;
         String apellido = null;
+        byte[] imagenBytes=null;
         ConexionBD db = new ConexionBD();
         try {
             Connection conexion = db.conectar();
-            PreparedStatement pst = conexion.prepareStatement("SELECT Rol , Nombres , Apellidos FROM Usuarios WHERE Correo_Electronico = ? AND Contraseña = ?");
+            PreparedStatement pst = conexion.prepareStatement("SELECT Rol , Nombres , Apellidos , Imagen FROM Usuarios WHERE Correo_Electronico = ? AND Contraseña = ?");
             pst.setString(1, u.getCorreoElectronico());
             pst.setString(2, u.getContraseña());
             ResultSet rs = pst.executeQuery();
@@ -24,6 +25,7 @@ public class DLogin {
                 rol = rs.getString("Rol");
                 nombre = rs.getString("Nombres");
                 apellido = rs.getString("Apellidos");
+                imagenBytes = rs.getBytes("Imagen");
             }
             rs.close();  // Asegúrate de cerrar el ResultSet
             pst.close(); // Asegúrate de cerrar el PreparedStatement
@@ -31,7 +33,7 @@ public class DLogin {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al obtener el rol del usuario: " + e);
         }
-        return new UsuarioInfo(rol, nombre, apellido);
+        return new UsuarioInfo(rol, nombre, apellido, imagenBytes);
     }
         
     public boolean existeCorreo(String correo){

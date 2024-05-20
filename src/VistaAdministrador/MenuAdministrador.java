@@ -5,6 +5,8 @@
 
 package VistaAdministrador;
 
+import javax.swing.Icon;
+
 /**
  *
  * @author SARA
@@ -29,7 +31,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         PrincipalMenu = new RSMaterialComponent.RSPanelMaterial();
         rSPanelMaterial3 = new RSMaterialComponent.RSPanelMaterial();
-        rSPanelBorderImage1 = new RSMaterialComponent.RSPanelBorderImage();
+        rspanelImagen = new RSMaterialComponent.RSPanelBorderImage();
         JlabelCorreo = new javax.swing.JLabel();
         JlabelNombreUsuario = new javax.swing.JLabel();
         jbtnCerrarSesion = new RSMaterialComponent.RSButtonMaterialOne();
@@ -68,23 +70,23 @@ public class MenuAdministrador extends javax.swing.JFrame {
         rSPanelMaterial3.setPixels(0);
         rSPanelMaterial3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        rSPanelBorderImage1.setBackground(new java.awt.Color(102, 102, 102));
-        rSPanelBorderImage1.setForeground(new java.awt.Color(102, 102, 102));
-        rSPanelBorderImage1.setBgBorder(new java.awt.Color(102, 102, 102));
-        rSPanelBorderImage1.setRound(100);
+        rspanelImagen.setBackground(new java.awt.Color(102, 102, 102));
+        rspanelImagen.setForeground(new java.awt.Color(102, 102, 102));
+        rspanelImagen.setBgBorder(new java.awt.Color(102, 102, 102));
+        rspanelImagen.setRound(100);
 
-        javax.swing.GroupLayout rSPanelBorderImage1Layout = new javax.swing.GroupLayout(rSPanelBorderImage1);
-        rSPanelBorderImage1.setLayout(rSPanelBorderImage1Layout);
-        rSPanelBorderImage1Layout.setHorizontalGroup(
-            rSPanelBorderImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout rspanelImagenLayout = new javax.swing.GroupLayout(rspanelImagen);
+        rspanelImagen.setLayout(rspanelImagenLayout);
+        rspanelImagenLayout.setHorizontalGroup(
+            rspanelImagenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
-        rSPanelBorderImage1Layout.setVerticalGroup(
-            rSPanelBorderImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        rspanelImagenLayout.setVerticalGroup(
+            rspanelImagenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        rSPanelMaterial3.add(rSPanelBorderImage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, -1));
+        rSPanelMaterial3.add(rspanelImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, -1));
 
         JlabelCorreo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         JlabelCorreo.setForeground(new java.awt.Color(102, 102, 102));
@@ -113,6 +115,11 @@ public class MenuAdministrador extends javax.swing.JFrame {
         jbtnAdminEmpleados.setBackgroundHover(new java.awt.Color(153, 153, 153));
         jbtnAdminEmpleados.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         jbtnAdminEmpleados.setRound(40);
+        jbtnAdminEmpleados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnAdminEmpleadosActionPerformed(evt);
+            }
+        });
         rSPanelMaterial3.add(jbtnAdminEmpleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 270, -1));
 
         jbtnVentas.setBackground(new java.awt.Color(102, 102, 102));
@@ -135,6 +142,11 @@ public class MenuAdministrador extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jbtnAdminEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAdminEmpleadosActionPerformed
+        Icon icon = null;
+        rspanelImagen.setImagen(icon);
+    }//GEN-LAST:event_jbtnAdminEmpleadosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,9 +193,9 @@ public class MenuAdministrador extends javax.swing.JFrame {
     public RSMaterialComponent.RSButtonMaterialOne jbtnCerrarSesion;
     public RSMaterialComponent.RSButtonMaterialOne jbtnInventario;
     public RSMaterialComponent.RSButtonMaterialOne jbtnVentas;
-    public RSMaterialComponent.RSPanelBorderImage rSPanelBorderImage1;
     private RSMaterialComponent.RSPanelMaterial rSPanelMaterial1;
     private RSMaterialComponent.RSPanelMaterial rSPanelMaterial3;
+    public RSMaterialComponent.RSPanelBorderImage rspanelImagen;
     // End of variables declaration//GEN-END:variables
 
 }

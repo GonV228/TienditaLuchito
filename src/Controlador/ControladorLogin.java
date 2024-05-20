@@ -53,10 +53,12 @@ public class ControladorLogin implements ActionListener {
             String rol=null;
             String nombre=null;
             String apellido=null;
+            byte[] imagen=null;
             if (usuarioInfo != null) {
                 rol = usuarioInfo.getRol();
                 nombre = usuarioInfo.getNombre();
                 apellido = usuarioInfo.getApellido();
+                imagen = usuarioInfo.getImagen();
 
                 System.out.println("Rol: " + rol);
                 System.out.println("Nombre: " + nombre);
@@ -66,7 +68,7 @@ public class ControladorLogin implements ActionListener {
                 // El usuario existe y tiene un rol asignado
                 if (rol.equals("Administrador")) {
             MenuAdministrador rc = new MenuAdministrador();
-            CMenuAdministrador CMA = new CMenuAdministrador(rc,nombre,apellido,correo);
+            CMenuAdministrador CMA = new CMenuAdministrador(rc,nombre,apellido,correo, imagen);
             vista.dispose(); // Cerrar la ventana de inicio de sesión
 
                 } else if (rol.equals("Empleado")) {
