@@ -19,6 +19,7 @@ import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.text.AbstractDocument;
 
 public class CInventario_Registro implements ActionListener {
@@ -210,6 +211,8 @@ public class CInventario_Registro implements ActionListener {
             modelo.addRow(fila);
         }
         vista.jtableProductos.setModel(modelo);
+        // Configurar el renderizador para la columna de "Stock"
+        vista.jtableProductos.getColumnModel().getColumn(2).setCellRenderer(new StockCellRenderer());
     }
 
     @Override
@@ -463,5 +466,20 @@ private String exportarCatalogoPDF(String categoria) {
     //11. Limpiar campos de Registro Tipo Categoria
     private void limpiarCamposRegistroCategoria(){
         vista.jtxfNombreCategoria.setText(null);
+    }
+    private class StockCellRenderer extends DefaultTableCellRenderer {
+        @Override
+        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+            Component cell = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+            if (value instanceof Integer) {
+                int stock = (Integer) value;
+                if (stock <= 5) {
+                    cell.setForeground(Color.RED); // Pintar de rojo si el stock es <= 5
+                } else {
+                    cell.setForeground(Color.BLACK); // De otro modo, pintar de negro
+                }
+            }
+            return cell;
+        }
     }
 }
