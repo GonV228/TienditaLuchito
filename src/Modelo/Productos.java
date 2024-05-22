@@ -19,6 +19,10 @@ public class Productos {
         this.categoria = categoria;
     }
 
+    public Productos() {
+        
+    }
+
     public int getID_Producto() {
         return codigo;
     }

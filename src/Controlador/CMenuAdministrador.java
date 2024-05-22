@@ -1,6 +1,8 @@
 
 package Controlador;
 ///importar clases
+import Modelo.Productos;
+import Dao.DNotificaciones;
 import VistaLogin.Login;
 import VistaAdministrador.MenuAdministrador;
 import VistaAdministrador.Administrador;
@@ -13,9 +15,11 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 public class CMenuAdministrador implements ActionListener{
@@ -41,7 +45,7 @@ public class CMenuAdministrador implements ActionListener{
         vista.jbtnInventario.addActionListener(this);
         vista.jbtnVentas.addActionListener(this);
         vista.jbtnCerrarSesion.addActionListener(this);
-        
+        mostrarProductosConStockBajo();
         UsuarioEnSesion(name, address,email, img);
         System.out.println("constructor");
     }
@@ -118,6 +122,22 @@ public class CMenuAdministrador implements ActionListener{
         
         
     return nombreUser;
+    }
+    public void mostrarProductosConStockBajo() {
+        DNotificaciones dao=new DNotificaciones();
+        int umbral = 5; // Definir el umbral de stock bajo
+        List<Productos> productosConStockBajo = dao.obtenerProductosConStockBajo(umbral);
+
+        if (!productosConStockBajo.isEmpty()) {
+            StringBuilder mensaje = new StringBuilder("Productos con stock bajo:\n\n");
+            for (Productos producto : productosConStockBajo) {
+                mensaje.append("ID: ").append(producto.getID_Producto())
+                       .append(" - Nombre: ").append(producto.getNombreP())
+                       .append(" - Stock: ").append(producto.getStock())
+                       .append("\n");
+            }
+            JOptionPane.showMessageDialog(null, mensaje.toString(), "Stock Bajo", JOptionPane.WARNING_MESSAGE);
+        }
     }
     
 }
