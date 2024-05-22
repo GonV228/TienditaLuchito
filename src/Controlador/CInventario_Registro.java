@@ -17,8 +17,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.text.AbstractDocument;
 
@@ -26,6 +28,7 @@ public class CInventario_Registro implements ActionListener {
     private Inventario_Registro vista;
     private Inventario menu;
     private DInventario dao;
+    Productos productoSeleccionado;
 
     public CInventario_Registro(Inventario_Registro vista, Inventario menu) {
         this.vista = vista;
@@ -63,20 +66,45 @@ public class CInventario_Registro implements ActionListener {
                 vista.jtxfNombreCategoria.setText(nombreCategoria);
             }
         });
-
         vista.jtableProductos.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int filaSeleccionada = vista.jtableProductos.getSelectedRow();
+                if (filaSeleccionada != -1) {
+                    mostrarDatosProductoSeleccionado(filaSeleccionada);
+                }
+            }
+        });
+/*        vista.jtableProductos.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 int filaSeleccionada = vista.jtableProductos.getSelectedRow();
                 if (filaSeleccionada != -1) {
+                    DefaultTableModel modelo = (DefaultTableModel) vista.jtableProductos.getModel();
+                    int id=(int) modelo.getValueAt(filaSeleccionada, 0);
+                    String nombre =(String) modelo.getValueAt(filaSeleccionada, 1);
+                    int stock = (int) modelo.getValueAt(filaSeleccionada, 2);
+                    String informacion = (String) modelo.getValueAt(filaSeleccionada, 3);
+                    double precio = (double) modelo.getValueAt(filaSeleccionada, 4);
+                    byte[] imagenBytes = (byte[]) modelo.getValueAt(filaSeleccionada, 5);
+                    String categoria = (String) modelo.getValueAt(filaSeleccionada, 6);
+                    //guargar producto seleccionado
+                    productoSeleccionado= new Productos(id, nombre, stock, informacion, precio, imagenBytes, categoria);
                     vista.btnEliminarProducto.setEnabled(true);
+                    //mostrar la imagen en un label
+                    ImageIcon imagenIcono = new ImageIcon(imagenBytes);
+                    Image imagenEscalada = imagenIcono.getImage().getScaledInstance(vista.jlabelImagenInventario.getWidth(), vista.jlabelImagenInventario.getHeight(), Image.SCALE_SMOOTH);
+                    ImageIcon imagenEscaladaIcono = new ImageIcon(imagenEscalada);
+                    vista.jlabelImagenInventario.setIcon(imagenEscaladaIcono);
+                    
                     mostrarDatosProductoSeleccionado(filaSeleccionada);
                 } else {
                     vista.btnEliminarProducto.setEnabled(false);
                 }
             }
         });
+*/
     }
 
     private void actualizarVista() {
@@ -113,6 +141,7 @@ public class CInventario_Registro implements ActionListener {
             if (insertado) {
                 JOptionPane.showMessageDialog(vista, "Categoría agregada correctamente.");
                 cargarCategoriasATabla();
+                cargarCategoriasEnComboBox();
                 limpiarCamposRegistroCategoria();
                 vista.jtxfNombreCategoria.setText("");
             } else {
@@ -251,7 +280,7 @@ public class CInventario_Registro implements ActionListener {
             abrirPDF(rutaArchivo);
             JOptionPane.showMessageDialog(vista, "El catálogo de productos se ha exportado correctamente como " + rutaArchivo, "Éxito", JOptionPane.INFORMATION_MESSAGE);
         } else if (e.getSource() == vista.btnImagenProduc) {
-            System.out.println("Estoy funcionando");
+            seleccionarImagenProducto();
         }
 
 }
@@ -324,11 +353,13 @@ public class CInventario_Registro implements ActionListener {
             }
         }
     }
+    
     private void agregarProducto() {
         String nombre = vista.jtxfNombreProducto.getText().trim();
         String informacion = vista.jtxfInformacion.getText().trim();
         String precioStr = vista.jtxtPrecio.getText().trim();
         String categoriaNombre = (String) vista.jcbxCategoria.getSelectedItem();
+        byte[] imagen = obtenerImagen();
 
         if (nombre.isEmpty() || precioStr.isEmpty() || categoriaNombre == null) {
             JOptionPane.showMessageDialog(vista, "Por favor, completa todos los campos obligatorios.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -381,58 +412,179 @@ public class CInventario_Registro implements ActionListener {
         }
     }
 
-private void mostrarDatosProductoSeleccionado(int filaSeleccionada) {
-    int idProducto = (int) vista.jtableProductos.getValueAt(filaSeleccionada, 0);
-    Productos producto = dao.obtenerProductoPorID(idProducto);
-    if (producto != null) {
-        vista.jtxfNombreProducto.setText(producto.getNombreP());
-        // vista.jtxtStock.setText(String.valueOf(producto.getStock())); // Excluir el campo de stock
-        vista.jtxfInformacion.setText(producto.getInformacion());
-        vista.jtxtPrecio.setText(String.valueOf(producto.getPrecio()));
-     //   vista.jtxtImagen.setText(producto.getImagenP());
-        vista.jcbxCategoria.setSelectedItem(producto.getCategoria().getNombre());
-    } else {
-        JOptionPane.showMessageDialog(vista, "Error al obtener los datos del producto.", "Error", JOptionPane.ERROR_MESSAGE);
-    }
-}
- 
-private void editarProducto() {
-    // Obtener el índice de la fila seleccionada en la tabla de productos
-    int filaSeleccionada = vista.jtableProductos.getSelectedRow();
-    if (filaSeleccionada != -1) { // Se verifica que haya una fila seleccionada
-        // Obtener el ID del producto seleccionado en la tabla
+    private void mostrarDatosProductoSeleccionado(int filaSeleccionada) {
         int idProducto = (int) vista.jtableProductos.getValueAt(filaSeleccionada, 0);
-        // Obtener los nuevos valores de los campos
-        String nuevoNombre = vista.jtxfNombreProducto.getText().trim();
-        String nuevaInformacion = vista.jtxfInformacion.getText().trim();
-        double nuevoPrecio = Double.parseDouble(vista.jtxtPrecio.getText().trim());
-        String nuevaCategoriaNombre = (String) vista.jcbxCategoria.getSelectedItem();
-        // Obtener la categoría seleccionada del combo box
-        categorias nuevaCategoria = dao.obtenerCategoriaPorNombre(nuevaCategoriaNombre);
-        if (nuevaCategoria == null) {
-            JOptionPane.showMessageDialog(vista, "La categoría seleccionada no es válida.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        // Obtener el stock del producto actual
-        int stockActual = (int) vista.jtableProductos.getValueAt(filaSeleccionada, 2); // Asegúrate de que la columna del stock sea la correcta
-        // Crear un objeto Producto con los nuevos valores y el stock actual
-        Productos productoActualizado = new Productos(idProducto, nuevoNombre, stockActual, nuevaInformacion, nuevoPrecio, null, nuevaCategoria);
-        // Actualizar el producto en la base de datos
-        boolean actualizado = dao.editarProducto(productoActualizado);
-        if (actualizado) {
-            JOptionPane.showMessageDialog(vista, "Producto actualizado correctamente.");
-            // Actualizar la tabla de productos si es necesario
-            cargarProductosATabla();
-            limpiarCaposRegistro();
+        productoSeleccionado = dao.obtenerProductoPorID(idProducto);
+        if (productoSeleccionado != null) {
+        vista.jtxfNombreProducto.setText(productoSeleccionado.getNombreP());
+        //vista.jtxfStock.setText(String.valueOf(productoSeleccionado.getStock()));
+        vista.jtxfInformacion.setText(productoSeleccionado.getInformacion());
+        vista.jtxtPrecio.setText(String.valueOf(productoSeleccionado.getPrecio()));
+        vista.jcbxCategoria.setSelectedItem(productoSeleccionado.getCategoria().getNombre());
+        if (productoSeleccionado.getImagenP() != null) {
+            ImageIcon imagen = new ImageIcon(productoSeleccionado.getImagenP());
+            imagen.setDescription("ImageFromDB");
+            vista.jlabelImagenInventario.setIcon(imagen);
         } else {
-            JOptionPane.showMessageDialog(vista, "Error al actualizar el producto.", "Error", JOptionPane.ERROR_MESSAGE);
+            vista.jlabelImagenInventario.setIcon(null);
+        }
+    } else {
+        // Manejar el caso en que productoSeleccionado es null
+        JOptionPane.showMessageDialog(vista, "Producto no encontrado.", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+        /*if (producto != null) {
+            vista.jtxfNombreProducto.setText(producto.getNombreP());
+            // vista.jtxtStock.setText(String.valueOf(producto.getStock())); // Excluir el campo de stock
+            vista.jtxfInformacion.setText(producto.getInformacion());
+            vista.jtxtPrecio.setText(String.valueOf(producto.getPrecio()));
+            //vista.jtxtImagen.setText(producto.getImagenP());
+            vista.jcbxCategoria.setSelectedItem(producto.getCategoria().getNombre());
+        if (productoSeleccionado.getImagenP() != null) {
+                ImageIcon imagen = new ImageIcon(productoSeleccionado.getImagenP());
+                imagen.setDescription("ImageFromDB");
+                vista.jlabelImagenInventario.setIcon(imagen);
+            } else {
+                vista.jlabelImagenInventario.setIcon(null);
+            }
+        }   */ 
+        /*} else {
+            JOptionPane.showMessageDialog(vista, "Error al obtener los datos del producto.", "Error", JOptionPane.ERROR_MESSAGE);
+        }*/
+    }
+ 
+    private void editarProducto() {
+        
+        if (productoSeleccionado != null) {
+        String nombre = vista.jtxfNombreProducto.getText().trim();
+        //String stockTexto = vista.jt.getText().trim();
+        String informacion = vista.jtxfInformacion.getText().trim();
+        String precioTexto = vista.jtxtPrecio.getText().trim();
+        String categoriaNombre = (String) vista.jcbxCategoria.getSelectedItem();
+        byte[] imagen = obtenerImagen();
+
+        if (!nombre.isEmpty() && !informacion.isEmpty() && !precioTexto.isEmpty() && categoriaNombre != null && !categoriaNombre.isEmpty()) {
+            try {
+                //int stock = Integer.parseInt(stockTexto);
+                double precio = Double.parseDouble(precioTexto);
+
+                categorias categoria = dao.obtenerCategoriaPorNombre(categoriaNombre);
+                if (categoria == null) {
+                    JOptionPane.showMessageDialog(vista, "La categoría seleccionada no es válida.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                productoSeleccionado.setNombreP(nombre);
+                //productoSeleccionado.setStock(stock);
+                productoSeleccionado.setInformacion(informacion);
+                productoSeleccionado.setPrecio(precio);
+                productoSeleccionado.setCategoria(categoria);
+                if (imagen != null) {
+                    productoSeleccionado.setImagenP(imagen);
+                }
+
+                boolean editado = dao.editarProducto(productoSeleccionado);
+                if (editado) {
+                    JOptionPane.showMessageDialog(vista, "Producto editado correctamente.");
+                    cargarProductosATabla();
+                    limpiarCaposRegistro();
+                } else {
+                    JOptionPane.showMessageDialog(vista, "Error al editar el producto.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(vista, "Por favor, ingresa valores numéricos válidos para el precio.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(vista, "Por favor, completa todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     } else {
         JOptionPane.showMessageDialog(vista, "Por favor, selecciona un producto a editar.", "Error", JOptionPane.ERROR_MESSAGE);
     }
-}
-// Método para exportar el catálogo PDF
-private String exportarCatalogoPDF(String categoria) {
+/*        if (productoSeleccionado != null) {
+            String nombre = vista.jtxfNombreProducto.getText().trim();
+            //String stockTexto = vista.jt.getText().trim();
+            String informacion = vista.jtxfInformacion.getText().trim();
+            String precioTexto = vista.jtxtPrecio.getText().trim();
+            String categoria = (String) vista.jcbxCategoria.getSelectedItem();
+            byte[] imagen = obtenerImagen();
+
+            if (!nombre.isEmpty() && !informacion.isEmpty() && !precioTexto.isEmpty() && !categoria.isEmpty()) {
+                try {
+                    //int stock = Integer.parseInt(stockTexto);
+                    double precio = Double.parseDouble(precioTexto);
+                    productoSeleccionado.setNombreP(nombre);
+                    //productoSeleccionado.setStock(stock);
+                    productoSeleccionado.setInformacion(informacion);
+                    productoSeleccionado.setPrecio(precio);
+                    productoSeleccionado.setCategoria(new categorias(categoria));
+                    if (imagen != null) {
+                        productoSeleccionado.setImagenP(imagen);
+                    }
+                    boolean editado = dao.editarProducto(productoSeleccionado);
+                    if (editado) {
+                        JOptionPane.showMessageDialog(vista, "Producto editado correctamente.");
+                        cargarProductosATabla();
+                        limpiarCaposRegistro();
+                    } else {
+                        JOptionPane.showMessageDialog(vista, "Error al editar el producto.", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(vista, "Por favor, ingresa valores numéricos válidos para stock y precio.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(vista, "Por favor, completa todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(vista, "Por favor, selecciona un producto a editar.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+*/        
+/*        // Obtener el índice de la fila seleccionada en la tabla de productos
+        int filaSeleccionada = vista.jtableProductos.getSelectedRow();
+        if (filaSeleccionada != -1) { // Se verifica que haya una fila seleccionada
+            // Obtener el ID del producto seleccionado en la tabla
+            int idProducto = (int) vista.jtableProductos.getValueAt(filaSeleccionada, 0);
+            // Obtener los nuevos valores de los campos
+            String nuevoNombre = vista.jtxfNombreProducto.getText().trim();
+            String nuevaInformacion = vista.jtxfInformacion.getText().trim();
+            double nuevoPrecio = Double.parseDouble(vista.jtxtPrecio.getText().trim());
+            String nuevaCategoriaNombre = (String) vista.jcbxCategoria.getSelectedItem();
+            byte[] imagenBytes = null; // Inicializar como null por defecto
+
+            // Si se ha seleccionado una imagen nueva, actualizarla
+            if (!vista.jlabelImagenInventario.getText().isEmpty()) {
+                imagenBytes = obtenerBytesDeImagen();
+            } else {
+                // Si no se selecciona una nueva imagen, mantener la imagen actual
+                imagenBytes = productoSeleccionado.getImagenP();
+            }
+            // Obtener la categoría seleccionada del combo box
+            categorias nuevaCategoria = dao.obtenerCategoriaPorNombre(nuevaCategoriaNombre);
+            if (nuevaCategoria == null) {
+                JOptionPane.showMessageDialog(vista, "La categoría seleccionada no es válida.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            // Obtener el stock del producto actual
+            int stockActual = (int) vista.jtableProductos.getValueAt(filaSeleccionada, 2); // Asegúrate de que la columna del stock sea la correcta
+            // Crear un objeto Producto con los nuevos valores y el stock actual
+            Productos productoActualizado = new Productos(idProducto, nuevoNombre, stockActual, nuevaInformacion, nuevoPrecio, null, nuevaCategoria);
+            // Actualizar el producto en la base de datos
+            boolean actualizado = dao.editarProducto(productoActualizado);
+            if (actualizado) {
+                JOptionPane.showMessageDialog(vista, "Producto actualizado correctamente.");
+                // Actualizar la tabla de productos si es necesario
+                cargarProductosATabla();
+                limpiarCaposRegistro();
+            } else {
+                JOptionPane.showMessageDialog(vista, "Error al actualizar el producto.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(vista, "Por favor, selecciona un producto a editar.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+*/
+    }
+    
+    // Método para exportar el catálogo PDF
+    private String exportarCatalogoPDF(String categoria) {
+    
     // Obtén la lista de productos de la categoría seleccionada
     List<Productos> listaProductos = dao.obtenerProductosPorCategoria(categoria);
 
@@ -442,7 +594,8 @@ private String exportarCatalogoPDF(String categoria) {
     // Genera el catálogo PDF y devuelve la ruta del archivo generado
     return generadorPDF.generarCatalogoPDF(listaProductos, categoria);
 }
-        private void abrirPDF(String rutaArchivo) {
+    
+    private void abrirPDF(String rutaArchivo) {
         try {
             File archivoPDF = new File(rutaArchivo);
             if (archivoPDF.exists()) {
@@ -462,11 +615,15 @@ private String exportarCatalogoPDF(String categoria) {
         vista.jtxfInformacion.setText(null);
         vista.jtxtPrecio.setText(null);
         vista.jlabelImagenInventario.setIcon(null);
+        productoSeleccionado = null;
     }
+    
     //11. Limpiar campos de Registro Tipo Categoria
     private void limpiarCamposRegistroCategoria(){
         vista.jtxfNombreCategoria.setText(null);
     }
+    
+    //12. cambiar color de celda
     private class StockCellRenderer extends DefaultTableCellRenderer {
         @Override
         public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
@@ -481,5 +638,68 @@ private String exportarCatalogoPDF(String categoria) {
             }
             return cell;
         }
+    }
+    
+    //13. seleccionar imagen
+    private void seleccionarImagen() {
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setFileFilter(new FileNameExtensionFilter("Archivos de imagen", "jpg", "jpeg", "png", "gif"));
+        int resultado = fileChooser.showOpenDialog(vista);
+
+        if (resultado == JFileChooser.APPROVE_OPTION) {
+            File archivoSeleccionado = fileChooser.getSelectedFile();
+            String rutaImagen = archivoSeleccionado.getAbsolutePath();
+
+            // Mostrar la imagen seleccionada en un JLabel
+            ImageIcon imagenIcono = new ImageIcon(rutaImagen);
+            Image imagenEscalada = imagenIcono.getImage().getScaledInstance(vista.jlabelImagenInventario.getWidth(), vista.jlabelImagenInventario.getHeight(), Image.SCALE_SMOOTH);
+            ImageIcon imagenEscaladaIcono = new ImageIcon(imagenEscalada);
+            vista.jlabelImagenInventario.setIcon(imagenEscaladaIcono);
+
+            // Actualizar la ruta del archivo en el JTextField (o JLabel) para poder usarla en obtenerBytesDeImagen
+            vista.jlabelImagenInventario.setText(rutaImagen);
+        }
+    }
+    private void seleccionarImagenProducto() {
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setFileFilter(new FileNameExtensionFilter("Imágenes", "jpg", "jpeg", "png"));
+        int resultado = fileChooser.showOpenDialog(vista);
+        if (resultado == JFileChooser.APPROVE_OPTION) {
+            File archivoSeleccionado = fileChooser.getSelectedFile();
+            ImageIcon imagen = new ImageIcon(archivoSeleccionado.getPath());
+            imagen.setDescription(archivoSeleccionado.getPath());
+            vista.jlabelImagenInventario.setIcon(imagen);
+        }
+    }
+    
+    //14. OBTENER IMAGEN "no estamos usando este metodo" 
+    private byte[] obtenerBytesDeImagen() {
+        try {
+            String rutaImagen = vista.jlabelImagenInventario.getText(); // Obtener la ruta del archivo desde el JTextField (o JLabel)
+            File archivoImagen = new File(rutaImagen);
+            FileInputStream fis = new FileInputStream(archivoImagen);
+            byte[] buffer = new byte[(int) archivoImagen.length()];
+            fis.read(buffer);
+            fis.close();
+            return buffer;
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Error al obtener bytes de la imagen: " + e.getMessage(),"Error al obtener la imagen", JOptionPane.INFORMATION_MESSAGE);
+            return null;
+        }
+    }
+    
+    private byte[] obtenerImagen() {
+        if (vista.jlabelImagenInventario.getIcon() != null) {
+            String rutaImagen = ((ImageIcon) vista.jlabelImagenInventario.getIcon()).getDescription();
+            File imagenArchivo = new File(rutaImagen);
+            byte[] imagen = new byte[(int) imagenArchivo.length()];
+            try (FileInputStream fis = new FileInputStream(imagenArchivo)) {
+                fis.read(imagen);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return imagen;
+        }
+        return null;
     }
 }

@@ -23,6 +23,16 @@ public class Productos {
         
     }
 
+    public Productos(int id, String nombre, int stock, String informacion, double precio, byte[] imagenBytes, String categoria) {
+        this.codigo=id;
+        this.nombreP=nombre;
+        this.stock=stock;
+        this.informacion=informacion;
+        this.precio=precio;
+        this.imagenP=imagenBytes;
+        this.categoria=this.categoria;
+    }
+
     public int getID_Producto() {
         return codigo;
     }

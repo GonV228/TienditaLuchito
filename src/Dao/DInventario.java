@@ -43,7 +43,7 @@ public class DInventario {
         }
     }
 
-// Método para obtener todas las categorías de la base de datos, ordenadas por ID ascendente
+    // Método para obtener todas las categorías de la base de datos, ordenadas por ID ascendente
     public List<categorias> obtenerCategoriasOrdenadas() {
         List<categorias> listaCategorias = new ArrayList<>();
         // Utilizamos la conexión a la base de datos
@@ -67,7 +67,7 @@ public class DInventario {
         return listaCategorias;
     }
 
-// Método para verificar si una categoría ya existe en la base de datos
+    // Método para verificar si una categoría ya existe en la base de datos
     public boolean categoriaExiste(String nombreCategoria) {
         // Utilizamos la conexión a la base de datos
         ConexionBD conexionBD = new ConexionBD();
@@ -91,7 +91,7 @@ public class DInventario {
         return false;
     }
 
-// Método para eliminar una categoría de la base de datos
+    // Método para eliminar una categoría de la base de datos
     public boolean eliminarCategoria(int idCategoria) {
         // Utilizamos la conexión a la base de datos
         ConexionBD conexionBD = new ConexionBD();
@@ -115,7 +115,7 @@ public class DInventario {
         }
     }
 
-// Método para editar el nombre de una categoría en la base de datos
+    // Método para editar el nombre de una categoría en la base de datos
     public boolean editarCategoria(int idCategoria, String nuevoNombre) {
         // Utilizamos la conexión a la base de datos
         ConexionBD conexionBD = new ConexionBD();
@@ -141,7 +141,7 @@ public class DInventario {
     }
 
     // Método para obtener todos los productos de la base de datos
-   public List<Productos> obtenerProductos() {
+    public List<Productos> obtenerProductos() {
     List<Productos> listaProductos = new ArrayList<>();
     // Utilizamos la conexión a la base de datos
     ConexionBD conexionBD = new ConexionBD();
@@ -175,14 +175,12 @@ public class DInventario {
     return listaProductos;
 }
 
-
-
-// Método para insertar un nuevo producto en la base de datos
+    // Método para insertar un nuevo producto en la base de datos
     public boolean insertarProducto(Productos producto) {
         ConexionBD conexionBD = new ConexionBD();
         try (Connection conexion = conexionBD.conectar()) {
             // Preparamos la sentencia SQL para insertar el producto
-            String sql = "INSERT INTO Productos (Nombre, Stock, Informacion, Precio, ID_Categoria) VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO Productos (Nombre, Stock, Informacion, Precio, ID_Categoria, Imagen) VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement pst = conexion.prepareStatement(sql);
             // Establecemos los valores del producto en el PreparedStatement
             pst.setString(1, producto.getNombreP());
@@ -190,6 +188,7 @@ public class DInventario {
             pst.setString(3, producto.getInformacion());
             pst.setDouble(4, producto.getPrecio());
             pst.setInt(5, producto.getCategoria().getIdCategoria());
+            pst.setBytes(6, producto.getImagenP());// Se establece la imagen como un arreglo de bytes
             // Ejecutamos la sentencia SQL
             int filasAfectadas = pst.executeUpdate();
             // Verificamos si se insertó correctamente
@@ -302,14 +301,15 @@ public class DInventario {
     public boolean editarProducto(Productos producto) {
         ConexionBD conexionBD = new ConexionBD();
         try (Connection conexion = conexionBD.conectar()) {
-            String sql = "UPDATE Productos SET Nombre = ?, Stock = ?, Informacion = ?, Precio = ?, ID_Categoria = ? WHERE ID_Producto = ?";
+            String sql = "UPDATE Productos SET Nombre = ?, Stock = ?, Informacion = ?, Precio = ?, ID_Categoria = ?, Imagen = ? WHERE ID_Producto = ?";
             PreparedStatement pst = conexion.prepareStatement(sql);
             pst.setString(1, producto.getNombreP());
             pst.setInt(2, producto.getStock());
             pst.setString(3, producto.getInformacion());
             pst.setDouble(4, producto.getPrecio());
             pst.setInt(5, producto.getCategoria().getIdCategoria());
-            pst.setInt(6, producto.getID_Producto());
+            pst.setBytes(6, producto.getImagenP());
+            pst.setInt(7, producto.getID_Producto());
             int filasAfectadas = pst.executeUpdate();
             return filasAfectadas > 0;
         } catch (SQLException e) {
@@ -317,7 +317,6 @@ public class DInventario {
             return false;
         }
     }
-
     
     public boolean aumentarStock(int idProducto, int cantidadAumentar) {
         try (Connection conexion = conexionBD.conectar()) {
@@ -347,6 +346,7 @@ public class DInventario {
             return false;
         }
     }
+    
     public List<Productos> obtenerProductosPorCategoria(String categoria) {
     List<Productos> listaProductos = new ArrayList<>();
     // Utilizamos la conexión a la base de datos
