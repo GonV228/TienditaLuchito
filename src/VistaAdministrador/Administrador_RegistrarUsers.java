@@ -66,6 +66,8 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
         jlbLimpiarCampos1 = new javax.swing.JLabel();
         jlbLimpiarCampos2 = new javax.swing.JLabel();
         btnLimpiarCampos = new RSMaterialComponent.RSButtonIconShadow();
+        jtxtCorreo1 = new RSMaterialComponent.RSTextFieldIconTwo();
+        jlbCorreoElectronico9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -95,7 +97,7 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
         tblEmpleados.setSelectionBackground(new java.awt.Color(102, 102, 102));
         jScrollPane1.setViewportView(tblEmpleados);
 
-        Panel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 1000, 310));
+        Panel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 1000, 350));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(153, 153, 153)));
@@ -120,12 +122,12 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
         jtxtNombres.setPhColor(new java.awt.Color(153, 153, 153));
         jtxtNombres.setPlaceholder("Nombres");
         jtxtNombres.setSelectionColor(new java.awt.Color(255, 153, 0));
-        jPanel1.add(jtxtNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 200, 30));
+        jPanel1.add(jtxtNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 170, 30));
 
         jlbApellidos.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbApellidos.setForeground(new java.awt.Color(51, 51, 51));
         jlbApellidos.setText("Apellidos");
-        jPanel1.add(jlbApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, -1, -1));
+        jPanel1.add(jlbApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, -1, -1));
 
         jtxtApellidos.setForeground(new java.awt.Color(102, 102, 102));
         jtxtApellidos.setBorderColor(new java.awt.Color(255, 153, 0));
@@ -135,22 +137,22 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
         jtxtApellidos.setPhColor(new java.awt.Color(153, 153, 153));
         jtxtApellidos.setPlaceholder("Apellidos");
         jtxtApellidos.setSelectionColor(new java.awt.Color(255, 153, 0));
-        jPanel1.add(jtxtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 200, 30));
+        jPanel1.add(jtxtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 170, 30));
 
         jlbCorreoElectronico8.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbCorreoElectronico8.setForeground(new java.awt.Color(51, 51, 51));
-        jlbCorreoElectronico8.setText("Correo electrónico");
-        jPanel1.add(jlbCorreoElectronico8, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, -1, -1));
+        jlbCorreoElectronico8.setText("Sueldo");
+        jPanel1.add(jlbCorreoElectronico8, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 120, -1, -1));
 
         jtxtCorreo.setForeground(new java.awt.Color(102, 102, 102));
         jtxtCorreo.setBorderColor(new java.awt.Color(255, 153, 0));
         jtxtCorreo.setCaretColor(new java.awt.Color(0, 153, 255));
         jtxtCorreo.setColorIcon(new java.awt.Color(204, 204, 204));
-        jtxtCorreo.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.EMAIL);
+        jtxtCorreo.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.MONETIZATION_ON);
         jtxtCorreo.setPhColor(new java.awt.Color(153, 153, 153));
-        jtxtCorreo.setPlaceholder(" abc@mail.com");
+        jtxtCorreo.setPlaceholder(" S/.");
         jtxtCorreo.setSelectionColor(new java.awt.Color(255, 153, 0));
-        jPanel1.add(jtxtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 80, 200, 30));
+        jPanel1.add(jtxtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 140, 170, 30));
 
         jlbTelefono.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbTelefono.setForeground(new java.awt.Color(51, 51, 51));
@@ -165,32 +167,32 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
         jtxtTelefono.setPhColor(new java.awt.Color(153, 153, 153));
         jtxtTelefono.setPlaceholder("999999999");
         jtxtTelefono.setSelectionColor(new java.awt.Color(255, 153, 0));
-        jPanel1.add(jtxtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 200, 30));
+        jPanel1.add(jtxtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 170, 30));
 
         jlbTipoEmpleado.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbTipoEmpleado.setForeground(new java.awt.Color(51, 51, 51));
         jlbTipoEmpleado.setText("Tipo de Empleado");
-        jPanel1.add(jlbTipoEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, -1, -1));
+        jPanel1.add(jlbTipoEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, -1, -1));
 
         jcbxTipoEmpleado.setForeground(new java.awt.Color(51, 51, 51));
         jcbxTipoEmpleado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Empleado", "Administrador", "" }));
         jcbxTipoEmpleado.setColorMaterial(new java.awt.Color(255, 153, 0));
-        jPanel1.add(jcbxTipoEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 200, 30));
+        jPanel1.add(jcbxTipoEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, 170, 30));
 
         jlbTipoDocumento.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbTipoDocumento.setForeground(new java.awt.Color(51, 51, 51));
         jlbTipoDocumento.setText("Tipo de Doc. Identidad");
-        jPanel1.add(jlbTipoDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 120, -1, -1));
+        jPanel1.add(jlbTipoDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, -1, -1));
 
         jcbxTipoDoc.setForeground(new java.awt.Color(51, 51, 51));
         jcbxTipoDoc.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "DNI", "Pasaporte", "Carné de Extranjería" }));
         jcbxTipoDoc.setColorMaterial(new java.awt.Color(255, 153, 0));
-        jPanel1.add(jcbxTipoDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, 200, 30));
+        jPanel1.add(jcbxTipoDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 170, 30));
 
         jlbDocumento.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbDocumento.setForeground(new java.awt.Color(51, 51, 51));
         jlbDocumento.setText("Documento de Identidad");
-        jPanel1.add(jlbDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
+        jPanel1.add(jlbDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 60, -1, -1));
 
         jtxtNumDocumento.setForeground(new java.awt.Color(102, 102, 102));
         jtxtNumDocumento.setBorderColor(new java.awt.Color(255, 153, 0));
@@ -200,12 +202,12 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
         jtxtNumDocumento.setPhColor(new java.awt.Color(153, 153, 153));
         jtxtNumDocumento.setPlaceholder("55555555");
         jtxtNumDocumento.setSelectionColor(new java.awt.Color(255, 153, 0));
-        jPanel1.add(jtxtNumDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 200, 30));
+        jPanel1.add(jtxtNumDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 80, 170, 30));
 
         jlbContraseña.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbContraseña.setForeground(new java.awt.Color(51, 51, 51));
         jlbContraseña.setText("Contraseña");
-        jPanel1.add(jlbContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, -1, -1));
+        jPanel1.add(jlbContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
 
         jtxtContraseña.setForeground(new java.awt.Color(102, 102, 102));
         jtxtContraseña.setToolTipText("");
@@ -215,25 +217,25 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
         jtxtContraseña.setPhColor(new java.awt.Color(153, 153, 153));
         jtxtContraseña.setPlaceholder("* * * * * * * ");
         jtxtContraseña.setSelectionColor(new java.awt.Color(255, 153, 0));
-        jPanel1.add(jtxtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, 200, 30));
+        jPanel1.add(jtxtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 170, 30));
 
         jlbValidar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbValidar.setForeground(new java.awt.Color(51, 51, 51));
         jlbValidar.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jlbValidar.setText("Validar");
-        jPanel1.add(jlbValidar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 190, -1, -1));
+        jPanel1.add(jlbValidar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, -1, -1));
 
         jlbcontraseña.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbcontraseña.setForeground(new java.awt.Color(51, 51, 51));
         jlbcontraseña.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jlbcontraseña.setText("contraseña");
-        jPanel1.add(jlbcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, -1, -1));
+        jPanel1.add(jlbcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, -1, -1));
 
         btnValidarContraseña.setBackground(new java.awt.Color(255, 153, 0));
         btnValidarContraseña.setForeground(new java.awt.Color(204, 204, 204));
         btnValidarContraseña.setBackgroundHover(new java.awt.Color(255, 102, 0));
         btnValidarContraseña.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.LOCK);
-        jPanel1.add(btnValidarContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 190, -1, -1));
+        jPanel1.add(btnValidarContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, -1, -1));
 
         btnSeleccionarImagen.setBackground(new java.awt.Color(102, 102, 102));
         btnSeleccionarImagen.setText("Seleccionar Imagen");
@@ -250,67 +252,82 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
                 btnSeleccionarImagenActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSeleccionarImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 250, 140, 30));
+        jPanel1.add(btnSeleccionarImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 230, 140, 30));
 
         jlblImagen.setForeground(new java.awt.Color(255, 255, 255));
         jlblImagen.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        jPanel1.add(jlblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 40, 230, 200));
+        jPanel1.add(jlblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 20, 230, 200));
 
         jlbAgregar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbAgregar.setForeground(new java.awt.Color(51, 51, 51));
         jlbAgregar.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jlbAgregar.setText("Agregar");
-        jPanel1.add(jlbAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, -1));
+        jPanel1.add(jlbAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, -1, -1));
 
         btnAgregar.setBackground(new java.awt.Color(0, 204, 102));
         btnAgregar.setBackgroundHover(new java.awt.Color(0, 102, 0));
         btnAgregar.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.ADD_CIRCLE_OUTLINE);
         btnAgregar.setName("jbtnActualizarGDG"); // NOI18N
-        jPanel1.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
+        jPanel1.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, -1, -1));
 
         jlbEditar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbEditar.setForeground(new java.awt.Color(51, 51, 51));
         jlbEditar.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jlbEditar.setText("Actualizar");
-        jPanel1.add(jlbEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, -1, -1));
+        jPanel1.add(jlbEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 200, -1, -1));
 
         btnEditar.setBackground(new java.awt.Color(255, 204, 0));
         btnEditar.setBackgroundHover(new java.awt.Color(204, 102, 0));
         btnEditar.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.EDIT);
         btnEditar.setName("jbtnActualizarGDG"); // NOI18N
-        jPanel1.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
+        jPanel1.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, -1, -1));
 
         jlbBorrar2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbBorrar2.setForeground(new java.awt.Color(51, 51, 51));
         jlbBorrar2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jlbBorrar2.setText("Borrar");
-        jPanel1.add(jlbBorrar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, -1, -1));
+        jPanel1.add(jlbBorrar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 200, -1, -1));
 
         btnBorrar.setBackground(new java.awt.Color(255, 51, 51));
         btnBorrar.setBackgroundHover(new java.awt.Color(153, 0, 0));
         btnBorrar.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.DELETE);
         btnBorrar.setName("jbtnActualizarGDG"); // NOI18N
-        jPanel1.add(btnBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, -1, -1));
+        jPanel1.add(btnBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 190, -1, -1));
 
         jlbLimpiarCampos1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbLimpiarCampos1.setForeground(new java.awt.Color(51, 51, 51));
         jlbLimpiarCampos1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jlbLimpiarCampos1.setText("Limpiar");
-        jPanel1.add(jlbLimpiarCampos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 250, -1, -1));
+        jPanel1.add(jlbLimpiarCampos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 190, -1, -1));
 
         jlbLimpiarCampos2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbLimpiarCampos2.setForeground(new java.awt.Color(51, 51, 51));
         jlbLimpiarCampos2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jlbLimpiarCampos2.setText("campos");
-        jPanel1.add(jlbLimpiarCampos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, -1, -1));
+        jPanel1.add(jlbLimpiarCampos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 210, -1, -1));
 
         btnLimpiarCampos.setBackground(new java.awt.Color(51, 153, 255));
         btnLimpiarCampos.setBackgroundHover(new java.awt.Color(0, 102, 255));
         btnLimpiarCampos.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.CLEAR_ALL);
         btnLimpiarCampos.setName("jbtnActualizarGDG"); // NOI18N
-        jPanel1.add(btnLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, -1, -1));
+        jPanel1.add(btnLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, -1, -1));
 
-        Panel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1000, 300));
+        jtxtCorreo1.setForeground(new java.awt.Color(102, 102, 102));
+        jtxtCorreo1.setBorderColor(new java.awt.Color(255, 153, 0));
+        jtxtCorreo1.setCaretColor(new java.awt.Color(0, 153, 255));
+        jtxtCorreo1.setColorIcon(new java.awt.Color(204, 204, 204));
+        jtxtCorreo1.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.EMAIL);
+        jtxtCorreo1.setPhColor(new java.awt.Color(153, 153, 153));
+        jtxtCorreo1.setPlaceholder(" abc@mail.com");
+        jtxtCorreo1.setSelectionColor(new java.awt.Color(255, 153, 0));
+        jPanel1.add(jtxtCorreo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 170, 30));
+
+        jlbCorreoElectronico9.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        jlbCorreoElectronico9.setForeground(new java.awt.Color(51, 51, 51));
+        jlbCorreoElectronico9.setText("Correo electrónico");
+        jPanel1.add(jlbCorreoElectronico9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, -1, -1));
+
+        Panel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1000, 270));
 
         getContentPane().add(Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 640));
 
@@ -385,6 +402,7 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
     public javax.swing.JLabel jlbBorrar2;
     public javax.swing.JLabel jlbContraseña;
     public javax.swing.JLabel jlbCorreoElectronico8;
+    public javax.swing.JLabel jlbCorreoElectronico9;
     public javax.swing.JLabel jlbDocumento;
     public javax.swing.JLabel jlbEditar;
     public javax.swing.JLabel jlbLimpiarCampos1;
@@ -399,6 +417,7 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
     public RSMaterialComponent.RSTextFieldIconTwo jtxtApellidos;
     public RSMaterialComponent.RSPasswordIconTwo jtxtContraseña;
     public RSMaterialComponent.RSTextFieldIconTwo jtxtCorreo;
+    public RSMaterialComponent.RSTextFieldIconTwo jtxtCorreo1;
     public RSMaterialComponent.RSTextFieldIconTwo jtxtNombres;
     public RSMaterialComponent.RSTextFieldIconTwo jtxtNumDocumento;
     public RSMaterialComponent.RSTextFieldIconTwo jtxtTelefono;

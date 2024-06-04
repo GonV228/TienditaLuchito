@@ -13,7 +13,6 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
-
 public class CRecuperar_2Codigo implements ActionListener{
     //inicializar 
     Recuperar_2Codigo vista;
@@ -34,22 +33,19 @@ public class CRecuperar_2Codigo implements ActionListener{
         vistaa.setLocationRelativeTo(null);
         System.out.println(codigo);
     }
-    
-    
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==vista.jbtnVolverAEnviar){
             System.out.println(correo);
             codigoAleatorio = generarCodigo();
             System.out.println(codigoAleatorio);
-            JavaMail javaEmail=new JavaMail(codigoAleatorio,correo);
-            
+            JavaMail javaEmail=new JavaMail(codigoAleatorio,correo);    
         }
-         
         if(e.getSource()==vista.jbtnAceptar){
             //validar
             if(!codigoAleatorio.equals(vista.jtxtfIngresaCodigo.getText())){
-                JOptionPane.showMessageDialog(null, "El código ingresado no es correcto", "Código incorrecto", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "El código ingresado no es correcto", 
+                        "Código incorrecto", JOptionPane.INFORMATION_MESSAGE);
                 return;
             }
             System.out.println("codigo ingresado: "+vista.jtxtfIngresaCodigo.getText());

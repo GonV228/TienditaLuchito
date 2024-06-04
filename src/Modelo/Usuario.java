@@ -1,6 +1,6 @@
 package Modelo;
-
 public class Usuario {
+    //inicialización
     private int id;
     private String nombres;
     private String apellidos;
@@ -11,8 +11,7 @@ public class Usuario {
     private int numeroDocumento; // Cambiado a int
     private String telefono;
     private byte[] imagenBytes;
-
-    // Constructor
+    // Constructores
     public Usuario(int id,String nombres, String apellidos, String correoElectronico, String contraseña, String rol, String tipoDocumento, int numeroDocumento, String telefono, byte[] imagenBytes) {
         this.id=id;
         this.nombres = nombres;
@@ -46,8 +45,7 @@ public class Usuario {
         this.contraseña=contra;
         this.correoElectronico=correo;
     }
-    public Usuario(){}
-    
+    public Usuario(){/*constructor vacio*/}
     // Getters y setters
     public int   getId() {return id;}
     public void     setId(int id) {    this.id = id;}

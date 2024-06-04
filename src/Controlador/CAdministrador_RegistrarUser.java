@@ -22,11 +22,12 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class CAdministrador_RegistrarUser implements ActionListener {
+    //instanciar
     Administrador_RegistrarUsers vista;
     Administrador menu;
     Usuario usuarioSeleccionado;
     private int idUsuarioSeleccionado;
-
+    //constructor
     public CAdministrador_RegistrarUser(Administrador_RegistrarUsers adminRegis, Administrador Admin) {
         vista = adminRegis;
         menu = Admin;
@@ -42,17 +43,13 @@ public class CAdministrador_RegistrarUser implements ActionListener {
         vista.jtxtContraseña.addActionListener(this);
         vista.jtxtNumDocumento.addActionListener(this);
         vista.jtxtTelefono.addActionListener(this);
-        
         // Inicializar JComboBox para roles y tipos de documento
         String[] roles = {"Administrador", "Empleado"};
         vista.jcbxTipoEmpleado.setModel(new DefaultComboBoxModel<>(roles));
-
         String[] tiposDocumento = {"DNI", "Carnet de Extranjeria", "Pasaporte"};
         vista.jcbxTipoDoc.setModel(new DefaultComboBoxModel<>(tiposDocumento));
-
         // Mostrar los usuarios en la tabla
         mostrarUsuariosEnTabla();
-
         // Agregar listener a la tabla para seleccionar usuarios
         vista.tblEmpleados.addMouseListener(new MouseAdapter() {
             @Override
@@ -66,13 +63,10 @@ public class CAdministrador_RegistrarUser implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vista.btnAgregar) {
             registrarNuevoUsuario();
-            //actualizarVista(); //no descomentar
         } else if (e.getSource() == vista.btnBorrar) {
             eliminarUsuario();
-            //actualizarVista();
         } else if (e.getSource() == vista.btnEditar) {
             actualizarUsuario();
-            //actualizarVista(); //no descomentar
         } else if (e.getSource() == vista.btnSeleccionarImagen) {
             seleccionarImagen();
         } else if (e.getSource() == vista.btnLimpiarCampos){

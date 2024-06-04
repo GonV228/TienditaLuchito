@@ -45,8 +45,8 @@ public class CMenuAdministrador implements ActionListener{
         vista.jbtnInventario.addActionListener(this);
         vista.jbtnVentas.addActionListener(this);
         vista.jbtnCerrarSesion.addActionListener(this);
-        mostrarProductosConStockBajo();
         UsuarioEnSesion(name, address,email, img);
+        mostrarProductosConStockBajo();
         System.out.println("constructor");
     }
 
@@ -54,8 +54,6 @@ public class CMenuAdministrador implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         //ADMINISTRAR EMPLEADOS
         if(e.getSource()==vista.jbtnAdminEmpleados){
-            
-            //System.out.println(UsuarioEnSesion(nombre, apellido, correo, imagen));
             Administrador adm=new Administrador();//instanciar
             CAdministrador controlador=new CAdministrador(adm);
             vista.PrincipalMenu.removeAll();
@@ -65,7 +63,6 @@ public class CMenuAdministrador implements ActionListener{
             vista.PrincipalMenu.repaint();
             UsuarioEnSesion(nombre, apellido, correo, imagen);
         }
-        
         //INVENTARIO
         if(e.getSource()==vista.jbtnInventario){
             Inventario vistaInve=new Inventario();
@@ -87,7 +84,6 @@ public class CMenuAdministrador implements ActionListener{
             ControladorLogin controlador=new ControladorLogin(vistaLogin);
             vista.dispose();
         }
-        
     }
     
     ////////////////////////////////////////////////////////////////////////////////////////

@@ -22,7 +22,6 @@ public class CRecuperar_1Correo implements ActionListener{
     
     
     //constructor
-
     public CRecuperar_1Correo(Recuperar_1Correo vista) {
         this.vista = vista;
         
@@ -33,7 +32,6 @@ public class CRecuperar_1Correo implements ActionListener{
         vista.setTitle("Recuperar contraseña");
         vista.setLocationRelativeTo(null);
     }
-
     @Override
     public void actionPerformed(ActionEvent e) {
         //VOLVER ATRAS
@@ -57,7 +55,8 @@ public class CRecuperar_1Correo implements ActionListener{
             System.out.println(correo);
             // Verificar si el correo está registrado en el sistema
             if(!validarCorreo(correo)){
-                JOptionPane.showMessageDialog(null, "La dirección de correo ingresada no está registrada en el sistema", "Validación de Existencia de correo", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "La dirección de correo ingresada no está registrada en el sistema", 
+                        "Validación de Existencia de correo", JOptionPane.INFORMATION_MESSAGE);
                 return;
             }// Si el correo es válido, continuar con el proceso
             String codigoAleatorio = generarCodigo();

@@ -584,16 +584,16 @@ public class CInventario_Registro implements ActionListener {
     
     // Método para exportar el catálogo PDF
     private String exportarCatalogoPDF(String categoria) {
-    
-    // Obtén la lista de productos de la categoría seleccionada
-    List<Productos> listaProductos = dao.obtenerProductosPorCategoria(categoria);
 
-    // Crea una instancia del GeneradorPDF
-    GeneradorPDF generadorPDF = new GeneradorPDF();
+        // Obtén la lista de productos de la categoría seleccionada
+        List<Productos> listaProductos = dao.obtenerProductosPorCategoria(categoria);
 
-    // Genera el catálogo PDF y devuelve la ruta del archivo generado
-    return generadorPDF.generarCatalogoPDF(listaProductos, categoria);
-}
+        // Crea una instancia del GeneradorPDF
+        GeneradorPDF generadorPDF = new GeneradorPDF();
+
+        // Genera el catálogo PDF y devuelve la ruta del archivo generado
+        return generadorPDF.generarCatalogoPDF(listaProductos, categoria);
+    }
     
     private void abrirPDF(String rutaArchivo) {
         try {

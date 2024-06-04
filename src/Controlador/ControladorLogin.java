@@ -34,22 +34,10 @@ public class ControladorLogin implements ActionListener {
         if (e.getSource() == vista.jbtnIniciarSesion) {
             String correo = vista.jtxtfIngresaCorreo.getText();
             String contraseña = vista.jtxtfContraseña.getText();
- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////           
-            // Verificar el inicio de sesión en la base de datos
-            
-
-            /////////////////////////////////////////////////////
-            //ESTA PARTE DE ABAJO ES PARA INICIAR SESION!!!! PARA USARLA HAY QUE COMENTAR LA LINEA 52 Y DESCOMENTAR LA 51
-            /////////////////////////////////////////////////////
-            //usuario = new Usuario("", "", contraseña, correo, "", "", 0, "", 0, ""); // Creación del objeto "usuario" con valores vacíos
-            //usuario = new Usuario(); // Creación del objeto "usuario" con valores vacíos
             usuario = new Usuario();
             usuario.setCorreoElectronico(correo);
             usuario.setContraseña(contraseña);
             UsuarioInfo usuarioInfo = dLogin.obtenerInfoUsuario(usuario); 
-         //String rol = dLogin.obtenerRolUsuario(usuario); // Usando el objeto "dLogin" en lugar de "dao"
-//String rol="Administrador";
-            //declaramos variables
             String rol=null;
             String nombre=null;
             String apellido=null;
@@ -77,7 +65,8 @@ public class ControladorLogin implements ActionListener {
                     vista.dispose(); // Cerrar la ventana de inicio de sesión
                 }
             } else {
-            JOptionPane.showMessageDialog(vista, "El usuario no está registrado en la base de datos.", "Error de inicio de sesión", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(vista, "El usuario no está registrado en la base de datos.", 
+                    "Error de inicio de sesión", JOptionPane.ERROR_MESSAGE);
             }
         } 
         if (e.getSource() == vista.jbtnRecuperarContraseña) {   

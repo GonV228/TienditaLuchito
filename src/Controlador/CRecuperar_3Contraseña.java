@@ -41,7 +41,6 @@ public class CRecuperar_3Contraseña implements ActionListener{
             ControladorLogin controlador=new ControladorLogin(vistaLogin);
             vista.dispose();
         }
-        
         if(e.getSource()==vista.jbtnReestablecer){
             boolean exito=registrarContraseña();
             if(exito){
@@ -50,9 +49,6 @@ public class CRecuperar_3Contraseña implements ActionListener{
                 vista.dispose();
             }
         }
-        
-        
-        
     }
     
     private boolean registrarContraseña(){

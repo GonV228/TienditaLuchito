@@ -24,8 +24,8 @@ public class CAdministrador implements ActionListener{
         //REGISTRO
         if(e.getSource()==vista.tab1){
             System.out.println("tab1");
-        Administrador_RegistrarUsers datos = new Administrador_RegistrarUsers();
-      CAdministrador_RegistrarUser controlador = new  CAdministrador_RegistrarUser(datos, vista);
+            Administrador_RegistrarUsers datos = new Administrador_RegistrarUsers();
+            CAdministrador_RegistrarUser controlador = new  CAdministrador_RegistrarUser(datos, vista);
 
             vista.PrincipalAdministrador.removeAll();
             vista.PrincipalAdministrador.setLayout(new BorderLayout());
