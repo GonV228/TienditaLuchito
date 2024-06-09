@@ -390,13 +390,14 @@ public class Inventario_Registro extends javax.swing.JFrame {
 
         rSTableMetro3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Producto", "Pedidos", "Costo C/u", "Precio Venta", "Ganancia", "Ganancia total", "Fecha pedido", "Fecha entrega", "TOTAL"
+                "Producto", "Pedidos", "Costo C/u", "Precio Venta", "Ganancia", "Ganancia total", "Fecha pedido", "Fecha entrega", "Estado", "TOTAL"
             }
         ));
         rSTableMetro3.setBackgoundHead(new java.awt.Color(51, 51, 51));

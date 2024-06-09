@@ -1029,7 +1029,7 @@
             <Component class="RSMaterialComponent.RSTableMetro" name="rSTableMetro3">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="9" rowCount="4">
+                  <Table columnCount="10" rowCount="5">
                     <Column editable="true" title="Producto" type="java.lang.Object"/>
                     <Column editable="true" title="Pedidos" type="java.lang.Object"/>
                     <Column editable="true" title="Costo C/u" type="java.lang.Object"/>
@@ -1038,6 +1038,7 @@
                     <Column editable="true" title="Ganancia total" type="java.lang.Object"/>
                     <Column editable="true" title="Fecha pedido" type="java.lang.Object"/>
                     <Column editable="true" title="Fecha entrega" type="java.lang.Object"/>
+                    <Column editable="true" title="Estado" type="java.lang.Object"/>
                     <Column editable="true" title="TOTAL" type="java.lang.Object"/>
                   </Table>
                 </Property>
@@ -1055,6 +1056,11 @@
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                       <Title/>
                       <Editor/>

@@ -38,6 +38,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
         jbtnAdminEmpleados = new RSMaterialComponent.RSButtonMaterialOne();
         jbtnVentas = new RSMaterialComponent.RSButtonMaterialOne();
         jbtnInventario = new RSMaterialComponent.RSButtonMaterialOne();
+        jbtnInventario1 = new RSMaterialComponent.RSButtonMaterialOne();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -111,7 +112,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
         rSPanelMaterial3.add(jbtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 720, 270, -1));
 
         jbtnAdminEmpleados.setBackground(new java.awt.Color(102, 102, 102));
-        jbtnAdminEmpleados.setText("ADMINISTRAR EMPLEADOS");
+        jbtnAdminEmpleados.setText("ADMINISTRAR PERSONAS");
         jbtnAdminEmpleados.setBackgroundHover(new java.awt.Color(153, 153, 153));
         jbtnAdminEmpleados.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         jbtnAdminEmpleados.setRound(40);
@@ -130,11 +131,18 @@ public class MenuAdministrador extends javax.swing.JFrame {
         rSPanelMaterial3.add(jbtnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 270, -1));
 
         jbtnInventario.setBackground(new java.awt.Color(102, 102, 102));
-        jbtnInventario.setText("INVENTARIO");
+        jbtnInventario.setText("LOGISTICA");
         jbtnInventario.setBackgroundHover(new java.awt.Color(153, 153, 153));
         jbtnInventario.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         jbtnInventario.setRound(40);
-        rSPanelMaterial3.add(jbtnInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 270, -1));
+        rSPanelMaterial3.add(jbtnInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 270, -1));
+
+        jbtnInventario1.setBackground(new java.awt.Color(102, 102, 102));
+        jbtnInventario1.setText("INVENTARIO");
+        jbtnInventario1.setBackgroundHover(new java.awt.Color(153, 153, 153));
+        jbtnInventario1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        jbtnInventario1.setRound(40);
+        rSPanelMaterial3.add(jbtnInventario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 270, -1));
 
         rSPanelMaterial1.add(rSPanelMaterial3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 310, 780));
 
@@ -192,6 +200,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
     public RSMaterialComponent.RSButtonMaterialOne jbtnAdminEmpleados;
     public RSMaterialComponent.RSButtonMaterialOne jbtnCerrarSesion;
     public RSMaterialComponent.RSButtonMaterialOne jbtnInventario;
+    public RSMaterialComponent.RSButtonMaterialOne jbtnInventario1;
     public RSMaterialComponent.RSButtonMaterialOne jbtnVentas;
     private RSMaterialComponent.RSPanelMaterial rSPanelMaterial1;
     private RSMaterialComponent.RSPanelMaterial rSPanelMaterial3;
