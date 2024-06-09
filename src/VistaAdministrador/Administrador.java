@@ -29,6 +29,8 @@ public class Administrador extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         rSLabelTextIcon1 = new RSMaterialComponent.RSLabelTextIcon();
         tab1 = new newscomponents.RSButtonIcon_new();
+        tab2 = new newscomponents.RSButtonIcon_new();
+        tab3 = new newscomponents.RSButtonIcon_new();
         PrincipalAdministrador = new RSMaterialComponent.RSPanelMaterial();
         rSLabelTextIcon3 = new RSMaterialComponent.RSLabelTextIcon();
 
@@ -46,12 +48,12 @@ public class Administrador extends javax.swing.JFrame {
 
         rSLabelTextIcon1.setForeground(new java.awt.Color(51, 51, 51));
         rSLabelTextIcon1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        rSLabelTextIcon1.setText("Administrar Empleados");
+        rSLabelTextIcon1.setText("Administrar Personas");
         rSLabelTextIcon1.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.PEOPLE);
         jPanel2.add(rSLabelTextIcon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 800, -1));
 
         tab1.setBackground(new java.awt.Color(187, 187, 187));
-        tab1.setText("Registro");
+        tab1.setText("Empleados");
         tab1.setBackgroundHover(new java.awt.Color(255, 102, 0));
         tab1.setForegroundIcon(new java.awt.Color(102, 102, 102));
         tab1.setForegroundText(new java.awt.Color(102, 102, 102));
@@ -61,7 +63,33 @@ public class Administrador extends javax.swing.JFrame {
                 tab1ActionPerformed(evt);
             }
         });
-        jPanel2.add(tab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 52, 139, -1));
+        jPanel2.add(tab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 150, -1));
+
+        tab2.setBackground(new java.awt.Color(187, 187, 187));
+        tab2.setText("Clientes");
+        tab2.setBackgroundHover(new java.awt.Color(255, 102, 0));
+        tab2.setForegroundIcon(new java.awt.Color(102, 102, 102));
+        tab2.setForegroundText(new java.awt.Color(102, 102, 102));
+        tab2.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.ACCOUNT_BOX);
+        tab2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(tab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 150, -1));
+
+        tab3.setBackground(new java.awt.Color(187, 187, 187));
+        tab3.setText("Proveedores");
+        tab3.setBackgroundHover(new java.awt.Color(255, 102, 0));
+        tab3.setForegroundIcon(new java.awt.Color(102, 102, 102));
+        tab3.setForegroundText(new java.awt.Color(102, 102, 102));
+        tab3.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.ACCOUNT_BOX);
+        tab3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tab3ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(tab3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, 150, -1));
 
         Panel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1020, 100));
 
@@ -71,7 +99,7 @@ public class Administrador extends javax.swing.JFrame {
         PrincipalAdministrador.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         rSLabelTextIcon3.setForeground(new java.awt.Color(51, 51, 51));
-        rSLabelTextIcon3.setText("Administrar Empleados");
+        rSLabelTextIcon3.setText("Administrar Personas");
         rSLabelTextIcon3.setFont(new java.awt.Font("Roboto Bold", 1, 48)); // NOI18N
         rSLabelTextIcon3.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.PEOPLE);
         rSLabelTextIcon3.setSizeIcon(60.0F);
@@ -100,43 +128,14 @@ public class Administrador extends javax.swing.JFrame {
         }*/
     }//GEN-LAST:event_tab1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Administrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Administrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Administrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Administrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+    private void tab2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab2ActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Administrador().setVisible(true);
-            }
-        });
-    }
+    private void tab3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tab3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private RSMaterialComponent.RSPanelMaterial Panel;
@@ -145,6 +144,8 @@ public class Administrador extends javax.swing.JFrame {
     private RSMaterialComponent.RSLabelTextIcon rSLabelTextIcon1;
     private RSMaterialComponent.RSLabelTextIcon rSLabelTextIcon3;
     public newscomponents.RSButtonIcon_new tab1;
+    public newscomponents.RSButtonIcon_new tab2;
+    public newscomponents.RSButtonIcon_new tab3;
     // End of variables declaration//GEN-END:variables
 
 }

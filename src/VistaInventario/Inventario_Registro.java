@@ -116,7 +116,7 @@ public class Inventario_Registro extends javax.swing.JFrame {
         jtableCategorias.setSelectionBackground(new java.awt.Color(102, 102, 102));
         jScrollPane1.setViewportView(jtableCategorias);
 
-        Panel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 580, 150));
+        Panel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 580, 120));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(153, 153, 153)));
@@ -195,15 +195,15 @@ public class Inventario_Registro extends javax.swing.JFrame {
 
         btnAgregarProducto.setBackground(new java.awt.Color(0, 204, 102));
         btnAgregarProducto.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.ADD_CIRCLE_OUTLINE);
-        jPanel1.add(btnAgregarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 520, -1, -1));
+        jPanel1.add(btnAgregarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, -1, -1));
 
         btnEliminarProducto.setBackground(new java.awt.Color(255, 28, 28));
         btnEliminarProducto.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.DELETE);
-        jPanel1.add(btnEliminarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 590, -1, -1));
+        jPanel1.add(btnEliminarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 580, -1, -1));
 
         btnEditarProducto.setBackground(new java.awt.Color(255, 204, 0));
         btnEditarProducto.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.EDIT);
-        jPanel1.add(btnEditarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 520, -1, -1));
+        jPanel1.add(btnEditarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 510, -1, -1));
 
         jLabel3.setBackground(new java.awt.Color(51, 51, 51));
         jLabel3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 20)); // NOI18N
@@ -215,31 +215,31 @@ public class Inventario_Registro extends javax.swing.JFrame {
         jlbAgregar2.setForeground(new java.awt.Color(51, 51, 51));
         jlbAgregar2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlbAgregar2.setText("Actualizar");
-        jPanel1.add(jlbAgregar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 560, -1, -1));
+        jPanel1.add(jlbAgregar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 550, -1, -1));
 
         jlbAgregar5.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbAgregar5.setForeground(new java.awt.Color(51, 51, 51));
         jlbAgregar5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlbAgregar5.setText("Agregar");
-        jPanel1.add(jlbAgregar5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, 70, -1));
+        jPanel1.add(jlbAgregar5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, 70, -1));
 
         jlbAgregar7.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbAgregar7.setForeground(new java.awt.Color(51, 51, 51));
         jlbAgregar7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jlbAgregar7.setText("Borrar");
-        jPanel1.add(jlbAgregar7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 630, 50, -1));
+        jPanel1.add(jlbAgregar7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 620, 50, -1));
 
         btnLimpiarCampos.setBackground(new java.awt.Color(51, 153, 255));
         btnLimpiarCampos.setBackgroundHover(new java.awt.Color(0, 102, 255));
         btnLimpiarCampos.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.CLEAR_ALL);
         btnLimpiarCampos.setName("jbtnActualizarGDG"); // NOI18N
-        jPanel1.add(btnLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 590, -1, -1));
+        jPanel1.add(btnLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 580, -1, -1));
 
         jlbLimpiarCampos1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbLimpiarCampos1.setForeground(new java.awt.Color(51, 51, 51));
         jlbLimpiarCampos1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlbLimpiarCampos1.setText("Limpiar");
-        jPanel1.add(jlbLimpiarCampos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 630, 50, -1));
+        jPanel1.add(jlbLimpiarCampos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 620, 50, -1));
 
         Panel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 680));
 
@@ -247,7 +247,7 @@ public class Inventario_Registro extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Pedidos ");
-        Panel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 430, -1, -1));
+        Panel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, -1, -1));
 
         jtxfNombreCategoria.setForeground(new java.awt.Color(102, 102, 102));
         jtxfNombreCategoria.setBorderColor(new java.awt.Color(255, 153, 0));
@@ -257,43 +257,43 @@ public class Inventario_Registro extends javax.swing.JFrame {
         jtxfNombreCategoria.setPhColor(new java.awt.Color(153, 153, 153));
         jtxfNombreCategoria.setPlaceholder("Nombre de la Categoria");
         jtxfNombreCategoria.setSelectionColor(new java.awt.Color(255, 153, 0));
-        Panel.add(jtxfNombreCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 10, 200, 30));
+        Panel.add(jtxfNombreCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 40, 200, 30));
 
         btnAgregarCategorias.setBackground(new java.awt.Color(0, 204, 102));
         btnAgregarCategorias.setBackgroundHover(new java.awt.Color(0, 102, 0));
         btnAgregarCategorias.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.ADD_CIRCLE_OUTLINE);
         btnAgregarCategorias.setName("jbtnActualizarGDG"); // NOI18N
-        Panel.add(btnAgregarCategorias, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 50, -1, -1));
+        Panel.add(btnAgregarCategorias, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 80, -1, -1));
 
         btnBorrarCategorias.setBackground(new java.awt.Color(255, 51, 51));
         btnBorrarCategorias.setBackgroundHover(new java.awt.Color(153, 0, 0));
         btnBorrarCategorias.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.DELETE);
         btnBorrarCategorias.setName("jbtnActualizarGDG"); // NOI18N
-        Panel.add(btnBorrarCategorias, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 100, -1, -1));
+        Panel.add(btnBorrarCategorias, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 80, -1, -1));
 
         btnEditarCategorias.setBackground(new java.awt.Color(255, 204, 0));
         btnEditarCategorias.setBackgroundHover(new java.awt.Color(204, 102, 0));
         btnEditarCategorias.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.EDIT);
         btnEditarCategorias.setName("jbtnActualizarGDG"); // NOI18N
-        Panel.add(btnEditarCategorias, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 150, -1, -1));
+        Panel.add(btnEditarCategorias, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 80, -1, -1));
 
         jlbAgregar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbAgregar.setForeground(new java.awt.Color(51, 51, 51));
         jlbAgregar.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jlbAgregar.setText("Agregar");
-        Panel.add(jlbAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 60, -1, -1));
+        Panel.add(jlbAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 120, -1, -1));
 
         jlbAgregar3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbAgregar3.setForeground(new java.awt.Color(51, 51, 51));
         jlbAgregar3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jlbAgregar3.setText("Actualizar");
-        Panel.add(jlbAgregar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 470, 80, -1));
+        Panel.add(jlbAgregar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 440, 80, -1));
 
         jlbAgregar8.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbAgregar8.setForeground(new java.awt.Color(51, 51, 51));
         jlbAgregar8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jlbAgregar8.setText("Borrar");
-        Panel.add(jlbAgregar8, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 110, 80, -1));
+        Panel.add(jlbAgregar8, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 120, 80, -1));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 0, 1, 0, new java.awt.Color(153, 153, 153)));
@@ -380,7 +380,7 @@ public class Inventario_Registro extends javax.swing.JFrame {
         jLabel8.setText("Filtrar por ");
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, -1, -1));
 
-        Panel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 810, 220));
+        Panel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 810, 220));
 
         jLabel4.setBackground(new java.awt.Color(51, 51, 51));
         jLabel4.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
@@ -407,27 +407,27 @@ public class Inventario_Registro extends javax.swing.JFrame {
         rSTableMetro3.setSelectionBackground(new java.awt.Color(102, 102, 102));
         jScrollPane3.setViewportView(rSTableMetro3);
 
-        Panel.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 520, 790, 150));
+        Panel.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 490, 790, 150));
 
         jcbxFiltroCategoria1.setForeground(new java.awt.Color(51, 51, 51));
         jcbxFiltroCategoria1.setColorMaterial(new java.awt.Color(255, 153, 0));
-        Panel.add(jcbxFiltroCategoria1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 480, 120, 30));
+        Panel.add(jcbxFiltroCategoria1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 450, 120, 30));
 
         jcbxFiltroCategoria2.setForeground(new java.awt.Color(51, 51, 51));
         jcbxFiltroCategoria2.setColorMaterial(new java.awt.Color(255, 153, 0));
-        Panel.add(jcbxFiltroCategoria2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 480, 120, 30));
+        Panel.add(jcbxFiltroCategoria2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 450, 120, 30));
 
         jLabel5.setBackground(new java.awt.Color(51, 51, 51));
         jLabel5.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setText("Año");
-        Panel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 460, -1, -1));
+        Panel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 430, -1, -1));
 
         jLabel7.setBackground(new java.awt.Color(51, 51, 51));
         jLabel7.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(51, 51, 51));
         jLabel7.setText("Mes");
-        Panel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 460, -1, -1));
+        Panel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 430, -1, -1));
 
         jtxfNombreProducto1.setForeground(new java.awt.Color(102, 102, 102));
         jtxfNombreProducto1.setBorderColor(new java.awt.Color(255, 153, 0));
@@ -437,78 +437,78 @@ public class Inventario_Registro extends javax.swing.JFrame {
         jtxfNombreProducto1.setPhColor(new java.awt.Color(153, 153, 153));
         jtxfNombreProducto1.setPlaceholder("Nombre del Producto");
         jtxfNombreProducto1.setSelectionColor(new java.awt.Color(255, 153, 0));
-        Panel.add(jtxfNombreProducto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 480, 180, 30));
+        Panel.add(jtxfNombreProducto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 450, 180, 30));
 
         jlbCorreoElectronico1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbCorreoElectronico1.setForeground(new java.awt.Color(51, 51, 51));
         jlbCorreoElectronico1.setText("Nombres del producto");
-        Panel.add(jlbCorreoElectronico1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 460, -1, -1));
+        Panel.add(jlbCorreoElectronico1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 430, -1, -1));
 
         jlbAgregar1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbAgregar1.setForeground(new java.awt.Color(51, 51, 51));
         jlbAgregar1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jlbAgregar1.setText("Pedido");
-        Panel.add(jlbAgregar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 490, -1, -1));
+        Panel.add(jlbAgregar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 460, -1, -1));
 
         btnAgregarCategorias1.setBackground(new java.awt.Color(0, 204, 102));
         btnAgregarCategorias1.setBackgroundHover(new java.awt.Color(0, 102, 0));
         btnAgregarCategorias1.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.ADD_CIRCLE_OUTLINE);
         btnAgregarCategorias1.setName("jbtnActualizarGDG"); // NOI18N
-        Panel.add(btnAgregarCategorias1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 430, -1, -1));
+        Panel.add(btnAgregarCategorias1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 400, -1, -1));
 
         jlbAgregar4.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbAgregar4.setForeground(new java.awt.Color(51, 51, 51));
         jlbAgregar4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jlbAgregar4.setText("Hacer");
-        Panel.add(jlbAgregar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 470, -1, -1));
+        Panel.add(jlbAgregar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 440, -1, -1));
 
         btnBorrarCategorias1.setBackground(new java.awt.Color(255, 51, 51));
         btnBorrarCategorias1.setBackgroundHover(new java.awt.Color(153, 0, 0));
         btnBorrarCategorias1.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.DELETE);
         btnBorrarCategorias1.setName("jbtnActualizarGDG"); // NOI18N
-        Panel.add(btnBorrarCategorias1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 430, -1, -1));
+        Panel.add(btnBorrarCategorias1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 400, -1, -1));
 
         jlbAgregar9.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbAgregar9.setForeground(new java.awt.Color(51, 51, 51));
         jlbAgregar9.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jlbAgregar9.setText("Borrar");
-        Panel.add(jlbAgregar9, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 470, 40, -1));
+        Panel.add(jlbAgregar9, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 440, 40, -1));
 
         jlbAgregar6.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbAgregar6.setForeground(new java.awt.Color(51, 51, 51));
         jlbAgregar6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jlbAgregar6.setText("Pedido");
-        Panel.add(jlbAgregar6, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 490, -1, -1));
+        Panel.add(jlbAgregar6, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 460, -1, -1));
 
         btnEditarCategorias1.setBackground(new java.awt.Color(255, 204, 0));
         btnEditarCategorias1.setBackgroundHover(new java.awt.Color(204, 102, 0));
         btnEditarCategorias1.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.EDIT);
         btnEditarCategorias1.setName("jbtnActualizarGDG"); // NOI18N
-        Panel.add(btnEditarCategorias1, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 430, -1, -1));
+        Panel.add(btnEditarCategorias1, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 400, -1, -1));
 
         jlbAgregar10.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbAgregar10.setForeground(new java.awt.Color(51, 51, 51));
         jlbAgregar10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jlbAgregar10.setText("Actualizar");
-        Panel.add(jlbAgregar10, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 160, 80, -1));
+        Panel.add(jlbAgregar10, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 120, 80, -1));
 
         jlbAgregar11.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbAgregar11.setForeground(new java.awt.Color(51, 51, 51));
         jlbAgregar11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jlbAgregar11.setText("Pedido");
-        Panel.add(jlbAgregar11, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 490, -1, -1));
+        Panel.add(jlbAgregar11, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 460, -1, -1));
 
         btnLimpiarCampos1.setBackground(new java.awt.Color(51, 153, 255));
         btnLimpiarCampos1.setBackgroundHover(new java.awt.Color(0, 102, 255));
         btnLimpiarCampos1.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.FILTER_LIST);
         btnLimpiarCampos1.setName("jbtnActualizarGDG"); // NOI18N
-        Panel.add(btnLimpiarCampos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 450, -1, -1));
+        Panel.add(btnLimpiarCampos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 420, -1, -1));
 
         jlbCorreoElectronico6.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbCorreoElectronico6.setForeground(new java.awt.Color(51, 51, 51));
         jlbCorreoElectronico6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jlbCorreoElectronico6.setText("Filtrar");
-        Panel.add(jlbCorreoElectronico6, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 490, -1, -1));
+        Panel.add(jlbCorreoElectronico6, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 460, -1, -1));
 
         getContentPane().add(Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 680));
 

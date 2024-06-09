@@ -6,6 +6,7 @@ import Dao.DNotificaciones;
 import VistaLogin.Login;
 import VistaAdministrador.MenuAdministrador;
 import VistaAdministrador.Administrador;
+import VistaLogistica.LogisticaMenu;
 import VistaInventario.Inventario;
 import VistaVentas.Ventas;
 import VistaAdministrador.Administrador_RegistrarUsers;
@@ -41,9 +42,10 @@ public class CMenuAdministrador implements ActionListener{
         menu.setVisible(true);
         menu.setTitle("Administrador");
         menu.setLocationRelativeTo(null); //centrar ventana
-        vista.jbtnAdminEmpleados.addActionListener(this);
+        vista.jbtnAdminPersonas.addActionListener(this);
         vista.jbtnInventario.addActionListener(this);
         vista.jbtnVentas.addActionListener(this);
+        vista.jbtnLogistica.addActionListener(this);
         vista.jbtnCerrarSesion.addActionListener(this);
         UsuarioEnSesion(name, address,email, img);
         mostrarProductosConStockBajo();
@@ -53,7 +55,7 @@ public class CMenuAdministrador implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         //ADMINISTRAR EMPLEADOS
-        if(e.getSource()==vista.jbtnAdminEmpleados){
+        if(e.getSource()==vista.jbtnAdminPersonas){
             Administrador adm=new Administrador();//instanciar
             CAdministrador controlador=new CAdministrador(adm);
             vista.PrincipalMenu.removeAll();
@@ -62,6 +64,16 @@ public class CMenuAdministrador implements ActionListener{
             vista.PrincipalMenu.revalidate();
             vista.PrincipalMenu.repaint();
             UsuarioEnSesion(nombre, apellido, correo, imagen);
+        }
+        //VENTAS
+        if(e.getSource()==vista.jbtnVentas){
+            Ventas vistaVen=new Ventas();
+            CVentas controlador=new CVentas(vistaVen);
+            vista.PrincipalMenu.removeAll();
+            vista.PrincipalMenu.setLayout(new BorderLayout());
+            vista.PrincipalMenu.add(vistaVen.getContentPane(),BorderLayout.CENTER);
+            vista.PrincipalMenu.revalidate();
+            vista.PrincipalMenu.repaint();
         }
         //INVENTARIO
         if(e.getSource()==vista.jbtnInventario){
@@ -73,10 +85,15 @@ public class CMenuAdministrador implements ActionListener{
             vista.PrincipalMenu.revalidate();
             vista.PrincipalMenu.repaint();
         }
-        //VENTAS
-        if(e.getSource()==vista.jbtnVentas){
-            Ventas vistaVen=new Ventas();
-            CVentas controlador=new CVentas(vistaVen);
+        //LOGISTICA
+        if(e.getSource()==vista.jbtnLogistica){
+            LogisticaMenu vistaLogM=new LogisticaMenu();
+            CLogisticaMenu controlador=new CLogisticaMenu(vistaLogM);
+            vista.PrincipalMenu.removeAll();
+            vista.PrincipalMenu.setLayout(new BorderLayout());
+            vista.PrincipalMenu.add(vistaLogM.getContentPane(),BorderLayout.CENTER);
+            vista.PrincipalMenu.revalidate();
+            vista.PrincipalMenu.repaint();
         }
         //CERRAR SESIÓN
         if(e.getSource()==vista.jbtnCerrarSesion){

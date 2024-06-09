@@ -72,9 +72,9 @@
                   <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="2"/>
-                <Property name="text" type="java.lang.String" value="Inventario"/>
+                <Property name="text" type="java.lang.String" value="Ventas"/>
                 <Property name="icons" type="rojeru_san.efectos.ValoresEnum$ICONS" editor="org.netbeans.modules.form.editors.EnumEditor">
-                  <Value id="CONTENT_PASTE"/>
+                  <Value id="STORE"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -99,7 +99,7 @@
                   <Color blue="66" green="66" red="66" type="rgb"/>
                 </Property>
                 <Property name="icons" type="rojeru_san.efectos.ValoresEnum$ICONS" editor="org.netbeans.modules.form.editors.EnumEditor">
-                  <Value id="CONTENT_PASTE"/>
+                  <Value id="STORE"/>
                 </Property>
               </Properties>
               <Events>
@@ -142,12 +142,12 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Registro de Inventario"/>
+                <Property name="text" type="java.lang.String" value="Registro de Ventas"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Roboto Bold" size="48" style="1"/>
                 </Property>
                 <Property name="icons" type="rojeru_san.efectos.ValoresEnum$ICONS" editor="org.netbeans.modules.form.editors.EnumEditor">
-                  <Value id="CONTENT_PASTE"/>
+                  <Value id="STORE"/>
                 </Property>
                 <Property name="sizeIcon" type="float" value="60.0"/>
               </Properties>

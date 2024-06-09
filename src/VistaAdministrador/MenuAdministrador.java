@@ -35,10 +35,10 @@ public class MenuAdministrador extends javax.swing.JFrame {
         JlabelCorreo = new javax.swing.JLabel();
         JlabelNombreUsuario = new javax.swing.JLabel();
         jbtnCerrarSesion = new RSMaterialComponent.RSButtonMaterialOne();
-        jbtnAdminEmpleados = new RSMaterialComponent.RSButtonMaterialOne();
+        jbtnAdminPersonas = new RSMaterialComponent.RSButtonMaterialOne();
         jbtnVentas = new RSMaterialComponent.RSButtonMaterialOne();
+        jbtnLogistica = new RSMaterialComponent.RSButtonMaterialOne();
         jbtnInventario = new RSMaterialComponent.RSButtonMaterialOne();
-        jbtnInventario1 = new RSMaterialComponent.RSButtonMaterialOne();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -111,17 +111,17 @@ public class MenuAdministrador extends javax.swing.JFrame {
         jbtnCerrarSesion.setRound(40);
         rSPanelMaterial3.add(jbtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 720, 270, -1));
 
-        jbtnAdminEmpleados.setBackground(new java.awt.Color(102, 102, 102));
-        jbtnAdminEmpleados.setText("ADMINISTRAR PERSONAS");
-        jbtnAdminEmpleados.setBackgroundHover(new java.awt.Color(153, 153, 153));
-        jbtnAdminEmpleados.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
-        jbtnAdminEmpleados.setRound(40);
-        jbtnAdminEmpleados.addActionListener(new java.awt.event.ActionListener() {
+        jbtnAdminPersonas.setBackground(new java.awt.Color(102, 102, 102));
+        jbtnAdminPersonas.setText("ADMINISTRAR PERSONAS");
+        jbtnAdminPersonas.setBackgroundHover(new java.awt.Color(153, 153, 153));
+        jbtnAdminPersonas.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        jbtnAdminPersonas.setRound(40);
+        jbtnAdminPersonas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnAdminEmpleadosActionPerformed(evt);
+                jbtnAdminPersonasActionPerformed(evt);
             }
         });
-        rSPanelMaterial3.add(jbtnAdminEmpleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 270, -1));
+        rSPanelMaterial3.add(jbtnAdminPersonas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 270, -1));
 
         jbtnVentas.setBackground(new java.awt.Color(102, 102, 102));
         jbtnVentas.setText("VENTAS");
@@ -130,19 +130,19 @@ public class MenuAdministrador extends javax.swing.JFrame {
         jbtnVentas.setRound(40);
         rSPanelMaterial3.add(jbtnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 270, -1));
 
+        jbtnLogistica.setBackground(new java.awt.Color(102, 102, 102));
+        jbtnLogistica.setText("LOGISTICA");
+        jbtnLogistica.setBackgroundHover(new java.awt.Color(153, 153, 153));
+        jbtnLogistica.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        jbtnLogistica.setRound(40);
+        rSPanelMaterial3.add(jbtnLogistica, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 270, -1));
+
         jbtnInventario.setBackground(new java.awt.Color(102, 102, 102));
-        jbtnInventario.setText("LOGISTICA");
+        jbtnInventario.setText("INVENTARIO");
         jbtnInventario.setBackgroundHover(new java.awt.Color(153, 153, 153));
         jbtnInventario.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         jbtnInventario.setRound(40);
-        rSPanelMaterial3.add(jbtnInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 270, -1));
-
-        jbtnInventario1.setBackground(new java.awt.Color(102, 102, 102));
-        jbtnInventario1.setText("INVENTARIO");
-        jbtnInventario1.setBackgroundHover(new java.awt.Color(153, 153, 153));
-        jbtnInventario1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
-        jbtnInventario1.setRound(40);
-        rSPanelMaterial3.add(jbtnInventario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 270, -1));
+        rSPanelMaterial3.add(jbtnInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 270, -1));
 
         rSPanelMaterial1.add(rSPanelMaterial3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 310, 780));
 
@@ -151,10 +151,10 @@ public class MenuAdministrador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jbtnAdminEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAdminEmpleadosActionPerformed
+    private void jbtnAdminPersonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAdminPersonasActionPerformed
         Icon icon = null;
         rspanelImagen.setImagen(icon);
-    }//GEN-LAST:event_jbtnAdminEmpleadosActionPerformed
+    }//GEN-LAST:event_jbtnAdminPersonasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -197,10 +197,10 @@ public class MenuAdministrador extends javax.swing.JFrame {
     public javax.swing.JLabel JlabelNombreUsuario;
     public RSMaterialComponent.RSPanelMaterial PrincipalMenu;
     private javax.swing.JPanel jPanel1;
-    public RSMaterialComponent.RSButtonMaterialOne jbtnAdminEmpleados;
+    public RSMaterialComponent.RSButtonMaterialOne jbtnAdminPersonas;
     public RSMaterialComponent.RSButtonMaterialOne jbtnCerrarSesion;
     public RSMaterialComponent.RSButtonMaterialOne jbtnInventario;
-    public RSMaterialComponent.RSButtonMaterialOne jbtnInventario1;
+    public RSMaterialComponent.RSButtonMaterialOne jbtnLogistica;
     public RSMaterialComponent.RSButtonMaterialOne jbtnVentas;
     private RSMaterialComponent.RSPanelMaterial rSPanelMaterial1;
     private RSMaterialComponent.RSPanelMaterial rSPanelMaterial3;

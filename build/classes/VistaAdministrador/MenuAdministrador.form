@@ -208,7 +208,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="RSMaterialComponent.RSButtonMaterialOne" name="jbtnAdminEmpleados">
+            <Component class="RSMaterialComponent.RSButtonMaterialOne" name="jbtnAdminPersonas">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="66" type="rgb"/>
@@ -223,7 +223,7 @@
                 <Property name="round" type="int" value="40"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbtnAdminEmpleadosActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbtnAdminPersonasActionPerformed"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -257,7 +257,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="RSMaterialComponent.RSButtonMaterialOne" name="jbtnInventario">
+            <Component class="RSMaterialComponent.RSButtonMaterialOne" name="jbtnLogistica">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="66" type="rgb"/>
@@ -280,7 +280,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="RSMaterialComponent.RSButtonMaterialOne" name="jbtnInventario1">
+            <Component class="RSMaterialComponent.RSButtonMaterialOne" name="jbtnInventario">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="66" type="rgb"/>
