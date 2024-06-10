@@ -39,6 +39,9 @@ public class CAdministrador implements ActionListener{
             
             if(!vista.tab1.isSelected()){
                 vista.tab1.setSelected(true);
+                vista.tab2.setSelected(false);
+                vista.tab3.setSelected(false);
+                
             }
         }
         //REGISTRO CLIENTES
@@ -54,7 +57,9 @@ public class CAdministrador implements ActionListener{
             vista.PrincipalAdministrador.repaint();
             
             if(!vista.tab2.isSelected()){
+                vista.tab1.setSelected(false);
                 vista.tab2.setSelected(true);
+                vista.tab3.setSelected(false);
             }
         }
         //REGISTRO PROVEEDORES
@@ -70,6 +75,8 @@ public class CAdministrador implements ActionListener{
             vista.PrincipalAdministrador.repaint();
             
             if(!vista.tab3.isSelected()){
+                vista.tab1.setSelected(false);
+                vista.tab2.setSelected(false);
                 vista.tab3.setSelected(true);
             }
         }
