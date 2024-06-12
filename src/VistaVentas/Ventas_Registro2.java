@@ -31,7 +31,7 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
         Panel = new RSMaterialComponent.RSPanelMaterial();
         btnExportarCatalogo = new RSMaterialComponent.RSButtonMaterialOne();
         jScrollPane1 = new javax.swing.JScrollPane();
-        rSTableMetro1 = new RSMaterialComponent.RSTableMetro();
+        jtbRegistroDVentas = new RSMaterialComponent.RSTableMetro();
         rSTextFieldMaterial3 = new RSMaterialComponent.RSTextFieldMaterial();
         rSTextFieldMaterial4 = new RSMaterialComponent.RSTextFieldMaterial();
         rSTextFieldMaterial1 = new RSMaterialComponent.RSTextFieldMaterial();
@@ -39,7 +39,7 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         btnExportarCatalogo1 = new RSMaterialComponent.RSButtonMaterialOne();
-        btnExportarCatalogo2 = new RSMaterialComponent.RSButtonMaterialOne();
+        jbtnBoleta = new RSMaterialComponent.RSButtonMaterialOne();
         jLabel1 = new javax.swing.JLabel();
         jtxtBuscarPorNombreProducto = new RSMaterialComponent.RSTextFieldIconTwo();
         jtxtBuscarPorID = new RSMaterialComponent.RSTextFieldIconTwo();
@@ -80,23 +80,23 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
         });
         Panel.add(btnExportarCatalogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 700, 120, 30));
 
-        rSTableMetro1.setModel(new javax.swing.table.DefaultTableModel(
+        jtbRegistroDVentas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Item", "Cod Producto", "Producto", "Unidades", "Precio", "Descuento", "Importe"
+                "ID", "Nombre", "Informacion", "Precio", "cantidad", "Promocion"
             }
         ));
-        rSTableMetro1.setBackgoundHead(new java.awt.Color(51, 51, 51));
-        rSTableMetro1.setBackgoundHover(new java.awt.Color(102, 102, 102));
-        rSTableMetro1.setColorPrimaryText(new java.awt.Color(51, 51, 51));
-        rSTableMetro1.setColorSecundaryText(new java.awt.Color(51, 51, 51));
-        rSTableMetro1.setSelectionBackground(new java.awt.Color(102, 102, 102));
-        jScrollPane1.setViewportView(rSTableMetro1);
+        jtbRegistroDVentas.setBackgoundHead(new java.awt.Color(51, 51, 51));
+        jtbRegistroDVentas.setBackgoundHover(new java.awt.Color(102, 102, 102));
+        jtbRegistroDVentas.setColorPrimaryText(new java.awt.Color(51, 51, 51));
+        jtbRegistroDVentas.setColorSecundaryText(new java.awt.Color(51, 51, 51));
+        jtbRegistroDVentas.setSelectionBackground(new java.awt.Color(102, 102, 102));
+        jScrollPane1.setViewportView(jtbRegistroDVentas);
 
         Panel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 1010, 140));
 
@@ -159,17 +159,17 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
         });
         Panel.add(btnExportarCatalogo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 700, 130, 30));
 
-        btnExportarCatalogo2.setBackground(new java.awt.Color(102, 102, 102));
-        btnExportarCatalogo2.setText("Boleta");
-        btnExportarCatalogo2.setBackgroundHover(new java.awt.Color(153, 153, 153));
-        btnExportarCatalogo2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
-        btnExportarCatalogo2.setRound(30);
-        btnExportarCatalogo2.addActionListener(new java.awt.event.ActionListener() {
+        jbtnBoleta.setBackground(new java.awt.Color(102, 102, 102));
+        jbtnBoleta.setText("Boleta");
+        jbtnBoleta.setBackgroundHover(new java.awt.Color(153, 153, 153));
+        jbtnBoleta.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        jbtnBoleta.setRound(30);
+        jbtnBoleta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExportarCatalogo2ActionPerformed(evt);
+                jbtnBoletaActionPerformed(evt);
             }
         });
-        Panel.add(btnExportarCatalogo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 650, 120, 30));
+        Panel.add(jbtnBoleta, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 650, 120, 30));
 
         jLabel1.setBackground(new java.awt.Color(51, 51, 51));
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
@@ -307,9 +307,9 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnExportarCatalogo1ActionPerformed
 
-    private void btnExportarCatalogo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportarCatalogo2ActionPerformed
+    private void jbtnBoletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnBoletaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnExportarCatalogo2ActionPerformed
+    }//GEN-LAST:event_jbtnBoletaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -415,7 +415,6 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
     public RSMaterialComponent.RSButtonIconShadow btnBorrar;
     public RSMaterialComponent.RSButtonMaterialOne btnExportarCatalogo;
     public RSMaterialComponent.RSButtonMaterialOne btnExportarCatalogo1;
-    public RSMaterialComponent.RSButtonMaterialOne btnExportarCatalogo2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -425,6 +424,7 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     public RSMaterialComponent.RSButtonIconShadow jbtnAgregarProductosVentas;
+    public RSMaterialComponent.RSButtonMaterialOne jbtnBoleta;
     public RSMaterialComponent.RSButtonIconShadow jbtnBuscarProductos;
     public RSMaterialComponent.RSComboBoxMaterial jcbxFiltrarCat;
     private javax.swing.JLabel jlbCorreoElectronico10;
@@ -433,9 +433,9 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
     private javax.swing.JLabel jlbCorreoElectronico7;
     private javax.swing.JLabel jlbCorreoElectronico8;
     public javax.swing.JLabel jlblMostrarProductoVenta;
+    public RSMaterialComponent.RSTableMetro jtbRegistroDVentas;
     public RSMaterialComponent.RSTextFieldIconTwo jtxtBuscarPorID;
     public RSMaterialComponent.RSTextFieldIconTwo jtxtBuscarPorNombreProducto;
-    private RSMaterialComponent.RSTableMetro rSTableMetro1;
     private RSMaterialComponent.RSTextFieldMaterial rSTextFieldMaterial1;
     private RSMaterialComponent.RSTextFieldMaterial rSTextFieldMaterial3;
     private RSMaterialComponent.RSTextFieldMaterial rSTextFieldMaterial4;
