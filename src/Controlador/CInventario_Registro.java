@@ -75,36 +75,7 @@ public class CInventario_Registro implements ActionListener {
                 }
             }
         });
-/*        vista.jtableProductos.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-                int filaSeleccionada = vista.jtableProductos.getSelectedRow();
-                if (filaSeleccionada != -1) {
-                    DefaultTableModel modelo = (DefaultTableModel) vista.jtableProductos.getModel();
-                    int id=(int) modelo.getValueAt(filaSeleccionada, 0);
-                    String nombre =(String) modelo.getValueAt(filaSeleccionada, 1);
-                    int stock = (int) modelo.getValueAt(filaSeleccionada, 2);
-                    String informacion = (String) modelo.getValueAt(filaSeleccionada, 3);
-                    double precio = (double) modelo.getValueAt(filaSeleccionada, 4);
-                    byte[] imagenBytes = (byte[]) modelo.getValueAt(filaSeleccionada, 5);
-                    String categoria = (String) modelo.getValueAt(filaSeleccionada, 6);
-                    //guargar producto seleccionado
-                    productoSeleccionado= new Productos(id, nombre, stock, informacion, precio, imagenBytes, categoria);
-                    vista.btnEliminarProducto.setEnabled(true);
-                    //mostrar la imagen en un label
-                    ImageIcon imagenIcono = new ImageIcon(imagenBytes);
-                    Image imagenEscalada = imagenIcono.getImage().getScaledInstance(vista.jlabelImagenInventario.getWidth(), vista.jlabelImagenInventario.getHeight(), Image.SCALE_SMOOTH);
-                    ImageIcon imagenEscaladaIcono = new ImageIcon(imagenEscalada);
-                    vista.jlabelImagenInventario.setIcon(imagenEscaladaIcono);
-                    
-                    mostrarDatosProductoSeleccionado(filaSeleccionada);
-                } else {
-                    vista.btnEliminarProducto.setEnabled(false);
-                }
-            }
-        });
-*/
+
     }
 
     private void actualizarVista() {

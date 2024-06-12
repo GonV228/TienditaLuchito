@@ -56,6 +56,7 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
         JtableMostraProductos = new RSMaterialComponent.RSTableMetro();
         jLabel6 = new javax.swing.JLabel();
         jlbCorreoElectronico8 = new javax.swing.JLabel();
+        jlblMostrarProductoVenta = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -77,7 +78,7 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
                 btnExportarCatalogoActionPerformed(evt);
             }
         });
-        Panel.add(btnExportarCatalogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 590, 120, 30));
+        Panel.add(btnExportarCatalogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 700, 120, 30));
 
         rSTableMetro1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -97,7 +98,7 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
         rSTableMetro1.setSelectionBackground(new java.awt.Color(102, 102, 102));
         jScrollPane1.setViewportView(rSTableMetro1);
 
-        Panel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 1010, 140));
+        Panel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 1010, 140));
 
         rSTextFieldMaterial3.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         rSTextFieldMaterial3.setText("60.00 S/.");
@@ -109,7 +110,7 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
                 rSTextFieldMaterial3ActionPerformed(evt);
             }
         });
-        Panel.add(rSTextFieldMaterial3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 570, 140, -1));
+        Panel.add(rSTextFieldMaterial3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 680, 140, -1));
 
         rSTextFieldMaterial4.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         rSTextFieldMaterial4.setText("00.00 S/.");
@@ -120,31 +121,31 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
                 rSTextFieldMaterial4ActionPerformed(evt);
             }
         });
-        Panel.add(rSTextFieldMaterial4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 570, 140, -1));
+        Panel.add(rSTextFieldMaterial4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 680, 140, -1));
 
         rSTextFieldMaterial1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         rSTextFieldMaterial1.setText("00.00 S/.");
         rSTextFieldMaterial1.setColorMaterial(new java.awt.Color(102, 102, 102));
         rSTextFieldMaterial1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        Panel.add(rSTextFieldMaterial1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 570, 140, -1));
+        Panel.add(rSTextFieldMaterial1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 680, 140, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("CAMBIO");
-        Panel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 530, 170, 40));
+        Panel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 640, 170, 40));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("PAGÓ CON");
-        Panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 530, 170, 40));
+        Panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 640, 170, 40));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("TOTAL");
-        Panel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 530, 100, 40));
+        Panel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 640, 100, 40));
 
         btnExportarCatalogo1.setBackground(new java.awt.Color(102, 102, 102));
         btnExportarCatalogo1.setText("Cancelar Venta");
@@ -156,7 +157,7 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
                 btnExportarCatalogo1ActionPerformed(evt);
             }
         });
-        Panel.add(btnExportarCatalogo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 590, 130, 30));
+        Panel.add(btnExportarCatalogo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 700, 130, 30));
 
         btnExportarCatalogo2.setBackground(new java.awt.Color(102, 102, 102));
         btnExportarCatalogo2.setText("Boleta");
@@ -168,7 +169,7 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
                 btnExportarCatalogo2ActionPerformed(evt);
             }
         });
-        Panel.add(btnExportarCatalogo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 540, 120, 30));
+        Panel.add(btnExportarCatalogo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 650, 120, 30));
 
         jLabel1.setBackground(new java.awt.Color(51, 51, 51));
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
@@ -224,7 +225,7 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
         jlbCorreoElectronico7.setForeground(new java.awt.Color(51, 51, 51));
         jlbCorreoElectronico7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jlbCorreoElectronico7.setText("Eliminar Producto de la tabla");
-        Panel.add(jlbCorreoElectronico7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 500, -1, -1));
+        Panel.add(jlbCorreoElectronico7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 610, -1, -1));
 
         jlbCorreoElectronico2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbCorreoElectronico2.setForeground(new java.awt.Color(51, 51, 51));
@@ -235,7 +236,7 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
         btnBorrar.setBackgroundHover(new java.awt.Color(153, 0, 0));
         btnBorrar.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.DELETE);
         btnBorrar.setName("jbtnActualizarGDG"); // NOI18N
-        Panel.add(btnBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, -1, -1));
+        Panel.add(btnBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 600, -1, -1));
 
         jcbxFiltrarCat.setForeground(new java.awt.Color(51, 51, 51));
         jcbxFiltrarCat.setColorMaterial(new java.awt.Color(255, 153, 0));
@@ -271,7 +272,7 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(51, 51, 51));
         jLabel6.setText("Registro de Ventas");
-        Panel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
+        Panel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, -1, -1));
 
         jlbCorreoElectronico8.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbCorreoElectronico8.setForeground(new java.awt.Color(51, 51, 51));
@@ -279,7 +280,13 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
         jlbCorreoElectronico8.setText("Agregar");
         Panel.add(jlbCorreoElectronico8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, -1, -1));
 
-        getContentPane().add(Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 670));
+        jlblMostrarProductoVenta.setBackground(new java.awt.Color(102, 153, 255));
+        jlblMostrarProductoVenta.setForeground(new java.awt.Color(153, 255, 51));
+        jlblMostrarProductoVenta.setToolTipText("");
+        jlblMostrarProductoVenta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Panel.add(jlblMostrarProductoVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, 180, 170));
+
+        getContentPane().add(Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 840));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -425,6 +432,7 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
     private javax.swing.JLabel jlbCorreoElectronico2;
     private javax.swing.JLabel jlbCorreoElectronico7;
     private javax.swing.JLabel jlbCorreoElectronico8;
+    public javax.swing.JLabel jlblMostrarProductoVenta;
     public RSMaterialComponent.RSTextFieldIconTwo jtxtBuscarPorID;
     public RSMaterialComponent.RSTextFieldIconTwo jtxtBuscarPorNombreProducto;
     private RSMaterialComponent.RSTableMetro rSTableMetro1;
