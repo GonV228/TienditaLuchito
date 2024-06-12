@@ -3,7 +3,7 @@ package Controlador;
 //import clases
 
 import VistaVentas.Ventas;
-import VistaVentas.Ventas_Registro;
+import VistaVentas.Ventas_Registro2;
 
 //import librerias
 import java.awt.BorderLayout;
@@ -23,7 +23,7 @@ public class CVentas implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         System.out.println("tab1");
-        Ventas_Registro datos=new Ventas_Registro();
+        Ventas_Registro2 datos=new Ventas_Registro2();
         CVentas_Registro controlador=new CVentas_Registro(datos, vista);
         vista.PrincipalVentas.removeAll();
         vista.PrincipalVentas.setLayout(new BorderLayout());
@@ -35,7 +35,7 @@ public class CVentas implements ActionListener{
             vista.tab1.setSelected(true);
         }
         
-        //prueba de escritorio
+        
         
         
     }
