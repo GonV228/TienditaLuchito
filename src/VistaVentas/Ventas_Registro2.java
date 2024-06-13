@@ -49,7 +49,7 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
         jlbCorreoElectronico12 = new javax.swing.JLabel();
         jlbCorreoElectronico7 = new javax.swing.JLabel();
         jlbCorreoElectronico2 = new javax.swing.JLabel();
-        btnBorrar = new RSMaterialComponent.RSButtonIconShadow();
+        jbtnBorrarProductoTabla = new RSMaterialComponent.RSButtonIconShadow();
         jcbxFiltrarCat = new RSMaterialComponent.RSComboBoxMaterial();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -236,11 +236,11 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
         jlbCorreoElectronico2.setText("Buscar");
         Panel.add(jlbCorreoElectronico2, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 60, -1, -1));
 
-        btnBorrar.setBackground(new java.awt.Color(255, 51, 51));
-        btnBorrar.setBackgroundHover(new java.awt.Color(153, 0, 0));
-        btnBorrar.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.DELETE);
-        btnBorrar.setName("jbtnActualizarGDG"); // NOI18N
-        Panel.add(btnBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, -1, -1));
+        jbtnBorrarProductoTabla.setBackground(new java.awt.Color(255, 51, 51));
+        jbtnBorrarProductoTabla.setBackgroundHover(new java.awt.Color(153, 0, 0));
+        jbtnBorrarProductoTabla.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.DELETE);
+        jbtnBorrarProductoTabla.setName("jbtnActualizarGDG"); // NOI18N
+        Panel.add(jbtnBorrarProductoTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, -1, -1));
 
         jcbxFiltrarCat.setForeground(new java.awt.Color(51, 51, 51));
         jcbxFiltrarCat.setColorMaterial(new java.awt.Color(255, 153, 0));
@@ -451,7 +451,6 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
     public RSMaterialComponent.RSTableMetro JtableMostraProductos;
     public RSMaterialComponent.RSTableMetro JtableMostraProductos1;
     public RSMaterialComponent.RSPanelMaterial Panel;
-    public RSMaterialComponent.RSButtonIconShadow btnBorrar;
     public RSMaterialComponent.RSButtonMaterialOne btnExportarCatalogo;
     public RSMaterialComponent.RSButtonMaterialOne btnExportarCatalogo1;
     private javax.swing.JLabel jLabel1;
@@ -466,6 +465,7 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     public RSMaterialComponent.RSButtonIconShadow jbtnAgregarProductosVentas;
     public RSMaterialComponent.RSButtonMaterialOne jbtnBoleta;
+    public RSMaterialComponent.RSButtonIconShadow jbtnBorrarProductoTabla;
     public RSMaterialComponent.RSButtonIconShadow jbtnBuscarProductos;
     public RSMaterialComponent.RSComboBoxMaterial jcbxFiltrarCat;
     private javax.swing.JLabel jlbCorreoElectronico10;

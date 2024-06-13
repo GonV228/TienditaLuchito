@@ -46,4 +46,22 @@ public List<Productos> buscarProductosVenta(String idProducto, String nombreProd
     return resultados;
 }
 
+    // Método para actualizar el stock de un producto
+    public void actualizarProducto(Productos producto) {
+        // Consulta SQL para actualizar el stock de un producto
+        String sql = "UPDATE Productos SET Stock = ? WHERE ID_Producto = ?";
+
+        // Establecer la conexión a la base de datos
+        ConexionBD conexionBD = new ConexionBD();
+        try (Connection conn = conexionBD.conectar(); PreparedStatement statement = conn.prepareStatement(sql)) {
+            // Establecer los parámetros de la consulta
+            statement.setInt(1, producto.getStock());
+            statement.setInt(2, producto.getID_Producto());
+
+            // Ejecutar la actualización
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -1,4 +1,5 @@
 package Controlador;
+//importar clases
 
 import Dao.DInventario;
 import Dao.DVentaseInventario;
@@ -7,17 +8,18 @@ import Modelo.categorias;
 import VistaVentas.Ventas;
 import VistaVentas.Ventas_Registro2;
 
+//importar librerias
 import java.awt.BorderLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.JTable;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -30,7 +32,7 @@ public class CVentas_Registro implements ActionListener {
     Ventas menu;
     DInventario dao; // DAO para interactuar con la base de datos
     DVentaseInventario dao1; // DAO para interactuar con la base de datos
-    Productos productoSeleccionado; // Para almacenar el producto seleccionado
+    Productos productoSeleccionado; // Producto seleccionado de la tabla
 
     // constructor
     public CVentas_Registro(Ventas_Registro2 VR, Ventas V) {
@@ -43,7 +45,7 @@ public class CVentas_Registro implements ActionListener {
         vista.jbtnBuscarProductos.addActionListener(this);
         vista.jbtnAgregarProductosVentas.addActionListener(this);
         vista.jcbxFiltrarCat.addActionListener(this);
-
+        vista.jbtnBorrarProductoTabla.addActionListener(this);
         // Llenar el JComboBox con las categorías al inicializar
         llenarComboBoxCategorias();
         // Llenar la tabla con todos los productos al inicializar
@@ -62,22 +64,6 @@ public class CVentas_Registro implements ActionListener {
                 }
             }
         });
-// Iniciar el modelo de la tabla de ventas
-        DefaultTableModel modeloVentas = new DefaultTableModel() {
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return false; // Hacer que todas las celdas de la tabla sean no editables
-            }
-        };
-        modeloVentas.addColumn("ID");
-        modeloVentas.addColumn("Nombre");
-        modeloVentas.addColumn("Informacion");
-        modeloVentas.addColumn("Precio");
-        modeloVentas.addColumn("Cantidad");
-        modeloVentas.addColumn("Promocion");
-        modeloVentas.addColumn("Importe");
-
-        vista.jtbRegistroDVentas.setModel(modeloVentas);
 
         // Agregar MouseListener al JTable para mostrar la imagen en el JLabel
         // Agregar MouseListener al JTable para autocompletar campos de texto
@@ -99,6 +85,23 @@ public class CVentas_Registro implements ActionListener {
                 }
             }
         });
+        DefaultTableModel modeloVentas = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; // Hace que las celdas no sean editables
+            }
+        };
+        modeloVentas.addColumn("ID");
+        modeloVentas.addColumn("Nombre");
+        modeloVentas.addColumn("Informacion");
+        modeloVentas.addColumn("Precio");
+        modeloVentas.addColumn("Cantidad");
+        modeloVentas.addColumn("Promocion");
+        modeloVentas.addColumn("Importe");
+
+        // Asignar el modelo a la tabla
+        vista.jtbRegistroDVentas.setModel(modeloVentas);
+
     }
 
     @Override
@@ -107,7 +110,38 @@ public class CVentas_Registro implements ActionListener {
             buscarProductos();
         } else if (e.getSource() == vista.jbtnAgregarProductosVentas) {
             agregarProductoAVentas();
+        } else if (e.getSource() == vista.jbtnBorrarProductoTabla) {
+            borrarProductoDeVentas();
+        } else if (e.getSource() == vista.jbtnBorrarProductoTabla) {
+            borrarProductoDeVentas();
+
         }
+    }
+
+    private void borrarProductoDeVentas() {
+        // Obtener la fila seleccionada de la tabla de ventas
+        int filaSeleccionada = vista.jtbRegistroDVentas.getSelectedRow();
+        if (filaSeleccionada == -1) {
+            JOptionPane.showMessageDialog(vista, "Seleccione un producto para eliminar.");
+            return;
+        }
+
+        // Obtener el ID del producto a eliminar
+        int idProducto = (int) vista.jtbRegistroDVentas.getValueAt(filaSeleccionada, 0);
+        // Obtener la cantidad a restablecer al stock
+        int cantidad = (int) vista.jtbRegistroDVentas.getValueAt(filaSeleccionada, 4);
+
+        // Eliminar la fila seleccionada de la tabla de ventas
+        DefaultTableModel modeloVentas = (DefaultTableModel) vista.jtbRegistroDVentas.getModel();
+        modeloVentas.removeRow(filaSeleccionada);
+
+        // Restaurar el stock del producto en la base de datos
+        Productos producto = dao.obtenerProductoPorID(idProducto);
+        producto.setStock(producto.getStock() + cantidad);
+        dao1.actualizarProducto(producto);
+
+        // Actualizar la tabla de productos para reflejar el nuevo stock
+        llenarTablaProductos();
     }
 
     private void actualizarVista() {
@@ -211,7 +245,7 @@ public class CVentas_Registro implements ActionListener {
         }
     }
 
-    // Método para agregar el producto seleccionado a la tabla de ventas
+    // Método para agregar el producto seleccionado a la tabla de ventas y actualizar el stock en tiempo real
     private void agregarProductoAVentas() {
         if (productoSeleccionado == null) {
             JOptionPane.showMessageDialog(vista, "No hay ningún producto seleccionado.");
@@ -242,18 +276,30 @@ public class CVentas_Registro implements ActionListener {
             return;
         }
 
-        // Agregar el producto y la cantidad a la tabla de ventas
+        // Calcular el importe
+        double importe = cantidad * productoSeleccionado.getPrecio();
+
+        // Obtener el modelo de la tabla de ventas
         DefaultTableModel modeloVentas = (DefaultTableModel) vista.jtbRegistroDVentas.getModel();
-        modeloVentas.addRow(new Object[]{
+
+        // Agregar la fila al modelo
+        Object[] fila = {
             productoSeleccionado.getID_Producto(),
             productoSeleccionado.getNombreP(),
             productoSeleccionado.getInformacion(),
             productoSeleccionado.getPrecio(),
             cantidad,
-            "" // Campo para promoción vacío por ahora
-        });
+            "", // Promoción (por ahora vacío)
+            importe
+        };
+        modeloVentas.addRow(fila);
 
-        // No actualizar el stock aquí
+        // Actualizar el stock del producto seleccionado
+        productoSeleccionado.setStock(productoSeleccionado.getStock() - cantidad);
+        dao1.actualizarProducto(productoSeleccionado);
+
+        // Actualizar la tabla de productos para reflejar el nuevo stock
+        llenarTablaProductos();
     }
 
 }

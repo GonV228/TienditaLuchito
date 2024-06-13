@@ -521,7 +521,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="RSMaterialComponent.RSButtonIconShadow" name="btnBorrar">
+        <Component class="RSMaterialComponent.RSButtonIconShadow" name="jbtnBorrarProductoTabla">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="ff" type="rgb"/>
