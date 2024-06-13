@@ -381,5 +381,40 @@ public class DInventario {
     }
     return listaProductos;
 }
+    
+    public List<Productos> obtenerProductosPorCategoriaSinIMG(String categoria) {
+        List<Productos> listaProductos = new ArrayList<>();
+        // Utilizamos la conexión a la base de datos
+        ConexionBD conexionBD = new ConexionBD();
+        try (Connection conexion = conexionBD.conectar()) {
+            // Preparamos la sentencia SQL para seleccionar los productos de una categoría específica
+            String sql = "SELECT p.ID_Producto, p.Nombre, p.Stock, p.Informacion, p.Precio, c.NombreCat AS NombreCategoria " +
+                         "FROM Productos p " +
+                         "INNER JOIN Categorias c ON p.ID_Categoria = c.ID_Categoria " +
+                         "WHERE c.NombreCat = ?";
+            PreparedStatement pst = conexion.prepareStatement(sql);
+            // Establecemos el parámetro de la categoría en el PreparedStatement
+            pst.setString(1, categoria);
+            // Ejecutamos la consulta SQL
+            ResultSet rs = pst.executeQuery();
+            // Recorremos el resultado y creamos objetos Productos para cada fila
+            while (rs.next()) {
+                int idProducto = rs.getInt("ID_Producto");
+                String nombreP = rs.getString("Nombre");
+                int stock = rs.getInt("Stock");
+                String informacion = rs.getString("Informacion");
+                double precio = rs.getDouble("Precio");
+                
+                String nombreCategoria = rs.getString("NombreCategoria");
+                // Crea un objeto Productos con todos los datos obtenidos
+                Productos producto = new Productos(idProducto, nombreP, stock, informacion, precio, new categorias(0, nombreCategoria));
+                // Agrega el producto a la lista
+                listaProductos.add(producto);
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al obtener los productos por categoría: " + e);
+        }
+        return listaProductos;
+    }
 
 }
