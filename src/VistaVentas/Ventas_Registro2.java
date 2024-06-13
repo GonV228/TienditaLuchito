@@ -32,9 +32,9 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
         btnExportarCatalogo = new RSMaterialComponent.RSButtonMaterialOne();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtbRegistroDVentas = new RSMaterialComponent.RSTableMetro();
-        rSTextFieldMaterial3 = new RSMaterialComponent.RSTextFieldMaterial();
-        rSTextFieldMaterial4 = new RSMaterialComponent.RSTextFieldMaterial();
-        rSTextFieldMaterial1 = new RSMaterialComponent.RSTextFieldMaterial();
+        jtxtImporteTotal = new RSMaterialComponent.RSTextFieldMaterial();
+        jtxtPagaCon = new RSMaterialComponent.RSTextFieldMaterial();
+        jtxtCambio = new RSMaterialComponent.RSTextFieldMaterial();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -60,6 +60,7 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         JtableMostraProductos1 = new RSMaterialComponent.RSTableMetro();
         jLabel7 = new javax.swing.JLabel();
+        jbtnPagaCon = new RSMaterialComponent.RSButtonIconShadow();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -103,34 +104,34 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
 
         Panel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 1010, 140));
 
-        rSTextFieldMaterial3.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        rSTextFieldMaterial3.setText("60.00 S/.");
-        rSTextFieldMaterial3.setColorMaterial(new java.awt.Color(102, 102, 102));
-        rSTextFieldMaterial3.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        rSTextFieldMaterial3.setPlaceholder("00.00");
-        rSTextFieldMaterial3.addActionListener(new java.awt.event.ActionListener() {
+        jtxtImporteTotal.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jtxtImporteTotal.setText("00.00 S/.");
+        jtxtImporteTotal.setColorMaterial(new java.awt.Color(102, 102, 102));
+        jtxtImporteTotal.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jtxtImporteTotal.setPlaceholder("00.00");
+        jtxtImporteTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rSTextFieldMaterial3ActionPerformed(evt);
+                jtxtImporteTotalActionPerformed(evt);
             }
         });
-        Panel.add(rSTextFieldMaterial3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 590, 140, -1));
+        Panel.add(jtxtImporteTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 590, 140, -1));
 
-        rSTextFieldMaterial4.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        rSTextFieldMaterial4.setText("00.00 S/.");
-        rSTextFieldMaterial4.setColorMaterial(new java.awt.Color(102, 102, 102));
-        rSTextFieldMaterial4.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        rSTextFieldMaterial4.addActionListener(new java.awt.event.ActionListener() {
+        jtxtPagaCon.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jtxtPagaCon.setText("00.00 S/.");
+        jtxtPagaCon.setColorMaterial(new java.awt.Color(102, 102, 102));
+        jtxtPagaCon.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jtxtPagaCon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rSTextFieldMaterial4ActionPerformed(evt);
+                jtxtPagaConActionPerformed(evt);
             }
         });
-        Panel.add(rSTextFieldMaterial4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 590, 140, -1));
+        Panel.add(jtxtPagaCon, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 590, 140, -1));
 
-        rSTextFieldMaterial1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        rSTextFieldMaterial1.setText("00.00 S/.");
-        rSTextFieldMaterial1.setColorMaterial(new java.awt.Color(102, 102, 102));
-        rSTextFieldMaterial1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        Panel.add(rSTextFieldMaterial1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 590, 140, -1));
+        jtxtCambio.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jtxtCambio.setText("00.00 S/.");
+        jtxtCambio.setColorMaterial(new java.awt.Color(102, 102, 102));
+        jtxtCambio.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        Panel.add(jtxtCambio, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 590, 140, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
@@ -324,6 +325,12 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
         jLabel7.setText("Filtrar por Categorias:");
         Panel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, -1, -1));
 
+        jbtnPagaCon.setBackground(new java.awt.Color(153, 153, 153));
+        jbtnPagaCon.setBackgroundHover(new java.awt.Color(102, 102, 102));
+        jbtnPagaCon.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.ATTACH_MONEY);
+        jbtnPagaCon.setInheritsPopupMenu(true);
+        Panel.add(jbtnPagaCon, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 590, -1, -1));
+
         getContentPane().add(Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 840));
 
         pack();
@@ -333,13 +340,13 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnExportarCatalogoActionPerformed
 
-    private void rSTextFieldMaterial3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSTextFieldMaterial3ActionPerformed
+    private void jtxtImporteTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtImporteTotalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_rSTextFieldMaterial3ActionPerformed
+    }//GEN-LAST:event_jtxtImporteTotalActionPerformed
 
-    private void rSTextFieldMaterial4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSTextFieldMaterial4ActionPerformed
+    private void jtxtPagaConActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtPagaConActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_rSTextFieldMaterial4ActionPerformed
+    }//GEN-LAST:event_jtxtPagaConActionPerformed
 
     private void btnExportarCatalogo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportarCatalogo1ActionPerformed
         // TODO add your handling code here:
@@ -467,6 +474,7 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
     public RSMaterialComponent.RSButtonMaterialOne jbtnBoleta;
     public RSMaterialComponent.RSButtonIconShadow jbtnBorrarProductoTabla;
     public RSMaterialComponent.RSButtonIconShadow jbtnBuscarProductos;
+    public RSMaterialComponent.RSButtonIconShadow jbtnPagaCon;
     public RSMaterialComponent.RSComboBoxMaterial jcbxFiltrarCat;
     private javax.swing.JLabel jlbCorreoElectronico10;
     private javax.swing.JLabel jlbCorreoElectronico12;
@@ -477,9 +485,9 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
     public RSMaterialComponent.RSTableMetro jtbRegistroDVentas;
     public RSMaterialComponent.RSTextFieldIconTwo jtxtBuscarPorID;
     public RSMaterialComponent.RSTextFieldIconTwo jtxtBuscarPorNombreProducto;
-    private RSMaterialComponent.RSTextFieldMaterial rSTextFieldMaterial1;
-    private RSMaterialComponent.RSTextFieldMaterial rSTextFieldMaterial3;
-    private RSMaterialComponent.RSTextFieldMaterial rSTextFieldMaterial4;
+    public RSMaterialComponent.RSTextFieldMaterial jtxtCambio;
+    public RSMaterialComponent.RSTextFieldMaterial jtxtImporteTotal;
+    public RSMaterialComponent.RSTextFieldMaterial jtxtPagaCon;
     // End of variables declaration//GEN-END:variables
 
 }
