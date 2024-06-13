@@ -19,6 +19,14 @@ public class Productos {
         this.imagenP = imagenP;
         this.categoria = categoria;
     }
+    public Productos(int codigo, String nombreP, int stock, String informacion, double precio, categorias categoria) {
+        this.codigo = codigo;
+        this.nombreP = nombreP;
+        this.stock = stock;
+        this.informacion = informacion;
+        this.precio = precio;
+        this.categoria = categoria;
+    }
     public Productos() {
         //constructor vacio
     }
