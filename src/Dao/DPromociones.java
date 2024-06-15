@@ -96,12 +96,12 @@ public class DPromociones {
             // Recorremos el resultado y creamos objetos Productos para cada fila
             while (rs.next()) {
                 System.out.println("try5");
-                int id = rs.getInt("ID_Promociones");
-                String namePromo = rs.getString("NombrePromo");
-                int idProducto = rs.getInt("ID_Producto");
-                String nombreProducto = rs.getString("Nombre");
-                double precioPromo = rs.getDouble("PrecioPromo");
-                int cantidad = rs.getInt("Cantidad");
+                int id = rs.getInt("pr.ID_Promociones");
+                String namePromo = rs.getString("pr.NombrePromo");
+                int idProducto = rs.getInt("pr.ID_Producto");
+                String nombreProducto = rs.getString("p.Nombre");
+                double precioPromo = rs.getDouble("pr.PrecioPromo");
+                int cantidad = rs.getInt("pr.Cantidad");
                 
                 System.out.println("try6");
                 System.out.println("imprimir todo lo que consulte...: "+ " id promoo: "+id
@@ -114,6 +114,29 @@ public class DPromociones {
             System.out.println("estoy en el catch");
         }
         return promo;
+    }
+    
+    public List<Promociones> obtenerPromocionesPorNombre(String nombrePromocion) {
+        List<Promociones> listaPromociones = new ArrayList<>();
+        ConexionBD conexionBD = new ConexionBD();
+        try (Connection conexion = conexionBD.conectar()) {
+            String sql = "SELECT * FROM promociones WHERE NombrePromo LIKE ?";
+            PreparedStatement pst = conexion.prepareStatement(sql);
+            pst.setString(1, "%" + nombrePromocion + "%");
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("ID_Promociones");
+                String nombrePromo = rs.getString("NombrePromo");
+                int idProducto = rs.getInt("ID_Producto");
+                double precioPromo = rs.getDouble("PrecioPromo");
+                int cantidad = rs.getInt("Cantidad");
+                Promociones promo = new Promociones(id, nombrePromo, idProducto, precioPromo, cantidad);
+                listaPromociones.add(promo);
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al obtener promociones por nombre: " + e);
+        }
+        return listaPromociones;
     }
     
     public boolean existePromocionConNombre(String nombrePromo) {

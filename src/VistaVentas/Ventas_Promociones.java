@@ -61,6 +61,11 @@ public class Ventas_Promociones extends javax.swing.JFrame {
         jlbLimpiarCampos2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         JtableMostraProductos = new RSMaterialComponent.RSTableMetro();
+        btnBuscar = new RSMaterialComponent.RSButtonIconShadow();
+        jlbCorreoElectronico12 = new javax.swing.JLabel();
+        jtxtBuscarPorID = new RSMaterialComponent.RSTextFieldIconTwo();
+        jlbCorreoElectronico13 = new javax.swing.JLabel();
+        jtxtBuscarPorNombrePromo = new RSMaterialComponent.RSTextFieldIconTwo();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -91,7 +96,7 @@ public class Ventas_Promociones extends javax.swing.JFrame {
         jtblMostrarPromociones.setSelectionBackground(new java.awt.Color(102, 102, 102));
         jScrollPane1.setViewportView(jtblMostrarPromociones);
 
-        Panel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, 710, 180));
+        Panel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, 710, 180));
 
         jLabel1.setBackground(new java.awt.Color(51, 51, 51));
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
@@ -283,6 +288,44 @@ public class Ventas_Promociones extends javax.swing.JFrame {
         jScrollPane2.setViewportView(JtableMostraProductos);
 
         Panel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 710, 140));
+
+        btnBuscar.setBackground(new java.awt.Color(255, 204, 0));
+        btnBuscar.setBackgroundHover(new java.awt.Color(204, 102, 0));
+        btnBuscar.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.EDIT);
+        btnBuscar.setName("jbtnActualizarGDG"); // NOI18N
+        Panel.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 320, -1, -1));
+
+        jlbCorreoElectronico12.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        jlbCorreoElectronico12.setForeground(new java.awt.Color(51, 51, 51));
+        jlbCorreoElectronico12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jlbCorreoElectronico12.setText("ID Promo");
+        Panel.add(jlbCorreoElectronico12, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, -1, -1));
+
+        jtxtBuscarPorID.setForeground(new java.awt.Color(102, 102, 102));
+        jtxtBuscarPorID.setBorderColor(new java.awt.Color(255, 153, 0));
+        jtxtBuscarPorID.setCaretColor(new java.awt.Color(0, 153, 255));
+        jtxtBuscarPorID.setColorIcon(new java.awt.Color(204, 204, 204));
+        jtxtBuscarPorID.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.ASSIGNMENT);
+        jtxtBuscarPorID.setPhColor(new java.awt.Color(153, 153, 153));
+        jtxtBuscarPorID.setPlaceholder("ID");
+        jtxtBuscarPorID.setSelectionColor(new java.awt.Color(255, 153, 0));
+        Panel.add(jtxtBuscarPorID, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 330, 110, 30));
+
+        jlbCorreoElectronico13.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        jlbCorreoElectronico13.setForeground(new java.awt.Color(51, 51, 51));
+        jlbCorreoElectronico13.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jlbCorreoElectronico13.setText("Nombre del Promo");
+        Panel.add(jlbCorreoElectronico13, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 310, -1, -1));
+
+        jtxtBuscarPorNombrePromo.setForeground(new java.awt.Color(102, 102, 102));
+        jtxtBuscarPorNombrePromo.setBorderColor(new java.awt.Color(255, 153, 0));
+        jtxtBuscarPorNombrePromo.setCaretColor(new java.awt.Color(0, 153, 255));
+        jtxtBuscarPorNombrePromo.setColorIcon(new java.awt.Color(204, 204, 204));
+        jtxtBuscarPorNombrePromo.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.BATTERY_STD);
+        jtxtBuscarPorNombrePromo.setPhColor(new java.awt.Color(153, 153, 153));
+        jtxtBuscarPorNombrePromo.setPlaceholder("Nombre de la promoción");
+        jtxtBuscarPorNombrePromo.setSelectionColor(new java.awt.Color(255, 153, 0));
+        Panel.add(jtxtBuscarPorNombrePromo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, 210, 30));
 
         getContentPane().add(Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 640));
 
@@ -584,6 +627,7 @@ public class Ventas_Promociones extends javax.swing.JFrame {
     public RSMaterialComponent.RSPanelMaterial Panel;
     public RSMaterialComponent.RSButtonIconShadow btnAgregar;
     public RSMaterialComponent.RSButtonIconShadow btnBorrar;
+    public RSMaterialComponent.RSButtonIconShadow btnBuscar;
     public RSMaterialComponent.RSButtonIconShadow btnEditar;
     public RSMaterialComponent.RSButtonIconShadow btnLimpiarCampos;
     private javax.swing.JLabel jLabel1;
@@ -599,6 +643,8 @@ public class Ventas_Promociones extends javax.swing.JFrame {
     private javax.swing.JLabel jlbCorreoElectronico1;
     private javax.swing.JLabel jlbCorreoElectronico10;
     private javax.swing.JLabel jlbCorreoElectronico11;
+    private javax.swing.JLabel jlbCorreoElectronico12;
+    private javax.swing.JLabel jlbCorreoElectronico13;
     private javax.swing.JLabel jlbCorreoElectronico2;
     private javax.swing.JLabel jlbCorreoElectronico6;
     private javax.swing.JLabel jlbCorreoElectronico8;
@@ -608,6 +654,8 @@ public class Ventas_Promociones extends javax.swing.JFrame {
     public RSMaterialComponent.RSTableMetro jtblMostrarPromociones;
     public RSMaterialComponent.RSTextFieldIconTwo jtxfIDProducto;
     public RSMaterialComponent.RSTextFieldIconTwo jtxfNombreProducto;
+    public RSMaterialComponent.RSTextFieldIconTwo jtxtBuscarPorID;
+    public RSMaterialComponent.RSTextFieldIconTwo jtxtBuscarPorNombrePromo;
     public RSMaterialComponent.RSTextFieldIconTwo jtxtCantPromo;
     public RSMaterialComponent.RSTextFieldIconTwo jtxtNombrePromo;
     public RSMaterialComponent.RSTextFieldIconTwo jtxtPrecioVenta;

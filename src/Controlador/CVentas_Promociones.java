@@ -45,6 +45,7 @@ public class CVentas_Promociones implements ActionListener{
         vista.btnBorrar.addActionListener(this);
         vista.btnEditar.addActionListener(this);
         vista.btnLimpiarCampos.addActionListener(this);
+        vista.btnBuscar.addActionListener(this);
         
         
         vista.JtableMostraProductos.addMouseListener(new MouseAdapter() {
@@ -280,10 +281,45 @@ public class CVentas_Promociones implements ActionListener{
             JOptionPane.showMessageDialog(vista, "Por favor, seleccione una promoción de la tabla.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+//10
+    private void buscarPromocionPorID(int idPromocion) {
+        Promociones promocion = daoPromos.ObtenerPromosPorID(idPromocion);
+        if (promocion != null) {
+            DefaultTableModel modelo = (DefaultTableModel) vista.jtblMostrarPromociones.getModel();
+            modelo.setRowCount(0); // Limpiar la tabla
+            Object[] fila = {
+                promocion.getIdPromocion(),
+                promocion.getNombrePromo(),
+                promocion.getIdProducto(),
+                promocion.getPrecioPromo(),
+                promocion.getCantidad()
+            };
+            modelo.addRow(fila);
+        } else {
+            JOptionPane.showMessageDialog(vista, "Promoción no encontrada.");
+        }
+    }
+//11
+    private void buscarPromocionPorNombre(String nombrePromocion) {
+        List<Promociones> listaPromociones = daoPromos.obtenerPromocionesPorNombre(nombrePromocion);
+        DefaultTableModel modelo = (DefaultTableModel) vista.jtblMostrarPromociones.getModel();
+        modelo.setRowCount(0); // Limpiar la tabla
+        for (Promociones promocion : listaPromociones) {
+            Object[] fila = {
+                promocion.getIdPromocion(),
+                promocion.getNombrePromo(),
+                promocion.getIdProducto(),
+                promocion.getPrecioPromo(),
+                promocion.getCantidad()
+            };
+            modelo.addRow(fila);
+        }
+    }
+    
+    
 //metodos abstractos
     
-    
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
         //FILTRAR CATEGORIAS
@@ -315,5 +351,34 @@ public class CVentas_Promociones implements ActionListener{
             limpiarCampos();
             System.out.println("funciono");
         }
+        //BUSCAR PROMOCIONES
+        if (e.getSource() == vista.btnBuscar) {
+            String textoBusqueda = vista.jtxtBuscarPorNombrePromo.getText().trim();
+            String idBusqueda = vista.jtxtBuscarPorID.getText().trim();
+
+            if (!textoBusqueda.isEmpty() && !idBusqueda.isEmpty()) {
+                try {
+                    int idBusquedaPromo = Integer.parseInt(idBusqueda);
+                    buscarPromocionPorID(idBusquedaPromo);
+                    buscarPromocionPorNombre(textoBusqueda);
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(vista, "Por favor, ingrese un ID de promoción válido.");
+                }
+            } else if (!textoBusqueda.isEmpty()) {
+                buscarPromocionPorNombre(textoBusqueda);
+            } else if (!idBusqueda.isEmpty()) {
+                try {
+                    int idBusquedaPromo = Integer.parseInt(idBusqueda);
+                    buscarPromocionPorID(idBusquedaPromo);
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(vista, "Por favor, ingrese un ID de promoción válido.");
+                }
+            } else {
+                cargarPromocionesATabla();
+            }
+        }
+        
+        
+        
     }
 }    
