@@ -222,7 +222,64 @@ public class CVentas_Promociones implements ActionListener{
         vista.jtxfNombreProducto.setText("");
         vista.jtxtCantPromo.setText("");
     }
-    
+//8
+    private void borrarPromocion() {
+        int filaSeleccionada = vista.jtblMostrarPromociones.getSelectedRow();
+        if (filaSeleccionada != -1) {
+            int idPromocion = (int) vista.jtblMostrarPromociones.getValueAt(filaSeleccionada, 0);
+            int confirmacion = JOptionPane.showConfirmDialog(vista, "¿Está seguro de que desea borrar esta promoción?", "Confirmar borrado", JOptionPane.YES_NO_OPTION);
+            if (confirmacion == JOptionPane.YES_OPTION) {
+                boolean borrado = daoPromos.borrarPromocion(idPromocion);
+                if (borrado) {
+                    JOptionPane.showMessageDialog(vista, "Promoción borrada correctamente. No olvides hacer la validacion cuando se implemente ventas con clientes");
+                    cargarPromocionesATabla();
+                    limpiarCampos();
+                } else {
+                    JOptionPane.showMessageDialog(vista, "Error al borrar la promoción.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(vista, "Por favor, seleccione una promoción de la tabla.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+//9
+    private void editarPromocion() {
+        int filaSeleccionada = vista.jtblMostrarPromociones.getSelectedRow();
+        if (filaSeleccionada != -1) {
+            int idPromocion = (int) vista.jtblMostrarPromociones.getValueAt(filaSeleccionada, 0);
+            //obtenemos los valores de los campos que necesitamos para actualizar la bd
+            String nombrePromo = vista.jtxtNombrePromo.getText().trim();
+            String precioText = vista.jtxtPrecioVenta.getText().trim();
+            String idProductoText = vista.jtxfIDProducto.getText().trim();
+            String cantidadText = vista.jtxtCantPromo.getText().trim();
+
+            if (nombrePromo.isEmpty() || precioText.isEmpty() || idProductoText.isEmpty() || cantidadText.isEmpty()) {
+                JOptionPane.showMessageDialog(vista, "Por favor, complete todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            try {
+                //de una vez hacemos la conversión de los datos que no son te tipo String
+                double precio = Double.parseDouble(precioText);
+                int idProducto = Integer.parseInt(idProductoText);
+                int cantidad = Integer.parseInt(cantidadText);
+
+                Promociones promo = new Promociones(idPromocion, nombrePromo, idProducto, "", precio, cantidad);
+                boolean actualizado = daoPromos.actualizarPromocion(promo); //hacemos update a la bd y con fe funciona
+                if (actualizado) {
+                    JOptionPane.showMessageDialog(vista, "Promoción actualizada correctamente.");
+                    cargarPromocionesATabla();
+                    limpiarCampos();
+                } else {
+                    JOptionPane.showMessageDialog(vista, "Error al actualizar la promoción.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(vista, "Por favor, ingrese valores numéricos válidos para precio, ID de producto y cantidad.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(vista, "Por favor, seleccione una promoción de la tabla.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 //metodos abstractos
     
     
@@ -239,6 +296,7 @@ public class CVentas_Promociones implements ActionListener{
         }
         //BORRAR PROMOCIONES
         if (e.getSource()==vista.btnBorrar){
+            borrarPromocion();
             /*
                 aca vamos a esperar a que la parte de ventas funcione correctamente porque
                 hay que tener en cuenta que si borramos una promocion y esa promocion ya se ha usado en algunas ventas
@@ -249,7 +307,9 @@ public class CVentas_Promociones implements ActionListener{
             */
         }
         //EDITAR PROMOCIONES
-        if (e.getSource()==vista.btnEditar){}
+        if (e.getSource()==vista.btnEditar){
+            editarPromocion();
+        }
         //LIMPIAR CAMPOS
         if (e.getSource()==vista.btnLimpiarCampos){
             limpiarCampos();

@@ -132,4 +132,36 @@ public class DPromociones {
         }
         return false;
     }
+    
+    public boolean borrarPromocion(int idPromocion) {
+        ConexionBD conexionBD = new ConexionBD();
+        try (Connection conexion = conexionBD.conectar()) {
+            String sql = "DELETE FROM promociones WHERE ID_Promociones = ?";
+            PreparedStatement pst = conexion.prepareStatement(sql);
+            pst.setInt(1, idPromocion);
+            int filasAfectadas = pst.executeUpdate();
+            return filasAfectadas > 0;
+        } catch (SQLException e) {
+            System.out.println("Error al borrar la promoción: " + e);
+        }
+        return false;
+    }
+    
+    public boolean actualizarPromocion(Promociones promo) {
+        ConexionBD conexionBD = new ConexionBD();
+        try (Connection conexion = conexionBD.conectar()) {
+            String sql = "UPDATE promociones SET NombrePromo = ?, ID_Producto = ?, PrecioPromo = ?, Cantidad = ? WHERE ID_Promociones = ?";
+            PreparedStatement pst = conexion.prepareStatement(sql);
+            pst.setString(1, promo.getNombrePromo());
+            pst.setInt(2, promo.getIdProducto());
+            pst.setDouble(3, promo.getPrecioPromo());
+            pst.setInt(4, promo.getCantidad());
+            pst.setInt(5, promo.getIdPromocion());
+            int filasAfectadas = pst.executeUpdate();
+            return filasAfectadas > 0;
+        } catch (SQLException e) {
+            System.out.println("Error al actualizar la promoción: " + e);
+        }
+        return false;
+    }
 }
