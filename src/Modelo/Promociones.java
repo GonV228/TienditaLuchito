@@ -9,8 +9,8 @@ public class Promociones {
     String nombreProducto;
     Double precioPromo;
     int cantidad;
-    
 
+    
     public int getIdPromocion() {
         return idPromocion;
     }
@@ -72,7 +72,9 @@ public class Promociones {
         
     }
     
-    
+    public Promociones() {
+        //constructor vacio
+    }
     
 }
     

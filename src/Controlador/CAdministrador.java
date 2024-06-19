@@ -3,7 +3,7 @@ package Controlador;
 import VistaAdministrador.Administrador;//menu
 import VistaAdministrador.Administrador_RegistrarUsers;//empleados
 import VistaAdministrador.MenuAdministrador;
-import VistaRegistrarPersonasExternas.Clientes; //clientes
+import VistaRegistrarPersonasExternas.clientes; //clientes
 import VistaRegistrarPersonasExternas.Proveedores;//proveedores
 //librerias
 import java.awt.BorderLayout;
@@ -47,7 +47,7 @@ public class CAdministrador implements ActionListener{
         //REGISTRO CLIENTES
         if(e.getSource()==vista.tab2){
             System.out.println("tab2");
-            Clientes vistaClientes = new Clientes();
+            clientes vistaClientes = new clientes();
             CClientes controlador = new  CClientes(vistaClientes, vista);
 
             vista.PrincipalAdministrador.removeAll();

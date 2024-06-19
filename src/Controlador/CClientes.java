@@ -4,7 +4,7 @@ package Controlador;
 import Dao.DCliente;
 import Modelo.Cliente;
 import VistaAdministrador.Administrador;
-import VistaRegistrarPersonasExternas.Clientes;
+import VistaRegistrarPersonasExternas.clientes;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -14,11 +14,11 @@ import javax.swing.table.DefaultTableModel;
 public class CClientes implements ActionListener {
 
     //inicializar
-    Clientes vista;
+    clientes vista;
     Administrador adm;
 
     //constructor
-    public CClientes(Clientes regisClientes, Administrador menu) {
+    public CClientes(clientes regisClientes, Administrador menu) {
         vista = regisClientes;
         adm = menu;
         

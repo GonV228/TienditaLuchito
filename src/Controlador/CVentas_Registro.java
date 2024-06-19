@@ -2,8 +2,10 @@ package Controlador;
 
 import Dao.DInventario;
 import Dao.DVentaseInventario;
+import Dao.DPromociones;
 import Modelo.Productos;
 import Modelo.categorias;
+import Modelo.Promociones;
 import VistaVentas.Ventas;
 import VistaVentas.Ventas_Registro2;
 
@@ -32,6 +34,7 @@ public class CVentas_Registro implements ActionListener {
     private Ventas menu;
     private DInventario dao; // DAO para interactuar con la base de datos
     private DVentaseInventario dao1; // DAO para interactuar con la base de datos
+    private DPromociones daoPromos; //DAO para obtener promociones de la bd
     private Productos productoSeleccionado; // Producto seleccionado de la tabla
 
     // constructor
@@ -40,6 +43,7 @@ public class CVentas_Registro implements ActionListener {
         menu = V;
         dao = new DInventario(); // Instancia del DAO
         dao1 = new DVentaseInventario(); // Instancia del DAO
+        daoPromos = new DPromociones();
         vista.jtxtBuscarPorNombreProducto.addActionListener(this);
         vista.jtxtBuscarPorID.addActionListener(this);
         vista.jbtnBuscarProductos.addActionListener(this);
@@ -57,6 +61,8 @@ public class CVentas_Registro implements ActionListener {
         llenarComboBoxCategorias();
         // Llenar la tabla con todos los productos al inicializar
         llenarTablaProductos();
+        //llenar tabla con proociones al inicializar
+        llenarTablaPromociones();
 
         // Agregar listener al JComboBox para detectar cambios de selección de categoría
         vista.jcbxFiltrarCat.addActionListener(new ActionListener() {
@@ -307,6 +313,7 @@ public class CVentas_Registro implements ActionListener {
         }
 
         cargarProductosATabla(resultados);
+        buscarPromociones();
     }
 
     // Método para configurar el renderizador de imágenes en una tabla
@@ -342,6 +349,66 @@ public class CVentas_Registro implements ActionListener {
         cargarProductosATabla(productos);
     }
 
+    //metodo para llenar la tabla de promociones
+    private void llenarTablaPromociones() {
+        List<Promociones> promociones = daoPromos.ObtenerPromos();
+        DefaultTableModel modeloPromos = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; // Hace que las celdas no sean editables
+            }
+        };
+        modeloPromos.addColumn("ID");
+        modeloPromos.addColumn("Nombre");
+        modeloPromos.addColumn("Producto");
+        modeloPromos.addColumn("Precio");
+        modeloPromos.addColumn("Cantidad");
+
+        for (Promociones promo : promociones) {
+            Object[] fila = {
+                promo.getIdPromocion(),
+                promo.getNombrePromo(),
+                promo.getNombreProducto(),
+                promo.getPrecioPromo(),
+                promo.getCantidad()
+            };
+            modeloPromos.addRow(fila);
+        }
+        vista.JtableMostraPromos.setModel(modeloPromos);
+    }
+    
+    //hace la busqueda de promos por el nombre del producto ingresado en el campo jtxtBuscarPorNombreProducto
+    private void buscarPromociones() {
+        String nombreProducto = vista.jtxtBuscarPorNombreProducto.getText();
+        List<Promociones> resultadosPromociones = daoPromos.buscarPromocionesPorNombreProducto(nombreProducto);
+        cargarPromocionesATabla(resultadosPromociones);
+    }
+    
+    private void cargarPromocionesATabla(List<Promociones> listaPromociones) {
+        DefaultTableModel modeloPromos = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; // Hace que todas las celdas de la tabla sean no editables
+            }
+        };
+        modeloPromos.addColumn("ID");
+        modeloPromos.addColumn("Nombre");
+        modeloPromos.addColumn("Producto");
+        modeloPromos.addColumn("Precio");
+        modeloPromos.addColumn("Cantidad");
+        for (Promociones promo : listaPromociones) {
+            Object[] fila = {
+                promo.getIdPromocion(),
+                promo.getNombrePromo(),
+                promo.getNombreProducto(),
+                promo.getPrecioPromo(),
+                promo.getCantidad()
+            };
+            modeloPromos.addRow(fila);
+        }
+        vista.JtableMostraPromos.setModel(modeloPromos);
+    }
+    
     // Método para llenar la tabla con la lista de productos dada
     private void cargarProductosATabla(List<Productos> listaProductos) {
         DefaultTableModel modelo = new DefaultTableModel() {
