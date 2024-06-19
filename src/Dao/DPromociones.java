@@ -164,4 +164,34 @@ public class DPromociones {
         }
         return false;
     }
+    
+    // Método en DPromociones para obtener promociones por ID de producto... para actualizar en la tabla de registro de ventas si detecta una promo
+    public List<Promociones> obtenerPromocionesPorProducto(String idProducto) {
+        List<Promociones> promociones = new ArrayList<>();
+        String sql = "SELECT p.ID_Promociones, p.NombrePromo, p.ID_Producto, prod.Nombre, p.PrecioPromo, p.Cantidad " +
+                     "FROM promociones p " +
+                     "JOIN productos prod ON p.ID_Producto = prod.ID_Producto " +
+                     "WHERE p.ID_Producto = ?";
+        ConexionBD conexionBD = new ConexionBD();
+        try (Connection conexion = conexionBD.conectar()) {
+            PreparedStatement pst = conexion.prepareStatement(sql);
+            pst.setString(1, idProducto);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                Promociones promo = new Promociones();
+                promo.setIdPromocion(rs.getInt("ID_Promociones"));
+                promo.setNombrePromo(rs.getString("NombrePromo"));
+                promo.setIdProducto(rs.getInt("ID_Producto"));
+                promo.setNombreProducto(rs.getString("Nombre"));
+                promo.setPrecioPromo(rs.getDouble("PrecioPromo"));
+                promo.setCantidad(rs.getInt("Cantidad"));
+                promociones.add(promo);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return promociones;
+    }
+
+    
 }

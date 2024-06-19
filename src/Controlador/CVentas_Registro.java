@@ -102,7 +102,15 @@ public class CVentas_Registro implements ActionListener {
         vista.jtbRegistroDVentas.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                int filaSeleccionada = vista.jtbRegistroDVentas.getSelectedRow();
+                if (e.getClickCount() == 2) {
+                    int row = vista.jtbRegistroDVentas.getSelectedRow();
+                    int column = vista.jtbRegistroDVentas.getSelectedColumn();
+                    if (row != -1 && column == 4) { // Si se hace doble clic en la columna de cantidad
+                        actualizarCantidadProducto(row);
+                    }
+                }
+                
+/*                int filaSeleccionada = vista.jtbRegistroDVentas.getSelectedRow();
                 int columnaCantidad = 4; // Índice de la columna "Cantidad"
 
                 if (filaSeleccionada != -1 && e.getClickCount() == 2) {
@@ -162,7 +170,7 @@ public class CVentas_Registro implements ActionListener {
                         // Calcular y actualizar el importe total
                         calcularImporteTotal();
                     }
-                }
+                }*/
             }
         });
 
@@ -493,10 +501,18 @@ public class CVentas_Registro implements ActionListener {
                     JOptionPane.showMessageDialog(vista, "No hay suficiente stock para agregar esa cantidad.");
                     return;
                 }
-
+                
+                Promociones promo = verificarPromociones(productoSeleccionado.getID_Producto(), nuevaCantidad);
+                double precioUnitario = productoSeleccionado.getPrecio();
+                double precioFinal = (promo != null) ? promo.getPrecioPromo() : precioUnitario;
+                double importe = precioFinal * nuevaCantidad;
+            
                 // Actualizar la cantidad en la tabla de ventas
                 modeloVentas.setValueAt(nuevaCantidad, i, 4);
-
+                modeloVentas.setValueAt((promo != null) ? promo.getNombrePromo() : "", i, 5); // Actualizar promoción
+                modeloVentas.setValueAt(precioFinal, i, 3); // Actualizar precio unitario con la promoción
+                modeloVentas.setValueAt(importe, i, 6); // Actualizar importe
+                
                 // Actualizar el stock del producto seleccionado
                 productoSeleccionado.setStock(productoSeleccionado.getStock() - cantidad);
                 dao1.actualizarProducto(productoSeleccionado);
@@ -505,20 +521,27 @@ public class CVentas_Registro implements ActionListener {
                 llenarTablaProductos();
 
                 // Calcular y actualizar el importe total
-                calcularImporteTotal();
+//                calcularImporteTotal();
+                actualizarTotal();
                 return; // Salir del método si se actualizó la cantidad
             }
-        }
-
+        }   
+        
         // Si el producto no está en la tabla, agregarlo como una nueva fila
-        double importe = cantidad * productoSeleccionado.getPrecio();
+//        double importe = cantidad * productoSeleccionado.getPrecio();
+        
+        Promociones promo = verificarPromociones(productoSeleccionado.getID_Producto(), cantidad);
+        double precioUnitario = productoSeleccionado.getPrecio();
+        double precioFinal = (promo != null) ? promo.getPrecioPromo() : precioUnitario;
+        double importe = precioFinal * cantidad;
+        
         Object[] fila = {
             productoSeleccionado.getID_Producto(),
             productoSeleccionado.getNombreP(),
             productoSeleccionado.getInformacion(),
             productoSeleccionado.getPrecio(),
             cantidad,
-            "", // Aquí se podría colocar la promoción, si se implementa en el futuro
+            (promo != null) ? promo.getNombrePromo() : "", // Nombre de la promoción si aplica
             importe
         };
         modeloVentas.addRow(fila);
@@ -531,9 +554,36 @@ public class CVentas_Registro implements ActionListener {
         llenarTablaProductos();
 
         // Calcular y actualizar el importe total
-        calcularImporteTotal();
+//        calcularImporteTotal();
+        actualizarTotal();
     }
 
+   private Promociones verificarPromociones(int idProducto, int cantidad) {
+        List<Promociones> promociones = daoPromos.obtenerPromocionesPorProducto(String.valueOf(idProducto));
+        for (Promociones promo : promociones) {
+            if (cantidad >= promo.getCantidad()) {
+                int gruposDePromocion = cantidad / promo.getCantidad();
+                int cantidadRestante = cantidad % promo.getCantidad();
+                double precioConPromo = gruposDePromocion * promo.getPrecioPromo();
+                double precioSinPromo = cantidadRestante * productoSeleccionado.getPrecio();
+                double precioFinal = precioConPromo + precioSinPromo;
+                promo.setPrecioPromo(precioFinal / cantidad);
+                return promo;
+            }
+        }
+        return null;
+    } 
+    
+    // Método para actualizar el total
+    private void actualizarTotal() {
+        DefaultTableModel modelo = (DefaultTableModel) vista.jtbRegistroDVentas.getModel();
+        double total = 0.0;
+        for (int i = 0; i < modelo.getRowCount(); i++) {
+            total += Double.parseDouble(modelo.getValueAt(i, 6).toString());
+        }
+        vista.jtxtImporteTotal.setText(String.format("%.2f", total));
+    }
+    
     private void borrarProductoDeVentas() {
         // Obtener la fila seleccionada de la tabla de ventas
         int filaSeleccionada = vista.jtbRegistroDVentas.getSelectedRow();
@@ -595,4 +645,66 @@ public class CVentas_Registro implements ActionListener {
         vista.jtxtImporteTotal.setText(String.format("%.2f", importeTotal));
     }
 
+    
+    private void actualizarCantidadProducto(int row) {
+        DefaultTableModel modeloVentas = (DefaultTableModel) vista.jtbRegistroDVentas.getModel();
+        int idProducto = (int) modeloVentas.getValueAt(row, 0);
+        int cantidadActual = (int) modeloVentas.getValueAt(row, 4);
+
+        // Obtener la nueva cantidad
+        String nuevaCantidadStr = JOptionPane.showInputDialog(vista, "Ingrese la nueva cantidad:", cantidadActual);
+        if (nuevaCantidadStr == null || nuevaCantidadStr.isEmpty()) {
+            return; // Si se cancela el diálogo o se deja vacío, no hacer nada
+        }
+
+        int nuevaCantidad;
+        try {
+            nuevaCantidad = Integer.parseInt(nuevaCantidadStr);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(vista, "Ingrese una cantidad válida.");
+            return;
+        }
+
+        if (nuevaCantidad <= 0) {
+            JOptionPane.showMessageDialog(vista, "La cantidad debe ser mayor que cero.");
+            return;
+        }
+
+        // Verificar si hay suficiente stock
+        Productos producto = dao.obtenerProductoPorID(idProducto);
+        if (nuevaCantidad > producto.getStock() + cantidadActual) { // + cantidadActual porque ya está en la tabla
+            JOptionPane.showMessageDialog(vista, "No hay suficiente stock para agregar esa cantidad.");
+            return;
+        }
+
+        // Actualizar la cantidad en la tabla de ventas
+        modeloVentas.setValueAt(nuevaCantidad, row, 4);
+
+        // Verificar promociones
+        Promociones promo = verificarPromociones(idProducto, nuevaCantidad);
+        if (promo != null) {
+            modeloVentas.setValueAt(promo.getNombrePromo(), row, 5);
+            modeloVentas.setValueAt(promo.getPrecioPromo(), row, 3); // Actualizar precio unitario con la promoción
+        } else {
+            modeloVentas.setValueAt("", row, 5); // No hay promoción
+            modeloVentas.setValueAt(producto.getPrecio(), row, 3); // Restaurar precio original
+        }
+
+        // Actualizar el importe
+        double precioUnitario = (double) modeloVentas.getValueAt(row, 3);
+        double importe = nuevaCantidad * precioUnitario;
+        modeloVentas.setValueAt(importe, row, 6);
+
+        // Calcular y actualizar el importe total
+        actualizarTotal();
+
+        // Actualizar el stock del producto seleccionado
+        producto.setStock(producto.getStock() + cantidadActual - nuevaCantidad); // Restablecer stock original y sustraer nueva cantidad
+        dao1.actualizarProducto(producto);
+
+        // Actualizar la tabla de productos para reflejar el nuevo stock
+        llenarTablaProductos();
+    }
+
+        
 }
