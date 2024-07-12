@@ -1,5 +1,7 @@
 package Modelo;
+
 public class Cliente {
+
     private int id;
     private String nombres;
     private String apellidos;
@@ -10,11 +12,35 @@ public class Cliente {
     private String telefono;
     private String correo;
 
+    public Cliente() {
+    }
+
     public Cliente(int id, String nombres, String apellidos, String tipoDocumento, String documento, int edad, String genero, String telefono, String correo) {
         this.id = id;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.tipoDocumento = tipoDocumento;
+        this.documento = documento;
+        this.edad = edad;
+        this.genero = genero;
+        this.telefono = telefono;
+        this.correo = correo;
+    }
+
+    public Cliente(int id, String nombres, String apellidos, String documento, int edad, String genero, String telefono, String correo) {
+        this.id = id;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.documento = documento;
+        this.edad = edad;
+        this.genero = genero;
+        this.telefono = telefono;
+        this.correo = correo;
+    }
+
+    public Cliente(String nombres, String apellidos, String documento, int edad, String genero, String telefono, String correo) {
+        this.nombres = nombres;
+        this.apellidos = apellidos;
         this.documento = documento;
         this.edad = edad;
         this.genero = genero;
@@ -93,5 +119,5 @@ public class Cliente {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-    
+
 }
