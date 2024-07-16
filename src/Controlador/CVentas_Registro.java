@@ -24,7 +24,7 @@ import java.awt.event.MouseEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.table.TableColumn;
-
+///realidad alterada
 public class CVentas_Registro implements ActionListener {
 
     // inicializar
@@ -71,8 +71,6 @@ public class CVentas_Registro implements ActionListener {
                 }
             }
         });
-
-        // Agregar MouseListener al JTable para mostrar la imagen en el JLabel
         // Agregar MouseListener al JTable para autocompletar campos de texto
         vista.JtableMostraProductos.addMouseListener(new MouseAdapter() {
             @Override
