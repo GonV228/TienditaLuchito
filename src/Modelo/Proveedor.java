@@ -15,7 +15,7 @@ public class Proveedor {
     private long ruc;
     private String direccion;
     private String pagina_web;
-    private long N_cuenta_bancaria;
+    private int N_cuenta_bancaria;
     private String nombre_banco;
     private long telf_contacto;
     private String correo;
@@ -25,7 +25,7 @@ public class Proveedor {
     }
 
     //constructor
-    public Proveedor(int id, String razon_social, long ruc, String direccion, String pagina_web, long N_cuenta_bancaria, String nombre_banco, long telf_contacto, String correo) {
+    public Proveedor(int id, String razon_social, long ruc, String direccion, String pagina_web, int N_cuenta_bancaria, String nombre_banco, long telf_contacto, String correo) {
         this.id = id;
         this.razon_social = razon_social;
         this.ruc = ruc;
@@ -37,7 +37,7 @@ public class Proveedor {
         this.correo = correo;
     }
 
-    public Proveedor(String razon_social, long ruc, String direccion, String pagina_web, long N_cuenta_bancaria, String nombre_banco, long telf_contacto, String correo) {
+    public Proveedor(String razon_social, long ruc, String direccion, String pagina_web, int N_cuenta_bancaria, String nombre_banco, long telf_contacto, String correo) {
         this.razon_social = razon_social;
         this.ruc = ruc;
         this.direccion = direccion;
@@ -91,11 +91,11 @@ public class Proveedor {
         this.pagina_web = pagina_web;
     }
 
-    public long getN_cuenta_bancaria() {
+    public int getN_cuenta_bancaria() {
         return N_cuenta_bancaria;
     }
 
-    public void setN_cuenta_bancaria(long N_cuenta_bancaria) {
+    public void setN_cuenta_bancaria(int N_cuenta_bancaria) {
         this.N_cuenta_bancaria = N_cuenta_bancaria;
     }
 

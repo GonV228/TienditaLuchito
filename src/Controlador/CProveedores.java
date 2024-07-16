@@ -118,10 +118,14 @@ public class CProveedores implements ActionListener {
         if(!validarTelefono(telefonoContacto)){//falso osea que hay un error entonces detener
             return;
         }
+        if(!validarTelefono(telefonoContacto)){//falso entonces hay un error y se debe detener la ejecución
+            return;
+        }
         
         
         //convertir
-        long ruc = 0, cuentaBancaria = 0, telefContact = 0;
+        long ruc = 0, telefContact = 0;
+        int cuentaBancaria = 0;
         try {
             telefContact = Long.parseLong(telefonoContacto);
         } catch (NumberFormatException e) {
@@ -136,10 +140,13 @@ public class CProveedores implements ActionListener {
         }
 
         try {
-            cuentaBancaria = Long.parseLong(numCuentaBancaria);
+            cuentaBancaria = Integer.parseInt(numCuentaBancaria);
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(vista, "la cuenta bancaria no debe de contener texto.", "Error", JOptionPane.ERROR_MESSAGE);
+            sonTodosDigitos("cci: "+cuentaBancaria);
+            return;
         }
+        System.out.println("cci: "+cuentaBancaria);
 
         Proveedor proveedor = new Proveedor(razon_social, ruc, direccion, paginaWeb, cuentaBancaria, nombreBanco, telefContact, correoElectronico);
 
@@ -201,7 +208,7 @@ public class CProveedores implements ActionListener {
                     || !nombreBanco.isEmpty() || !telefonoContacto.isEmpty() || !correoElectronito.isEmpty()) {
 
                 long RUC = Long.parseLong(ruc);
-                long numCuentaBan = Long.parseLong(numCuentaBancaria);
+                int numCuentaBan = Integer.parseInt(numCuentaBancaria);
                 long telefonoProv = Long.parseLong(telefonoContacto);
                 
                 System.out.println(RUC + "-" + numCuentaBan + " - " + telefonoProv );
@@ -281,11 +288,13 @@ public class CProveedores implements ActionListener {
 
         // Validar teléfono móvil
         if (length == 9 && telefono.charAt(0) == '9') {
+            JOptionPane.showMessageDialog(null, "Tlf móvil");
             return sonTodosDigitos(telefono);
         }
 
         // Validar teléfono fijo
         if (length >= 6 && length <= 7) {
+            JOptionPane.showMessageDialog(null, "Tlf fijo");
             return sonTodosDigitos(telefono);
         }
 

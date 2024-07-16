@@ -181,7 +181,7 @@ public class DProveedores {
                 long Ruc = rs.getLong("RUC");
                 String Direccion = rs.getString("Direccion");
                 String Pagina_web = rs.getString("Pag_web");
-                long N_cuenta = rs.getLong("N_Cuenta");
+                int N_cuenta = rs.getInt("N_Cuenta");
                 String Nombre_banco = rs.getString("Nombre_Banco");
                 long telefono = rs.getLong("Telefono");
                 String correo = rs.getString("Correo_Electronico");
