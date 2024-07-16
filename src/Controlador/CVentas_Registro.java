@@ -3,6 +3,8 @@ package Controlador;
 import Dao.DInventario;
 import Dao.DVentaseInventario;
 import Modelo.Productos;
+import Modelo.Venta;
+import Modelo.VentaDetalle;
 import Modelo.categorias;
 import VistaVentas.Ventas;
 import VistaVentas.Ventas_Registro2;
@@ -22,9 +24,10 @@ import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.table.TableColumn;
-///realidad alterada
+///realidad alteradad
 public class CVentas_Registro implements ActionListener {
 
     // inicializar
@@ -198,60 +201,74 @@ public class CVentas_Registro implements ActionListener {
         }
     }
 
-    // Método para generar la boleta
-    private void generarBoleta() {
-        // Verificar que se haya ingresado el pago con
-        if (vista.jtxtPagaCon.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(vista, "Debe ingresar el monto con el que paga el cliente.");
-            return;
-        }
-
-        // Obtener el importe total, el pago con y el cambio
-        double importeTotal;
-        double pagaCon;
-        double cambio;
-
-        try {
-            importeTotal = Double.parseDouble(vista.jtxtImporteTotal.getText());
-            pagaCon = Double.parseDouble(vista.jtxtPagaCon.getText());
-            cambio = Double.parseDouble(vista.jtxtCambio.getText());
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(vista, "Ingrese cantidades válidas para generar la boleta.");
-            return;
-        }
-
-        // Crear el contenido de la boleta
-        StringBuilder contenidoBoleta = new StringBuilder();
-        contenidoBoleta.append("***************************\n");
-        contenidoBoleta.append("          Tienda Luchito\n");
-        contenidoBoleta.append("***************************\n\n");
-
-        // Detalle de los productos vendidos
-        DefaultTableModel modeloVentas = (DefaultTableModel) vista.jtbRegistroDVentas.getModel();
-        contenidoBoleta.append("Detalle de la Venta:\n");
-        contenidoBoleta.append("------------------------------------------------\n");
-        contenidoBoleta.append(String.format("%-5s %-25s %-10s %-10s\n", "ID", "Producto", "Cantidad", "Importe"));
-        contenidoBoleta.append("------------------------------------------------\n");
-
-        for (int i = 0; i < modeloVentas.getRowCount(); i++) {
-            int idProducto = (int) modeloVentas.getValueAt(i, 0);
-            String nombreProducto = (String) modeloVentas.getValueAt(i, 1);
-            int cantidad = (int) modeloVentas.getValueAt(i, 4);
-            double importe = (double) modeloVentas.getValueAt(i, 6);
-
-            contenidoBoleta.append(String.format("%-5d %-25s %-10d %-10.2f\n", idProducto, nombreProducto, cantidad, importe));
-        }
-
-        contenidoBoleta.append("------------------------------------------------\n");
-
-        // Información de pago y cambio
-        contenidoBoleta.append(String.format("Total a Pagar: S/ %.2f\n", importeTotal));
-        contenidoBoleta.append(String.format("Pago con: S/ %.2f\n", pagaCon));
-        contenidoBoleta.append(String.format("Cambio: S/ %.2f\n", cambio));
-
-        // Mostrar la boleta en un JOptionPane
-        JOptionPane.showMessageDialog(vista, contenidoBoleta.toString(), "Boleta de Venta", JOptionPane.PLAIN_MESSAGE);
+private void generarBoleta() {
+    // Verificar que se haya ingresado el pago con
+    if (vista.jtxtPagaCon.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(vista, "Debe ingresar el monto con el que paga el cliente.");
+        return;
     }
+
+    // Obtener el importe total, el pago con y el cambio
+    double importeTotal;
+    double pagaCon;
+    double cambio;
+
+    try {
+        importeTotal = Double.parseDouble(vista.jtxtImporteTotal.getText());
+        pagaCon = Double.parseDouble(vista.jtxtPagaCon.getText());
+        cambio = pagaCon - importeTotal; // Calcular el cambio directamente
+        vista.jtxtCambio.setText(String.valueOf(cambio)); // Mostrar el cambio en el campo correspondiente
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(vista, "Ingrese cantidades válidas para generar la boleta.");
+        return;
+    }
+
+    // Crear una lista para almacenar los detalles de la venta
+    List<VentaDetalle> detallesVenta = new ArrayList<>();
+
+    // Obtener el modelo de la tabla de ventas
+    DefaultTableModel modeloVentas = (DefaultTableModel) vista.jtbRegistroDVentas.getModel();
+
+    // Iterar sobre las filas seleccionadas en la tabla
+    int[] filasSeleccionadas = vista.jtbRegistroDVentas.getSelectedRows();
+    for (int fila : filasSeleccionadas) {
+        int idProducto = (int) modeloVentas.getValueAt(fila, 0); // Suponiendo que la columna 0 contiene el ID_Producto
+        int cantidad = (int) modeloVentas.getValueAt(fila, 4); // Suponiendo que la columna 4 contiene la cantidad
+        double precioUnitario = (double) modeloVentas.getValueAt(fila, 3); // Suponiendo que la columna 3 contiene el precio unitario
+        double importe = (double) modeloVentas.getValueAt(fila, 6); // Suponiendo que la columna 6 contiene el importe
+
+        // Crear un objeto VentaDetalle por cada producto seleccionado
+        VentaDetalle detalle = new VentaDetalle();
+        detalle.setIdProducto(idProducto);
+        detalle.setCantidad(cantidad);
+        detalle.setPrecioUnitario(precioUnitario);
+        detalle.setImporte(importe);
+
+        detallesVenta.add(detalle);
+    }
+
+    // Crear un objeto Venta para almacenar los detalles de la venta
+    Venta venta = new Venta();
+    venta.setImporteTotal(importeTotal);
+    venta.setTipo_Comprobante("Boleta"); // Establecer el tipo de comprobante como "Boleta"
+
+    // Llamar al DAO para insertar la venta en la base de datos
+    boolean registroExitoso = dao1.insertarVentaConDetalle(venta, detallesVenta);
+
+    if (registroExitoso) {
+        JOptionPane.showMessageDialog(vista, "Venta registrada correctamente.");
+        // Limpiar la tabla de ventas y otros campos después de la venta
+        modeloVentas.setRowCount(0); // Limpiar la tabla de ventas
+        vista.jtxtImporteTotal.setText("");
+        vista.jtxtPagaCon.setText("");
+        vista.jtxtCambio.setText("");
+    } else {
+        JOptionPane.showMessageDialog(vista, "No se pudo registrar la venta. Inténtelo nuevamente.");
+    }
+}
+
+
+
 
     private void calcularCambio() {
         // Obtener el importe total
@@ -465,6 +482,7 @@ public class CVentas_Registro implements ActionListener {
         calcularImporteTotal();
     }
 
+    
     private void borrarProductoDeVentas() {
         // Obtener la fila seleccionada de la tabla de ventas
         int filaSeleccionada = vista.jtbRegistroDVentas.getSelectedRow();
@@ -525,5 +543,6 @@ public class CVentas_Registro implements ActionListener {
 
         vista.jtxtImporteTotal.setText(String.format("%.2f", importeTotal));
     }
+   
 
 }
