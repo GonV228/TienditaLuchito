@@ -94,7 +94,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="RSMaterialComponent.RSTextFieldIconTwo" name="jtxtNombres">
+            <Component class="RSMaterialComponent.RSTextFieldIconTwo" name="jtxtRazonSocialprov">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="66" type="rgb"/>
@@ -147,7 +147,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="RSMaterialComponent.RSTextFieldIconTwo" name="jtxtApellidos">
+            <Component class="RSMaterialComponent.RSTextFieldIconTwo" name="jtxtNomBanco">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="66" type="rgb"/>
@@ -200,7 +200,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="RSMaterialComponent.RSTextFieldIconTwo" name="jtxtCorreo">
+            <Component class="RSMaterialComponent.RSTextFieldIconTwo" name="jtxtCorreoProv">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="66" type="rgb"/>
@@ -253,7 +253,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="RSMaterialComponent.RSTextFieldIconTwo" name="jtxtTelefono">
+            <Component class="RSMaterialComponent.RSTextFieldIconTwo" name="jtxtTelefonoProv">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="66" type="rgb"/>
@@ -306,7 +306,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="RSMaterialComponent.RSTextFieldIconTwo" name="jtxtNumDocumento">
+            <Component class="RSMaterialComponent.RSTextFieldIconTwo" name="jtxtDireccionProv">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="66" type="rgb"/>
@@ -340,7 +340,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="RSMaterialComponent.RSTextFieldIconTwo" name="jtxtApellidos1">
+            <Component class="RSMaterialComponent.RSTextFieldIconTwo" name="jtxtRUC">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="66" type="rgb"/>
@@ -431,7 +431,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="RSMaterialComponent.RSTextFieldIconTwo" name="jtxtNumDocumento1">
+            <Component class="RSMaterialComponent.RSTextFieldIconTwo" name="jtxtNumCuentaBancaria">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="66" type="rgb"/>
@@ -465,7 +465,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="RSMaterialComponent.RSTextFieldIconTwo" name="jtxtApellidos2">
+            <Component class="RSMaterialComponent.RSTextFieldIconTwo" name="jtxtPagWeb">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="66" type="rgb"/>
@@ -518,7 +518,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="RSMaterialComponent.RSButtonIconShadow" name="btnAgregar1">
+            <Component class="RSMaterialComponent.RSButtonIconShadow" name="btnAgregarProv">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="cc" red="0" type="rgb"/>
@@ -540,7 +540,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="RSMaterialComponent.RSButtonIconShadow" name="btnEditar1">
+            <Component class="RSMaterialComponent.RSButtonIconShadow" name="btnEditarProv">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="cc" red="ff" type="rgb"/>
@@ -562,7 +562,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="RSMaterialComponent.RSButtonIconShadow" name="btnBorrar1">
+            <Component class="RSMaterialComponent.RSButtonIconShadow" name="btnBorrarProv">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="ff" type="rgb"/>
@@ -584,7 +584,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="RSMaterialComponent.RSButtonIconShadow" name="btnLimpiarCampos1">
+            <Component class="RSMaterialComponent.RSButtonIconShadow" name="btnLimpiarCamposProv">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="99" red="33" type="rgb"/>
@@ -1214,35 +1214,6 @@
                 </Property>
                 <Property name="colorSecundaryText" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
-                </Property>
-                <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
-                  <TableColumnModel selectionModel="0">
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                  </TableColumnModel>
                 </Property>
                 <Property name="selectionBackground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="66" type="rgb"/>

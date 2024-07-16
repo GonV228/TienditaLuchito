@@ -35,26 +35,26 @@ public class Proveedores extends javax.swing.JFrame {
         Panel = new RSMaterialComponent.RSPanelMaterial();
         jPanel1 = new javax.swing.JPanel();
         jlbNombres = new javax.swing.JLabel();
-        jtxtNombres = new RSMaterialComponent.RSTextFieldIconTwo();
+        jtxtRazonSocialprov = new RSMaterialComponent.RSTextFieldIconTwo();
         jlbApellidos = new javax.swing.JLabel();
-        jtxtApellidos = new RSMaterialComponent.RSTextFieldIconTwo();
+        jtxtNomBanco = new RSMaterialComponent.RSTextFieldIconTwo();
         jlbCorreoElectronico8 = new javax.swing.JLabel();
-        jtxtCorreo = new RSMaterialComponent.RSTextFieldIconTwo();
+        jtxtCorreoProv = new RSMaterialComponent.RSTextFieldIconTwo();
         jlbTelefono = new javax.swing.JLabel();
-        jtxtTelefono = new RSMaterialComponent.RSTextFieldIconTwo();
+        jtxtTelefonoProv = new RSMaterialComponent.RSTextFieldIconTwo();
         jlbDocumento = new javax.swing.JLabel();
-        jtxtNumDocumento = new RSMaterialComponent.RSTextFieldIconTwo();
-        jtxtApellidos1 = new RSMaterialComponent.RSTextFieldIconTwo();
+        jtxtDireccionProv = new RSMaterialComponent.RSTextFieldIconTwo();
+        jtxtRUC = new RSMaterialComponent.RSTextFieldIconTwo();
         jlbDocumento1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jlbDocumento2 = new javax.swing.JLabel();
-        jtxtNumDocumento1 = new RSMaterialComponent.RSTextFieldIconTwo();
-        jtxtApellidos2 = new RSMaterialComponent.RSTextFieldIconTwo();
+        jtxtNumCuentaBancaria = new RSMaterialComponent.RSTextFieldIconTwo();
+        jtxtPagWeb = new RSMaterialComponent.RSTextFieldIconTwo();
         jlbDocumento3 = new javax.swing.JLabel();
-        btnAgregar1 = new RSMaterialComponent.RSButtonIconShadow();
-        btnEditar1 = new RSMaterialComponent.RSButtonIconShadow();
-        btnBorrar1 = new RSMaterialComponent.RSButtonIconShadow();
-        btnLimpiarCampos1 = new RSMaterialComponent.RSButtonIconShadow();
+        btnAgregarProv = new RSMaterialComponent.RSButtonIconShadow();
+        btnEditarProv = new RSMaterialComponent.RSButtonIconShadow();
+        btnBorrarProv = new RSMaterialComponent.RSButtonIconShadow();
+        btnLimpiarCamposProv = new RSMaterialComponent.RSButtonIconShadow();
         jlbAgregar1 = new javax.swing.JLabel();
         jlbEditar1 = new javax.swing.JLabel();
         jlbBorrar3 = new javax.swing.JLabel();
@@ -107,85 +107,85 @@ public class Proveedores extends javax.swing.JFrame {
         jlbNombres.setText("Razón Social");
         jPanel1.add(jlbNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
-        jtxtNombres.setForeground(new java.awt.Color(102, 102, 102));
-        jtxtNombres.setBorderColor(new java.awt.Color(255, 153, 0));
-        jtxtNombres.setCaretColor(new java.awt.Color(0, 153, 255));
-        jtxtNombres.setColorIcon(new java.awt.Color(204, 204, 204));
-        jtxtNombres.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.ACCOUNT_CIRCLE);
-        jtxtNombres.setPhColor(new java.awt.Color(153, 153, 153));
-        jtxtNombres.setPlaceholder("Nombres");
-        jtxtNombres.setSelectionColor(new java.awt.Color(255, 153, 0));
-        jPanel1.add(jtxtNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 150, 30));
+        jtxtRazonSocialprov.setForeground(new java.awt.Color(102, 102, 102));
+        jtxtRazonSocialprov.setBorderColor(new java.awt.Color(255, 153, 0));
+        jtxtRazonSocialprov.setCaretColor(new java.awt.Color(0, 153, 255));
+        jtxtRazonSocialprov.setColorIcon(new java.awt.Color(204, 204, 204));
+        jtxtRazonSocialprov.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.ACCOUNT_CIRCLE);
+        jtxtRazonSocialprov.setPhColor(new java.awt.Color(153, 153, 153));
+        jtxtRazonSocialprov.setPlaceholder("Nombres");
+        jtxtRazonSocialprov.setSelectionColor(new java.awt.Color(255, 153, 0));
+        jPanel1.add(jtxtRazonSocialprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 150, 30));
 
         jlbApellidos.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbApellidos.setForeground(new java.awt.Color(51, 51, 51));
         jlbApellidos.setText("RUC");
         jPanel1.add(jlbApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, -1, -1));
 
-        jtxtApellidos.setForeground(new java.awt.Color(102, 102, 102));
-        jtxtApellidos.setBorderColor(new java.awt.Color(255, 153, 0));
-        jtxtApellidos.setCaretColor(new java.awt.Color(0, 153, 255));
-        jtxtApellidos.setColorIcon(new java.awt.Color(204, 204, 204));
-        jtxtApellidos.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.ACCOUNT_CIRCLE);
-        jtxtApellidos.setPhColor(new java.awt.Color(153, 153, 153));
-        jtxtApellidos.setPlaceholder("Apellidos");
-        jtxtApellidos.setSelectionColor(new java.awt.Color(255, 153, 0));
-        jPanel1.add(jtxtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 80, 150, 30));
+        jtxtNomBanco.setForeground(new java.awt.Color(102, 102, 102));
+        jtxtNomBanco.setBorderColor(new java.awt.Color(255, 153, 0));
+        jtxtNomBanco.setCaretColor(new java.awt.Color(0, 153, 255));
+        jtxtNomBanco.setColorIcon(new java.awt.Color(204, 204, 204));
+        jtxtNomBanco.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.ACCOUNT_CIRCLE);
+        jtxtNomBanco.setPhColor(new java.awt.Color(153, 153, 153));
+        jtxtNomBanco.setPlaceholder("Apellidos");
+        jtxtNomBanco.setSelectionColor(new java.awt.Color(255, 153, 0));
+        jPanel1.add(jtxtNomBanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 80, 150, 30));
 
         jlbCorreoElectronico8.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbCorreoElectronico8.setForeground(new java.awt.Color(51, 51, 51));
         jlbCorreoElectronico8.setText("Correo electrónico");
         jPanel1.add(jlbCorreoElectronico8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, -1, -1));
 
-        jtxtCorreo.setForeground(new java.awt.Color(102, 102, 102));
-        jtxtCorreo.setBorderColor(new java.awt.Color(255, 153, 0));
-        jtxtCorreo.setCaretColor(new java.awt.Color(0, 153, 255));
-        jtxtCorreo.setColorIcon(new java.awt.Color(204, 204, 204));
-        jtxtCorreo.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.EMAIL);
-        jtxtCorreo.setPhColor(new java.awt.Color(153, 153, 153));
-        jtxtCorreo.setPlaceholder(" abc@mail.com");
-        jtxtCorreo.setSelectionColor(new java.awt.Color(255, 153, 0));
-        jPanel1.add(jtxtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 150, 30));
+        jtxtCorreoProv.setForeground(new java.awt.Color(102, 102, 102));
+        jtxtCorreoProv.setBorderColor(new java.awt.Color(255, 153, 0));
+        jtxtCorreoProv.setCaretColor(new java.awt.Color(0, 153, 255));
+        jtxtCorreoProv.setColorIcon(new java.awt.Color(204, 204, 204));
+        jtxtCorreoProv.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.EMAIL);
+        jtxtCorreoProv.setPhColor(new java.awt.Color(153, 153, 153));
+        jtxtCorreoProv.setPlaceholder(" abc@mail.com");
+        jtxtCorreoProv.setSelectionColor(new java.awt.Color(255, 153, 0));
+        jPanel1.add(jtxtCorreoProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 150, 30));
 
         jlbTelefono.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbTelefono.setForeground(new java.awt.Color(51, 51, 51));
         jlbTelefono.setText("Telf. de Contacto");
         jPanel1.add(jlbTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
-        jtxtTelefono.setForeground(new java.awt.Color(102, 102, 102));
-        jtxtTelefono.setBorderColor(new java.awt.Color(255, 153, 0));
-        jtxtTelefono.setCaretColor(new java.awt.Color(0, 153, 255));
-        jtxtTelefono.setColorIcon(new java.awt.Color(204, 204, 204));
-        jtxtTelefono.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.PHONE);
-        jtxtTelefono.setPhColor(new java.awt.Color(153, 153, 153));
-        jtxtTelefono.setPlaceholder("999999999");
-        jtxtTelefono.setSelectionColor(new java.awt.Color(255, 153, 0));
-        jPanel1.add(jtxtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 150, 30));
+        jtxtTelefonoProv.setForeground(new java.awt.Color(102, 102, 102));
+        jtxtTelefonoProv.setBorderColor(new java.awt.Color(255, 153, 0));
+        jtxtTelefonoProv.setCaretColor(new java.awt.Color(0, 153, 255));
+        jtxtTelefonoProv.setColorIcon(new java.awt.Color(204, 204, 204));
+        jtxtTelefonoProv.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.PHONE);
+        jtxtTelefonoProv.setPhColor(new java.awt.Color(153, 153, 153));
+        jtxtTelefonoProv.setPlaceholder("999999999");
+        jtxtTelefonoProv.setSelectionColor(new java.awt.Color(255, 153, 0));
+        jPanel1.add(jtxtTelefonoProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 150, 30));
 
         jlbDocumento.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbDocumento.setForeground(new java.awt.Color(51, 51, 51));
         jlbDocumento.setText("Página web");
         jPanel1.add(jlbDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, -1, -1));
 
-        jtxtNumDocumento.setForeground(new java.awt.Color(102, 102, 102));
-        jtxtNumDocumento.setBorderColor(new java.awt.Color(255, 153, 0));
-        jtxtNumDocumento.setCaretColor(new java.awt.Color(0, 153, 255));
-        jtxtNumDocumento.setColorIcon(new java.awt.Color(204, 204, 204));
-        jtxtNumDocumento.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.ASSIGNMENT);
-        jtxtNumDocumento.setPhColor(new java.awt.Color(153, 153, 153));
-        jtxtNumDocumento.setPlaceholder("55555555");
-        jtxtNumDocumento.setSelectionColor(new java.awt.Color(255, 153, 0));
-        jPanel1.add(jtxtNumDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 150, 30));
+        jtxtDireccionProv.setForeground(new java.awt.Color(102, 102, 102));
+        jtxtDireccionProv.setBorderColor(new java.awt.Color(255, 153, 0));
+        jtxtDireccionProv.setCaretColor(new java.awt.Color(0, 153, 255));
+        jtxtDireccionProv.setColorIcon(new java.awt.Color(204, 204, 204));
+        jtxtDireccionProv.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.ASSIGNMENT);
+        jtxtDireccionProv.setPhColor(new java.awt.Color(153, 153, 153));
+        jtxtDireccionProv.setPlaceholder("55555555");
+        jtxtDireccionProv.setSelectionColor(new java.awt.Color(255, 153, 0));
+        jPanel1.add(jtxtDireccionProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 150, 30));
 
-        jtxtApellidos1.setForeground(new java.awt.Color(102, 102, 102));
-        jtxtApellidos1.setBorderColor(new java.awt.Color(255, 153, 0));
-        jtxtApellidos1.setCaretColor(new java.awt.Color(0, 153, 255));
-        jtxtApellidos1.setColorIcon(new java.awt.Color(204, 204, 204));
-        jtxtApellidos1.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.ACCOUNT_CIRCLE);
-        jtxtApellidos1.setPhColor(new java.awt.Color(153, 153, 153));
-        jtxtApellidos1.setPlaceholder("Apellidos");
-        jtxtApellidos1.setSelectionColor(new java.awt.Color(255, 153, 0));
-        jPanel1.add(jtxtApellidos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 150, 30));
+        jtxtRUC.setForeground(new java.awt.Color(102, 102, 102));
+        jtxtRUC.setBorderColor(new java.awt.Color(255, 153, 0));
+        jtxtRUC.setCaretColor(new java.awt.Color(0, 153, 255));
+        jtxtRUC.setColorIcon(new java.awt.Color(204, 204, 204));
+        jtxtRUC.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.ACCOUNT_CIRCLE);
+        jtxtRUC.setPhColor(new java.awt.Color(153, 153, 153));
+        jtxtRUC.setPlaceholder("Apellidos");
+        jtxtRUC.setSelectionColor(new java.awt.Color(255, 153, 0));
+        jPanel1.add(jtxtRUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 150, 30));
 
         jlbDocumento1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbDocumento1.setForeground(new java.awt.Color(51, 51, 51));
@@ -203,54 +203,54 @@ public class Proveedores extends javax.swing.JFrame {
         jlbDocumento2.setText("Nombre del Banco");
         jPanel1.add(jlbDocumento2, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 60, -1, -1));
 
-        jtxtNumDocumento1.setForeground(new java.awt.Color(102, 102, 102));
-        jtxtNumDocumento1.setBorderColor(new java.awt.Color(255, 153, 0));
-        jtxtNumDocumento1.setCaretColor(new java.awt.Color(0, 153, 255));
-        jtxtNumDocumento1.setColorIcon(new java.awt.Color(204, 204, 204));
-        jtxtNumDocumento1.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.ASSIGNMENT);
-        jtxtNumDocumento1.setPhColor(new java.awt.Color(153, 153, 153));
-        jtxtNumDocumento1.setPlaceholder("55555555");
-        jtxtNumDocumento1.setSelectionColor(new java.awt.Color(255, 153, 0));
-        jPanel1.add(jtxtNumDocumento1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 80, 150, 30));
+        jtxtNumCuentaBancaria.setForeground(new java.awt.Color(102, 102, 102));
+        jtxtNumCuentaBancaria.setBorderColor(new java.awt.Color(255, 153, 0));
+        jtxtNumCuentaBancaria.setCaretColor(new java.awt.Color(0, 153, 255));
+        jtxtNumCuentaBancaria.setColorIcon(new java.awt.Color(204, 204, 204));
+        jtxtNumCuentaBancaria.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.ASSIGNMENT);
+        jtxtNumCuentaBancaria.setPhColor(new java.awt.Color(153, 153, 153));
+        jtxtNumCuentaBancaria.setPlaceholder("55555555");
+        jtxtNumCuentaBancaria.setSelectionColor(new java.awt.Color(255, 153, 0));
+        jPanel1.add(jtxtNumCuentaBancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 80, 150, 30));
 
-        jtxtApellidos2.setForeground(new java.awt.Color(102, 102, 102));
-        jtxtApellidos2.setBorderColor(new java.awt.Color(255, 153, 0));
-        jtxtApellidos2.setCaretColor(new java.awt.Color(0, 153, 255));
-        jtxtApellidos2.setColorIcon(new java.awt.Color(204, 204, 204));
-        jtxtApellidos2.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.ACCOUNT_CIRCLE);
-        jtxtApellidos2.setPhColor(new java.awt.Color(153, 153, 153));
-        jtxtApellidos2.setPlaceholder("www.proveedor.com");
-        jtxtApellidos2.setSelectionColor(new java.awt.Color(255, 153, 0));
-        jPanel1.add(jtxtApellidos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, 150, 30));
+        jtxtPagWeb.setForeground(new java.awt.Color(102, 102, 102));
+        jtxtPagWeb.setBorderColor(new java.awt.Color(255, 153, 0));
+        jtxtPagWeb.setCaretColor(new java.awt.Color(0, 153, 255));
+        jtxtPagWeb.setColorIcon(new java.awt.Color(204, 204, 204));
+        jtxtPagWeb.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.ACCOUNT_CIRCLE);
+        jtxtPagWeb.setPhColor(new java.awt.Color(153, 153, 153));
+        jtxtPagWeb.setPlaceholder("www.proveedor.com");
+        jtxtPagWeb.setSelectionColor(new java.awt.Color(255, 153, 0));
+        jPanel1.add(jtxtPagWeb, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, 150, 30));
 
         jlbDocumento3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbDocumento3.setForeground(new java.awt.Color(51, 51, 51));
         jlbDocumento3.setText("Nº Cuenta Bancaria");
         jPanel1.add(jlbDocumento3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 60, -1, -1));
 
-        btnAgregar1.setBackground(new java.awt.Color(0, 204, 102));
-        btnAgregar1.setBackgroundHover(new java.awt.Color(0, 102, 0));
-        btnAgregar1.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.ADD_CIRCLE_OUTLINE);
-        btnAgregar1.setName("jbtnActualizarGDG"); // NOI18N
-        jPanel1.add(btnAgregar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, -1, -1));
+        btnAgregarProv.setBackground(new java.awt.Color(0, 204, 102));
+        btnAgregarProv.setBackgroundHover(new java.awt.Color(0, 102, 0));
+        btnAgregarProv.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.ADD_CIRCLE_OUTLINE);
+        btnAgregarProv.setName("jbtnActualizarGDG"); // NOI18N
+        jPanel1.add(btnAgregarProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, -1, -1));
 
-        btnEditar1.setBackground(new java.awt.Color(255, 204, 0));
-        btnEditar1.setBackgroundHover(new java.awt.Color(204, 102, 0));
-        btnEditar1.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.EDIT);
-        btnEditar1.setName("jbtnActualizarGDG"); // NOI18N
-        jPanel1.add(btnEditar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, -1, -1));
+        btnEditarProv.setBackground(new java.awt.Color(255, 204, 0));
+        btnEditarProv.setBackgroundHover(new java.awt.Color(204, 102, 0));
+        btnEditarProv.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.EDIT);
+        btnEditarProv.setName("jbtnActualizarGDG"); // NOI18N
+        jPanel1.add(btnEditarProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, -1, -1));
 
-        btnBorrar1.setBackground(new java.awt.Color(255, 51, 51));
-        btnBorrar1.setBackgroundHover(new java.awt.Color(153, 0, 0));
-        btnBorrar1.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.DELETE);
-        btnBorrar1.setName("jbtnActualizarGDG"); // NOI18N
-        jPanel1.add(btnBorrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 130, -1, -1));
+        btnBorrarProv.setBackground(new java.awt.Color(255, 51, 51));
+        btnBorrarProv.setBackgroundHover(new java.awt.Color(153, 0, 0));
+        btnBorrarProv.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.DELETE);
+        btnBorrarProv.setName("jbtnActualizarGDG"); // NOI18N
+        jPanel1.add(btnBorrarProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 130, -1, -1));
 
-        btnLimpiarCampos1.setBackground(new java.awt.Color(51, 153, 255));
-        btnLimpiarCampos1.setBackgroundHover(new java.awt.Color(0, 102, 255));
-        btnLimpiarCampos1.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.CLEAR_ALL);
-        btnLimpiarCampos1.setName("jbtnActualizarGDG"); // NOI18N
-        jPanel1.add(btnLimpiarCampos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 130, -1, -1));
+        btnLimpiarCamposProv.setBackground(new java.awt.Color(51, 153, 255));
+        btnLimpiarCamposProv.setBackgroundHover(new java.awt.Color(0, 102, 255));
+        btnLimpiarCamposProv.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.CLEAR_ALL);
+        btnLimpiarCamposProv.setName("jbtnActualizarGDG"); // NOI18N
+        jPanel1.add(btnLimpiarCamposProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 130, -1, -1));
 
         jlbAgregar1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbAgregar1.setForeground(new java.awt.Color(51, 51, 51));
@@ -556,13 +556,13 @@ public class Proveedores extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public RSMaterialComponent.RSPanelMaterial Panel;
     public RSMaterialComponent.RSButtonIconShadow btnAgregar;
-    public RSMaterialComponent.RSButtonIconShadow btnAgregar1;
+    public RSMaterialComponent.RSButtonIconShadow btnAgregarProv;
     public RSMaterialComponent.RSButtonIconShadow btnBorrar;
-    public RSMaterialComponent.RSButtonIconShadow btnBorrar1;
+    public RSMaterialComponent.RSButtonIconShadow btnBorrarProv;
     public RSMaterialComponent.RSButtonIconShadow btnEditar;
-    public RSMaterialComponent.RSButtonIconShadow btnEditar1;
+    public RSMaterialComponent.RSButtonIconShadow btnEditarProv;
     public RSMaterialComponent.RSButtonIconShadow btnLimpiarCampos;
-    public RSMaterialComponent.RSButtonIconShadow btnLimpiarCampos1;
+    public RSMaterialComponent.RSButtonIconShadow btnLimpiarCamposProv;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
@@ -596,16 +596,16 @@ public class Proveedores extends javax.swing.JFrame {
     public javax.swing.JLabel jlbTelefono;
     public RSMaterialComponent.RSTextFieldIconTwo jtxfNombreProducto13;
     public RSMaterialComponent.RSTextFieldIconTwo jtxfNombreProducto15;
-    public RSMaterialComponent.RSTextFieldIconTwo jtxtApellidos;
-    public RSMaterialComponent.RSTextFieldIconTwo jtxtApellidos1;
-    public RSMaterialComponent.RSTextFieldIconTwo jtxtApellidos2;
-    public RSMaterialComponent.RSTextFieldIconTwo jtxtCorreo;
-    public RSMaterialComponent.RSTextFieldIconTwo jtxtNombres;
-    public RSMaterialComponent.RSTextFieldIconTwo jtxtNumDocumento;
-    public RSMaterialComponent.RSTextFieldIconTwo jtxtNumDocumento1;
+    public RSMaterialComponent.RSTextFieldIconTwo jtxtCorreoProv;
+    public RSMaterialComponent.RSTextFieldIconTwo jtxtDireccionProv;
+    public RSMaterialComponent.RSTextFieldIconTwo jtxtNomBanco;
+    public RSMaterialComponent.RSTextFieldIconTwo jtxtNumCuentaBancaria;
+    public RSMaterialComponent.RSTextFieldIconTwo jtxtPagWeb;
     public RSMaterialComponent.RSTextFieldIconTwo jtxtPrecio;
     public RSMaterialComponent.RSTextFieldIconTwo jtxtPrecio1;
-    public RSMaterialComponent.RSTextFieldIconTwo jtxtTelefono;
+    public RSMaterialComponent.RSTextFieldIconTwo jtxtRUC;
+    public RSMaterialComponent.RSTextFieldIconTwo jtxtRazonSocialprov;
+    public RSMaterialComponent.RSTextFieldIconTwo jtxtTelefonoProv;
     public RSMaterialComponent.RSTableMetro tblEmpleados;
     public RSMaterialComponent.RSTableMetro tblEmpleados2;
     public RSMaterialComponent.RSTableMetro tblEmpleados3;

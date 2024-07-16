@@ -66,7 +66,7 @@ public class CAdministrador implements ActionListener{
         if(e.getSource()==vista.tab3){
             System.out.println("tab3");
             Proveedores vistaProveedores = new Proveedores();
-            CProveedores controlador = new  CProveedores(vistaProveedores);
+            CProveedores controlador = new  CProveedores(vistaProveedores, vista);
 
             vista.PrincipalAdministrador.removeAll();
             vista.PrincipalAdministrador.setLayout(new BorderLayout());
