@@ -104,8 +104,8 @@ public class Proveedores extends javax.swing.JFrame {
 
         jlbNombres.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbNombres.setForeground(new java.awt.Color(51, 51, 51));
-        jlbNombres.setText("Razón Social");
-        jPanel1.add(jlbNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+        jlbNombres.setText("Razón Social *");
+        jPanel1.add(jlbNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 150, -1));
 
         jtxtRazonSocialprov.setForeground(new java.awt.Color(102, 102, 102));
         jtxtRazonSocialprov.setBorderColor(new java.awt.Color(255, 153, 0));
@@ -113,14 +113,14 @@ public class Proveedores extends javax.swing.JFrame {
         jtxtRazonSocialprov.setColorIcon(new java.awt.Color(204, 204, 204));
         jtxtRazonSocialprov.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.ACCOUNT_CIRCLE);
         jtxtRazonSocialprov.setPhColor(new java.awt.Color(153, 153, 153));
-        jtxtRazonSocialprov.setPlaceholder("Nombres");
+        jtxtRazonSocialprov.setPlaceholder("Razón Social");
         jtxtRazonSocialprov.setSelectionColor(new java.awt.Color(255, 153, 0));
         jPanel1.add(jtxtRazonSocialprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 150, 30));
 
         jlbApellidos.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbApellidos.setForeground(new java.awt.Color(51, 51, 51));
-        jlbApellidos.setText("RUC");
-        jPanel1.add(jlbApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, -1, -1));
+        jlbApellidos.setText("RUC *");
+        jPanel1.add(jlbApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 150, -1));
 
         jtxtNomBanco.setForeground(new java.awt.Color(102, 102, 102));
         jtxtNomBanco.setBorderColor(new java.awt.Color(255, 153, 0));
@@ -128,14 +128,14 @@ public class Proveedores extends javax.swing.JFrame {
         jtxtNomBanco.setColorIcon(new java.awt.Color(204, 204, 204));
         jtxtNomBanco.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.ACCOUNT_CIRCLE);
         jtxtNomBanco.setPhColor(new java.awt.Color(153, 153, 153));
-        jtxtNomBanco.setPlaceholder("Apellidos");
+        jtxtNomBanco.setPlaceholder("Banco");
         jtxtNomBanco.setSelectionColor(new java.awt.Color(255, 153, 0));
         jPanel1.add(jtxtNomBanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 80, 150, 30));
 
         jlbCorreoElectronico8.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbCorreoElectronico8.setForeground(new java.awt.Color(51, 51, 51));
-        jlbCorreoElectronico8.setText("Correo electrónico");
-        jPanel1.add(jlbCorreoElectronico8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, -1, -1));
+        jlbCorreoElectronico8.setText("Correo electrónico *");
+        jPanel1.add(jlbCorreoElectronico8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 150, -1));
 
         jtxtCorreoProv.setForeground(new java.awt.Color(102, 102, 102));
         jtxtCorreoProv.setBorderColor(new java.awt.Color(255, 153, 0));
@@ -149,8 +149,8 @@ public class Proveedores extends javax.swing.JFrame {
 
         jlbTelefono.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbTelefono.setForeground(new java.awt.Color(51, 51, 51));
-        jlbTelefono.setText("Telf. de Contacto");
-        jPanel1.add(jlbTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+        jlbTelefono.setText("Telf. de Contacto *");
+        jPanel1.add(jlbTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 150, -1));
 
         jtxtTelefonoProv.setForeground(new java.awt.Color(102, 102, 102));
         jtxtTelefonoProv.setBorderColor(new java.awt.Color(255, 153, 0));
@@ -165,7 +165,7 @@ public class Proveedores extends javax.swing.JFrame {
         jlbDocumento.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbDocumento.setForeground(new java.awt.Color(51, 51, 51));
         jlbDocumento.setText("Página web");
-        jPanel1.add(jlbDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, -1, -1));
+        jPanel1.add(jlbDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, 150, -1));
 
         jtxtDireccionProv.setForeground(new java.awt.Color(102, 102, 102));
         jtxtDireccionProv.setBorderColor(new java.awt.Color(255, 153, 0));
@@ -173,7 +173,7 @@ public class Proveedores extends javax.swing.JFrame {
         jtxtDireccionProv.setColorIcon(new java.awt.Color(204, 204, 204));
         jtxtDireccionProv.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.ASSIGNMENT);
         jtxtDireccionProv.setPhColor(new java.awt.Color(153, 153, 153));
-        jtxtDireccionProv.setPlaceholder("55555555");
+        jtxtDireccionProv.setPlaceholder("");
         jtxtDireccionProv.setSelectionColor(new java.awt.Color(255, 153, 0));
         jPanel1.add(jtxtDireccionProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 150, 30));
 
@@ -183,14 +183,14 @@ public class Proveedores extends javax.swing.JFrame {
         jtxtRUC.setColorIcon(new java.awt.Color(204, 204, 204));
         jtxtRUC.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.ACCOUNT_CIRCLE);
         jtxtRUC.setPhColor(new java.awt.Color(153, 153, 153));
-        jtxtRUC.setPlaceholder("Apellidos");
+        jtxtRUC.setPlaceholder("00000000000");
         jtxtRUC.setSelectionColor(new java.awt.Color(255, 153, 0));
         jPanel1.add(jtxtRUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 150, 30));
 
         jlbDocumento1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbDocumento1.setForeground(new java.awt.Color(51, 51, 51));
-        jlbDocumento1.setText("Dirección");
-        jPanel1.add(jlbDocumento1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, -1, -1));
+        jlbDocumento1.setText("Dirección *");
+        jPanel1.add(jlbDocumento1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 150, -1));
 
         jLabel2.setBackground(new java.awt.Color(51, 51, 51));
         jLabel2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
@@ -200,8 +200,8 @@ public class Proveedores extends javax.swing.JFrame {
 
         jlbDocumento2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbDocumento2.setForeground(new java.awt.Color(51, 51, 51));
-        jlbDocumento2.setText("Nombre del Banco");
-        jPanel1.add(jlbDocumento2, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 60, -1, -1));
+        jlbDocumento2.setText("Nombre del Banco *");
+        jPanel1.add(jlbDocumento2, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 60, 150, -1));
 
         jtxtNumCuentaBancaria.setForeground(new java.awt.Color(102, 102, 102));
         jtxtNumCuentaBancaria.setBorderColor(new java.awt.Color(255, 153, 0));
@@ -225,8 +225,8 @@ public class Proveedores extends javax.swing.JFrame {
 
         jlbDocumento3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbDocumento3.setForeground(new java.awt.Color(51, 51, 51));
-        jlbDocumento3.setText("Nº Cuenta Bancaria");
-        jPanel1.add(jlbDocumento3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 60, -1, -1));
+        jlbDocumento3.setText("Nº Cuenta Bancaria *");
+        jPanel1.add(jlbDocumento3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 60, 150, -1));
 
         btnAgregarProv.setBackground(new java.awt.Color(0, 204, 102));
         btnAgregarProv.setBackgroundHover(new java.awt.Color(0, 102, 0));
@@ -443,13 +443,13 @@ public class Proveedores extends javax.swing.JFrame {
         tblEmpleados2.setForeground(new java.awt.Color(153, 153, 153));
         tblEmpleados2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Razón Social", "RUC", "Dirección", "Página Web", "Correo", "Teléfono", "N cuenta bancaria", "Nombre Banco", "Categorías"
+                "Razón Social", "RUC", "Dirección", "Página Web", "Correo", "Teléfono", "N cuenta bancaria", "Nombre Banco"
             }
         ));
         tblEmpleados2.setBackgoundHead(new java.awt.Color(51, 51, 51));

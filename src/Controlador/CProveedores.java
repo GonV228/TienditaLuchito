@@ -99,25 +99,40 @@ public class CProveedores implements ActionListener {
         String telefonoContacto = vista.jtxtTelefonoProv.getText();
         String correoElectronico = vista.jtxtCorreoProv.getText().trim();
 
+        
+        //validaciones 
+        //campos vacios
         if (razon_social.isEmpty() || RUC.isEmpty() || direccion.isEmpty()
-                || paginaWeb.isEmpty() || numCuentaBancaria.isEmpty() || nombreBanco.isEmpty()
+                || numCuentaBancaria.isEmpty() || nombreBanco.isEmpty()
                 || telefonoContacto.isEmpty() || correoElectronico.isEmpty()) {
-            JOptionPane.showMessageDialog(vista, "Por favor, completa todos los campos obligatorios.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(vista, "Por favor, completa los campos obligatorios. * ", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-
+        
+        if(!validarRUC(RUC)){//falso osea hay un error entonces detener
+            return;
+        }
+        if(!validarCCI(numCuentaBancaria)){//falso osea hay un error entonces detener
+            return;
+        }
+        if(!validarTelefono(telefonoContacto)){//falso osea que hay un error entonces detener
+            return;
+        }
+        
+        
+        //convertir
         long ruc = 0, cuentaBancaria = 0, telefContact = 0;
-
         try {
             telefContact = Long.parseLong(telefonoContacto);
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(vista, "el telefono de contacto no debe de contener texto.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
         }
-
         try {
             ruc = Long.parseLong(RUC);
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(vista, "el RUC no debe de contener texto.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
         }
 
         try {
@@ -217,4 +232,77 @@ public class CProveedores implements ActionListener {
 
 }
 
+    //validaciones
+    public static boolean validarRUC(String ruc) {
+        // Verificar que el RUC no sea null y tenga exactamente 11 caracteres
+        if (ruc == null || ruc.length() != 11) {
+            JOptionPane.showMessageDialog(null, "El RUC debe contener 11 digitos");
+            return false;
+        }
+
+        // Verificar que todos los caracteres sean dígitos
+        for (int i = 0; i < ruc.length(); i++) {
+            if (!Character.isDigit(ruc.charAt(i))) {
+                JOptionPane.showMessageDialog(null, "El RUC debe contener solo números");
+                return false;
+            }
+        }
+
+        // Si pasó todas las validaciones, el RUC es válido
+        return true;
+    }
+
+    public static boolean validarCCI(String cci) {
+        // Verificar que el CCI no sea null y tenga exactamente 20 caracteres
+        if (cci == null || cci.length() != 20) {
+            JOptionPane.showMessageDialog(null, "El CCI / Nº de Cuenta Bancaria debe contener 20 digitos");
+            return false;
+        }
+
+        // Verificar que todos los caracteres sean dígitos
+        for (int i = 0; i < cci.length(); i++) {
+            if (!Character.isDigit(cci.charAt(i))) {
+                JOptionPane.showMessageDialog(null, "El CCI / Nº de Cuenta Bancaria debe contener solo ");
+                return false;
+            }
+        }
+
+        // Si pasó todas las validaciones, el CCI es válido
+        return true;
+    }
+
+    public static boolean validarTelefono(String telefono) {
+        if (telefono == null) {
+            JOptionPane.showMessageDialog(null, "Los números de tlf fijo deben contener al menos 6 o 7 digitos y los tlf moviles deben tener 9 digitos");
+            return false;
+        }
+
+        int length = telefono.length();
+
+        // Validar teléfono móvil
+        if (length == 9 && telefono.charAt(0) == '9') {
+            return sonTodosDigitos(telefono);
+        }
+
+        // Validar teléfono fijo
+        if (length >= 6 && length <= 7) {
+            return sonTodosDigitos(telefono);
+        }
+
+        return false;
+    }
+
+    private static boolean sonTodosDigitos(String telefono) {
+        for (int i = 0; i < telefono.length(); i++) {
+            if (!Character.isDigit(telefono.charAt(i))) {
+                JOptionPane.showMessageDialog(null, "El campo de Tlf debe contener solo números.");
+                return false;
+            }
+        }
+        return true;
+    }
+   
+
+
+    
 }
