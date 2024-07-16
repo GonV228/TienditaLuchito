@@ -1,0 +1,36 @@
+(<?= $producto['codigo'] ?>)
+
+
+
+<script>
+                            function agregarItemAlCarrito(idProducto) {
+                                // Aquí puedes agregar lógica para manejar el evento de agregar al carrito
+                                console.log("Producto agregado al carrito con ID: " + idProducto);
+                            }
+                        </script>
+
+
+var nombresProductos=[
+                                    "Torta de Chocolate",
+                                    "Torta de Ganache Chocolate",
+                                    "Torta de Pistachos",
+                                    "Torta de Stich",
+                                    "Letter Cake en Brownie",
+                                    "Budín"
+                                ]; /aqui los nombres de los productos/                                                                 
+                                var preciosProductos=[
+                                    "$4600",
+                                    "$4600",
+                                    "$4600",
+                                    "$7300",
+                                    "$3600",
+                                    "$1800"
+                                ];/aqui van sus precios en el mismo orden ojo/
+                                var descripcionProducto=[
+                                    "Torta de chocolate bariloche y bon bon",
+                                    "Torta de ganache de chocolate y ferreo",
+                                    "Torta de pistachos, relleno crema de arandanos y pistachos",
+                                    "Torta de Stich",
+                                    "Letter cake S en brownie",
+                                    "Budín: dulce de leche"
+                                ];/aqui la poderosa descripcion de los productos/
