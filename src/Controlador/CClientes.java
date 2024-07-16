@@ -33,7 +33,7 @@ public class CClientes implements ActionListener {
         vista.btnEditar.addActionListener(this);
         vista.btnLimpiarCampos.addActionListener(this);
         // Inicializar JComboBox para roles y tipos de documento
-        String[] genero = {"M", "F"};
+        String[] genero = {"Femenino", "Masculino"};
         vista.jcbxTipoEmpleado.setModel(new DefaultComboBoxModel<>(genero));
         // Mostrar los usuarios en la tabla
         mostrarClientesEnTabla();
