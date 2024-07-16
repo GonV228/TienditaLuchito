@@ -59,7 +59,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="230" y="40" width="580" height="120"/>
+              <AbsoluteConstraints x="220" y="40" width="580" height="100"/>
             </Constraint>
           </Constraints>
 
@@ -130,7 +130,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="0" width="220" height="680"/>
+              <AbsoluteConstraints x="0" y="0" width="210" height="680"/>
             </Constraint>
           </Constraints>
 
@@ -168,7 +168,7 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="60" width="180" height="30"/>
+                  <AbsoluteConstraints x="0" y="60" width="180" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -189,7 +189,7 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="120" width="180" height="30"/>
+                  <AbsoluteConstraints x="0" y="120" width="180" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -223,7 +223,7 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="180" width="180" height="30"/>
+                  <AbsoluteConstraints x="0" y="180" width="180" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -257,7 +257,7 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="240" width="180" height="30"/>
+                  <AbsoluteConstraints x="0" y="240" width="180" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -282,7 +282,7 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="280" width="180" height="170"/>
+                  <AbsoluteConstraints x="0" y="280" width="180" height="170"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -298,7 +298,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="40" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="0" y="40" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -314,7 +314,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="100" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="0" y="100" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -330,7 +330,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="160" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="0" y="160" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -346,7 +346,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="220" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="0" y="220" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -372,7 +372,7 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="20" y="460" width="160" height="30"/>
+                  <AbsoluteConstraints x="10" y="460" width="160" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -390,7 +390,7 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="30" y="510" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="20" y="510" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -408,7 +408,7 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="30" y="580" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="20" y="580" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -426,7 +426,7 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="100" y="510" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="90" y="510" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -445,7 +445,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="0" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="0" y="0" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -465,7 +465,7 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="100" y="550" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="90" y="550" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -485,7 +485,7 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="20" y="550" width="70" height="-1"/>
+                  <AbsoluteConstraints x="10" y="550" width="70" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -505,7 +505,7 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="30" y="620" width="50" height="-1"/>
+                  <AbsoluteConstraints x="20" y="620" width="50" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -527,7 +527,7 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="100" y="580" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="90" y="580" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -547,7 +547,7 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="100" y="620" width="50" height="-1"/>
+                  <AbsoluteConstraints x="90" y="620" width="50" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -568,7 +568,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="220" y="390" width="-1" height="-1"/>
+              <AbsoluteConstraints x="220" y="370" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -602,7 +602,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="820" y="40" width="200" height="30"/>
+              <AbsoluteConstraints x="810" y="40" width="200" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -624,7 +624,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="820" y="80" width="-1" height="-1"/>
+              <AbsoluteConstraints x="810" y="80" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -646,7 +646,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="880" y="80" width="-1" height="-1"/>
+              <AbsoluteConstraints x="870" y="80" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -668,7 +668,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="940" y="80" width="-1" height="-1"/>
+              <AbsoluteConstraints x="930" y="80" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -688,27 +688,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="820" y="120" width="-1" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jlbAgregar3">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Yu Gothic UI Semibold" size="14" style="0"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="33" type="rgb"/>
-            </Property>
-            <Property name="horizontalAlignment" type="int" value="2"/>
-            <Property name="text" type="java.lang.String" value="Actualizar"/>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="930" y="440" width="80" height="-1"/>
+              <AbsoluteConstraints x="810" y="120" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -728,7 +708,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="880" y="120" width="80" height="-1"/>
+              <AbsoluteConstraints x="870" y="120" width="80" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -747,7 +727,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="220" y="170" width="810" height="220"/>
+              <AbsoluteConstraints x="210" y="150" width="800" height="220"/>
             </Constraint>
           </Constraints>
 
@@ -925,7 +905,7 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="610" y="10" width="190" height="-1"/>
+                  <AbsoluteConstraints x="600" y="10" width="200" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -1010,7 +990,27 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="230" y="0" width="-1" height="-1"/>
+              <AbsoluteConstraints x="220" y="0" width="-1" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jlbAgregar10">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Yu Gothic UI Semibold" size="14" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="2"/>
+            <Property name="text" type="java.lang.String" value="Actualizar"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="930" y="120" width="80" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -1026,20 +1026,19 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="RSMaterialComponent.RSTableMetro" name="rSTableMetro3">
+            <Component class="RSMaterialComponent.RSTableMetro" name="jtablePedidos">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="10" rowCount="5">
+                  <Table columnCount="9" rowCount="5">
+                    <Column editable="true" title="ID" type="java.lang.Object"/>
                     <Column editable="true" title="Producto" type="java.lang.Object"/>
-                    <Column editable="true" title="Pedidos" type="java.lang.Object"/>
-                    <Column editable="true" title="Costo C/u" type="java.lang.Object"/>
+                    <Column editable="true" title="Cantidad" type="java.lang.Object"/>
+                    <Column editable="true" title="Costo Total" type="java.lang.Object"/>
+                    <Column editable="true" title="Costo Unidad" type="java.lang.Object"/>
                     <Column editable="true" title="Precio Venta" type="java.lang.Object"/>
-                    <Column editable="true" title="Ganancia" type="java.lang.Object"/>
-                    <Column editable="true" title="Ganancia total" type="java.lang.Object"/>
-                    <Column editable="true" title="Fecha pedido" type="java.lang.Object"/>
-                    <Column editable="true" title="Fecha entrega" type="java.lang.Object"/>
+                    <Column editable="true" title="Fecha Pedido" type="java.lang.Object"/>
+                    <Column editable="true" title="Fecha Entrega" type="java.lang.Object"/>
                     <Column editable="true" title="Estado" type="java.lang.Object"/>
-                    <Column editable="true" title="TOTAL" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="backgoundHead" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -1054,60 +1053,6 @@
                 <Property name="colorSecundaryText" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
-                <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
-                  <TableColumnModel selectionModel="0">
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                  </TableColumnModel>
-                </Property>
                 <Property name="selectionBackground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="66" type="rgb"/>
                 </Property>
@@ -1115,90 +1060,13 @@
                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
-        <Component class="RSMaterialComponent.RSComboBoxMaterial" name="jcbxFiltroCategoria1">
-          <Properties>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="33" type="rgb"/>
-            </Property>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="0"/>
-            </Property>
-            <Property name="colorMaterial" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="99" red="ff" type="rgb"/>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="350" y="450" width="120" height="30"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="RSMaterialComponent.RSComboBoxMaterial" name="jcbxFiltroCategoria2">
-          <Properties>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="33" type="rgb"/>
-            </Property>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="0"/>
-            </Property>
-            <Property name="colorMaterial" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="99" red="ff" type="rgb"/>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="220" y="450" width="120" height="30"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel5">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="33" type="rgb"/>
-            </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Yu Gothic UI Semibold" size="14" style="0"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="33" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="A&#xf1;o"/>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="350" y="430" width="-1" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel7">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="33" type="rgb"/>
-            </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Yu Gothic UI Semibold" size="14" style="0"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="33" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Mes"/>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="220" y="430" width="-1" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="RSMaterialComponent.RSTextFieldIconTwo" name="jtxfNombreProducto1">
+        <Component class="RSMaterialComponent.RSTextFieldIconTwo" name="jtxfNombreProductoPed">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
@@ -1228,23 +1096,95 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="480" y="450" width="180" height="30"/>
+              <AbsoluteConstraints x="440" y="410" width="170" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jlbCorreoElectronico1">
+        <Component class="RSMaterialComponent.RSButtonIconShadow" name="btnFiltrar">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Yu Gothic UI Semibold" size="14" style="0"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="99" red="33" type="rgb"/>
             </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="33" type="rgb"/>
+            <Property name="backgroundHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="66" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Nombres del producto"/>
+            <Property name="icons" type="rojeru_san.efectos.ValoresEnum$ICONS" editor="org.netbeans.modules.form.editors.EnumEditor">
+              <Value id="FILTER_LIST"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="jbtnActualizarGDG" noResource="true"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="480" y="430" width="-1" height="-1"/>
+              <AbsoluteConstraints x="940" y="380" width="-1" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="RSMaterialComponent.RSButtonIconShadow" name="btnHacerPedido">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="cc" red="0" type="rgb"/>
+            </Property>
+            <Property name="backgroundHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="66" red="0" type="rgb"/>
+            </Property>
+            <Property name="icons" type="rojeru_san.efectos.ValoresEnum$ICONS" editor="org.netbeans.modules.form.editors.EnumEditor">
+              <Value id="ADD_CIRCLE_OUTLINE"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="jbtnActualizarGDG" noResource="true"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="220" y="410" width="-1" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="RSMaterialComponent.RSButtonIconShadow" name="btnBorrarPedido">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="ff" type="rgb"/>
+            </Property>
+            <Property name="backgroundHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="99" type="rgb"/>
+            </Property>
+            <Property name="icons" type="rojeru_san.efectos.ValoresEnum$ICONS" editor="org.netbeans.modules.form.editors.EnumEditor">
+              <Value id="DELETE"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="jbtnActualizarGDG" noResource="true"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="280" y="410" width="-1" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="RSMaterialComponent.RSButtonIconShadow" name="btnActualizarPedido">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="cc" red="ff" type="rgb"/>
+            </Property>
+            <Property name="backgroundHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="66" red="cc" type="rgb"/>
+            </Property>
+            <Property name="icons" type="rojeru_san.efectos.ValoresEnum$ICONS" editor="org.netbeans.modules.form.editors.EnumEditor">
+              <Value id="EDIT"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="jbtnActualizarGDG" noResource="true"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="340" y="410" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -1264,29 +1204,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="930" y="460" width="-1" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="RSMaterialComponent.RSButtonIconShadow" name="btnAgregarCategorias1">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="66" green="cc" red="0" type="rgb"/>
-            </Property>
-            <Property name="backgroundHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="66" red="0" type="rgb"/>
-            </Property>
-            <Property name="icons" type="rojeru_san.efectos.ValoresEnum$ICONS" editor="org.netbeans.modules.form.editors.EnumEditor">
-              <Value id="ADD_CIRCLE_OUTLINE"/>
-            </Property>
-            <Property name="name" type="java.lang.String" value="jbtnActualizarGDG" noResource="true"/>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="810" y="400" width="-1" height="-1"/>
+              <AbsoluteConstraints x="340" y="470" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -1306,29 +1224,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="810" y="440" width="-1" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="RSMaterialComponent.RSButtonIconShadow" name="btnBorrarCategorias1">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="ff" type="rgb"/>
-            </Property>
-            <Property name="backgroundHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="99" type="rgb"/>
-            </Property>
-            <Property name="icons" type="rojeru_san.efectos.ValoresEnum$ICONS" editor="org.netbeans.modules.form.editors.EnumEditor">
-              <Value id="DELETE"/>
-            </Property>
-            <Property name="name" type="java.lang.String" value="jbtnActualizarGDG" noResource="true"/>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="870" y="400" width="-1" height="-1"/>
+              <AbsoluteConstraints x="220" y="450" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -1348,7 +1244,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="870" y="440" width="40" height="-1"/>
+              <AbsoluteConstraints x="280" y="450" width="40" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -1368,49 +1264,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="810" y="460" width="-1" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="RSMaterialComponent.RSButtonIconShadow" name="btnEditarCategorias1">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="cc" red="ff" type="rgb"/>
-            </Property>
-            <Property name="backgroundHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="66" red="cc" type="rgb"/>
-            </Property>
-            <Property name="icons" type="rojeru_san.efectos.ValoresEnum$ICONS" editor="org.netbeans.modules.form.editors.EnumEditor">
-              <Value id="EDIT"/>
-            </Property>
-            <Property name="name" type="java.lang.String" value="jbtnActualizarGDG" noResource="true"/>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="930" y="400" width="-1" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jlbAgregar10">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Yu Gothic UI Semibold" size="14" style="0"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="33" type="rgb"/>
-            </Property>
-            <Property name="horizontalAlignment" type="int" value="2"/>
-            <Property name="text" type="java.lang.String" value="Actualizar"/>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="940" y="120" width="80" height="-1"/>
+              <AbsoluteConstraints x="220" y="470" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -1430,29 +1284,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="870" y="460" width="-1" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="RSMaterialComponent.RSButtonIconShadow" name="btnLimpiarCampos1">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="99" red="33" type="rgb"/>
-            </Property>
-            <Property name="backgroundHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="66" red="0" type="rgb"/>
-            </Property>
-            <Property name="icons" type="rojeru_san.efectos.ValoresEnum$ICONS" editor="org.netbeans.modules.form.editors.EnumEditor">
-              <Value id="FILTER_LIST"/>
-            </Property>
-            <Property name="name" type="java.lang.String" value="jbtnActualizarGDG" noResource="true"/>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="670" y="420" width="-1" height="-1"/>
+              <AbsoluteConstraints x="280" y="470" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -1469,7 +1301,621 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="670" y="460" width="-1" height="-1"/>
+              <AbsoluteConstraints x="940" y="420" width="-1" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jlbAgregar3">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Yu Gothic UI Semibold" size="14" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="2"/>
+            <Property name="text" type="java.lang.String" value="Actualizar"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="340" y="450" width="80" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="newscomponents.RSDateMonth" name="jcbxMes">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="12">
+                <StringItem index="0" value="Enero"/>
+                <StringItem index="1" value="Febrero"/>
+                <StringItem index="2" value="Marzo"/>
+                <StringItem index="3" value="Abril"/>
+                <StringItem index="4" value="Mayo"/>
+                <StringItem index="5" value="Junio"/>
+                <StringItem index="6" value="Julio"/>
+                <StringItem index="7" value="Agosto"/>
+                <StringItem index="8" value="Septiembre"/>
+                <StringItem index="9" value="Octubre"/>
+                <StringItem index="10" value="Noviembre"/>
+                <StringItem index="11" value="Diciembre"/>
+              </StringArray>
+            </Property>
+            <Property name="colorArrow" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="99" red="99" type="rgb"/>
+            </Property>
+            <Property name="colorBoton" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
+            </Property>
+            <Property name="colorDisabledIndex" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="colorFondo" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
+            </Property>
+            <Property name="colorListaItems" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
+            </Property>
+            <Property name="colorSeleccion" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="630" y="410" width="110" height="30"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="newscomponents.RSDateYear" name="jcbxA&#xf1;o">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="402">
+                <StringItem index="0" value="1924"/>
+                <StringItem index="1" value="1925"/>
+                <StringItem index="2" value="1926"/>
+                <StringItem index="3" value="1927"/>
+                <StringItem index="4" value="1928"/>
+                <StringItem index="5" value="1929"/>
+                <StringItem index="6" value="1930"/>
+                <StringItem index="7" value="1931"/>
+                <StringItem index="8" value="1932"/>
+                <StringItem index="9" value="1933"/>
+                <StringItem index="10" value="1934"/>
+                <StringItem index="11" value="1935"/>
+                <StringItem index="12" value="1936"/>
+                <StringItem index="13" value="1937"/>
+                <StringItem index="14" value="1938"/>
+                <StringItem index="15" value="1939"/>
+                <StringItem index="16" value="1940"/>
+                <StringItem index="17" value="1941"/>
+                <StringItem index="18" value="1942"/>
+                <StringItem index="19" value="1943"/>
+                <StringItem index="20" value="1944"/>
+                <StringItem index="21" value="1945"/>
+                <StringItem index="22" value="1946"/>
+                <StringItem index="23" value="1947"/>
+                <StringItem index="24" value="1948"/>
+                <StringItem index="25" value="1949"/>
+                <StringItem index="26" value="1950"/>
+                <StringItem index="27" value="1951"/>
+                <StringItem index="28" value="1952"/>
+                <StringItem index="29" value="1953"/>
+                <StringItem index="30" value="1954"/>
+                <StringItem index="31" value="1955"/>
+                <StringItem index="32" value="1956"/>
+                <StringItem index="33" value="1957"/>
+                <StringItem index="34" value="1958"/>
+                <StringItem index="35" value="1959"/>
+                <StringItem index="36" value="1960"/>
+                <StringItem index="37" value="1961"/>
+                <StringItem index="38" value="1962"/>
+                <StringItem index="39" value="1963"/>
+                <StringItem index="40" value="1964"/>
+                <StringItem index="41" value="1965"/>
+                <StringItem index="42" value="1966"/>
+                <StringItem index="43" value="1967"/>
+                <StringItem index="44" value="1968"/>
+                <StringItem index="45" value="1969"/>
+                <StringItem index="46" value="1970"/>
+                <StringItem index="47" value="1971"/>
+                <StringItem index="48" value="1972"/>
+                <StringItem index="49" value="1973"/>
+                <StringItem index="50" value="1974"/>
+                <StringItem index="51" value="1975"/>
+                <StringItem index="52" value="1976"/>
+                <StringItem index="53" value="1977"/>
+                <StringItem index="54" value="1978"/>
+                <StringItem index="55" value="1979"/>
+                <StringItem index="56" value="1980"/>
+                <StringItem index="57" value="1981"/>
+                <StringItem index="58" value="1982"/>
+                <StringItem index="59" value="1983"/>
+                <StringItem index="60" value="1984"/>
+                <StringItem index="61" value="1985"/>
+                <StringItem index="62" value="1986"/>
+                <StringItem index="63" value="1987"/>
+                <StringItem index="64" value="1988"/>
+                <StringItem index="65" value="1989"/>
+                <StringItem index="66" value="1990"/>
+                <StringItem index="67" value="1991"/>
+                <StringItem index="68" value="1992"/>
+                <StringItem index="69" value="1993"/>
+                <StringItem index="70" value="1994"/>
+                <StringItem index="71" value="1995"/>
+                <StringItem index="72" value="1996"/>
+                <StringItem index="73" value="1997"/>
+                <StringItem index="74" value="1998"/>
+                <StringItem index="75" value="1999"/>
+                <StringItem index="76" value="2000"/>
+                <StringItem index="77" value="2001"/>
+                <StringItem index="78" value="2002"/>
+                <StringItem index="79" value="2003"/>
+                <StringItem index="80" value="2004"/>
+                <StringItem index="81" value="2005"/>
+                <StringItem index="82" value="2006"/>
+                <StringItem index="83" value="2007"/>
+                <StringItem index="84" value="2008"/>
+                <StringItem index="85" value="2009"/>
+                <StringItem index="86" value="2010"/>
+                <StringItem index="87" value="2011"/>
+                <StringItem index="88" value="2012"/>
+                <StringItem index="89" value="2013"/>
+                <StringItem index="90" value="2014"/>
+                <StringItem index="91" value="2015"/>
+                <StringItem index="92" value="2016"/>
+                <StringItem index="93" value="2017"/>
+                <StringItem index="94" value="2018"/>
+                <StringItem index="95" value="2019"/>
+                <StringItem index="96" value="2020"/>
+                <StringItem index="97" value="2021"/>
+                <StringItem index="98" value="2022"/>
+                <StringItem index="99" value="2023"/>
+                <StringItem index="100" value="2024"/>
+                <StringItem index="101" value="2025"/>
+                <StringItem index="102" value="2026"/>
+                <StringItem index="103" value="2027"/>
+                <StringItem index="104" value="2028"/>
+                <StringItem index="105" value="2029"/>
+                <StringItem index="106" value="2030"/>
+                <StringItem index="107" value="2031"/>
+                <StringItem index="108" value="2032"/>
+                <StringItem index="109" value="2033"/>
+                <StringItem index="110" value="2034"/>
+                <StringItem index="111" value="2035"/>
+                <StringItem index="112" value="2036"/>
+                <StringItem index="113" value="2037"/>
+                <StringItem index="114" value="2038"/>
+                <StringItem index="115" value="2039"/>
+                <StringItem index="116" value="2040"/>
+                <StringItem index="117" value="2041"/>
+                <StringItem index="118" value="2042"/>
+                <StringItem index="119" value="2043"/>
+                <StringItem index="120" value="2044"/>
+                <StringItem index="121" value="2045"/>
+                <StringItem index="122" value="2046"/>
+                <StringItem index="123" value="2047"/>
+                <StringItem index="124" value="2048"/>
+                <StringItem index="125" value="2049"/>
+                <StringItem index="126" value="2050"/>
+                <StringItem index="127" value="2051"/>
+                <StringItem index="128" value="2052"/>
+                <StringItem index="129" value="2053"/>
+                <StringItem index="130" value="2054"/>
+                <StringItem index="131" value="2055"/>
+                <StringItem index="132" value="2056"/>
+                <StringItem index="133" value="2057"/>
+                <StringItem index="134" value="2058"/>
+                <StringItem index="135" value="2059"/>
+                <StringItem index="136" value="2060"/>
+                <StringItem index="137" value="2061"/>
+                <StringItem index="138" value="2062"/>
+                <StringItem index="139" value="2063"/>
+                <StringItem index="140" value="2064"/>
+                <StringItem index="141" value="2065"/>
+                <StringItem index="142" value="2066"/>
+                <StringItem index="143" value="2067"/>
+                <StringItem index="144" value="2068"/>
+                <StringItem index="145" value="2069"/>
+                <StringItem index="146" value="2070"/>
+                <StringItem index="147" value="2071"/>
+                <StringItem index="148" value="2072"/>
+                <StringItem index="149" value="2073"/>
+                <StringItem index="150" value="2074"/>
+                <StringItem index="151" value="2075"/>
+                <StringItem index="152" value="2076"/>
+                <StringItem index="153" value="2077"/>
+                <StringItem index="154" value="2078"/>
+                <StringItem index="155" value="2079"/>
+                <StringItem index="156" value="2080"/>
+                <StringItem index="157" value="2081"/>
+                <StringItem index="158" value="2082"/>
+                <StringItem index="159" value="2083"/>
+                <StringItem index="160" value="2084"/>
+                <StringItem index="161" value="2085"/>
+                <StringItem index="162" value="2086"/>
+                <StringItem index="163" value="2087"/>
+                <StringItem index="164" value="2088"/>
+                <StringItem index="165" value="2089"/>
+                <StringItem index="166" value="2090"/>
+                <StringItem index="167" value="2091"/>
+                <StringItem index="168" value="2092"/>
+                <StringItem index="169" value="2093"/>
+                <StringItem index="170" value="2094"/>
+                <StringItem index="171" value="2095"/>
+                <StringItem index="172" value="2096"/>
+                <StringItem index="173" value="2097"/>
+                <StringItem index="174" value="2098"/>
+                <StringItem index="175" value="2099"/>
+                <StringItem index="176" value="2100"/>
+                <StringItem index="177" value="2101"/>
+                <StringItem index="178" value="2102"/>
+                <StringItem index="179" value="2103"/>
+                <StringItem index="180" value="2104"/>
+                <StringItem index="181" value="2105"/>
+                <StringItem index="182" value="2106"/>
+                <StringItem index="183" value="2107"/>
+                <StringItem index="184" value="2108"/>
+                <StringItem index="185" value="2109"/>
+                <StringItem index="186" value="2110"/>
+                <StringItem index="187" value="2111"/>
+                <StringItem index="188" value="2112"/>
+                <StringItem index="189" value="2113"/>
+                <StringItem index="190" value="2114"/>
+                <StringItem index="191" value="2115"/>
+                <StringItem index="192" value="2116"/>
+                <StringItem index="193" value="2117"/>
+                <StringItem index="194" value="2118"/>
+                <StringItem index="195" value="2119"/>
+                <StringItem index="196" value="2120"/>
+                <StringItem index="197" value="2121"/>
+                <StringItem index="198" value="2122"/>
+                <StringItem index="199" value="2123"/>
+                <StringItem index="200" value="2124"/>
+                <StringItem index="201" value="1924"/>
+                <StringItem index="202" value="1925"/>
+                <StringItem index="203" value="1926"/>
+                <StringItem index="204" value="1927"/>
+                <StringItem index="205" value="1928"/>
+                <StringItem index="206" value="1929"/>
+                <StringItem index="207" value="1930"/>
+                <StringItem index="208" value="1931"/>
+                <StringItem index="209" value="1932"/>
+                <StringItem index="210" value="1933"/>
+                <StringItem index="211" value="1934"/>
+                <StringItem index="212" value="1935"/>
+                <StringItem index="213" value="1936"/>
+                <StringItem index="214" value="1937"/>
+                <StringItem index="215" value="1938"/>
+                <StringItem index="216" value="1939"/>
+                <StringItem index="217" value="1940"/>
+                <StringItem index="218" value="1941"/>
+                <StringItem index="219" value="1942"/>
+                <StringItem index="220" value="1943"/>
+                <StringItem index="221" value="1944"/>
+                <StringItem index="222" value="1945"/>
+                <StringItem index="223" value="1946"/>
+                <StringItem index="224" value="1947"/>
+                <StringItem index="225" value="1948"/>
+                <StringItem index="226" value="1949"/>
+                <StringItem index="227" value="1950"/>
+                <StringItem index="228" value="1951"/>
+                <StringItem index="229" value="1952"/>
+                <StringItem index="230" value="1953"/>
+                <StringItem index="231" value="1954"/>
+                <StringItem index="232" value="1955"/>
+                <StringItem index="233" value="1956"/>
+                <StringItem index="234" value="1957"/>
+                <StringItem index="235" value="1958"/>
+                <StringItem index="236" value="1959"/>
+                <StringItem index="237" value="1960"/>
+                <StringItem index="238" value="1961"/>
+                <StringItem index="239" value="1962"/>
+                <StringItem index="240" value="1963"/>
+                <StringItem index="241" value="1964"/>
+                <StringItem index="242" value="1965"/>
+                <StringItem index="243" value="1966"/>
+                <StringItem index="244" value="1967"/>
+                <StringItem index="245" value="1968"/>
+                <StringItem index="246" value="1969"/>
+                <StringItem index="247" value="1970"/>
+                <StringItem index="248" value="1971"/>
+                <StringItem index="249" value="1972"/>
+                <StringItem index="250" value="1973"/>
+                <StringItem index="251" value="1974"/>
+                <StringItem index="252" value="1975"/>
+                <StringItem index="253" value="1976"/>
+                <StringItem index="254" value="1977"/>
+                <StringItem index="255" value="1978"/>
+                <StringItem index="256" value="1979"/>
+                <StringItem index="257" value="1980"/>
+                <StringItem index="258" value="1981"/>
+                <StringItem index="259" value="1982"/>
+                <StringItem index="260" value="1983"/>
+                <StringItem index="261" value="1984"/>
+                <StringItem index="262" value="1985"/>
+                <StringItem index="263" value="1986"/>
+                <StringItem index="264" value="1987"/>
+                <StringItem index="265" value="1988"/>
+                <StringItem index="266" value="1989"/>
+                <StringItem index="267" value="1990"/>
+                <StringItem index="268" value="1991"/>
+                <StringItem index="269" value="1992"/>
+                <StringItem index="270" value="1993"/>
+                <StringItem index="271" value="1994"/>
+                <StringItem index="272" value="1995"/>
+                <StringItem index="273" value="1996"/>
+                <StringItem index="274" value="1997"/>
+                <StringItem index="275" value="1998"/>
+                <StringItem index="276" value="1999"/>
+                <StringItem index="277" value="2000"/>
+                <StringItem index="278" value="2001"/>
+                <StringItem index="279" value="2002"/>
+                <StringItem index="280" value="2003"/>
+                <StringItem index="281" value="2004"/>
+                <StringItem index="282" value="2005"/>
+                <StringItem index="283" value="2006"/>
+                <StringItem index="284" value="2007"/>
+                <StringItem index="285" value="2008"/>
+                <StringItem index="286" value="2009"/>
+                <StringItem index="287" value="2010"/>
+                <StringItem index="288" value="2011"/>
+                <StringItem index="289" value="2012"/>
+                <StringItem index="290" value="2013"/>
+                <StringItem index="291" value="2014"/>
+                <StringItem index="292" value="2015"/>
+                <StringItem index="293" value="2016"/>
+                <StringItem index="294" value="2017"/>
+                <StringItem index="295" value="2018"/>
+                <StringItem index="296" value="2019"/>
+                <StringItem index="297" value="2020"/>
+                <StringItem index="298" value="2021"/>
+                <StringItem index="299" value="2022"/>
+                <StringItem index="300" value="2023"/>
+                <StringItem index="301" value="2024"/>
+                <StringItem index="302" value="2025"/>
+                <StringItem index="303" value="2026"/>
+                <StringItem index="304" value="2027"/>
+                <StringItem index="305" value="2028"/>
+                <StringItem index="306" value="2029"/>
+                <StringItem index="307" value="2030"/>
+                <StringItem index="308" value="2031"/>
+                <StringItem index="309" value="2032"/>
+                <StringItem index="310" value="2033"/>
+                <StringItem index="311" value="2034"/>
+                <StringItem index="312" value="2035"/>
+                <StringItem index="313" value="2036"/>
+                <StringItem index="314" value="2037"/>
+                <StringItem index="315" value="2038"/>
+                <StringItem index="316" value="2039"/>
+                <StringItem index="317" value="2040"/>
+                <StringItem index="318" value="2041"/>
+                <StringItem index="319" value="2042"/>
+                <StringItem index="320" value="2043"/>
+                <StringItem index="321" value="2044"/>
+                <StringItem index="322" value="2045"/>
+                <StringItem index="323" value="2046"/>
+                <StringItem index="324" value="2047"/>
+                <StringItem index="325" value="2048"/>
+                <StringItem index="326" value="2049"/>
+                <StringItem index="327" value="2050"/>
+                <StringItem index="328" value="2051"/>
+                <StringItem index="329" value="2052"/>
+                <StringItem index="330" value="2053"/>
+                <StringItem index="331" value="2054"/>
+                <StringItem index="332" value="2055"/>
+                <StringItem index="333" value="2056"/>
+                <StringItem index="334" value="2057"/>
+                <StringItem index="335" value="2058"/>
+                <StringItem index="336" value="2059"/>
+                <StringItem index="337" value="2060"/>
+                <StringItem index="338" value="2061"/>
+                <StringItem index="339" value="2062"/>
+                <StringItem index="340" value="2063"/>
+                <StringItem index="341" value="2064"/>
+                <StringItem index="342" value="2065"/>
+                <StringItem index="343" value="2066"/>
+                <StringItem index="344" value="2067"/>
+                <StringItem index="345" value="2068"/>
+                <StringItem index="346" value="2069"/>
+                <StringItem index="347" value="2070"/>
+                <StringItem index="348" value="2071"/>
+                <StringItem index="349" value="2072"/>
+                <StringItem index="350" value="2073"/>
+                <StringItem index="351" value="2074"/>
+                <StringItem index="352" value="2075"/>
+                <StringItem index="353" value="2076"/>
+                <StringItem index="354" value="2077"/>
+                <StringItem index="355" value="2078"/>
+                <StringItem index="356" value="2079"/>
+                <StringItem index="357" value="2080"/>
+                <StringItem index="358" value="2081"/>
+                <StringItem index="359" value="2082"/>
+                <StringItem index="360" value="2083"/>
+                <StringItem index="361" value="2084"/>
+                <StringItem index="362" value="2085"/>
+                <StringItem index="363" value="2086"/>
+                <StringItem index="364" value="2087"/>
+                <StringItem index="365" value="2088"/>
+                <StringItem index="366" value="2089"/>
+                <StringItem index="367" value="2090"/>
+                <StringItem index="368" value="2091"/>
+                <StringItem index="369" value="2092"/>
+                <StringItem index="370" value="2093"/>
+                <StringItem index="371" value="2094"/>
+                <StringItem index="372" value="2095"/>
+                <StringItem index="373" value="2096"/>
+                <StringItem index="374" value="2097"/>
+                <StringItem index="375" value="2098"/>
+                <StringItem index="376" value="2099"/>
+                <StringItem index="377" value="2100"/>
+                <StringItem index="378" value="2101"/>
+                <StringItem index="379" value="2102"/>
+                <StringItem index="380" value="2103"/>
+                <StringItem index="381" value="2104"/>
+                <StringItem index="382" value="2105"/>
+                <StringItem index="383" value="2106"/>
+                <StringItem index="384" value="2107"/>
+                <StringItem index="385" value="2108"/>
+                <StringItem index="386" value="2109"/>
+                <StringItem index="387" value="2110"/>
+                <StringItem index="388" value="2111"/>
+                <StringItem index="389" value="2112"/>
+                <StringItem index="390" value="2113"/>
+                <StringItem index="391" value="2114"/>
+                <StringItem index="392" value="2115"/>
+                <StringItem index="393" value="2116"/>
+                <StringItem index="394" value="2117"/>
+                <StringItem index="395" value="2118"/>
+                <StringItem index="396" value="2119"/>
+                <StringItem index="397" value="2120"/>
+                <StringItem index="398" value="2121"/>
+                <StringItem index="399" value="2122"/>
+                <StringItem index="400" value="2123"/>
+                <StringItem index="401" value="2124"/>
+              </StringArray>
+            </Property>
+            <Property name="selectedIndex" type="int" value="100"/>
+            <Property name="colorArrow" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="99" red="99" type="rgb"/>
+            </Property>
+            <Property name="colorBoton" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
+            </Property>
+            <Property name="colorDisabledIndex" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="colorFondo" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
+            </Property>
+            <Property name="colorListaItems" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
+            </Property>
+            <Property name="colorSeleccion" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcbxA&#xf1;oActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="630" y="450" width="110" height="30"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="rbtnFechaPedido">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Fecha de Pedido"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="760" y="400" width="-1" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="rbtnFechaEntrega">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Fecha de Entrega"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="760" y="420" width="-1" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jcbxFiltroNombreProducto">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Filtrar Nombre de producto"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="760" y="440" width="180" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jlbCorreoElectronico1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Yu Gothic UI Semibold" size="14" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Nombres del producto"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="440" y="380" width="-1" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel10">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Yu Gothic UI Semibold" size="14" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Elegir mes y a&#xf1;o"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="630" y="380" width="140" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel7">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Yu Gothic UI Semibold" size="14" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Elegir campo/s a filtrar"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="760" y="380" width="190" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>

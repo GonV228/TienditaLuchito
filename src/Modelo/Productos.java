@@ -39,6 +39,10 @@ public class Productos {
         this.imagenP=imagenBytes;
         this.categoria=this.categoria;
     }
+    public Productos(String nomProducto){
+        this.nombreP=nomProducto;
+    }
+    
     //metodos getter and setter
     public int getID_Producto() {
         return codigo;

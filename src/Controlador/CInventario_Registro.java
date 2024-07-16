@@ -1,11 +1,14 @@
 package Controlador;
 
 import Dao.DInventario;
+import Dao.DPedidos;
+import Modelo.Pedidos;
 import Modelo.Productos;
 import Modelo.categorias;
 import Procesos.PrecioDocumentFilter;
 import ProcesosPDF.GeneradorPDF;
 import VistaInventario.Inventario;
+import VistaInventario.Inventario_Pedido;
 import VistaInventario.Inventario_Registro;
 import java.awt.Desktop;
 
@@ -19,22 +22,44 @@ import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableRowSorter;
 import javax.swing.text.AbstractDocument;
 
 public class CInventario_Registro implements ActionListener {
+    
     private Inventario_Registro vista;
     private Inventario menu;
     private DInventario dao;
+    private DPedidos daoPedidos;
     Productos productoSeleccionado;
-
+    int idPedido=0;
+    String nameProducto;//intanciamos 
+    int cantidadPedido;
+    double costoTPedido;
+    double precioVPedido;
+    String fechaPPedido;
+    String fechaEPedido;
+    String estadoPedido;
+    
+    //constructor
     public CInventario_Registro(Inventario_Registro vista, Inventario menu) {
         this.vista = vista;
         this.menu = menu;
         this.dao = new DInventario();
-
+        this.daoPedidos =new DPedidos();
+        
+        vista.btnHacerPedido.addActionListener(this);
+        vista.btnBorrarPedido.addActionListener(this);
+        vista.btnActualizarPedido.addActionListener(this);
+        vista.btnFiltrar.addActionListener(this);
         vista.btnAgregarCategorias.addActionListener(this);
         vista.btnEditarProducto.addActionListener(this);
         vista.btnEliminarProducto.addActionListener(this);
@@ -50,10 +75,16 @@ public class CInventario_Registro implements ActionListener {
         vista.jtxtPrecio.addActionListener(this);
         vista.jbtnStock.addActionListener(this);
         vista.jcbxFiltroCategoria.addActionListener(this);
-
+        vista.rbtnFechaPedido.addActionListener(this);
+        vista.rbtnFechaEntrega.addActionListener(this);
+        
+        vista.rbtnFechaPedido.setSelected(true);
+        vista.jtxfNombreProductoPed.setEditable(false);
+        
         cargarProductosATabla();
         cargarCategoriasATabla();
         cargarCategoriasEnComboBox();
+        mostrarPedidosEnTabla();
         //este metodo convierte los , en . para el ingreso de precios en inventario
         ((AbstractDocument) vista.jtxtPrecio.getDocument()).setDocumentFilter(new PrecioDocumentFilter()); 
         
@@ -72,6 +103,17 @@ public class CInventario_Registro implements ActionListener {
                 int filaSeleccionada = vista.jtableProductos.getSelectedRow();
                 if (filaSeleccionada != -1) {
                     mostrarDatosProductoSeleccionado(filaSeleccionada);
+                  //  obtenerNombrePedidoSeleccionado(filaSeleccionada);
+                }
+            }
+        });
+        vista.jtablePedidos.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int filaSeleccionada = vista.jtablePedidos.getSelectedRow();
+                if (filaSeleccionada != -1) {
+                    
+                    obtenerNombrePedidoSeleccionado(filaSeleccionada);
                 }
             }
         });
@@ -217,7 +259,7 @@ public class CInventario_Registro implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == vista.btnAgregarCategorias) {
+        if         (e.getSource() == vista.btnAgregarCategorias) {
             agregarCategoria();
             //actualizarVista();
         } else if (e.getSource() == vista.btnBorrarCategorias) {
@@ -252,6 +294,42 @@ public class CInventario_Registro implements ActionListener {
             JOptionPane.showMessageDialog(vista, "El catálogo de productos se ha exportado correctamente como " + rutaArchivo, "Éxito", JOptionPane.INFORMATION_MESSAGE);
         } else if (e.getSource() == vista.btnImagenProduc) {
             seleccionarImagenProducto();
+        } else if (e.getSource() == vista.btnHacerPedido){//haremos aparecer la ventana de Pedidos
+            boolean accionHacer=true; //btnhacerpedido
+            if(nameProducto!=null){
+                System.out.println("imprimir el nombre del producto"+nameProducto);
+                Inventario_Pedido pedido=new Inventario_Pedido();
+                CInventario_Pedido controlador=new CInventario_Pedido(pedido, nameProducto, menu,accionHacer);
+            } else {
+                JOptionPane.showMessageDialog(vista, "Seleccione primero un producto de la tabla 'Productos'.");
+            }
+            
+        } else if (e.getSource() == vista.btnBorrarPedido){
+            eliminarPedido();
+        } else if (e.getSource() == vista.btnActualizarPedido){
+            boolean accionActualizar=false;//btnActualizar
+            // Obtener la fila seleccionada en la tabla de pedidos
+            int filaSeleccionada = vista.jtablePedidos.getSelectedRow();
+
+            if (filaSeleccionada != -1) { // Se ha seleccionado una fila
+                System.out.println("imprimir estado antes de mostrar vista: "+estadoPedido);
+                Inventario_Pedido pedido=new Inventario_Pedido();
+                try {
+                    CInventario_Pedido controlador=new CInventario_Pedido(pedido, idPedido,nameProducto, costoTPedido, precioVPedido, fechaPPedido, fechaEPedido, estadoPedido, cantidadPedido, menu, accionActualizar); //actualizar
+                } catch (ParseException ex) {
+                    System.out.println("estoy en el catch de btnActualizarPedido");
+                    Logger.getLogger(CInventario_Registro.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Por favor, seleccione un pedido para actualizar.");
+            }
+            
+        } else if (e.getSource() == vista.btnFiltrar){
+            filtrarTablaPedidos();
+        } else if (e.getSource() == vista.rbtnFechaEntrega){
+            vista.rbtnFechaPedido.setSelected(false);
+        } else if (e.getSource() == vista.rbtnFechaPedido){
+            vista.rbtnFechaEntrega.setSelected(false);
         }
 
 }
@@ -384,10 +462,14 @@ public class CInventario_Registro implements ActionListener {
     }
 
     private void mostrarDatosProductoSeleccionado(int filaSeleccionada) {
+//        String nombreProducto=null; //inicializamos para obtener el nombre y lo pasaremos como parametro
         int idProducto = (int) vista.jtableProductos.getValueAt(filaSeleccionada, 0);
         productoSeleccionado = dao.obtenerProductoPorID(idProducto);
         if (productoSeleccionado != null) {
+        nameProducto=productoSeleccionado.getNombreP(); //obtenemos el nombre de producto que pasaremos como parametro
         vista.jtxfNombreProducto.setText(productoSeleccionado.getNombreP());
+        vista.jtxfNombreProductoPed.setText(productoSeleccionado.getNombreP());
+        
         //vista.jtxfStock.setText(String.valueOf(productoSeleccionado.getStock()));
         vista.jtxfInformacion.setText(productoSeleccionado.getInformacion());
         vista.jtxtPrecio.setText(String.valueOf(productoSeleccionado.getPrecio()));
@@ -422,7 +504,38 @@ public class CInventario_Registro implements ActionListener {
             JOptionPane.showMessageDialog(vista, "Error al obtener los datos del producto.", "Error", JOptionPane.ERROR_MESSAGE);
         }*/
     }
- 
+    
+    private String obtenerNombrePedidoSeleccionado(int filaSeleccionada) {
+        String nombreProducto = null; // Variable para almacenar el nombre del producto
+
+        // Obtener el ID del producto seleccionado en la fila de la tabla
+        int idProducto = (int) vista.jtablePedidos.getValueAt(filaSeleccionada, 0);
+
+        // Obtener el pedido seleccionado usando el DAO
+        Modelo.Pedidos pedidoSeleccionado = daoPedidos.obtenerPedidoPorID(idProducto);
+
+        if (pedidoSeleccionado != null) {
+            // Si el pedido seleccionado no es nulo, obtener y mostrar el nombre del producto
+            vista.jtxfNombreProductoPed.setText(pedidoSeleccionado.getnombreProd());
+            nombreProducto = pedidoSeleccionado.getnombreProd();
+            this.nameProducto = nombreProducto; // Asignar el nombre a la variable de instancia de la clase
+            this.cantidadPedido = pedidoSeleccionado.getCantidad();
+            this.costoTPedido = pedidoSeleccionado.getCostoTotal();
+            this.precioVPedido = pedidoSeleccionado.getPrecioVenta();
+            this.fechaPPedido = pedidoSeleccionado.getFechaPedido();
+            this.fechaEPedido = pedidoSeleccionado.getFechaEntrega();
+            this.estadoPedido = pedidoSeleccionado.getEstado();
+            this.idPedido   = pedidoSeleccionado.getIdPedidos();
+            
+        } else {
+            // Manejar el caso en que el pedido no se encuentre
+            JOptionPane.showMessageDialog(vista, "Pedido no encontrado.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+        System.out.println("Nombre del producto seleccionado: " + nombreProducto); // Verificar en consola
+        return nombreProducto;
+    }
+    
     private void editarProducto() {
         
         if (productoSeleccionado != null) {
@@ -631,6 +744,7 @@ public class CInventario_Registro implements ActionListener {
             vista.jlabelImagenInventario.setText(rutaImagen);
         }
     }
+    
     private void seleccionarImagenProducto() {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setFileFilter(new FileNameExtensionFilter("Imágenes", "jpg", "jpeg", "png"));
@@ -673,4 +787,108 @@ public class CInventario_Registro implements ActionListener {
         }
         return null;
     }
+    
+    
+    //metodos pedidos
+    //mostrar pedidos en tabla
+    private void mostrarPedidosEnTabla() {
+        //los nombres de los campos han sido editados directametnte en TableContens
+        DPedidos daoPedidos = new DPedidos();
+        List<Object[]> pedidos = daoPedidos.obtenerTodosPedidos();
+
+        // Obtener el modelo de la tabla
+        DefaultTableModel modelo = (DefaultTableModel) vista.jtablePedidos.getModel();
+
+        // Iterar sobre las columnas y establecer el editor como null para hacerlas no editables
+        for (int i = 0; i < modelo.getColumnCount(); i++) {
+            vista.jtablePedidos.setDefaultEditor(modelo.getColumnClass(i), null);
+        }
+
+        // Limpiar la tabla antes de agregar los nuevos datos
+        modelo.setRowCount(0);
+
+        // Agregar cada pedido a la tabla
+        for (Object[] pedido : pedidos) {
+            Object[] fila = {
+                pedido[0],  // Nombre del producto
+                pedido[1],  // Cantidad
+                pedido[2],  // CostoTotal
+                pedido[3],  // Valor unitario
+                pedido[4],  // PrecioVenta
+                pedido[5],  // FechaPedido
+                pedido[6],  // FechaEntrega
+                pedido[7],   // Estado
+                pedido[8]
+            };
+            modelo.addRow(fila);
+        }
+    }
+    
+    private void mostrarPedidosEnTabla(List<Object[]> pedidos) {
+        DefaultTableModel model = (DefaultTableModel) vista.jtablePedidos.getModel();
+        model.setRowCount(0); // Limpiar la tabla
+
+        for (Object[] pedido : pedidos) {
+            model.addRow(pedido);
+        }
+    }
+
+    private void filtrarTablaPedidos() {
+        String mesStr = (String) vista.jcbxMes.getSelectedItem();
+        int mes = vista.jcbxMes.getSelectedIndex() + 1; // Convertir mes a índice 1-12
+        String anoStr = (String) vista.jcbxAño.getSelectedItem(); // Obtener el año como String
+        int ano = Integer.parseInt(anoStr); // Convertir el año a entero
+
+        boolean filtrarPorFechaPedido = vista.rbtnFechaPedido.isSelected();
+        boolean filtrarPorNombreProducto = vista.jcbxFiltroNombreProducto.isSelected();
+        String nombreProducto = vista.jtxfNombreProductoPed.getText().trim(); // Obtener el nombre del producto y limpiar espacios
+
+        // Convertir a rango de fechas
+        String fechaInicioStr = ano + "-" + String.format("%02d", mes) + "-01";
+        String fechaFinStr = ano + "-" + String.format("%02d", mes) + "-31"; // Simplificación para el ejemplo
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date fechaInicio, fechaFin;
+        try {
+            fechaInicio = dateFormat.parse(fechaInicioStr);
+            fechaFin = dateFormat.parse(fechaFinStr);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return;
+        }
+
+        List<Object[]> pedidosFiltrados;
+        if (filtrarPorNombreProducto && !nombreProducto.isEmpty()) {
+            // Filtrar por nombre de producto y rango de fechas
+            pedidosFiltrados = daoPedidos.filtrarPedidosPorNombreYFecha(nombreProducto, fechaInicio, fechaFin, filtrarPorFechaPedido);
+        } else {
+            // Solo filtrar por rango de fechas
+            pedidosFiltrados = daoPedidos.filtrarPedidosPorFecha(fechaInicio, fechaFin, filtrarPorFechaPedido);
+        }
+
+        mostrarPedidosEnTabla(pedidosFiltrados);
+    }
+
+    private void eliminarPedido() {
+        int idPedido = this.idPedido;
+        if (idPedido == 0) {
+            JOptionPane.showMessageDialog(vista, "Por favor, selecciona un pedido para eliminar.");
+            return;
+        }
+
+        int respuesta = JOptionPane.showConfirmDialog(vista, "¿Estás seguro de que deseas eliminar este pedido?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
+        if (respuesta == JOptionPane.YES_OPTION) {
+            // Llamar al método para eliminar el pedido
+            DPedidos daoPedido = new DPedidos();
+            boolean exito = daoPedido.eliminarPedido(idPedido);
+            if (exito) {
+                JOptionPane.showMessageDialog(vista, "Pedido eliminado exitosamente.");
+                // Actualizar la vista
+                actualizarVista();
+            } else {
+                JOptionPane.showMessageDialog(vista, "Error al eliminar el pedido.");
+            }
+        }
+    }
+
 }

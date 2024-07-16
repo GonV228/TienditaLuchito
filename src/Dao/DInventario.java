@@ -317,7 +317,21 @@ public class DInventario {
             return false;
         }
     }
-    
+           
+    public boolean aumentarStockPorNombreProducto (String nombreProd, int cantidad){
+        try (Connection conexion = conexionBD.conectar()) {
+            String query = "UPDATE Productos SET Stock = Stock + ? WHERE Nombre = ?";
+            PreparedStatement statement = conexion.prepareStatement(query);
+            statement.setInt(1, cantidad);
+            statement.setString(2, nombreProd);
+            int filasActualizadas = statement.executeUpdate();
+            return filasActualizadas > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+   
     public boolean aumentarStock(int idProducto, int cantidadAumentar) {
         try (Connection conexion = conexionBD.conectar()) {
             String query = "UPDATE Productos SET Stock = Stock + ? WHERE ID_Producto = ?";
