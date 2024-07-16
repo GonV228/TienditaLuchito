@@ -58,7 +58,7 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
         jlbCorreoElectronico8 = new javax.swing.JLabel();
         jlblMostrarProductoVenta = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        JtableMostraProductos1 = new RSMaterialComponent.RSTableMetro();
+        JtableMostraPromos = new RSMaterialComponent.RSTableMetro();
         jLabel7 = new javax.swing.JLabel();
         jbtnPagaCon = new RSMaterialComponent.RSButtonIconShadow();
 
@@ -291,7 +291,7 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
         jlblMostrarProductoVenta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Panel.add(jlblMostrarProductoVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 140, 180, 170));
 
-        JtableMostraProductos1.setModel(new javax.swing.table.DefaultTableModel(
+        JtableMostraPromos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -310,12 +310,12 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        JtableMostraProductos1.setBackgoundHead(new java.awt.Color(102, 102, 102));
-        JtableMostraProductos1.setBackgoundHover(new java.awt.Color(102, 102, 102));
-        JtableMostraProductos1.setColorPrimaryText(new java.awt.Color(51, 51, 51));
-        JtableMostraProductos1.setColorSecundaryText(new java.awt.Color(51, 51, 51));
-        JtableMostraProductos1.setSelectionBackground(new java.awt.Color(102, 102, 102));
-        jScrollPane3.setViewportView(JtableMostraProductos1);
+        JtableMostraPromos.setBackgoundHead(new java.awt.Color(102, 102, 102));
+        JtableMostraPromos.setBackgoundHover(new java.awt.Color(102, 102, 102));
+        JtableMostraPromos.setColorPrimaryText(new java.awt.Color(51, 51, 51));
+        JtableMostraPromos.setColorSecundaryText(new java.awt.Color(51, 51, 51));
+        JtableMostraPromos.setSelectionBackground(new java.awt.Color(102, 102, 102));
+        jScrollPane3.setViewportView(JtableMostraPromos);
 
         Panel.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 710, 120));
 
@@ -456,7 +456,7 @@ public class Ventas_Registro2 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public RSMaterialComponent.RSTableMetro JtableMostraProductos;
-    public RSMaterialComponent.RSTableMetro JtableMostraProductos1;
+    public RSMaterialComponent.RSTableMetro JtableMostraPromos;
     public RSMaterialComponent.RSPanelMaterial Panel;
     public RSMaterialComponent.RSButtonMaterialOne btnExportarCatalogo;
     public RSMaterialComponent.RSButtonMaterialOne btnExportarCatalogo1;

@@ -2,10 +2,10 @@ package Controlador;
 
 import Dao.DInventario;
 import Dao.DVentaseInventario;
+import Dao.DPromociones;
 import Modelo.Productos;
-import Modelo.Venta;
-import Modelo.VentaDetalle;
 import Modelo.categorias;
+import Modelo.Promociones;
 import VistaVentas.Ventas;
 import VistaVentas.Ventas_Registro2;
 
@@ -24,10 +24,9 @@ import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.table.TableColumn;
-///realidad alteradad
+
 public class CVentas_Registro implements ActionListener {
 
     // inicializar
@@ -35,6 +34,7 @@ public class CVentas_Registro implements ActionListener {
     private Ventas menu;
     private DInventario dao; // DAO para interactuar con la base de datos
     private DVentaseInventario dao1; // DAO para interactuar con la base de datos
+    private DPromociones daoPromos; //DAO para obtener promociones de la bd
     private Productos productoSeleccionado; // Producto seleccionado de la tabla
 
     // constructor
@@ -43,6 +43,7 @@ public class CVentas_Registro implements ActionListener {
         menu = V;
         dao = new DInventario(); // Instancia del DAO
         dao1 = new DVentaseInventario(); // Instancia del DAO
+        daoPromos = new DPromociones();
         vista.jtxtBuscarPorNombreProducto.addActionListener(this);
         vista.jtxtBuscarPorID.addActionListener(this);
         vista.jbtnBuscarProductos.addActionListener(this);
@@ -60,6 +61,8 @@ public class CVentas_Registro implements ActionListener {
         llenarComboBoxCategorias();
         // Llenar la tabla con todos los productos al inicializar
         llenarTablaProductos();
+        //llenar tabla con proociones al inicializar
+        llenarTablaPromociones();
 
         // Agregar listener al JComboBox para detectar cambios de selección de categoría
         vista.jcbxFiltrarCat.addActionListener(new ActionListener() {
@@ -74,6 +77,8 @@ public class CVentas_Registro implements ActionListener {
                 }
             }
         });
+
+        // Agregar MouseListener al JTable para mostrar la imagen en el JLabel
         // Agregar MouseListener al JTable para autocompletar campos de texto
         vista.JtableMostraProductos.addMouseListener(new MouseAdapter() {
             @Override
@@ -97,7 +102,15 @@ public class CVentas_Registro implements ActionListener {
         vista.jtbRegistroDVentas.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                int filaSeleccionada = vista.jtbRegistroDVentas.getSelectedRow();
+                if (e.getClickCount() == 2) {
+                    int row = vista.jtbRegistroDVentas.getSelectedRow();
+                    int column = vista.jtbRegistroDVentas.getSelectedColumn();
+                    if (row != -1 && column == 4) { // Si se hace doble clic en la columna de cantidad
+                        actualizarCantidadProducto(row);
+                    }
+                }
+                
+/*                int filaSeleccionada = vista.jtbRegistroDVentas.getSelectedRow();
                 int columnaCantidad = 4; // Índice de la columna "Cantidad"
 
                 if (filaSeleccionada != -1 && e.getClickCount() == 2) {
@@ -157,7 +170,7 @@ public class CVentas_Registro implements ActionListener {
                         // Calcular y actualizar el importe total
                         calcularImporteTotal();
                     }
-                }
+                }*/
             }
         });
 
@@ -201,74 +214,60 @@ public class CVentas_Registro implements ActionListener {
         }
     }
 
-private void generarBoleta() {
-    // Verificar que se haya ingresado el pago con
-    if (vista.jtxtPagaCon.getText().isEmpty()) {
-        JOptionPane.showMessageDialog(vista, "Debe ingresar el monto con el que paga el cliente.");
-        return;
+    // Método para generar la boleta
+    private void generarBoleta() {
+        // Verificar que se haya ingresado el pago con
+        if (vista.jtxtPagaCon.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(vista, "Debe ingresar el monto con el que paga el cliente.");
+            return;
+        }
+
+        // Obtener el importe total, el pago con y el cambio
+        double importeTotal;
+        double pagaCon;
+        double cambio;
+
+        try {
+            importeTotal = Double.parseDouble(vista.jtxtImporteTotal.getText());
+            pagaCon = Double.parseDouble(vista.jtxtPagaCon.getText());
+            cambio = Double.parseDouble(vista.jtxtCambio.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(vista, "Ingrese cantidades válidas para generar la boleta.");
+            return;
+        }
+
+        // Crear el contenido de la boleta
+        StringBuilder contenidoBoleta = new StringBuilder();
+        contenidoBoleta.append("***************************\n");
+        contenidoBoleta.append("          Tienda Luchito\n");
+        contenidoBoleta.append("***************************\n\n");
+
+        // Detalle de los productos vendidos
+        DefaultTableModel modeloVentas = (DefaultTableModel) vista.jtbRegistroDVentas.getModel();
+        contenidoBoleta.append("Detalle de la Venta:\n");
+        contenidoBoleta.append("------------------------------------------------\n");
+        contenidoBoleta.append(String.format("%-5s %-25s %-10s %-10s\n", "ID", "Producto", "Cantidad", "Importe"));
+        contenidoBoleta.append("------------------------------------------------\n");
+
+        for (int i = 0; i < modeloVentas.getRowCount(); i++) {
+            int idProducto = (int) modeloVentas.getValueAt(i, 0);
+            String nombreProducto = (String) modeloVentas.getValueAt(i, 1);
+            int cantidad = (int) modeloVentas.getValueAt(i, 4);
+            double importe = (double) modeloVentas.getValueAt(i, 6);
+
+            contenidoBoleta.append(String.format("%-5d %-25s %-10d %-10.2f\n", idProducto, nombreProducto, cantidad, importe));
+        }
+
+        contenidoBoleta.append("------------------------------------------------\n");
+
+        // Información de pago y cambio
+        contenidoBoleta.append(String.format("Total a Pagar: S/ %.2f\n", importeTotal));
+        contenidoBoleta.append(String.format("Pago con: S/ %.2f\n", pagaCon));
+        contenidoBoleta.append(String.format("Cambio: S/ %.2f\n", cambio));
+
+        // Mostrar la boleta en un JOptionPane
+        JOptionPane.showMessageDialog(vista, contenidoBoleta.toString(), "Boleta de Venta", JOptionPane.PLAIN_MESSAGE);
     }
-
-    // Obtener el importe total, el pago con y el cambio
-    double importeTotal;
-    double pagaCon;
-    double cambio;
-
-    try {
-        importeTotal = Double.parseDouble(vista.jtxtImporteTotal.getText());
-        pagaCon = Double.parseDouble(vista.jtxtPagaCon.getText());
-        cambio = pagaCon - importeTotal; // Calcular el cambio directamente
-        vista.jtxtCambio.setText(String.valueOf(cambio)); // Mostrar el cambio en el campo correspondiente
-    } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(vista, "Ingrese cantidades válidas para generar la boleta.");
-        return;
-    }
-
-    // Crear una lista para almacenar los detalles de la venta
-    List<VentaDetalle> detallesVenta = new ArrayList<>();
-
-    // Obtener el modelo de la tabla de ventas
-    DefaultTableModel modeloVentas = (DefaultTableModel) vista.jtbRegistroDVentas.getModel();
-
-    // Iterar sobre las filas seleccionadas en la tabla
-    int[] filasSeleccionadas = vista.jtbRegistroDVentas.getSelectedRows();
-    for (int fila : filasSeleccionadas) {
-        int idProducto = (int) modeloVentas.getValueAt(fila, 0); // Suponiendo que la columna 0 contiene el ID_Producto
-        int cantidad = (int) modeloVentas.getValueAt(fila, 4); // Suponiendo que la columna 4 contiene la cantidad
-        double precioUnitario = (double) modeloVentas.getValueAt(fila, 3); // Suponiendo que la columna 3 contiene el precio unitario
-        double importe = (double) modeloVentas.getValueAt(fila, 6); // Suponiendo que la columna 6 contiene el importe
-
-        // Crear un objeto VentaDetalle por cada producto seleccionado
-        VentaDetalle detalle = new VentaDetalle();
-        detalle.setIdProducto(idProducto);
-        detalle.setCantidad(cantidad);
-        detalle.setPrecioUnitario(precioUnitario);
-        detalle.setImporte(importe);
-
-        detallesVenta.add(detalle);
-    }
-
-    // Crear un objeto Venta para almacenar los detalles de la venta
-    Venta venta = new Venta();
-    venta.setImporteTotal(importeTotal);
-    venta.setTipo_Comprobante("Boleta"); // Establecer el tipo de comprobante como "Boleta"
-
-    // Llamar al DAO para insertar la venta en la base de datos
-    boolean registroExitoso = dao1.insertarVentaConDetalle(venta, detallesVenta);
-
-    if (registroExitoso) {
-        JOptionPane.showMessageDialog(vista, "Venta registrada correctamente.");
-        // Limpiar la tabla de ventas y otros campos después de la venta
-        modeloVentas.setRowCount(0); // Limpiar la tabla de ventas
-        vista.jtxtImporteTotal.setText("");
-        vista.jtxtPagaCon.setText("");
-        vista.jtxtCambio.setText("");
-    } else {
-        JOptionPane.showMessageDialog(vista, "No se pudo registrar la venta. Inténtelo nuevamente.");
-    }
-}
-
-
-
 
     private void calcularCambio() {
         // Obtener el importe total
@@ -322,6 +321,7 @@ private void generarBoleta() {
         }
 
         cargarProductosATabla(resultados);
+        buscarPromociones();
     }
 
     // Método para configurar el renderizador de imágenes en una tabla
@@ -357,6 +357,66 @@ private void generarBoleta() {
         cargarProductosATabla(productos);
     }
 
+    //metodo para llenar la tabla de promociones
+    private void llenarTablaPromociones() {
+        List<Promociones> promociones = daoPromos.ObtenerPromos();
+        DefaultTableModel modeloPromos = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; // Hace que las celdas no sean editables
+            }
+        };
+        modeloPromos.addColumn("ID");
+        modeloPromos.addColumn("Nombre");
+        modeloPromos.addColumn("Producto");
+        modeloPromos.addColumn("Precio");
+        modeloPromos.addColumn("Cantidad");
+
+        for (Promociones promo : promociones) {
+            Object[] fila = {
+                promo.getIdPromocion(),
+                promo.getNombrePromo(),
+                promo.getNombreProducto(),
+                promo.getPrecioPromo(),
+                promo.getCantidad()
+            };
+            modeloPromos.addRow(fila);
+        }
+        vista.JtableMostraPromos.setModel(modeloPromos);
+    }
+    
+    //hace la busqueda de promos por el nombre del producto ingresado en el campo jtxtBuscarPorNombreProducto
+    private void buscarPromociones() {
+        String nombreProducto = vista.jtxtBuscarPorNombreProducto.getText();
+        List<Promociones> resultadosPromociones = daoPromos.buscarPromocionesPorNombreProducto(nombreProducto);
+        cargarPromocionesATabla(resultadosPromociones);
+    }
+    
+    private void cargarPromocionesATabla(List<Promociones> listaPromociones) {
+        DefaultTableModel modeloPromos = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; // Hace que todas las celdas de la tabla sean no editables
+            }
+        };
+        modeloPromos.addColumn("ID");
+        modeloPromos.addColumn("Nombre");
+        modeloPromos.addColumn("Producto");
+        modeloPromos.addColumn("Precio");
+        modeloPromos.addColumn("Cantidad");
+        for (Promociones promo : listaPromociones) {
+            Object[] fila = {
+                promo.getIdPromocion(),
+                promo.getNombrePromo(),
+                promo.getNombreProducto(),
+                promo.getPrecioPromo(),
+                promo.getCantidad()
+            };
+            modeloPromos.addRow(fila);
+        }
+        vista.JtableMostraPromos.setModel(modeloPromos);
+    }
+    
     // Método para llenar la tabla con la lista de productos dada
     private void cargarProductosATabla(List<Productos> listaProductos) {
         DefaultTableModel modelo = new DefaultTableModel() {
@@ -441,10 +501,18 @@ private void generarBoleta() {
                     JOptionPane.showMessageDialog(vista, "No hay suficiente stock para agregar esa cantidad.");
                     return;
                 }
-
+                
+                Promociones promo = verificarPromociones(productoSeleccionado.getID_Producto(), nuevaCantidad);
+                double precioUnitario = productoSeleccionado.getPrecio();
+                double precioFinal = (promo != null) ? promo.getPrecioPromo() : precioUnitario;
+                double importe = precioFinal * nuevaCantidad;
+            
                 // Actualizar la cantidad en la tabla de ventas
                 modeloVentas.setValueAt(nuevaCantidad, i, 4);
-
+                modeloVentas.setValueAt((promo != null) ? promo.getNombrePromo() : "", i, 5); // Actualizar promoción
+                modeloVentas.setValueAt(precioFinal, i, 3); // Actualizar precio unitario con la promoción
+                modeloVentas.setValueAt(importe, i, 6); // Actualizar importe
+                
                 // Actualizar el stock del producto seleccionado
                 productoSeleccionado.setStock(productoSeleccionado.getStock() - cantidad);
                 dao1.actualizarProducto(productoSeleccionado);
@@ -453,20 +521,27 @@ private void generarBoleta() {
                 llenarTablaProductos();
 
                 // Calcular y actualizar el importe total
-                calcularImporteTotal();
+//                calcularImporteTotal();
+                actualizarTotal();
                 return; // Salir del método si se actualizó la cantidad
             }
-        }
-
+        }   
+        
         // Si el producto no está en la tabla, agregarlo como una nueva fila
-        double importe = cantidad * productoSeleccionado.getPrecio();
+//        double importe = cantidad * productoSeleccionado.getPrecio();
+        
+        Promociones promo = verificarPromociones(productoSeleccionado.getID_Producto(), cantidad);
+        double precioUnitario = productoSeleccionado.getPrecio();
+        double precioFinal = (promo != null) ? promo.getPrecioPromo() : precioUnitario;
+        double importe = precioFinal * cantidad;
+        
         Object[] fila = {
             productoSeleccionado.getID_Producto(),
             productoSeleccionado.getNombreP(),
             productoSeleccionado.getInformacion(),
             productoSeleccionado.getPrecio(),
             cantidad,
-            "", // Aquí se podría colocar la promoción, si se implementa en el futuro
+            (promo != null) ? promo.getNombrePromo() : "", // Nombre de la promoción si aplica
             importe
         };
         modeloVentas.addRow(fila);
@@ -479,9 +554,35 @@ private void generarBoleta() {
         llenarTablaProductos();
 
         // Calcular y actualizar el importe total
-        calcularImporteTotal();
+//        calcularImporteTotal();
+        actualizarTotal();
     }
 
+   private Promociones verificarPromociones(int idProducto, int cantidad) {
+        List<Promociones> promociones = daoPromos.obtenerPromocionesPorProducto(String.valueOf(idProducto));
+        for (Promociones promo : promociones) {
+            if (cantidad >= promo.getCantidad()) {
+                int gruposDePromocion = cantidad / promo.getCantidad();
+                int cantidadRestante = cantidad % promo.getCantidad();
+                double precioConPromo = gruposDePromocion * promo.getPrecioPromo();
+                double precioSinPromo = cantidadRestante * productoSeleccionado.getPrecio();
+                double precioFinal = precioConPromo + precioSinPromo;
+                promo.setPrecioPromo(precioFinal / cantidad);
+                return promo;
+            }
+        }
+        return null;
+    } 
+    
+    // Método para actualizar el total
+    private void actualizarTotal() {
+        DefaultTableModel modelo = (DefaultTableModel) vista.jtbRegistroDVentas.getModel();
+        double total = 0.0;
+        for (int i = 0; i < modelo.getRowCount(); i++) {
+            total += Double.parseDouble(modelo.getValueAt(i, 6).toString());
+        }
+        vista.jtxtImporteTotal.setText(String.format("%.2f", total));
+    }
     
     private void borrarProductoDeVentas() {
         // Obtener la fila seleccionada de la tabla de ventas
@@ -543,6 +644,67 @@ private void generarBoleta() {
 
         vista.jtxtImporteTotal.setText(String.format("%.2f", importeTotal));
     }
-   
 
+    
+    private void actualizarCantidadProducto(int row) {
+        DefaultTableModel modeloVentas = (DefaultTableModel) vista.jtbRegistroDVentas.getModel();
+        int idProducto = (int) modeloVentas.getValueAt(row, 0);
+        int cantidadActual = (int) modeloVentas.getValueAt(row, 4);
+
+        // Obtener la nueva cantidad
+        String nuevaCantidadStr = JOptionPane.showInputDialog(vista, "Ingrese la nueva cantidad:", cantidadActual);
+        if (nuevaCantidadStr == null || nuevaCantidadStr.isEmpty()) {
+            return; // Si se cancela el diálogo o se deja vacío, no hacer nada
+        }
+
+        int nuevaCantidad;
+        try {
+            nuevaCantidad = Integer.parseInt(nuevaCantidadStr);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(vista, "Ingrese una cantidad válida.");
+            return;
+        }
+
+        if (nuevaCantidad <= 0) {
+            JOptionPane.showMessageDialog(vista, "La cantidad debe ser mayor que cero.");
+            return;
+        }
+
+        // Verificar si hay suficiente stock
+        Productos producto = dao.obtenerProductoPorID(idProducto);
+        if (nuevaCantidad > producto.getStock() + cantidadActual) { // + cantidadActual porque ya está en la tabla
+            JOptionPane.showMessageDialog(vista, "No hay suficiente stock para agregar esa cantidad.");
+            return;
+        }
+
+        // Actualizar la cantidad en la tabla de ventas
+        modeloVentas.setValueAt(nuevaCantidad, row, 4);
+
+        // Verificar promociones
+        Promociones promo = verificarPromociones(idProducto, nuevaCantidad);
+        if (promo != null) {
+            modeloVentas.setValueAt(promo.getNombrePromo(), row, 5);
+            modeloVentas.setValueAt(promo.getPrecioPromo(), row, 3); // Actualizar precio unitario con la promoción
+        } else {
+            modeloVentas.setValueAt("", row, 5); // No hay promoción
+            modeloVentas.setValueAt(producto.getPrecio(), row, 3); // Restaurar precio original
+        }
+
+        // Actualizar el importe
+        double precioUnitario = (double) modeloVentas.getValueAt(row, 3);
+        double importe = nuevaCantidad * precioUnitario;
+        modeloVentas.setValueAt(importe, row, 6);
+
+        // Calcular y actualizar el importe total
+        actualizarTotal();
+
+        // Actualizar el stock del producto seleccionado
+        producto.setStock(producto.getStock() + cantidadActual - nuevaCantidad); // Restablecer stock original y sustraer nueva cantidad
+        dao1.actualizarProducto(producto);
+
+        // Actualizar la tabla de productos para reflejar el nuevo stock
+        llenarTablaProductos();
+    }
+
+        
 }

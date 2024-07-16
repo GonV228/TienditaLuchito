@@ -40,6 +40,7 @@ public class DPromociones {
         }
     }
     
+    
     public List<Promociones> ObtenerPromos(){
         List<Promociones> listaPromos = new ArrayList<>();
         // Utilizamos la conexión a la base de datos
@@ -186,5 +187,63 @@ public class DPromociones {
             System.out.println("Error al actualizar la promoción: " + e);
         }
         return false;
+    }
+    
+        //en un campo ingresamos el nombre de un producto y se encargara de mostrar en la tabla las promociones para ese producto indicado
+    public List<Promociones> buscarPromocionesPorNombreProducto(String nombreProducto) {
+        List<Promociones> promociones = new ArrayList<>();
+        String sql = "SELECT p.ID_Promociones, p.NombrePromo, prod.Nombre, p.PrecioPromo, p.Cantidad " +
+                     "FROM promociones p " +
+                     "JOIN productos prod ON p.ID_Producto = prod.ID_Producto " +
+                     "WHERE prod.Nombre LIKE ?";
+
+        ConexionBD conexionBD = new ConexionBD();
+        try (Connection conexion = conexionBD.conectar()) {
+            PreparedStatement pst = conexion.prepareStatement(sql);
+            pst.setString(1, "%" + nombreProducto + "%");
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+                Promociones promo = new Promociones();  // Crear una nueva instancia para cada iteración
+                promo.setIdPromocion(rs.getInt("ID_Promociones"));
+                promo.setNombrePromo(rs.getString("NombrePromo"));
+                promo.setNombreProducto(rs.getString("Nombre"));
+                promo.setPrecioPromo(rs.getDouble("PrecioPromo"));
+                promo.setCantidad(rs.getInt("Cantidad"));
+                promociones.add(promo);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return promociones;
+    }
+    
+    // Método en DPromociones para obtener promociones por ID de producto... para actualizar en la tabla de registro de ventas si detecta una promo
+    public List<Promociones> obtenerPromocionesPorProducto(String idProducto) {
+        List<Promociones> promociones = new ArrayList<>();
+        String sql = "SELECT p.ID_Promociones, p.NombrePromo, p.ID_Producto, prod.Nombre, p.PrecioPromo, p.Cantidad " +
+                     "FROM promociones p " +
+                     "JOIN productos prod ON p.ID_Producto = prod.ID_Producto " +
+                     "WHERE p.ID_Producto = ?";
+        ConexionBD conexionBD = new ConexionBD();
+        try (Connection conexion = conexionBD.conectar()) {
+            PreparedStatement pst = conexion.prepareStatement(sql);
+            pst.setString(1, idProducto);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                Promociones promo = new Promociones();
+                promo.setIdPromocion(rs.getInt("ID_Promociones"));
+                promo.setNombrePromo(rs.getString("NombrePromo"));
+                promo.setIdProducto(rs.getInt("ID_Producto"));
+                promo.setNombreProducto(rs.getString("Nombre"));
+                promo.setPrecioPromo(rs.getDouble("PrecioPromo"));
+                promo.setCantidad(rs.getInt("Cantidad"));
+                promociones.add(promo);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return promociones;
     }
 }

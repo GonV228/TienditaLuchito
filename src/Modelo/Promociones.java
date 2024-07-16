@@ -72,7 +72,9 @@ public class Promociones {
         
     }
     
-    
+    public Promociones() {
+        //constructor vacio
+    }
     
 }
     
