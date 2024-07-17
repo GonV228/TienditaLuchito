@@ -21,7 +21,7 @@ public class DAdministrarUs {
             conexion = db.conectar();
             
             //consulta SQL para insertar un nuevo usuario
-            String query = "INSERT INTO Usuarios (Nombres, Apellidos, Correo_Electronico, Contraseña, Rol, Tipo_Documento, N_Documento, Telefono, Imagen) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO Usuarios (Nombres, Apellidos, Correo_Electronico, Contraseña, Rol, Tipo_Documento, N_Documento, Telefono, Imagen, Sueldo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             
             // Preparar la declaración
             pst = conexion.prepareStatement(query);
@@ -36,6 +36,7 @@ public class DAdministrarUs {
             pst.setInt(7, usuario.getNumeroDocumento());
             pst.setString(8, usuario.getTelefono());
             pst.setBytes(9, usuario.getImagenBytes()); // Se establece la imagen como un arreglo de bytes
+            pst.setDouble(10, usuario.getSueldo());
             
             // Ejecutar la consulta
             int filasAfectadas = pst.executeUpdate();
@@ -77,7 +78,7 @@ public class DAdministrarUs {
             conexion = db.conectar();
             
             // Consulta SQL para actualizar un usuario
-            String query = "UPDATE Usuarios SET Nombres = ?, Apellidos = ?, Correo_Electronico = ?, Contraseña = ?, Rol = ?, Tipo_Documento = ?, Telefono = ?, Imagen = ? WHERE ID_Empleado = ?";
+            String query = "UPDATE Usuarios SET Nombres = ?, Apellidos = ?, Correo_Electronico = ?, Contraseña = ?, Rol = ?, Tipo_Documento = ?, Telefono = ?, Imagen = ?, Sueldo = ? WHERE ID_Empleado = ?";
             
             // Preparar la declaración
             pst = conexion.prepareStatement(query);
@@ -91,7 +92,8 @@ public class DAdministrarUs {
             pst.setString(6, usuario.getTipoDocumento());
             pst.setString(7, usuario.getTelefono());
             pst.setBytes(8, usuario.getImagenBytes()); // Se establece la imagen como un arreglo de bytes
-            pst.setInt(9, usuario.getId());
+            pst.setDouble(9, usuario.getSueldo());
+            pst.setInt(10, usuario.getId());
 
             // Ejecutar la consulta
             int filasAfectadas = pst.executeUpdate();
@@ -203,8 +205,9 @@ public class DAdministrarUs {
                 int numeroDocumento = rs.getInt("N_Documento");
                 String telefono = rs.getString("Telefono");
                 byte[] imagenBytes = rs.getBytes("Imagen");
+                double sueldo = rs.getDouble("Sueldo");
 
-                Usuario usuario = new Usuario(id,nombres, apellidos, correo, contraseña, rol, tipoDocumento, numeroDocumento, telefono, imagenBytes);
+                Usuario usuario = new Usuario(id,nombres, apellidos, correo, contraseña, rol, tipoDocumento, numeroDocumento, telefono, imagenBytes,sueldo);
                 usuarios.add(usuario);
             }
         } catch (SQLException e) {

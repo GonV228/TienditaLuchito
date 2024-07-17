@@ -41,7 +41,7 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
         jlbApellidos = new javax.swing.JLabel();
         jtxtApellidos = new RSMaterialComponent.RSTextFieldIconTwo();
         jlbCorreoElectronico8 = new javax.swing.JLabel();
-        jtxtCorreo = new RSMaterialComponent.RSTextFieldIconTwo();
+        jtxtSueldo = new RSMaterialComponent.RSTextFieldIconTwo();
         jlbTelefono = new javax.swing.JLabel();
         jtxtTelefono = new RSMaterialComponent.RSTextFieldIconTwo();
         jlbTipoEmpleado = new javax.swing.JLabel();
@@ -66,7 +66,7 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
         jlbLimpiarCampos1 = new javax.swing.JLabel();
         jlbLimpiarCampos2 = new javax.swing.JLabel();
         btnLimpiarCampos = new RSMaterialComponent.RSButtonIconShadow();
-        jtxtCorreo1 = new RSMaterialComponent.RSTextFieldIconTwo();
+        jtxtCorreo = new RSMaterialComponent.RSTextFieldIconTwo();
         jlbCorreoElectronico9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -81,13 +81,13 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
 
         tblEmpleados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Nombres", "Apellidos", "Correo", "Contraseña", "Rol", "Tipo de documento", "Numero de documento", "Telefono", "Imagen"
+                "Nombres", "Apellidos", "Correo", "Contraseña", "Rol", "Tipo de documento", "Numero de documento", "Telefono", "Imagen", "Sueldo"
             }
         ));
         tblEmpleados.setBackgoundHead(new java.awt.Color(51, 51, 51));
@@ -144,15 +144,15 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
         jlbCorreoElectronico8.setText("Sueldo");
         jPanel1.add(jlbCorreoElectronico8, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 120, -1, -1));
 
-        jtxtCorreo.setForeground(new java.awt.Color(102, 102, 102));
-        jtxtCorreo.setBorderColor(new java.awt.Color(255, 153, 0));
-        jtxtCorreo.setCaretColor(new java.awt.Color(0, 153, 255));
-        jtxtCorreo.setColorIcon(new java.awt.Color(204, 204, 204));
-        jtxtCorreo.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.MONETIZATION_ON);
-        jtxtCorreo.setPhColor(new java.awt.Color(153, 153, 153));
-        jtxtCorreo.setPlaceholder(" S/.");
-        jtxtCorreo.setSelectionColor(new java.awt.Color(255, 153, 0));
-        jPanel1.add(jtxtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 140, 170, 30));
+        jtxtSueldo.setForeground(new java.awt.Color(102, 102, 102));
+        jtxtSueldo.setBorderColor(new java.awt.Color(255, 153, 0));
+        jtxtSueldo.setCaretColor(new java.awt.Color(0, 153, 255));
+        jtxtSueldo.setColorIcon(new java.awt.Color(204, 204, 204));
+        jtxtSueldo.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.MONETIZATION_ON);
+        jtxtSueldo.setPhColor(new java.awt.Color(153, 153, 153));
+        jtxtSueldo.setPlaceholder(" S/.");
+        jtxtSueldo.setSelectionColor(new java.awt.Color(255, 153, 0));
+        jPanel1.add(jtxtSueldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 140, 170, 30));
 
         jlbTelefono.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbTelefono.setForeground(new java.awt.Color(51, 51, 51));
@@ -312,15 +312,15 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
         btnLimpiarCampos.setName("jbtnActualizarGDG"); // NOI18N
         jPanel1.add(btnLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, -1, -1));
 
-        jtxtCorreo1.setForeground(new java.awt.Color(102, 102, 102));
-        jtxtCorreo1.setBorderColor(new java.awt.Color(255, 153, 0));
-        jtxtCorreo1.setCaretColor(new java.awt.Color(0, 153, 255));
-        jtxtCorreo1.setColorIcon(new java.awt.Color(204, 204, 204));
-        jtxtCorreo1.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.EMAIL);
-        jtxtCorreo1.setPhColor(new java.awt.Color(153, 153, 153));
-        jtxtCorreo1.setPlaceholder(" abc@mail.com");
-        jtxtCorreo1.setSelectionColor(new java.awt.Color(255, 153, 0));
-        jPanel1.add(jtxtCorreo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 170, 30));
+        jtxtCorreo.setForeground(new java.awt.Color(102, 102, 102));
+        jtxtCorreo.setBorderColor(new java.awt.Color(255, 153, 0));
+        jtxtCorreo.setCaretColor(new java.awt.Color(0, 153, 255));
+        jtxtCorreo.setColorIcon(new java.awt.Color(204, 204, 204));
+        jtxtCorreo.setIcons(rojeru_san.efectos.ValoresEnum.ICONS.EMAIL);
+        jtxtCorreo.setPhColor(new java.awt.Color(153, 153, 153));
+        jtxtCorreo.setPlaceholder(" abc@mail.com");
+        jtxtCorreo.setSelectionColor(new java.awt.Color(255, 153, 0));
+        jPanel1.add(jtxtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 170, 30));
 
         jlbCorreoElectronico9.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jlbCorreoElectronico9.setForeground(new java.awt.Color(51, 51, 51));
@@ -417,9 +417,9 @@ public class Administrador_RegistrarUsers extends javax.swing.JFrame {
     public RSMaterialComponent.RSTextFieldIconTwo jtxtApellidos;
     public RSMaterialComponent.RSPasswordIconTwo jtxtContraseña;
     public RSMaterialComponent.RSTextFieldIconTwo jtxtCorreo;
-    public RSMaterialComponent.RSTextFieldIconTwo jtxtCorreo1;
     public RSMaterialComponent.RSTextFieldIconTwo jtxtNombres;
     public RSMaterialComponent.RSTextFieldIconTwo jtxtNumDocumento;
+    public RSMaterialComponent.RSTextFieldIconTwo jtxtSueldo;
     public RSMaterialComponent.RSTextFieldIconTwo jtxtTelefono;
     public RSMaterialComponent.RSTableMetro tblEmpleados;
     // End of variables declaration//GEN-END:variables

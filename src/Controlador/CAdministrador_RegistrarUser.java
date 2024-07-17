@@ -39,7 +39,7 @@ public class CAdministrador_RegistrarUser implements ActionListener {
         vista.btnValidarContraseña.addActionListener(this);
         vista.jtxtNombres.addActionListener(this);
         vista.jtxtApellidos.addActionListener(this);
-        vista.jtxtCorreo.addActionListener(this);
+        vista.jtxtSueldo.addActionListener(this);
         vista.jtxtContraseña.addActionListener(this);
         vista.jtxtNumDocumento.addActionListener(this);
         vista.jtxtTelefono.addActionListener(this);
@@ -101,6 +101,7 @@ public class CAdministrador_RegistrarUser implements ActionListener {
             String numeroDocumento = modelo.getValueAt(filaSeleccionada, 6).toString();
             String telefono = modelo.getValueAt(filaSeleccionada, 7).toString();
             byte[] imagenBytes = (byte[]) modelo.getValueAt(filaSeleccionada, 8);
+            String sueldo= modelo.getValueAt(filaSeleccionada, 9).toString();
 
             // Mostrar los datos en los campos de texto y combobox
             vista.jtxtNombres.setText(nombres);
@@ -111,6 +112,7 @@ public class CAdministrador_RegistrarUser implements ActionListener {
             vista.jcbxTipoDoc.setSelectedItem(tipoDocumento);
             vista.jtxtNumDocumento.setText(numeroDocumento);
             vista.jtxtTelefono.setText(telefono);
+            vista.jtxtSueldo.setText(sueldo);
 
             int id=buscarId.existeUsuarioConDocumentoExcluyendoActual(numeroDocumento); //aqui estoy int id
             System.out.println("id con fe: "+id);
@@ -143,12 +145,17 @@ public class CAdministrador_RegistrarUser implements ActionListener {
         String numeroDocumento = vista.jtxtNumDocumento.getText();
         String telefono = vista.jtxtTelefono.getText();
         byte[] imagenBytes = obtenerBytesDeImagen();
+        String sueldo = vista.jtxtSueldo.getText();
         
         //validaciones :D
-        
+            //valisar imagen
+                if(imagenBytes==null){ //detener la ejecución si no se agrega una imagen
+                    JOptionPane.showMessageDialog(null, "Establesca una imagen para el usuario que va a registrar");
+                    return;
+                }
             // Validar que no haya campos vacíos
                 if (nombres.isEmpty() || apellidos.isEmpty() || correo.isEmpty() || contraseña.isEmpty() ||
-                    tipoDocumento.isEmpty() || numeroDocumento.isEmpty() || telefono.isEmpty()) {
+                    tipoDocumento.isEmpty() || numeroDocumento.isEmpty() || telefono.isEmpty() || sueldo.isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Por favor, completa todos los campos para registrar un nuevo usuario.","Campos incompletos", JOptionPane.INFORMATION_MESSAGE);
                     return; // Detener la ejecución del método si hay campos vacíos
                 }
@@ -163,7 +170,7 @@ public class CAdministrador_RegistrarUser implements ActionListener {
                 if(addressValid!= null){
                     JOptionPane.showMessageDialog(null, addressValid, "Validación de Apellido", JOptionPane.INFORMATION_MESSAGE);
                     return;//detener la ejecucion para que el usuario corrija
-                }    
+                }
             //Validar Correo electronico 9.3
             //Validar contraseña 9.4
                 String mensaje=validarContrasena(contraseña);
@@ -193,8 +200,16 @@ public class CAdministrador_RegistrarUser implements ActionListener {
                     JOptionPane.showMessageDialog(null, errorTelefono, "Validación de Nº de Teléfono", JOptionPane.INFORMATION_MESSAGE);
                     return; // Detener la ejecución del método si la validación falla
                 }
+            //Validar sueldo 
+                double sueldoDouble;
+                try {
+                    sueldoDouble = Double.parseDouble(sueldo);
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(vista, "El sueldo ingresado no es válido. Ingrese un valor númerico", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
         // Crear un objeto Usuario con los datos obtenidos
-        Usuario nuevoUsuario = new Usuario(nombres, apellidos, correo, contraseña, rol, tipoDocumento, Integer.parseInt(numeroDocumento), telefono, imagenBytes);
+        Usuario nuevoUsuario = new Usuario(nombres, apellidos, correo, contraseña, rol, tipoDocumento, Integer.parseInt(numeroDocumento), telefono, imagenBytes, sueldoDouble);
 
         // Llamar al método del DAO para registrar el nuevo usuario
 
@@ -226,6 +241,7 @@ public class CAdministrador_RegistrarUser implements ActionListener {
         String numeroDocumento = vista.jtxtNumDocumento.getText();
         String telefono = vista.jtxtTelefono.getText();
         byte[] imagenBytes = null; // Inicializar como null por defecto
+        String sueldoTexto = vista.jtxtSueldo.getText();
 
         // Si se ha seleccionado una imagen nueva, actualizarla
         if (!vista.jlblImagen.getText().isEmpty()) {
@@ -239,10 +255,12 @@ public class CAdministrador_RegistrarUser implements ActionListener {
         //VALIDACIONES 
             // Validar que no haya campos vacíos
                 if (nombres.isEmpty() || apellidos.isEmpty() || correo.isEmpty() || contraseña.isEmpty() ||
-                    tipoDocumento.isEmpty() || numeroDocumento.isEmpty() || telefono.isEmpty()) {
+                    tipoDocumento.isEmpty() || numeroDocumento.isEmpty() || telefono.isEmpty() || sueldoTexto.isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Por favor, completa todos los campos para registrar un nuevo usuario.","Campos incompletos", JOptionPane.INFORMATION_MESSAGE);
                     return; // Detener la ejecución del método si hay campos vacíos
                 }
+            //Validar imagen
+                
             //Validar nombres 9.1
                 String nameValid=validarNombre(nombres);
                 if(nameValid != null){
@@ -286,9 +304,16 @@ public class CAdministrador_RegistrarUser implements ActionListener {
                     JOptionPane.showMessageDialog(null, errorTelefono, "Validación de Nº de Teléfono", JOptionPane.INFORMATION_MESSAGE);
                     return; // Detener la ejecución del método si la validación falla
                 }
-            
+            //validar sueldo    
+                double sueldoD;
+                try {
+                    sueldoD = Double.parseDouble(sueldoTexto);
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(vista, "El sueldo ingresado no es válido. Ingrese un valor númerico", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
         // Crear un objeto Usuario con los datos actualizados
-        Usuario usuarioActualizado = new Usuario( usuarioSeleccionado.getId(),nombres, apellidos, correo, contraseña, rol, tipoDocumento, Integer.parseInt(numeroDocumento), telefono, imagenBytes);
+        Usuario usuarioActualizado = new Usuario( usuarioSeleccionado.getId(),nombres, apellidos, correo, contraseña, rol, tipoDocumento, Integer.parseInt(numeroDocumento), telefono, imagenBytes, sueldoD);
 
         // Llamar al método del DAO para actualizar el usuario
         boolean actualizacionExitosa = daoActualizar.actualizarUsuario(usuarioActualizado);
@@ -364,7 +389,8 @@ public class CAdministrador_RegistrarUser implements ActionListener {
                 usuario.getTipoDocumento(),
                 usuario.getNumeroDocumento(),
                 usuario.getTelefono(),
-                usuario.getImagenBytes()
+                usuario.getImagenBytes(),
+                usuario.getSueldo()
             };
             modelo.addRow(fila);
         }
